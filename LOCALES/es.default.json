@@ -1,0 +1,10 @@
+{
+  "general": {
+    "search": "Buscar",
+    "newsletter_form": { "email_placeholder": "Correo electrónico" }
+  },
+  "sections": {
+    "header": { "cart": "Carrito", "search": "Buscar" },
+    "footer": { "links": "Enlaces", "support": "Soporte" }
+  }
+}

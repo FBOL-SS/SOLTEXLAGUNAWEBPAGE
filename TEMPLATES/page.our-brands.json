@@ -1,0 +1,14 @@
+```json
+{
+  "sections": {
+    "our-brands": {
+      "type": "our-brands",
+      "settings": {
+        "heading": "Our Partner Brands",
+        "subheading": "Trusted manufacturers we represent"
+      }
+    }
+  },
+  "order": ["our-brands"]
+}
+```

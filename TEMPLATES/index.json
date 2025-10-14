@@ -1,0 +1,24 @@
+```json
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Industrial Sewing Solutions",
+        "subheading": "Premium machines and automation for apparel manufacturers",
+        "cta1_text": "Shop Now",
+        "cta1_link": "/collections/all",
+        "cta2_text": "Request Quote",
+        "cta2_link": "/pages/contact"
+      }
+    },
+    "featured-collection": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 8
+      }
+    }
+  },
+  "order": ["hero", "featured-collection"]
+}
+```

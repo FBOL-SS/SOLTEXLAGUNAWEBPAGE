@@ -1,0 +1,45 @@
+```liquid
+<!DOCTYPE html>
+<html lang="{{ locale }}" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {{ content_for_header }}
+
+  <!-- Preload Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <title>{{ page_title }}</title>
+
+  <style>
+    :root {
+      --color-navy: {{ settings.color_navy }};
+      --color-blue: {{ settings.color_blue }};
+      --color-accent: {{ settings.color_accent }};
+      --color-text: {{ settings.color_text }};
+      --color-background: {{ settings.color_background }};
+      --color-border: {{ settings.color_border }};
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-navy">
+  {% section 'header' %}
+  
+  <main role="main" id="MainContent">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>
+```

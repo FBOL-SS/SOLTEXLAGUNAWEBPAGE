@@ -1,0 +1,12 @@
+[
+    {
+      "name": "Theme settings",
+      "settings": [
+        { "type": "text", "id": "logo_text", "label": "Logo text", "default": "SOLTEX LAGUNA" },
+        { "type": "color", "id": "brand_primary", "label": "Primary color", "default": "#0B2242" },
+        { "type": "color", "id": "brand_secondary", "label": "Secondary color", "default": "#1C4E80" },
+        { "type": "color", "id": "brand_accent", "label": "Accent color", "default": "#3BA3FF" }
+      ]
+    }
+  ]
+  

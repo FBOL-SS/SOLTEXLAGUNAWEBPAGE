@@ -1,0 +1,14 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {},
+      "theme_settings": {
+        "logo_text": "SOLTEX LAGUNA",
+        "brand_primary": "#0B2242",
+        "brand_secondary": "#1C4E80",
+        "brand_accent": "#3BA3FF"
+      }
+    }
+  }
+}
