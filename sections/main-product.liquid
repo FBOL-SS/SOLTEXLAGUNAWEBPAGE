@@ -1,0 +1,42 @@
+<section class="product-page">
+  <div class="product-page__media">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | default: product.title }}">
+    {% endif %}
+  </div>
+  <div class="product-page__details">
+    <h1>{{ product.title }}</h1>
+    <p class="product-page__sku">SKU: <span data-product-sku>{{ product.selected_or_first_available_variant.sku | default: product.variants.first.sku | default: 'N/D' }}</span></p>
+    <p class="product-page__price">{{ product.price | money }}</p>
+    {% form 'product', product %}
+      {% if product.has_only_default_variant == false %}
+        <div class="form-field">
+          <label for="ProductSelect">Variante</label>
+          <select id="ProductSelect" name="id" data-product-variant-selector>
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" data-variant-sku="{{ variant.sku }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                {{ variant.title }} {% unless variant.available %}(Agotado){% endunless %}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      {% else %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% endif %}
+      <button type="submit" class="button" {% unless product.available %}disabled{% endunless %}>Agregar al carrito</button>
+    {% endform %}
+    <div class="product-page__description">{{ product.description }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Producto",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Producto"
+    }
+  ]
+}
+{% endschema %}

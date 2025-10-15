@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "brand": {
+      "type": "brand-products",
+      "settings": {
+        "title": "Yamato: resistencia para altas demandas",
+        "content": "<p>Las soluciones Yamato destacan en operaciones de overlock y cobertura gracias a su ingeniería robusta. Equipa tus líneas con equipos listos para turnos prolongados.</p>",
+        "vendor_name": "Yamato",
+        "vendor_handle": "yamato"
+      }
+    }
+  },
+  "order": [
+    "brand"
+  ]
+}

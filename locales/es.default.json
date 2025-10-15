@@ -1,0 +1,21 @@
+{
+  "general": {
+    "404": {
+      "title": "Página no encontrada",
+      "subtext": "La página que buscas no existe."
+    },
+    "password_page": {
+      "login_form_heading": "Entrar a la tienda"
+    }
+  },
+  "products": {
+    "product": {
+      "placeholder_image": "Imagen no disponible"
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "Menú"
+    }
+  }
+}

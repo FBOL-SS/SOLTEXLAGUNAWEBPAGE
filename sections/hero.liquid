@@ -1,0 +1,21 @@
+<section class="hero">
+  <div class="container">
+    <h1>{{ section.settings.title }}</h1>
+    <p>{{ section.settings.subtitle }}</p>
+    <div class="row gap">
+      <a class="btn" href="{{ routes.all_products_collection_url }}">Ver Tienda</a>
+      <a class="btn ghost" href="{{ routes.root_url }}pages/sobre-nosotros">Conócenos</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Soluciones textiles profesionales" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Maquinaria, refacciones y automatización" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}
