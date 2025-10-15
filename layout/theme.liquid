@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="es">
   <head>
+ {%- render 'ecom_header' -%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}</title>
@@ -19,5 +20,5 @@
     {% section 'footer' %}
 
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
-  </body>
+  {%- render "ecom_footer"-%}</body>
 </html>
