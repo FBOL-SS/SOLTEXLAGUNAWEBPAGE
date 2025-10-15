@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page_title }} - {{ shop.name }}</title>
+  {{ content_for_header }}
+  {{ 'styles.css' | asset_url | stylesheet_tag }}
+  {{ 'theme.js' | asset_url | script_tag }}
+  <style>
+    :root {
+      --color-primary: {{ settings.brand_color | default: '#0b3d91' | json | remove: '"' }};
+      --color-accent: {{ settings.accent_color | default: '#f18f01' | json | remove: '"' }};
+      --font-heading: {{ settings.heading_font.family | default: 'Helvetica Neue, Arial, sans-serif' | json }};
+    }
+  </style>
+</head>
+<body class="template-{{ template | handleize }}">
+  {% section 'header' %}
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+  {% section 'footer' %}
+  {{ content_for_footer }}
+</body>
+</html>

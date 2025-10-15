@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "brand": {
+      "type": "brand-products",
+      "settings": {
+        "title": "Brother: innovación para cada puntada",
+        "content": "<p>Brother combina tecnología inteligente y ergonomía para lograr costuras impecables. Encuentra desde equipos de bordado hasta soluciones de costura recta.</p>",
+        "vendor_name": "Brother",
+        "vendor_handle": "brother"
+      }
+    }
+  },
+  "order": [
+    "brand"
+  ]
+}

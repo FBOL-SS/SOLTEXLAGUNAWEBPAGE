@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "brand": {
+      "type": "brand-products",
+      "settings": {
+        "title": "Supreme: precisión japonesa",
+        "content": "<p>Las máquinas Supreme son reconocidas por su durabilidad y velocidad constante en líneas de confección intensivas. Descubre los modelos ideales para alta producción.</p>",
+        "vendor_name": "Supreme",
+        "vendor_handle": "supreme"
+      }
+    }
+  },
+  "order": [
+    "brand"
+  ]
+}
