@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "blocks": {
+        "mision": {
+          "type": "text",
+          "settings": {
+            "item": "Asesoría especializada en procesos de confección"
+          }
+        },
+        "equipo": {
+          "type": "text",
+          "settings": {
+            "item": "Equipo técnico certificado para instalación y mantenimiento"
+          }
+        }
+      },
+      "block_order": [
+        "mision",
+        "equipo"
+      ],
+      "settings": {
+        "heading": "Sobre SOLTEX / SEWING",
+        "content": "<p>Nacimos como aliado tecnológico para las marcas de moda y maquila en México. Integramos maquinaria, refacciones y capacitación para elevar la productividad de cada línea de producción.</p><p>Trabajamos de la mano con fabricantes líderes para garantizar disponibilidad inmediata y soporte postventa permanente.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

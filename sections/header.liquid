@@ -1,0 +1,66 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      {% if section.settings.logo != blank %}
+        <a href="/" class="brand__logo" aria-label="{{ shop.name }}">
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ section.settings.logo.alt | default: shop.name }}">
+        </a>
+      {% else %}
+        <a href="/" class="brand__text">SOLTEX / SEWING</a>
+      {% endif %}
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+      <span class="sr-only">Menú</span>
+    </button>
+    <nav id="site-navigation" class="primary-nav" role="navigation">
+      <ul class="primary-nav__list">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/pages/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/collections/all">Tienda</a></li>
+        <li class="has-dropdown">
+          <button type="button" class="dropdown-toggle">Marcas</button>
+          <ul class="dropdown-menu">
+            <li><a href="/pages/marcas-supreme">Supreme</a></li>
+            <li><a href="/pages/marcas-brother">Brother</a></li>
+            <li><a href="/pages/marcas-yamato">Yamato</a></li>
+            <li><a href="/pages/marcas-eagle-special">Eagle Special</a></li>
+          </ul>
+        </li>
+        <li><a href="/pages/contacto">Contacto</a></li>
+        {% if section.settings.menu != blank and linklists[section.settings.menu] != blank %}
+          {% for link in linklists[section.settings.menu].links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Encabezado",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menú adicional"
+    }
+  ],
+  "blocks": [],
+  "max_blocks": 0,
+  "presets": [
+    {
+      "name": "Encabezado"
+    }
+  ]
+}
+{% endschema %}
