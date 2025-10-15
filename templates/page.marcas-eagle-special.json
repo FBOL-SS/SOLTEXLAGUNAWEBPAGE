@@ -1,16 +1,1 @@
-{
-  "sections": {
-    "brand": {
-      "type": "brand-products",
-      "settings": {
-        "title": "Eagle Special: soluciones confiables",
-        "content": "<p>Eagle Special ofrece maquinaria accesible con componentes reforzados para confección continua. Ideal para talleres en crecimiento que requieren productividad inmediata.</p>",
-        "vendor_name": "Eagle Special",
-        "vendor_handle": "eagle-special"
-      }
-    }
-  },
-  "order": [
-    "brand"
-  ]
-}
+{ "sections": { "rt": { "type": "rich-text", "settings": { "title": "Eagle Special", "body": "<p>Equipos robustos para producción.</p>" } } }, "order": ["rt"] }

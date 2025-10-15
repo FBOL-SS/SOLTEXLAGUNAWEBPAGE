@@ -1,97 +1,16 @@
-<section class="contact-section">
-  <div class="contact-section__grid">
-    <div class="contact-section__form">
-      <h1>{{ section.settings.title }}</h1>
-      <p>{{ section.settings.subtitle }}</p>
-      {% form 'contact' %}
-        {% if form.posted_successfully? %}
-          <p class="form-status form-status--success">Gracias por escribirnos. Nos pondremos en contacto muy pronto.</p>
-        {% elsif form.errors %}
-          <div class="form-status form-status--error">
-            <p>No se pudo enviar el mensaje. Revisa los campos resaltados.</p>
-            {{ form.errors | default_errors }}
-          </div>
-        {% endif %}
-        <div class="form-field">
-          <label for="ContactFormName">Nombre</label>
-          <input type="text" id="ContactFormName" name="contact[name]" value="{{ form.name }}" required>
-        </div>
-        <div class="form-field">
-          <label for="ContactFormEmail">Correo electrónico</label>
-          <input type="email" id="ContactFormEmail" name="contact[email]" value="{{ form.email }}" required>
-        </div>
-        <div class="form-field">
-          <label for="ContactFormPhone">Teléfono</label>
-          <input type="tel" id="ContactFormPhone" name="contact[phone]" value="{{ form.phone }}">
-        </div>
-        <div class="form-field">
-          <label for="ContactFormMessage">Mensaje</label>
-          <textarea id="ContactFormMessage" name="contact[body]" rows="6" required>{{ form.body }}</textarea>
-        </div>
-        <button type="submit" class="button">Enviar mensaje</button>
-      {% endform %}
-    </div>
-    <div class="contact-section__details">
-      <h2>{{ section.settings.details_title }}</h2>
-      <div class="contact-section__richtext">{{ section.settings.details_text }}</div>
-      {% if section.blocks.size > 0 %}
-        <ul class="contact-section__list">
-          {% for block in section.blocks %}
-            <li>{{ block.settings.info }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </div>
+<section class="contact">
+  <div class="container">
+    {% form 'contact' %}
+      <div class="grid">
+        <input type="text" name="contact[name]" placeholder="Nombre" required>
+        <input type="email" name="contact[email]" placeholder="Email" required>
+      </div>
+      <textarea name="contact[body]" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    {% endform %}
   </div>
 </section>
 
 {% schema %}
-{
-  "name": "Contacto",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Título",
-      "default": "Escríbenos"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Introducción",
-      "default": "Comparte los detalles de tu proyecto de confección y nuestro equipo te asesorará."
-    },
-    {
-      "type": "text",
-      "id": "details_title",
-      "label": "Título de detalles",
-      "default": "Información de contacto"
-    },
-    {
-      "type": "richtext",
-      "id": "details_text",
-      "label": "Texto de detalles",
-      "default": "<p>Estamos disponibles de lunes a viernes de 9:00 a 18:00 hrs.</p>"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "text",
-      "name": "Dato",
-      "settings": [
-        {
-          "type": "text",
-          "id": "info",
-          "label": "Detalle",
-          "default": "Teléfono: +52 55 1234 5678"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Formulario de contacto"
-    }
-  ]
-}
+{ "name": "Formulario de contacto", "settings": [] }
 {% endschema %}
