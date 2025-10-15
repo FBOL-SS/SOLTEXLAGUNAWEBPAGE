@@ -1,0 +1,15 @@
+{% assign card_sku = product.selected_or_first_available_variant.sku | default: product.variants.first.sku %}
+<a class="product-card" href="{{ product.url }}" data-vendor="{{ product.vendor | handleize }}" data-vendor-label="{{ product.vendor }}" data-quality="{{ product.metafields.custom.calidad | default: '' | handleize }}" data-quality-label="{{ product.metafields.custom.calidad | default: '' }}" data-price="{{ product.price }}" data-instock="{{ product.selected_or_first_available_variant.inventory_quantity > 0 }}">
+  <div class="product-card__media">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | default: product.title }}">
+    {% else %}
+      <div class="product-card__placeholder">{{ 'products.product.placeholder_image' | t }}</div>
+    {% endif %}
+  </div>
+  <div class="product-card__info">
+    <h3 class="product-card__title">{{ product.title }}</h3>
+    <p class="product-card__sku">SKU: {{ card_sku | default: 'N/D' }}</p>
+    <p class="product-card__price">{{ product.price | money }}</p>
+  </div>
+</a>
