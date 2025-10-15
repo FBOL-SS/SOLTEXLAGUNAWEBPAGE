@@ -1,10 +1,10 @@
 <section class="hero">
-  <div class="hero__content">
+  <div class="container">
     <h1>{{ section.settings.title }}</h1>
     <p>{{ section.settings.subtitle }}</p>
-    <div class="hero__actions">
-      <a class="button" href="{{ section.settings.primary_url }}">{{ section.settings.primary_label }}</a>
-      <a class="button button--secondary" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary_label }}</a>
+    <div class="row gap">
+      <a class="btn" href="{{ routes.all_products_collection_url }}">Ver Tienda</a>
+      <a class="btn ghost" href="{{ routes.root_url }}pages/sobre-nosotros">Conócenos</a>
     </div>
   </div>
 </section>
@@ -13,47 +13,9 @@
 {
   "name": "Hero",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Título",
-      "default": "Soluciones de costura industrial de alto rendimiento"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtítulo",
-      "default": "Equipos, refacciones y asesoría técnica para talleres y plantas de confección."
-    },
-    {
-      "type": "text",
-      "id": "primary_label",
-      "label": "Texto botón primario",
-      "default": "Ver Tienda"
-    },
-    {
-      "type": "url",
-      "id": "primary_url",
-      "label": "URL botón primario",
-      "default": "/collections/all"
-    },
-    {
-      "type": "text",
-      "id": "secondary_label",
-      "label": "Texto botón secundario",
-      "default": "Sobre Nosotros"
-    },
-    {
-      "type": "url",
-      "id": "secondary_url",
-      "label": "URL botón secundario",
-      "default": "/pages/sobre-nosotros"
-    }
+    { "type": "text", "id": "title", "label": "Título", "default": "Soluciones textiles profesionales" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Maquinaria, refacciones y automatización" }
   ],
-  "presets": [
-    {
-      "name": "Hero principal"
-    }
-  ]
+  "presets": [{ "name": "Hero" }]
 }
 {% endschema %}

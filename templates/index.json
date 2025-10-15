@@ -1,44 +1,7 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero",
-      "settings": {}
-    },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "historia": {
-          "type": "text",
-          "settings": {
-            "item": "Instalación, puesta en marcha y capacitación integral"
-          }
-        },
-        "refacciones": {
-          "type": "text",
-          "settings": {
-            "item": "Stock permanente de refacciones originales"
-          }
-        }
-      },
-      "block_order": [
-        "historia",
-        "refacciones"
-      ],
-      "settings": {
-        "heading": "Experiencia en maquinaria textil",
-        "content": "<p>Somos especialistas en integrar soluciones de costura industrial para confección, bordado y acabado. Nuestra red técnica cubre México y Centroamérica.</p>"
-      }
-    },
-    "featured_products": {
-      "type": "product-grid",
-      "settings": {
-        "show_filters": false
-      }
-    }
+    "hero": { "type": "hero", "settings": {} },
+    "rt1": { "type": "rich-text", "settings": {} }
   },
-  "order": [
-    "hero",
-    "rich_text",
-    "featured_products"
-  ]
+  "order": ["hero", "rt1"]
 }
