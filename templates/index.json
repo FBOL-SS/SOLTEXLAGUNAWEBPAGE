@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "rt1": { "type": "rich-text", "settings": {} }
+  },
+  "order": ["hero", "rt1"]
+}
