@@ -1,0 +1,38 @@
+<section class="section">
+  <div class="container">
+    {% if section.settings.show_filters %}
+      <form class="filters" data-filters>
+        <label>Marca
+          <select name="vendor">
+            <option value="">Todas</option>
+            {% for vendor in shop.vendors %}<option value="{{ vendor | handleize }}">{{ vendor }}</option>{% endfor %}
+          </select>
+        </label>
+        <label>Precio mín <input type="number" name="min" min="0" step="1"></label>
+        <label>Precio máx <input type="number" name="max" min="0" step="1"></label>
+        <label><input type="checkbox" name="instock"> Solo disponibles</label>
+      </form>
+    {% endif %}
+
+    <div class="grid products" data-products>
+      {%- if search and search.performed -%}
+        {%- for item in search.results -%}{% if item.object_type == 'product' %}{% render 'product-card', product: item %}{% endif %}{%- endfor -%}
+      {%- elsif collection -%}
+        {%- for product in collection.products -%}{% render 'product-card', product: product %}{%- endfor -%}
+      {%- else -%}
+        {%- for product in collections['all'].products limit: section.settings.limit -%}{% render 'product-card', product: product %}{%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name":"Grilla de productos",
+    "settings":[
+      {"type":"checkbox","id":"show_filters","label":"Mostrar filtros","default":true},
+      {"type":"range","id":"limit","label":"Límite cuando no hay colección","min":4,"max":24,"step":4,"default":8}
+    ],
+    "presets":[{"name":"Grilla de productos"}]
+  }
+  {% endschema %}
+</section>

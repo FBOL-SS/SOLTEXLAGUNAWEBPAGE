@@ -1,0 +1,17 @@
+<section class="section section--richtext">
+  <div class="container">
+    {% if section.settings.title != blank %}<h2>{{ section.settings.title }}</h2>{% endif %}
+    {% if section.settings.body != blank %}<div class="rte">{{ section.settings.body }}</div>{% endif %}
+  </div>
+
+  {% schema %}
+  {
+    "name": "Rich text",
+    "settings": [
+      {"type":"text","id":"title","label":"Título","default":"Quiénes somos"},
+      {"type":"richtext","id":"body","label":"Texto","default":"<p>Integradores de soluciones para confección en México y C.A.</p>"}
+    ],
+    "presets":[{"name":"Rich text"}]
+  }
+  {% endschema %}
+</section>
