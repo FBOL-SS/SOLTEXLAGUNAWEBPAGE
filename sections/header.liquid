@@ -1,29 +1,27 @@
-{% schema %}
-{
-  "name": "Header",
-  "settings": [
-    { "type": "text", "id": "brand", "label": "Marca", "default": "SOLTEX / SEWING" }
-  ]
-}
-{% endschema %}
-
 <header class="header">
-  <div class="container nav-wrap">
-    <a class="brand" href="{{ routes.root_url }}">{{ section.settings.brand }}</a>
-    <nav class="nav">
-      <a href="{{ routes.root_url }}">Inicio</a>
-      <a href="{{ routes.root_url }}pages/sobre-nosotros">Sobre nosotros</a>
-      <a href="{{ routes.all_products_collection_url }}">Tienda</a>
-      <div class="nav-group">
-        <span>Marcas</span>
-        <div class="nav-sub">
-          <a href="{{ routes.root_url }}pages/marcas-supreme">Supreme</a>
-          <a href="{{ routes.root_url }}pages/marcas-brother">Brother</a>
-          <a href="{{ routes.root_url }}pages/marcas-yamato">Yamato</a>
-          <a href="{{ routes.root_url }}pages/marcas-eagle-special">Eagle Special</a>
+  <div class="container header__inner">
+    <a class="brand" href="{{ routes.root_url }}">SOLTEX / SEWING</a>
+
+    <button class="burger" aria-label="Abrir menú" data-burger>☰</button>
+
+    <nav class="nav" data-nav>
+      <a class="nav__link" href="{{ routes.root_url }}">Inicio</a>
+      <a class="nav__link" href="{{ routes.root_url }}pages/sobre-nosotros">Sobre nosotros</a>
+      <a class="nav__link" href="{{ routes.all_products_collection_url }}">Tienda</a>
+      <div class="nav__group">
+        <button class="nav__label" aria-haspopup="true" aria-expanded="false" data-brands>Marcas ▾</button>
+        <div class="nav__sub" hidden data-brands-panel>
+          <a class="nav__link" href="{{ routes.root_url }}pages/marcas-supreme">Supreme</a>
+          <a class="nav__link" href="{{ routes.root_url }}pages/marcas-brother">Brother</a>
+          <a class="nav__link" href="{{ routes.root_url }}pages/marcas-yamato">Yamato</a>
+          <a class="nav__link" href="{{ routes.root_url }}pages/marcas-eagle-special">Eagle Special</a>
         </div>
       </div>
-      <a href="{{ routes.root_url }}pages/contacto">Contacto</a>
+      <a class="nav__link" href="{{ routes.root_url }}pages/contacto">Contacto</a>
     </nav>
   </div>
+
+  {% schema %}
+  { "name": "Header", "settings": [] }
+  {% endschema %}
 </header>

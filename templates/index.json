@@ -1,16 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": { "type": "hero", "settings": {} },
-    "rt1": { "type": "rich-text", "settings": {} }
+    "grid": { "type": "product-grid", "settings": { "show_filters": true, "limit": 8 } },
+    "rt": { "type": "rich-text", "settings": { "title": "Nosotros", "body": "<p>Experiencia en México y C.A.</p>" } }
   },
-  "order": ["hero", "rt1"]
+  "order": ["hero","grid","rt"]
 }

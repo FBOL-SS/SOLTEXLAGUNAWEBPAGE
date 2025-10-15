@@ -7,10 +7,10 @@
       </div>
       <textarea name="contact[body]" placeholder="Mensaje" required></textarea>
       <button type="submit">Enviar</button>
+      {% if form.posted_successfully? %}<p class="ok">¡Mensaje enviado!</p>{% endif %}
+      {% if form.errors %}<p class="err">Revisa los campos.</p>{% endif %}
     {% endform %}
   </div>
-</section>
 
-{% schema %}
-{ "name": "Formulario de contacto", "settings": [] }
-{% endschema %}
+  {% schema %}{ "name":"Formulario de contacto","settings":[] }{% endschema %}
+</section>

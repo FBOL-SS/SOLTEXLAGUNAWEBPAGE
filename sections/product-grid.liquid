@@ -1,76 +1,38 @@
-<section class="product-grid" data-section-id="{{ section.id }}">
-  {% if section.settings.show_filters %}
-    <div class="product-grid__filters" data-filters>
-      <div class="filter">
-        <label for="filter-vendor-{{ section.id }}">Marca</label>
-        <select id="filter-vendor-{{ section.id }}" data-filter-vendor>
-          <option value="">Todas</option>
-        </select>
-      </div>
-      <div class="filter">
-        <label for="filter-quality-{{ section.id }}">Calidad</label>
-        <select id="filter-quality-{{ section.id }}" data-filter-quality>
-          <option value="">Todas</option>
-        </select>
-      </div>
-      <div class="filter filter--range">
-        <label>Precio</label>
-        <div class="filter__range-inputs">
-          <input type="number" step="0.01" placeholder="Desde" data-filter-price-min>
-          <input type="number" step="0.01" placeholder="Hasta" data-filter-price-max>
-        </div>
-      </div>
-      <div class="filter filter--checkbox">
-        <label>
-          <input type="checkbox" data-filter-instock>
-          Disponible
+<section class="section">
+  <div class="container">
+    {% if section.settings.show_filters %}
+      <form class="filters" data-filters>
+        <label>Marca
+          <select name="vendor">
+            <option value="">Todas</option>
+            {% for vendor in shop.vendors %}<option value="{{ vendor | handleize }}">{{ vendor }}</option>{% endfor %}
+          </select>
         </label>
-      </div>
-      <button type="button" class="button button--secondary" data-filter-reset>Limpiar</button>
-    </div>
-  {% endif %}
-
-  <div class="product-grid__items" data-products-container>
-    {% if template.name == 'search' %}
-      {% for item in search.results %}
-        {% if item.object_type == 'product' %}
-          {% assign product = item %}
-          {% render 'product-card', product: product %}
-        {% endif %}
-      {% endfor %}
-    {% elsif collection %}
-      {% for product in collection.products %}
-        {% render 'product-card', product: product %}
-      {% endfor %}
-    {% else %}
-      {% for product in section.settings.products limit: 12 %}
-        {% render 'product-card', product: product %}
-      {% endfor %}
+        <label>Precio mín <input type="number" name="min" min="0" step="1"></label>
+        <label>Precio máx <input type="number" name="max" min="0" step="1"></label>
+        <label><input type="checkbox" name="instock"> Solo disponibles</label>
+      </form>
     {% endif %}
-  </div>
-</section>
 
-{% schema %}
-{
-  "name": "Grilla de productos",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_filters",
-      "label": "Mostrar filtros",
-      "default": true
-    },
-    {
-      "type": "product_list",
-      "id": "products",
-      "label": "Productos manuales (cuando no hay colección o búsqueda)",
-      "limit": 12
-    }
-  ],
-  "presets": [
-    {
-      "name": "Grilla de productos"
-    }
-  ]
-}
-{% endschema %}
+    <div class="grid products" data-products>
+      {%- if search and search.performed -%}
+        {%- for item in search.results -%}{% if item.object_type == 'product' %}{% render 'product-card', product: item %}{% endif %}{%- endfor -%}
+      {%- elsif collection -%}
+        {%- for product in collection.products -%}{% render 'product-card', product: product %}{%- endfor -%}
+      {%- else -%}
+        {%- for product in collections['all'].products limit: section.settings.limit -%}{% render 'product-card', product: product %}{%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+
+  {% schema %}
+  {
+    "name":"Grilla de productos",
+    "settings":[
+      {"type":"checkbox","id":"show_filters","label":"Mostrar filtros","default":true},
+      {"type":"range","id":"limit","label":"Límite cuando no hay colección","min":4,"max":24,"step":4,"default":8}
+    ],
+    "presets":[{"name":"Grilla de productos"}]
+  }
+  {% endschema %}
+</section>

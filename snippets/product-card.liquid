@@ -1,20 +1,15 @@
-{%- assign first_image = product.featured_image | default: product.images.first -%}
-{%- assign variant = product.selected_or_first_available_variant -%}
-
+{%- assign img = product.featured_image | default: product.images.first -%}
+{%- assign v = product.selected_or_first_available_variant -%}
 <a class="product-card" href="{{ product.url }}"
    data-vendor="{{ product.vendor | handleize }}"
-   data-quality="{{ product.metafields.custom.calidad | default: '' | handleize }}"
-   data-price="{{ variant.price | money_without_currency }}"
-   data-instock="{{ variant.inventory_quantity > 0 }}">
-  {% if first_image %}
-    {% comment %} Use image_tag to get intrinsic width/height {% endcomment %}
-    {{ first_image | image_url: width: 640 | image_tag: loading: 'lazy', widths: '320, 480, 640, 960', class: 'product-card__img' }}
-  {% else %}
-    <div class="product-card__placeholder" aria-hidden="true"></div>
+   data-price="{{ v.price | money_without_currency }}"
+   data-instock="{{ v.inventory_quantity > 0 }}">
+  {% if img %}
+    {{ img | image_url: width: 640 | image_tag: loading: 'lazy', widths: '320,480,640,960', class: 'product-card__img', alt: product.title }}
   {% endif %}
   <div class="product-card__meta">
     <h3 class="product-card__title">{{ product.title }}</h3>
-    <small class="sku">SKU: {{ variant.sku | default: product.variants.first.sku }}</small>
-    <div class="product-card__price">{{ variant.price | money }}</div>
+    <small class="sku">SKU: {{ v.sku | default: product.variants.first.sku }}</small>
+    <div class="product-card__price">{{ v.price | money }}</div>
   </div>
 </a>

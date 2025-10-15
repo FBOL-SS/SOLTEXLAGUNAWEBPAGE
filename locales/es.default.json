@@ -1,21 +1,13 @@
 {
   "general": {
-    "404": {
-      "title": "Página no encontrada",
-      "subtext": "La página que buscas no existe."
-    },
-    "password_page": {
-      "login_form_heading": "Entrar a la tienda"
-    }
-  },
-  "products": {
-    "product": {
-      "placeholder_image": "Imagen no disponible"
-    }
+    "search": "Buscar",
+    "view_all": "Ver todo"
   },
   "sections": {
-    "header": {
-      "menu": "Menú"
-    }
+    "header": { "menu": "Menú" },
+    "footer": { "newsletter": "Suscríbete" }
+  },
+  "products": {
+    "sku": "SKU"
   }
 }

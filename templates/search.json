@@ -1,13 +1,1 @@
-{
-  "sections": {
-    "results": {
-      "type": "product-grid",
-      "settings": {
-        "show_filters": true
-      }
-    }
-  },
-  "order": [
-    "results"
-  ]
-}
+{ "sections": { "grid": { "type": "product-grid", "settings": { "show_filters": true } } }, "order": ["grid"] }
