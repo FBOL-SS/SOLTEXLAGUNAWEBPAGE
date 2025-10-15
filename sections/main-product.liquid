@@ -1,7 +1,7 @@
 <section class="product-page">
   <div class="product-page__media">
     {% if product.featured_image %}
-      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | default: product.title }}">
+      {{ product.featured_image | image_url: width: 960 | image_tag: loading: 'lazy', widths: '480, 720, 960, 1440', class: 'product__img' }}
     {% endif %}
   </div>
   <div class="product-page__details">
