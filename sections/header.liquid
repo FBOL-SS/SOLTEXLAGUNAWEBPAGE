@@ -2,37 +2,31 @@
 {
   "name": "Header",
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo de Soluciones Textiles Laguna" },
-    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#ff4d00" },
-    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Soluciones en Telas y Uniformes" }
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "menu", "label": "Menú principal" }
   ]
 }
 {% endschema %}
 
-<header style="background: {{ section.settings.bg_color | default: '#ff4d00' }}; color: white; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
-  <div class="logo">
-    {% if section.settings.logo %}
-      <img src="{{ section.settings.logo | img_url: 'master' }}" alt="Soluciones Textiles Laguna">
-    {% else %}
-      <h1>Soluciones Textiles Laguna</h1>
-    {% endif %}
-    <p>{{ section.settings.tagline }}</p>
-  </div>
-  <nav>
-    {% if linklists.main-menu.links.size > 0 %}
-      <ul>
-        {% for link in linklists.main-menu.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-8">
+        <a href="/" class="flex items-center">
+          <img src="{{ section.settings.logo | img_url: 'small' | default: 'https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100064049135215' }}" alt="Soluciones Textiles Laguna Logo" class="h-12">
+          <span class="ml-3 text-xl font-bold">SOLUCIONES TEXTILES LAGUNA</span>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}" class="hover:text-blue transition {% if link.active %}text-lightblue font-medium{% endif %}">{{ link.title }}</a>
         {% endfor %}
-      </ul>
-    {% else %}
-      <p>Configure el menú "main-menu" en Navigation.</p>
-    {% endif %}
-  </nav>
-  <div class="search">
-    <form action="/search">
-      <input type="search" placeholder="Buscar telas, uniformes..." name="q">
-    </form>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="/search" class="p-2 rounded-full hover:bg-gray-100"><i data-feather="search"></i></a>
+        <a href="/cart" class="p-2 rounded-full hover:bg-gray-100"><i data-feather="shopping-cart"></i></a>
+        <button class="md:hidden"><i data-feather="menu"></i></button>
+      </div>
+    </div>
   </div>
-  <div class="cart">{{ cart.item_count }} items</div>
-</header>
+</nav>
