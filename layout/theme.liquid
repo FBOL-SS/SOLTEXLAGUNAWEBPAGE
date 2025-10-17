@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }} - Soluciones Textiles Laguna</title>
   {{ content_for_header }}
-  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+  <script src="https://unpkg.com/feather-icons"></script>
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
 </head>
-<body>
+<body class="font-sans bg-white text-navy">
   {% section 'header' %}
   {{ content_for_layout }}
   {% section 'footer' %}
   {{ content_for_footer }}
+  <script>feather.replace();</script>
 </body>
 </html>
