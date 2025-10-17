@@ -7,7 +7,7 @@
       <a href="/" class="hover:text-lightblue transition duration-300">Inicio</a>
       <div class="relative group">
         <a href="/collections/maquinas" class="hover:text-lightblue transition duration-300">Máquinas</a>
-        <div class="absolute hidden group-hover:block bg-white text-navy p-4 shadow-lg rounded-md mt-2 w-48">
+        <div class="absolute hidden group-hover:block bg-white text-navy p-4 shadow-lg rounded-md mt-2 w-48 z-10">
           <a href="/collections/maquinas?filter.p.tag=industrial" class="block hover:bg-blue-100 p-2 rounded">Máquinas Industriales</a>
           <a href="/collections/maquinas?filter.p.tag=automation" class="block hover:bg-blue-100 p-2 rounded">Sistemas de Automatización</a>
         </div>
@@ -17,7 +17,7 @@
       <a href="/pages/contacto" class="hover:text-lightblue transition duration-300">Contacto</a>
     </nav>
     <div class="md:hidden">
-      <button class="focus:outline-none">
+      <button id="mobile-menu-button" class="focus:outline-none">
         <svg data-feather="menu" class="text-white"></svg>
       </button>
     </div>
