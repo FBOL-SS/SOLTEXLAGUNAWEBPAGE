@@ -1,9 +1,11 @@
-// Ejemplo simple: Toggle mobile menu
 document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('.menu-toggle');
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      document.querySelector('nav').classList.toggle('open');
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.md\\:hidden button');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      const nav = document.querySelector('.md\\:flex');
+      nav.classList.toggle('hidden');
     });
   }
+  // Otras interacciones como tabs en product-detail
 });
