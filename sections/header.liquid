@@ -1,29 +1,29 @@
-<header class="bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex justify-between items-center">
+<header class="bg-navy text-white py-4 shadow-md">
+  <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
     <div class="flex items-center">
-      <a href="/" class="text-xl font-bold">SOLUCIONES TEXTILES LAGUNA</a>
+      <a href="/" class="text-2xl font-bold tracking-wide">SOLUCIONES TEXTILES LAGUNA</a>
     </div>
-    <nav class="hidden md:flex space-x-6">
-      <a href="/" class="hover:text-blue-300">Inicio</a>
-      <div class="relative">
-        <a href="/collections/maquinas" class="hover:text-blue-300">Máquinas</a>
-        <div class="absolute hidden bg-white text-gray-800 p-4 shadow-lg">
-          <a href="/collections/maquinas?filter.p.tag=industrial" class="block hover:bg-gray-200 p-2">Máquinas Industriales</a>
-          <a href="/collections/maquinas?filter.p.tag=automation" class="block hover:bg-gray-200 p-2">Sistemas de Automatización</a>
+    <nav class="hidden md:flex space-x-6 items-center">
+      <a href="/" class="hover:text-lightblue transition duration-300">Inicio</a>
+      <div class="relative group">
+        <a href="/collections/maquinas" class="hover:text-lightblue transition duration-300">Máquinas</a>
+        <div class="absolute hidden group-hover:block bg-white text-navy p-4 shadow-lg rounded-md mt-2 w-48">
+          <a href="/collections/maquinas?filter.p.tag=industrial" class="block hover:bg-blue-100 p-2 rounded">Máquinas Industriales</a>
+          <a href="/collections/maquinas?filter.p.tag=automation" class="block hover:bg-blue-100 p-2 rounded">Sistemas de Automatización</a>
         </div>
       </div>
-      <a href="/collections/refacciones" class="hover:text-blue-300">Refacciones</a>
-      <a href="/pages/quienes-somos" class="hover:text-blue-300">Quiénes Somos</a>
-      <a href="/pages/contacto" class="hover:text-blue-300">Contacto</a>
+      <a href="/collections/refacciones" class="hover:text-lightblue transition duration-300">Refacciones</a>
+      <a href="/pages/quienes-somos" class="hover:text-lightblue transition duration-300">Quiénes Somos</a>
+      <a href="/pages/contacto" class="hover:text-lightblue transition duration-300">Contacto</a>
     </nav>
     <div class="md:hidden">
       <button class="focus:outline-none">
-        <svg data-feather="menu" width="24" height="24"></svg>
+        <svg data-feather="menu" class="text-white"></svg>
       </button>
     </div>
     <div class="hidden md:block">
-      <button class="focus:outline-none">
-        <svg data-feather="search" width="24" height="24"></svg>
+      <button class="focus:outline-none hover:text-lightblue transition duration-300">
+        <svg data-feather="search" class="text-white"></svg>
       </button>
     </div>
   </div>
