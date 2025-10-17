@@ -1,0 +1,25 @@
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "copyright", "label": "Texto de copyright", "default": "&copy; {{ 'now' | date: '%Y' }} Soluciones Textiles Laguna" },
+    { "type": "link_list", "id": "menu", "label": "Menú de footer" }
+  ]
+}
+{% endschema %}
+
+<footer>
+  <nav>
+    {% if section.settings.menu %}
+      <ul>
+        {% for link in linklists[section.settings.menu].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Configure el menú de footer en Theme Editor.</p>
+    {% endif %}
+  </nav>
+  <p>{{ section.settings.copyright }}</p>
+  <div class="social"> <!-- Agrega íconos de redes sociales si lo deseas --></div>
+</footer>
