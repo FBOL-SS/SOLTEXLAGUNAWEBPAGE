@@ -86,6 +86,19 @@
       width: 24px;
       height: 24px;
     }
+    /* Estilo para el menú móvil */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--navy);
+      padding: 1rem;
+    }
+    .mobile-menu.active {
+      display: block;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -98,6 +111,36 @@
       if (typeof feather !== 'undefined') {
         feather.replace();
       }
+
+      // Menú móvil
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.createElement('div');
+      mobileMenu.className = 'mobile-menu';
+      mobileMenu.innerHTML = `
+        <a href="/" class="block py-2 hover:text-lightblue">Inicio</a>
+        <div class="relative">
+          <a href="/collections/maquinas" class="block py-2 hover:text-lightblue">Máquinas</a>
+          <div class="pl-4">
+            <a href="/collections/maquinas?filter.p.tag=industrial" class="block py-1 hover:bg-blue-100">Máquinas Industriales</a>
+            <a href="/collections/maquinas?filter.p.tag=automation" class="block py-1 hover:bg-blue-100">Sistemas de Automatización</a>
+          </div>
+        </div>
+        <a href="/collections/refacciones" class="block py-2 hover:text-lightblue">Refacciones</a>
+        <a href="/pages/quienes-somos" class="block py-2 hover:text-lightblue">Quiénes Somos</a>
+        <a href="/pages/contacto" class="block py-2 hover:text-lightblue">Contacto</a>
+      `;
+      mobileMenuButton.parentElement.appendChild(mobileMenu);
+
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Cierra el menú al hacer clic fuera
+      document.addEventListener('click', function(e) {
+        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
     });
   </script>
 </body>
