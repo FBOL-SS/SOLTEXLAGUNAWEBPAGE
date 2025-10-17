@@ -1,0 +1,24 @@
+<div class="product-single">
+  <div class="images">
+    {% for image in product.images %}
+      <img src="{{ image | img_url: 'large' }}" alt="{{ product.title }}">
+    {% endfor %}
+  </div>
+  <div class="details">
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <div class="price">{{ product.price | money }}</div>
+    <form action="/cart/add">
+      <select name="id">
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">Añadir al Carrito</button>
+    </form>
+    <div class="related">
+      <h3>Productos Relacionados</h3>
+      {% section 'related-products' %}
+    </div>
+  </div>
+</div>

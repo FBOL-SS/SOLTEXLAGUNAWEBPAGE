@@ -1,0 +1,28 @@
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo de Soluciones Textiles Laguna" },
+    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#ff4d00" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Soluciones en Telas y Uniformes" }
+  ]
+}
+{% endschema %}
+
+<header style="background: {{ section.settings.bg_color | default: '#ff4d00' }}; color: white; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+  <div class="logo">
+    {% if section.settings.logo %}
+      <img src="{{ section.settings.logo | img_url: 'master' }}" alt="Soluciones Textiles Laguna">
+    {% else %}
+      <h1>Soluciones Textiles Laguna</h1>
+    {% endif %}
+    <p>{{ section.settings.tagline }}</p>
+  </div>
+  <nav>{% menu 'main-menu' %}</nav>
+  <div class="search">
+    <form action="/search">
+      <input type="search" placeholder="Buscar telas, uniformes..." name="q">
+    </form>
+  </div>
+  <div class="cart">{{ cart.item_count }} items</div>
+</header>

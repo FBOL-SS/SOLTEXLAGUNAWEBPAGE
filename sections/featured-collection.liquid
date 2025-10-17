@@ -1,0 +1,25 @@
+{% schema %}
+{
+  "name": "Colección Destacada",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Selecciona colección (e.g., Telas Laguna)" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Productos Destacados" },
+    { "type": "range", "id": "products_to_show", "min": 1, "max": 12, "step": 1, "default": 4, "label": "Número de productos" }
+  ],
+  "presets": [{ "name": "Colección Destacada" }]
+}
+{% endschema %}
+
+<div class="featured-collection">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="grid">
+    {% for product in collections[section.settings.collection].products limit: section.settings.products_to_show %}
+      <div class="product">
+        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money }}</p>
+        <a href="{{ product.url }}">Ver Detalles</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
