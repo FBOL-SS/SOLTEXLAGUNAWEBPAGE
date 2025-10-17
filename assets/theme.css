@@ -1,28 +1,65 @@
-/* General */
-body { font-family: 'Roboto', sans-serif; color: #333; background: #fff; }
+/* General Styles */
+body { font-family: 'Roboto', sans-serif; color: #333; background: #f8f9fa; margin: 0; padding: 0; }
 
 /* Header */
-header { padding: 20px; display: flex; align-items: center; justify-content: space-between; }
-.logo h1 { color: #fff; }
-.search input { padding: 10px; border: 1px solid #ccc; }
+header { background: #003366; /* Azul oscuro para textiles */ color: white; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.logo { display: flex; align-items: center; }
+.logo h1 { margin: 0; font-size: 24px; }
+.logo p { margin-left: 10px; font-size: 14px; color: #ccc; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+nav ul li { margin: 0; }
+nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+nav ul li a:hover { color: #ff4d00; /* Acento naranja */ }
+.search form { display: flex; }
+.search input { padding: 8px; border: none; border-radius: 4px 0 0 4px; width: 200px; }
+.search button { background: #ff4d00; color: white; border: none; padding: 8px 12px; border-radius: 0 4px 4px 0; cursor: pointer; }
+.cart { font-weight: bold; }
 
-/* Hero */
-.hero { text-align: center; padding: 100px 20px; background-size: cover; color: #fff; }
-.hero h2 { font-size: 48px; }
+/* Hero Banner */
+.hero { background-size: cover; background-position: center; text-align: center; padding: 100px 20px; color: #fff; position: relative; min-height: 300px; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 51, 102, 0.5); /* Overlay azul para textiles */ }
+.hero h2 { font-size: 48px; margin: 0; position: relative; z-index: 1; }
+.hero p { font-size: 24px; margin: 10px 0; position: relative; z-index: 1; }
+.hero a { background: #ff4d00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; position: relative; z-index: 1; transition: background 0.3s; }
+.hero a:hover { background: #e03e00; }
 
 /* Featured Collection */
+.featured-collection { padding: 40px 20px; text-align: center; }
+.featured-collection h2 { font-size: 32px; margin-bottom: 20px; }
 .featured-collection .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.product { text-align: center; border: 1px solid #eee; padding: 20px; }
+.product { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: box-shadow 0.3s; }
+.product:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.product img { max-width: 100%; height: auto; border-radius: 4px; }
+.product h3 { font-size: 18px; margin: 10px 0; }
+.product p { font-size: 16px; color: #ff4d00; font-weight: bold; }
+.product a { color: #003366; text-decoration: none; }
 
 /* Product Single */
-.product-single { display: flex; gap: 40px; }
+.product-single { display: flex; gap: 40px; padding: 40px 20px; }
+.images { flex: 1; }
 .images img { max-width: 100%; }
-.details button { background: #ff4d00; color: #fff; padding: 10px 20px; }
+.details { flex: 1; }
+.details h1 { font-size: 32px; }
+.details .price { font-size: 24px; color: #ff4d00; }
+.details button { background: #ff4d00; color: white; padding: 12px 24px; border: none; cursor: pointer; }
 
 /* Footer */
-footer { background: #333; color: #fff; text-align: center; padding: 20px; }
+footer { background: #003366; color: white; padding: 20px; text-align: center; }
+footer nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 15px; }
+footer nav ul li a { color: white; text-decoration: none; }
+footer p { margin: 10px 0; }
 
 /* Responsive */
-@media (max-width: 768px) { .product-single { flex-direction: column; } }
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  nav ul { flex-direction: column; gap: 10px; }
+  .search input { width: 100%; }
+  .hero { padding: 60px 20px; }
+  .hero h2 { font-size: 32px; }
+  .product-single { flex-direction: column; }
+  footer nav ul { flex-direction: column; }
+}
 
-/* Agrega más estilos de Brator convertidos aquí, como RTL support con direction: rtl; */
+/* Additional for better look */
+.page-width { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.btn { background: #ff4d00; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; }
