@@ -1,32 +1,30 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Soluciones Textiles Laguna Theme",
-    "theme_author": "Custom based on HTML",
-    "theme_version": "1.0.0",
-    "theme_documentation_url": "https://example.com/docs",
-    "theme_support_url": "https://example.com/support"
-  },
-  {
-    "name": "Colors",
+    "name": "Theme settings",
     "settings": [
       {
         "type": "color",
-        "id": "navy",
-        "label": "Navy Color",
-        "default": "#0B2242"
-      },
-      {
-        "type": "color",
-        "id": "blue",
-        "label": "Blue Color",
+        "id": "brand",
+        "label": "Primary brand",
         "default": "#1C4E80"
       },
       {
         "type": "color",
-        "id": "lightblue",
-        "label": "Light Blue Color",
+        "id": "accent",
+        "label": "Accent",
         "default": "#3BA3FF"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Headings font",
+        "default": "lora_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "inter_n4"
       }
     ]
   }
