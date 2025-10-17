@@ -1,0 +1,1 @@
+{ "sections": { "grid": { "type": "product-grid", "settings": { "show_filters": true } } }, "order": ["grid"] }

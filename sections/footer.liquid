@@ -1,0 +1,26 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="brand">SOLTEX / SEWING</div>
+      <p>Soluciones para confección industrial en México y Centroamérica.</p>
+    </div>
+    <div>
+      <div class="foot__title">Contacto</div>
+      <p>Email: info@soltexlaguna.com</p>
+      <p>WhatsApp/Tel: +52</p>
+    </div>
+    <div>
+      <div class="foot__title">Links</div>
+      <ul class="foot__links">
+        <li><a href="{{ routes.root_url }}">Inicio</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Tienda</a></li>
+        <li><a href="{{ routes.root_url }}pages/contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© {{ 'now' | date: '%Y' }} {{ shop.name }}</div>
+
+  {% schema %}
+  { "name": "Footer", "settings": [] }
+  {% endschema %}
+</footer>
