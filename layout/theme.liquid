@@ -13,11 +13,10 @@
   {% section 'header' %}
   {{ content_for_layout }}
   {% section 'footer' %}
-  {{ 'feather-icons.js' | asset_url | script_tag }}
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      feather.replace();
-      // Mobile menu, mega menu, tab, image, FAQ scripts...
-    });
-  </script>
+<script src="https://unpkg.com/feather-icons@4.29.0/dist/feather.min.js"></script>  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+  });
+</script>
 </body>
