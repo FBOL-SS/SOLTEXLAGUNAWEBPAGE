@@ -1,16 +1,21 @@
 {
   "sections": {
     "hero": {
-      "type": "hero-banner",
-      "settings": {}
+      "type": "hero-cover"
     },
     "grid": {
       "type": "product-grid",
-      "settings": {}
+      "settings": {
+        "limit": 9
+      }
+    },
+    "editorial": {
+      "type": "editorial-grid"
     }
   },
   "order": [
     "hero",
-    "grid"
+    "grid",
+    "editorial"
   ]
 }

@@ -1,0 +1,32 @@
+
+{% schema %}
+{
+  "name": "Hero cover",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Engineering meets craft." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Máquinas, automatización y refacciones para producción textil moderna." },
+    { "type": "text", "id": "primary_label", "label": "Primary button", "default": "Ver catálogo" },
+    { "type": "url", "id": "primary_url", "label": "Primary link", "default": "/collections/all" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "Cotizar proyecto" },
+    { "type": "url", "id": "secondary_url", "label": "Secondary link", "default": "/pages/contact" }
+  ]
+}
+{% endschema %}
+<section>
+  <div class="container">
+    <div class="hero-cover">
+      {% if section.settings.image %}
+        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="">
+      {% endif %}
+      <div class="hero-inner">
+        <h1 class="hero-title">{{ section.settings.title }}</h1>
+        <p class="hero-sub">{{ section.settings.subtitle }}</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="{{ section.settings.primary_url }}">{{ section.settings.primary_label }}</a>
+          <a class="btn btn-outline" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

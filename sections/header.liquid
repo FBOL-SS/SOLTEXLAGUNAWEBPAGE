@@ -4,45 +4,41 @@
   "name": "Header",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Logo" },
-    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "SOLTEX LAGUNA" },
-    { "type": "link_list", "id": "main_menu", "label": "Main menu", "default": "main-menu" }
+    { "type": "text", "id": "brand", "label": "Brand text", "default": "SOLTEX LAGUNA" },
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" }
   ]
 }
 {% endschema %}
-<nav class="bg-white shadow-md sticky top-0 z-50">
-  <div class="container mx-auto px-6 py-4">
-    <div class="flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <a href="{{ routes.root_url }}" class="flex items-center">
-          {% if section.settings.logo != blank %}
-            <img src="{{ section.settings.logo | img_url: '200x' }}" alt="{{ shop.name }}" class="h-12">
-          {% endif %}
-          <span class="ml-3 text-xl font-bold">{{ section.settings.brand_text }}</span>
-        </a>
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        {% for link in linklists[section.settings.main_menu].links %}
-          <a href="{{ link.url }}" class="hover:text-blue transition {% if link.active %}text-blue-600 font-medium{% endif %}">{{ link.title }}</a>
-        {% endfor %}
-      </div>
-      <div class="flex items-center space-x-4">
-        <a href="{{ routes.search_url }}" class="p-2 rounded-full hover:bg-gray-100">
-          <i data-feather="search"></i>
-        </a>
-        <a href="{{ routes.cart_url }}" class="p-2 rounded-full hover:bg-gray-100">
-          <i data-feather="shopping-cart"></i>
-        </a>
-        <button class="md:hidden focus:outline-none" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-          <i data-feather="menu"></i>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="mt-3 md:hidden hidden">
-      <div class="flex flex-col space-y-2">
-        {% for link in linklists[section.settings.main_menu].links %}
-          <a href="{{ link.url }}" class="py-2 border-b hover:text-blue-600">{{ link.title }}</a>
-        {% endfor %}
-      </div>
+<header class="header">
+  <div class="container row">
+    <a href="{{ routes.root_url }}" class="logo" style="display:flex;align-items:center;gap:10px">
+      {% if section.settings.logo %}
+        <img src="{{ section.settings.logo | image_url: width: 220 }}" alt="{{ shop.name }}" style="height:44px">
+      {% endif %}
+      <strong style="font-size:1.1rem">{{ section.settings.brand }}</strong>
+    </a>
+    <nav class="nav hide-mobile">
+      {% for link in linklists[section.settings.menu].links %}
+        <a href="{{ link.url }}" {% if link.active %}style="text-decoration:underline"{% endif %}>{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a class="icon-btn" href="{{ routes.search_url }}" aria-label="{{ 'general.search' | t }}">🔎</a>
+      <a class="icon-btn" href="{{ routes.cart_url }}" aria-label="Cart">🛒</a>
+      <button class="icon-btn show-mobile" data-menu aria-label="Menu">☰</button>
     </div>
   </div>
-</nav>
+  <dialog data-drawer style="width:100%;max-width:none;border:none;height:100dvh;padding:0">
+    <div style="padding:16px" class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>{{ section.settings.brand }}</strong>
+        <button class="icon-btn" data-menu aria-label="Close">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:18px">
+        {% for link in linklists[section.settings.menu].links %}
+          <a style="padding:10px 0;border-bottom:1px solid var(--border)" href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </dialog>
+</header>
