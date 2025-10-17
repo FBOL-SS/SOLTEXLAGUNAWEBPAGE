@@ -1,0 +1,21 @@
+
+{% schema %}
+{ "name": "Main search", "settings": [] }
+{% endschema %}
+<section class="py-12">
+  <div class="container mx-auto px-6">
+    <form action="{{ routes.search_url }}" method="get" class="mb-8">
+      <input class="w-full border rounded px-4 py-3" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products...">
+    </form>
+    {% if search.performed %}
+      <p class="text-gray-600 mb-4">Results for "{{ search.terms | escape }}" — {{ search.results_count }}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% render 'product-card', product: item %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

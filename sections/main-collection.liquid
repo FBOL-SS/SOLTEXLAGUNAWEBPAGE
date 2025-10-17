@@ -1,0 +1,88 @@
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": []
+}
+{% endschema %}
+<section class="py-12">
+  <div class="container mx-auto px-6">
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+      <div>
+        <h1 class="text-3xl font-bold mb-2">{{ collection.title }}</h1>
+        {% if collection.description != blank %}<div class="prose text-gray-700">{{ collection.description }}</div>{% endif %}
+      </div>
+      <div class="mt-4 md:mt-0">
+        <form method="get">
+          <label class="text-gray-600 mr-2" for="SortBy">Sort by:</label>
+          <select class="border border-gray-300 rounded px-4 py-2" name="sort_by" id="SortBy" onchange="this.form.submit()">
+            {% for option in collection.sort_options %}
+              <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+            {% endfor %}
+          </select>
+        </form>
+      </div>
+    </header>
+    <div class="flex flex-col lg:flex-row">
+      <aside class="lg:w-1/4 pr-8 mb-8 lg:mb-0">
+        <div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
+          <h3 class="text-lg font-semibold mb-4">Filters</h3>
+          <form>
+            {% for filter in collection.filters %}
+              <div class="mb-6">
+                <h4 class="font-medium mb-3">{{ filter.label }}</h4>
+                {% case filter.type %}
+                  {% when 'boolean' %}
+                    <ul class="space-y-2">
+                      {% for v in filter.values %}
+                        <li>
+                          <label class="flex items-center">
+                            <input type="checkbox" name="{{ v.param_name }}" value="{{ v.value }}" {% if v.active %}checked{% endif %} class="mr-2">
+                            <span>{{ v.label }} ({{ v.count }})</span>
+                          </label>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% when 'list' %}
+                    <ul class="space-y-2">
+                      {% for v in filter.values %}
+                        <li>
+                          <label class="flex items-center">
+                            <input type="checkbox" name="{{ v.param_name }}" value="{{ v.value }}" {% if v.active %}checked{% endif %} class="mr-2">
+                            <span>{{ v.label }} ({{ v.count }})</span>
+                          </label>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% when 'price_range' %}
+                    <div class="flex items-center space-x-2">
+                      <input type="number" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency }}" placeholder="Min" class="border rounded px-3 py-1 w-24">
+                      <span>-</span>
+                      <input type="number" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency }}" placeholder="Max" class="border rounded px-3 py-1 w-24">
+                    </div>
+                {% endcase %}
+              </div>
+            {% endfor %}
+            <button class="w-full bg-lightblue hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg" type="submit">Apply Filters</button>
+          </form>
+        </div>
+      </aside>
+      <div class="lg:w-3/4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product %}
+          {% else %}
+            <p>No products found.</p>
+          {% endfor %}
+        </div>
+        {% paginate collection.products by 24 %}
+          <div class="mt-8 flex justify-center space-x-2">
+            {% if paginate.previous %}<a class="px-3 py-1 border rounded" href="{{ paginate.previous.url }}">Prev</a>{% endif %}
+            <span class="px-3 py-1">{{ paginate.current_page }} / {{ paginate.pages }}</span>
+            {% if paginate.next %}<a class="px-3 py-1 border rounded" href="{{ paginate.next.url }}">Next</a>{% endif %}
+          </div>
+        {% endpaginate %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% if page_title %}{{ page_title }} — {% endif %}{{ shop.name }}</title>
+    {{ content_for_header }}
+    <!-- Tailwind CDN to preserve visual parity from provided HTML -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0B2242',
+              blue: '#1C4E80',
+              lightblue: '#3BA3FF',
+            },
+            fontFamily: { sans: ['Inter','sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <style>
+      .hero-gradient { background: linear-gradient(135deg, #0B2242 0%, #1C4E80 100%); }
+      .card-hover { transition: all .3s ease }
+      .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04) }
+    </style>
+    {% render 'theme-css' %}
+  </head>
+  <body class="font-sans bg-white text-navy">
+    {% section 'header' %}
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>feather.replace()</script>
+    {% render 'theme-js' %}
+  </body>
+</html>

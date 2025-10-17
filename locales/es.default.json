@@ -1,0 +1,8 @@
+{
+  "general": {
+    "search": "Buscar",
+    "add_to_cart": "Agregar al carrito",
+    "in_stock": "En stock",
+    "out_of_stock": "Agotado"
+  }
+}

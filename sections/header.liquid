@@ -1,0 +1,48 @@
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "SOLTEX LAGUNA" },
+    { "type": "link_list", "id": "main_menu", "label": "Main menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="{{ routes.root_url }}" class="flex items-center">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: '200x' }}" alt="{{ shop.name }}" class="h-12">
+          {% endif %}
+          <span class="ml-3 text-xl font-bold">{{ section.settings.brand_text }}</span>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        {% for link in linklists[section.settings.main_menu].links %}
+          <a href="{{ link.url }}" class="hover:text-blue transition {% if link.active %}text-blue-600 font-medium{% endif %}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="{{ routes.search_url }}" class="p-2 rounded-full hover:bg-gray-100">
+          <i data-feather="search"></i>
+        </a>
+        <a href="{{ routes.cart_url }}" class="p-2 rounded-full hover:bg-gray-100">
+          <i data-feather="shopping-cart"></i>
+        </a>
+        <button class="md:hidden focus:outline-none" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mt-3 md:hidden hidden">
+      <div class="flex flex-col space-y-2">
+        {% for link in linklists[section.settings.main_menu].links %}
+          <a href="{{ link.url }}" class="py-2 border-b hover:text-blue-600">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</nav>

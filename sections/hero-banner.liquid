@@ -1,0 +1,32 @@
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Precision Sewing Solutions for Modern Factories" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Industrial-grade machines and automation for apparel and denim production across Mexico & Central America" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "primary_label", "label": "Primary CTA label", "default": "Explore Products" },
+    { "type": "url", "id": "primary_url", "label": "Primary CTA link", "default": "/collections/all" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary CTA label", "default": "Request Quote" },
+    { "type": "url", "id": "secondary_url", "label": "Secondary CTA link", "default": "/pages/contact" }
+  ]
+}
+{% endschema %}
+<section class="hero-gradient text-white py-24">
+  <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 mb-12 md:mb-0">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ section.settings.title }}</h1>
+      <p class="text-xl mb-8">{{ section.settings.subtitle }}</p>
+      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="{{ section.settings.primary_url }}" class="bg-lightblue hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition duration-300 text-center">{{ section.settings.primary_label }}</a>
+        <a href="{{ section.settings.secondary_url }}" class="border-2 border-white hover:bg-white hover:text-navy text-white font-bold py-4 px-8 rounded-lg transition duration-300 text-center">{{ section.settings.secondary_label }}</a>
+      </div>
+    </div>
+    <div class="md:w-1/2">
+      {% if section.settings.image %}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="" class="rounded-lg shadow-xl">
+      {% endif %}
+    </div>
+  </div>
+</section>

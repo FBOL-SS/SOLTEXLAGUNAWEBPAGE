@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary",
+        "label": "Primary color",
+        "default": "#1C4E80"
+      },
+      {
+        "type": "color",
+        "id": "accent",
+        "label": "Accent color",
+        "default": "#3BA3FF"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "system-ui"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "system-ui"
+      }
+    ]
+  }
+]

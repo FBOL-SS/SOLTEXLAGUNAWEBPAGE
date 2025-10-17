@@ -1,0 +1,52 @@
+
+{% schema %}
+{ "name": "Product template", "settings": [] }
+{% endschema %}
+<section class="py-8">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row">
+      <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+        {% if product.featured_image %}
+          <div class="relative mb-4 rounded-lg overflow-hidden bg-gray-100" style="padding-bottom: 75%;">
+            <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title }}" class="absolute w-full h-full object-contain">
+          </div>
+        {% endif %}
+        {% if product.images.size > 1 %}
+          <div class="grid grid-cols-4 gap-2">
+            {% for image in product.images %}
+              <img src="{{ image | image_url: width: 300 }}" alt="{{ product.title }}" class="w-full h-20 object-cover rounded">
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="lg:w-1/2">
+        <h1 class="text-3xl font-bold mb-2">{{ product.title }}</h1>
+        <div class="mb-4">
+          {% render 'price', product: product %}
+        </div>
+        <div class="mb-2 text-sm text-gray-600">
+          {% assign v = product.selected_or_first_available_variant %}
+          {% if v.sku != blank %}<span class="font-medium">SKU:</span> {{ v.sku }}{% endif %}
+          {% if v.inventory_quantity > 0 %}
+            <span class="ml-3 bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded">In Stock</span>
+          {% else %}
+            <span class="ml-3 bg-red-100 text-red-800 text-xs font-medium px-2 py-0.5 rounded">Out of Stock</span>
+          {% endif %}
+        </div>
+        <div class="prose text-gray-700 mb-6">{{ product.description }}</div>
+        <form method="post" action="/cart/add">
+          <select name="id" class="border rounded px-3 py-2 mb-4">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" {% if variant == v %}selected{% endif %}>
+                {{ variant.title }} — {{ variant.price | money }}
+              </option>
+            {% endfor %}
+          </select>
+          <div class="flex space-x-4">
+            <button type="submit" class="bg-lightblue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">Add to cart</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
