@@ -1,0 +1,37 @@
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Product Categories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+                <img src="{{ 'industry/640x360/1' | asset_url }}" alt="Industrial Machines" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Industrial Machines</h3>
+                    <p class="text-gray-600 mb-4">Heavy-duty sewing solutions for continuous production</p>
+                    <a href="/collections/maquinas" class="text-lightblue font-medium flex items-center">
+                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+                <img src="{{ 'technology/640x360/2' | asset_url }}" alt="Automation Systems" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Automation Systems</h3>
+                    <p class="text-gray-600 mb-4">Cutting-edge technology to streamline your workflow</p>
+                    <a href="/collections/maquinas?filter.p.tag=automation" class="text-lightblue font-medium flex items-center">
+                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+                <img src="{{ 'industry/640x360/3' | asset_url }}" alt="Replacement Parts" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Replacement Parts</h3>
+                    <p class="text-gray-600 mb-4">Genuine components for optimal machine performance</p>
+                    <a href="/collections/refacciones" class="text-lightblue font-medium flex items-center">
+                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

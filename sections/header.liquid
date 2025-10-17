@@ -1,0 +1,61 @@
+<nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="/" class="flex items-center">
+                    <img src="{{ 'logo.png' | asset_url }}" alt="SOLUCIONES TEXTILES LAGUNA Logo" class="h-12">
+                    <span class="ml-3 text-xl font-bold">SOLUCIONES TEXTILES LAGUNA</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/" class="hover:text-blue-600 transition {% if template.name == 'index' %}text-blue-600 font-medium{% endif %}">Inicio</a>
+                <div class="relative">
+                    <a href="/pages/quienes-somos" class="hover:text-blue-600 transition mega-menu-trigger {% if template.name == 'page' and page.handle == 'quienes-somos' %}text-blue-600 font-medium{% endif %}">Quienes Somos</a>
+                    <div class="absolute hidden bg-white shadow-md p-4 rounded-lg mega-menu">
+                        <a href="/pages/quienes-somos#story" class="block hover:text-blue-600">Nuestra Historia</a>
+                        <a href="/pages/quienes-somos#timeline" class="block hover:text-blue-600">Timeline</a>
+                        <a href="/pages/quienes-somos#team" class="block hover:text-blue-600">Equipo</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <a href="/collections/refacciones" class="hover:text-blue-600 transition mega-menu-trigger {% if collection.handle == 'refacciones' %}text-blue-600 font-medium{% endif %}">Refacciones</a>
+                    <div class="absolute hidden bg-white shadow-md p-4 rounded-lg mega-menu grid grid-cols-2 gap-4">
+                        <a href="/collections/refacciones?filter.p.tag=needles" class="block hover:text-blue-600">Needles</a>
+                        <a href="/collections/refacciones?filter.p.tag=parts" class="block hover:text-blue-600">Replacement Parts</a>
+                        <a href="/collections/refacciones?filter.p.vendor=NeedleTech" class="block hover:text-blue-600">NeedleTech</a>
+                        <a href="/collections/refacciones?filter.p.vendor=OverLock Pro" class="block hover:text-blue-600">OverLock Pro</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <a href="/collections/maquinas" class="hover:text-blue-600 transition mega-menu-trigger {% if collection.handle == 'maquinas' %}text-blue-600 font-medium{% endif %}">Maquinas</a>
+                    <div class="absolute hidden bg-white shadow-md p-4 rounded-lg mega-menu grid grid-cols-2 gap-4">
+                        <a href="/collections/maquinas?filter.p.tag=industrial" class="block hover:text-blue-600">Industrial Machines</a>
+                        <a href="/collections/maquinas?filter.p.tag=automation" class="block hover:text-blue-600">Automation Systems</a>
+                        <a href="/collections/maquinas?filter.p.vendor=DenimMaster" class="block hover:text-blue-600">DenimMaster</a>
+                        <a href="/collections/maquinas?filter.p.vendor=StitchPro" class="block hover:text-blue-600">StitchPro</a>
+                        <a href="/collections/maquinas?filter.p.vendor=TexAuto" class="block hover:text-blue-600">TexAuto</a>
+                        <a href="/collections/maquinas?filter.p.vendor=SewSmart" class="block hover:text-blue-600">SewSmart</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <a href="/pages/contacto" class="hover:text-blue-600 transition mega-menu-trigger {% if template.name == 'page' and page.handle == 'contacto' %}text-blue-600 font-medium{% endif %}">Contacto</a>
+                    <div class="absolute hidden bg-white shadow-md p-4 rounded-lg mega-menu">
+                        <a href="/pages/contacto#form" class="block hover:text-blue-600">Enviar Mensaje</a>
+                        <a href="/pages/contacto#faq" class="block hover:text-blue-600">FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/search" class="p-2 rounded-full hover:bg-gray-100">
+                    <i data-feather="search"></i>
+                </a>
+                <a href="/cart" class="p-2 rounded-full hover:bg-gray-100">
+                    <i data-feather="shopping-cart"></i>
+                </a>
+                <button class="md:hidden focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,86 @@
+<div class="container mx-auto px-6 py-4">
+    <div class="flex items-center text-sm text-gray-600">
+        <a href="/" class="hover:text-blue-600">Home</a>
+        <i data-feather="chevron-right" class="mx-2 w-4 h-4"></i>
+        <a href="{{ collection.url }}" class="hover:text-blue-600">{{ collection.title }}</a>
+        <i data-feather="chevron-right" class="mx-2 w-4 h-4"></i>
+        <span class="text-gray-900">{{ product.title }}</span>
+    </div>
+</div>
+<section class="py-8">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row">
+            <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                <div class="relative mb-4 rounded-lg overflow-hidden bg-gray-100" style="padding-bottom: 75%;">
+                    <img id="main-image" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.title }}" class="absolute w-full h-full object-contain">
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    {% for image in product.images %}
+                        <div class="cursor-pointer gallery-thumbnail {% if forloop.first %}active{% endif %}" onclick="changeImage('{{ image | image_url: width: 1200 }}')">
+                            <img src="{{ image | image_url: width: 200 }}" alt="{{ product.title }}" class="w-full h-20 object-cover rounded">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">{{ product.title }}</h1>
+                        <div class="flex items-center mb-4">
+                            <!-- Ratings -->
+                            <div class="flex">
+                                <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
+                                <!-- Repeat -->
+                            </div>
+                            <span class="text-gray-500 text-sm ml-2">(24 reviews)</span>
+                        </div>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</span>
+                </div>
+                <div class="mb-6">
+                    <span class="text-3xl font-bold">{{ product.price | money }}</span>
+                    {% if product.compare_at_price %}
+                        <span class="text-gray-500 line-through ml-2">{{ product.compare_at_price | money }}</span>
+                        <span class="bg-green-100 text-green-800 text-sm font-medium ml-2 px-2 py-0.5 rounded">8% OFF</span>
+                    {% endif %}
+                </div>
+                <div class="mb-6">
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-2 py-0.5 rounded">In Stock</span>
+                    <span class="text-gray-600 ml-2">Ships within 3-5 business days</span>
+                </div>
+                <form action="/cart/add" method="post" class="mb-8">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="w-full bg-lightblue hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300">
+                        Add to Cart
+                    </button>
+                </form>
+                <!-- Full description, tabs from product-detail.html -->
+                <nav class="flex border-b mb-6">
+                    <button id="description-tab" class="flex-1 py-4 text-center text-blue-600 tab-active">Description</button>
+                    <button id="specs-tab" class="flex-1 py-4 text-center text-gray-500">Specifications</button>
+                    <button id="reviews-tab" class="flex-1 py-4 text-center text-gray-500">Reviews</button>
+                    <button id="support-tab" class="flex-1 py-4 text-center text-gray-500">Support</button>
+                </nav>
+                <div id="description-content" class="tab-content">
+                    {{ product.description }}
+                </div>
+                <div id="specs-content" class="tab-content hidden">
+                    <!-- Specs table -->
+                </div>
+                <div id="reviews-content" class="tab-content hidden">
+                    <!-- Reviews -->
+                </div>
+                <div id="support-content" class="tab-content hidden">
+                    <!-- Support info -->
+                </div>
+                <!-- Related products -->
+                <h2 class="text-2xl font-bold mb-6">Related Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {% for product in collections.all.products limit: 3 %}
+                        {% render 'product-card' with product as product %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
