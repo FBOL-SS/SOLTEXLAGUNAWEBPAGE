@@ -1,6 +1,0 @@
-
-{% assign v = product.selected_or_first_available_variant %}
-<span>{{ v.price | money }}</span>
-{% if v.compare_at_price > v.price %}
-  <span style="margin-left:.5rem;color:var(--muted);text-decoration:line-through">{{ v.compare_at_price | money }}</span>
-{% endif %}
