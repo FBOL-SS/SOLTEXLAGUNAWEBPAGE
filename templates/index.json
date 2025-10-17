@@ -1,8 +1,0 @@
-{
-  "sections": {
-    "hero": { "type": "hero", "settings": {} },
-    "grid": { "type": "product-grid", "settings": { "show_filters": true, "limit": 8 } },
-    "rt": { "type": "rich-text", "settings": { "title": "Nosotros", "body": "<p>Experiencia en México y C.A.</p>" } }
-  },
-  "order": ["hero","grid","rt"]
-}

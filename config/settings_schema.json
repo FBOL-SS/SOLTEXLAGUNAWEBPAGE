@@ -1,8 +1,0 @@
-[
-  {
-    "name": "General",
-    "settings": [
-      { "type": "color", "id": "brand_color", "label": "Color primario", "default": "#0b3a6f" }
-    ]
-  }
-]
