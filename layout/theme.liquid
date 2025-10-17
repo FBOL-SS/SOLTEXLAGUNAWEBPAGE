@@ -104,63 +104,62 @@
       } else {
         console.error('Feather Icons no está cargado');
       }
-    });
-    // Mobile menu toggle
-    const mobileMenuButton = document.querySelector('.md\\:hidden button');
-    if (mobileMenuButton) {
-      mobileMenuButton.addEventListener('click', () => {
-        // Toggle mobile menu logic here
-      });
-    }
-    // Mega menu
-    document.querySelectorAll('.mega-menu-trigger').forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const menu = trigger.nextElementSibling;
-        if (menu) menu.classList.toggle('hidden');
-      });
-    });
-    // Tab switching
-    const tabs = ['description', 'specs', 'reviews', 'support'];
-    tabs.forEach(tab => {
-      const tabElement = document.getElementById(`${tab}-tab`);
-      if (tabElement) {
-        tabElement.addEventListener('click', () => {
-          document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-          document.querySelectorAll('nav button').forEach(el => {
-            el.classList.remove('tab-active', 'text-blue-600');
-            el.classList.add('text-gray-500');
-          });
-          const contentElement = document.getElementById(`${tab}-content`);
-          if (contentElement) contentElement.classList.remove('hidden');
-          tabElement.classList.add('tab-active', 'text-blue-600');
-          tabElement.classList.remove('text-gray-500');
+      // Mobile menu toggle
+      const mobileMenuButton = document.querySelector('.md\\:hidden button');
+      if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => {
+          // Toggle mobile menu logic here
         });
       }
-    });
-    // Image change
-    function changeImage(src) {
-      const mainImage = document.getElementById('main-image');
-      if (mainImage) mainImage.src = src;
-      document.querySelectorAll('.gallery-thumbnail').forEach(el => el.classList.remove('active'));
-      event.currentTarget.classList.add('active');
-    }
-    // FAQ toggle
-    document.querySelectorAll('button.faq-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('i');
-        if (content.classList.contains('hidden')) {
-          content.classList.remove('hidden');
-          icon.setAttribute('data-feather', 'chevron-up');
-        } else {
-          content.classList.add('hidden');
-          icon.setAttribute('data-feather', 'chevron-down');
+      // Mega menu
+      document.querySelectorAll('.mega-menu-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const menu = trigger.nextElementSibling;
+          if (menu) menu.classList.toggle('hidden');
+        });
+      });
+      // Tab switching
+      const tabs = ['description', 'specs', 'reviews', 'support'];
+      tabs.forEach(tab => {
+        const tabElement = document.getElementById(`${tab}-tab`);
+        if (tabElement) {
+          tabElement.addEventListener('click', () => {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(el => {
+              el.classList.remove('tab-active', 'text-blue-600');
+              el.classList.add('text-gray-500');
+            });
+            const contentElement = document.getElementById(`${tab}-content`);
+            if (contentElement) contentElement.classList.remove('hidden');
+            tabElement.classList.add('tab-active', 'text-blue-600');
+            tabElement.classList.remove('text-gray-500');
+          });
         }
-        feather.replace();
+      });
+      // Image change
+      function changeImage(src) {
+        const mainImage = document.getElementById('main-image');
+        if (mainImage) mainImage.src = src;
+        document.querySelectorAll('.gallery-thumbnail').forEach(el => el.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+      }
+      // FAQ toggle
+      document.querySelectorAll('button.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('i');
+          if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.setAttribute('data-feather', 'chevron-up');
+          } else {
+            content.classList.add('hidden');
+            icon.setAttribute('data-feather', 'chevron-down');
+          }
+          feather.replace();
+        });
       });
     });
   </script>
 </body>
 </html>
-</body>
