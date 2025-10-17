@@ -2,24 +2,61 @@
 {
   "name": "Footer",
   "settings": [
-    { "type": "text", "id": "copyright", "label": "Texto de copyright", "default": "&copy; {{ 'now' | date: '%Y' }} Soluciones Textiles Laguna" },
-    { "type": "link_list", "id": "menu", "label": "Menú de footer" }
+    { "type": "text", "id": "copyright", "label": "Copyright", "default": "© {{ 'now' | date: '%Y' }} Soluciones Textiles Laguna" },
+    { "type": "link_list", "id": "quick_links", "label": "Quick Links" },
+    { "type": "link_list", "id": "products_menu", "label": "Products Menu" }
   ]
 }
 {% endschema %}
 
-<footer>
-  <nav>
-    {% if section.settings.menu %}
-      <ul>
-        {% for link in linklists[section.settings.menu].links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+<footer class="bg-navy text-white py-12">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Company Info -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Soluciones Textiles Laguna</h3>
+      <p class="text-gray-400 mb-4">Leading provider of industrial sewing solutions since 1992.</p>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="linkedin"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+      </div>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        {% for link in linklists[section.settings.quick_links].links %}
+          <li><a href="{{ link.url }}" class="text-gray-400 hover:text-white">{{ link.title }}</a></li>
         {% endfor %}
       </ul>
-    {% else %}
-      <p>Configure el menú de footer en Theme Editor.</p>
-    {% endif %}
-  </nav>
-  <p>{{ section.settings.copyright }}</p>
-  <div class="social"> <!-- Agrega íconos de redes sociales si lo deseas --></div>
+    </div>
+    <!-- Products -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Products</h3>
+      <ul class="space-y-2">
+        {% for link in linklists[section.settings.products_menu].links %}
+          <li><a href="{{ link.url }}" class="text-gray-400 hover:text-white">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+      <ul class="space-y-2">
+        <li class="flex items-start"><i data-feather="map-pin" class="mr-2 mt-1 w-4 h-4"></i><span class="text-gray-400">Av. Industrial 1234, Monterrey, Mexico</span></li>
+        <li class="flex items-center"><i data-feather="phone" class="mr-2 w-4 h-4"></i><span class="text-gray-400">+52 81 1234 5678</span></li>
+        <li class="flex items-center"><i data-feather="mail" class="mr-2 w-4 h-4"></i><span class="text-gray-400">info@soltexlaguna.com</span></li>
+        <li class="mt-4"><a href="#" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg"><i data-feather="message-square" class="mr-2"></i>WhatsApp Chat</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
+    <p>{{ section.settings.copyright }}</p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+      <a href="#" class="hover:text-white">Privacy Policy</a>
+      <a href="#" class="hover:text-white">Terms of Service</a>
+      <a href="#" class="hover:text-white">Sitemap</a>
+    </div>
+  </div>
 </footer>
