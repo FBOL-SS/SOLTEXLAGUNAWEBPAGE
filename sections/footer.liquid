@@ -9,7 +9,17 @@
 {% endschema %}
 
 <footer>
-  <nav>{% menu section.settings.menu %}</nav>
+  <nav>
+    {% if section.settings.menu %}
+      <ul>
+        {% for link in linklists[section.settings.menu].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Configure el menú de footer en Theme Editor.</p>
+    {% endif %}
+  </nav>
   <p>{{ section.settings.copyright }}</p>
-  <div class="social"> <!-- Agrega icons de social media --></div>
+  <div class="social"> <!-- Agrega íconos de redes sociales si lo deseas --></div>
 </footer>

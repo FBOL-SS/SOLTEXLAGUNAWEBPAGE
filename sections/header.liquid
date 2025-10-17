@@ -18,7 +18,17 @@
     {% endif %}
     <p>{{ section.settings.tagline }}</p>
   </div>
-  <nav>{% menu 'main-menu' %}</nav>
+  <nav>
+    {% if linklists.main-menu.links.size > 0 %}
+      <ul>
+        {% for link in linklists.main-menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Configure el menú "main-menu" en Navigation.</p>
+    {% endif %}
+  </nav>
   <div class="search">
     <form action="/search">
       <input type="search" placeholder="Buscar telas, uniformes..." name="q">
