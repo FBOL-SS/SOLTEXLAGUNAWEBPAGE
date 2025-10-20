@@ -1,0 +1,95 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    --bg:#f9fafb; --fg:#0d1b2a; --bd:#e5e7eb;
+  }
+  #shopify-section-{{ section.id }} .collection-wrap{
+    background:var(--bg);color:var(--fg);
+    padding:clamp(32px,6vw,80px) 16px;
+    max-width:1200px;margin:0 auto;
+  }
+  #shopify-section-{{ section.id }} .title{
+    font:800 clamp(28px,4vw,40px)/1.1 Poppins,system-ui;
+    text-align:center;margin:0 0 20px;
+  }
+  #shopify-section-{{ section.id }} .filters{
+    display:flex;justify-content:flex-end;align-items:center;
+    margin-bottom:20px;gap:10px;
+  }
+  #shopify-section-{{ section.id }} .filters select{
+    border:1px solid var(--bd);border-radius:8px;padding:8px 12px;font-size:15px;
+  }
+  #shopify-section-{{ section.id }} .grid{
+    display:grid;gap:20px;
+  }
+  @media(min-width:768px){#shopify-section-{{ section.id }} .grid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1100px){#shopify-section-{{ section.id }} .grid{grid-template-columns:repeat(4,1fr)}}
+  #shopify-section-{{ section.id }} .card{
+    border:1px solid var(--bd);border-radius:12px;overflow:hidden;
+    background:#fff;transition:all .25s ease;
+  }
+  #shopify-section-{{ section.id }} .card:hover{box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-2px);}
+  #shopify-section-{{ section.id }} .card img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  #shopify-section-{{ section.id }} .card .info{padding:12px;text-align:center;}
+  #shopify-section-{{ section.id }} .card .name{font-weight:600;font-size:15px;margin:0 0 4px;}
+  #shopify-section-{{ section.id }} .card .price{font-weight:700;color:#0d1b2a;}
+</style>
+
+<section class="collection-wrap">
+  {% if section.settings.title != blank %}
+    <h1 class="title">{{ section.settings.title }}</h1>
+  {% endif %}
+
+  <div class="filters">
+    <form method="get" id="SortByForm">
+      <label for="sort_by" class="visually-hidden">Ordenar por</label>
+      <select id="sort_by" name="sort_by" onchange="this.form.submit()">
+        <option value="best-selling" {% if collection.sort_by == "best-selling" %}selected{% endif %}>Más vendidos</option>
+        <option value="title-ascending" {% if collection.sort_by == "title-ascending" %}selected{% endif %}>A–Z</option>
+        <option value="title-descending" {% if collection.sort_by == "title-descending" %}selected{% endif %}>Z–A</option>
+        <option value="price-ascending" {% if collection.sort_by == "price-ascending" %}selected{% endif %}>Precio: bajo a alto</option>
+        <option value="price-descending" {% if collection.sort_by == "price-descending" %}selected{% endif %}>Precio: alto a bajo</option>
+        <option value="created-descending" {% if collection.sort_by == "created-descending" %}selected{% endif %}>Novedades</option>
+      </select>
+    </form>
+  </div>
+
+  {% paginate collection.products by 12 %}
+    {% if collection.products.size > 0 %}
+      <div class="grid">
+        {% for product in collection.products %}
+          <div class="card">
+            <a href="{{ product.url }}">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag }}
+              {% endif %}
+            </a>
+            <div class="info">
+              <p class="name">{{ product.title }}</p>
+              <p class="price">{{ product.price | money }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div style="margin-top:28px;text-align:center;">
+        {% if paginate.pages > 1 %}
+          {% render 'pagination', paginate: paginate %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p>No hay productos disponibles actualmente.</p>
+    {% endif %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "soltex-main-collection",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título de la página", "default": "Catálogo de productos" }
+  ],
+  "presets": [{ "name": "soltex-main-collection" }]
+}
+{% endschema %}
