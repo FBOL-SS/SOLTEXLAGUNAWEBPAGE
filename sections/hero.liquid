@@ -1,7 +1,175 @@
-<section class="hero-gradient py-20 md:py-32 text-white">
-  <div class="container mx-auto text-center px-4 md:px-6">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Bienvenido a Soluciones Textiles Laguna</h1>
-    <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Tu socio confiable en maquinaria y refacciones textiles de alta calidad.</p>
-    <a href="/collections/maquinas" class="bg-lightblue text-white px-6 py-3 rounded-lg hover:bg-blue transition duration-300 font-semibold">Explorar Máquinas</a>
+{% comment %}
+SOLTEX — Hero Section (ShopDev-ready, no Tailwind dependency)
+- Safe schema (no unsupported keys like `tag` or `class`)
+- Scoped styles per-section using #shopify-section-{{ section.id }}
+- Overlay opacity uses integer range (0–100) then divided_by: 100.0 in CSS
+- Fonts: load Poppins/Inter globally in theme.liquid (recommended). This section will fallback to system fonts if not loaded.
+{% endcomment %}
+
+<section class="soltex-hero" aria-label="SOLTEX hero banner">
+  <div class="soltex-hero__stage">
+    <div class="soltex-hero__media">
+      {%- if section.settings.background_image != blank -%}
+        {{ section.settings.background_image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          class: 'soltex-hero__img',
+          sizes: '100vw',
+          alt: section.settings.background_image.alt | default: 'SOLTEX Industrial Textiles' | escape
+        }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'soltex-hero__placeholder' }}
+      {%- endif -%}
+    </div>
+
+    <div class="soltex-hero__overlay"></div>
+
+    <div class="soltex-hero__content">
+      {%- if section.settings.headline != blank -%}
+        <h1 class="soltex-hero__title">{{ section.settings.headline }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheadline != blank -%}
+        <p class="soltex-hero__subtitle">{{ section.settings.subheadline }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank and section.settings.button_url != blank -%}
+        <a href="{{ section.settings.button_url }}" class="soltex-hero__cta">{{ section.settings.button_text }}</a>
+      {%- endif -%}
+    </div>
   </div>
+
+  <style>
+    /* Scoped styles per section instance */
+    #shopify-section-{{ section.id }} .soltex-hero {
+      --soltex-navy: #0d1b2a;
+      --soltex-white: #ffffff;
+      --soltex-gray: #f4f4f4;
+      --text-shadow: 0 2px 10px rgba(0,0,0,.35);
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__stage {
+      position: relative;
+      width: 100%;
+      height: clamp(420px, 62vh, 720px);
+      overflow: hidden;
+      background: var(--soltex-gray);
+      border-radius: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__media { position: absolute; inset: 0; }
+
+    #shopify-section-{{ section.id }} .soltex-hero__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      transform: scale(1.02);
+      animation: soltex-zoomIn-{{ section.id }} 900ms ease-out both;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__placeholder {
+      width: 100%; height: 100%; display: block;
+      background: #e5e7eb;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,27,42,0.85) 0%, rgba(13,27,42,0.65) 100%);
+      opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__content {
+      position: absolute; inset: 0;
+      display: grid; place-items: center;
+      padding: clamp(16px, 3vw, 48px);
+      text-align: center;
+      animation: soltex-fadeUp-{{ section.id }} 800ms ease-out both;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__title {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      color: var(--soltex-white);
+      text-shadow: var(--text-shadow);
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1.1;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__subtitle {
+      color: rgba(255,255,255,0.9);
+      text-shadow: var(--text-shadow);
+      font-size: clamp(15px, 1.6vw, 22px);
+      line-height: 1.55;
+      max-width: min(72ch, 90%);
+      margin: 0 auto 22px;
+    }
+
+    #shopify-section-{{ section.id }} .soltex-hero__cta {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 2px solid var(--soltex-white);
+      background: var(--soltex-navy);
+      color: var(--soltex-white);
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+      will-change: transform;
+    }
+    #shopify-section-{{ section.id }} .soltex-hero__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+
+    /* Animations (scoped) */
+    @keyframes soltex-fadeUp-{{ section.id }} { from { opacity: 0; transform: translateY(28px);} to { opacity: 1; transform: translateY(0);} }
+    @keyframes soltex-zoomIn-{{ section.id }} { from { opacity: 0; transform: scale(.97);} to { opacity: 1; transform: scale(1);} }
+
+    /* Mobile tweaks */
+    @media (max-width: 768px) {
+      #shopify-section-{{ section.id }} .soltex-hero__stage { border-radius: 0; }
+    }
+  </style>
 </section>
+
+{% schema %}
+{
+  "name": "SOLTEX – Hero",
+  "settings": [
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "label": "Overlay opacity (%)",
+      "default": 75
+    },
+
+    { "type": "header", "content": "Content" },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Soluciones textiles para la industria moderna"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Distribuimos maquinaria, refacciones y automatización textil en México y Centroamérica."
+    },
+
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Ver catálogo" },
+    { "type": "url", "id": "button_url", "label": "Button URL" }
+  ],
+  "presets": [
+    { "name": "SOLTEX – Hero" }
+  ]
+}
+{% endschema %}
