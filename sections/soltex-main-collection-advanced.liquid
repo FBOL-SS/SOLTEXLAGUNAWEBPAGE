@@ -61,6 +61,7 @@
   <h1 class="title">{{ section.settings.title | default: collection.title }}</h1>
 
   <div class="container">
+    <!-- SIDEBAR (FILTROS) -->
     <aside class="sidebar">
       <form id="FacetFiltersForm" method="get" action="{{ collection.url }}">
         {% for filter in collection.filters %}
@@ -95,9 +96,19 @@
                          placeholder="{{ cart.currency.symbol }}9999"
                          {% if filter.max_value.value %}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
                 </div>
+
+              {% when 'boolean' %}
+                <label>
+                  <input type="checkbox"
+                         name="{{ filter.values.first.param_name }}"
+                         value="true"
+                         {% if filter.values.first.active %}checked{% endif %}>
+                  <span>{{ filter.label }}</span>
+                </label>
             {% endcase %}
           </div>
         {% endfor %}
+
         <div class="filter-actions">
           <button class="btn primary" type="submit">Aplicar filtros</button>
           <a class="btn link" href="{{ collection.url }}">Limpiar</a>
@@ -105,16 +116,34 @@
       </form>
     </aside>
 
+    <!-- LISTADO + ORDEN -->
     <div>
       <div class="toolbar">
         <div class="count">{{ collection.products_count }} productos</div>
         <form class="sort" method="get">
+          {%- comment -%} preserva filtros activos al reordenar {%- endcomment -%}
+          {%- for filter in collection.filters -%}
+            {%- for val in filter.active_values -%}
+              <input type="hidden" name="{{ val.param_name }}" value="{{ val.value | escape }}">
+            {%- endfor -%}
+            {%- if filter.type == 'price_range' -%}
+              {%- if filter.min_value.value -%}
+                <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
+              {%- endif -%}
+              {%- if filter.max_value.value -%}
+                <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
           <label for="sort_by" class="visually-hidden">Ordenar por</label>
           <select id="sort_by" name="sort_by" onchange="this.form.submit()">
-            <option value="best-selling">Más vendidos</option>
-            <option value="price-ascending">Precio: bajo a alto</option>
-            <option value="price-descending">Precio: alto a bajo</option>
-            <option value="created-descending">Novedades</option>
+            <option value="best-selling" {% if collection.sort_by == "best-selling" %}selected{% endif %}>Más vendidos</option>
+            <option value="title-ascending" {% if collection.sort_by == "title-ascending" %}selected{% endif %}>A–Z</option>
+            <option value="title-descending" {% if collection.sort_by == "title-descending" %}selected{% endif %}>Z–A</option>
+            <option value="price-ascending" {% if collection.sort_by == "price-ascending" %}selected{% endif %}>Precio: bajo a alto</option>
+            <option value="price-descending" {% if collection.sort_by == "price-descending" %}selected{% endif %}>Precio: alto a bajo</option>
+            <option value="created-descending" {% if collection.sort_by == "created-descending" %}selected{% endif %}>Novedades</option>
           </select>
         </form>
       </div>
@@ -133,7 +162,7 @@
 
                 <a class="media" href="{{ product.url | within: collection }}">
                   {% if featured %}
-                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
+                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
                   {% else %}
                     {{ 'product-1' | placeholder_svg_tag }}
                   {% endif %}
@@ -141,7 +170,13 @@
 
                 <div class="info">
                   <p class="name">{{ product.title }}</p>
-                  <p class="price">{{ product.price | money }}</p>
+                  <p class="price">
+                    {% if product.price_varies %}
+                      Desde {{ product.price_min | money }}
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+                  </p>
                   <p class="meta {% unless first_avail.available %}oos{% endunless %}">
                     {% if first_avail.available %}Disponible{% else %}Agotado{% endif %}
                   </p>
@@ -155,6 +190,7 @@
                   </form>
                 </div>
 
+                {%- comment -%} JSON embebido para Quick View (sin fetch externo) {%- endcomment -%}
                 <script type="application/json" class="qv-json">{{ product | json }}</script>
               </div>
             {% endfor %}
@@ -172,21 +208,23 @@
             </nav>
           {% endif %}
         {% else %}
-          <p>No hay productos disponibles.</p>
+          <p>No hay productos disponibles con estos filtros.</p>
         {% endif %}
       {% endpaginate %}
     </div>
   </div>
 </section>
 
-<div id="qv-{{ section.id }}" class="modal">
+<!-- QUICK VIEW MODAL -->
+<div id="qv-{{ section.id }}" class="modal" role="dialog" aria-modal="true" aria-label="Vista rápida">
   <div class="box">
-    <button class="close" type="button">✕</button>
+    <button class="close" type="button">Cerrar ✕</button>
     <div class="media"><img alt="" width="800" height="800" /></div>
     <div class="content">
       <h3></h3>
       <p class="price"></p>
       <p class="avail"></p>
+
       <form class="qv-form" action="{{ routes.cart_add_url }}" method="post">
         <div class="qty">
           <label for="qv-qty-{{ section.id }}">Cantidad</label>
@@ -195,7 +233,10 @@
         <input type="hidden" name="id" value="">
         <button class="addtocart" type="submit">Agregar al carrito</button>
       </form>
-      <p style="margin-top:10px"><a class="goto" href="#">Ver producto completo</a></p>
+
+      <p style="margin-top:10px">
+        <a class="goto" href="#">Ver detalle del producto</a>
+      </p>
     </div>
   </div>
 </div>
@@ -203,7 +244,9 @@
 <script>
 (function(){
   const modal = document.getElementById('qv-{{ section.id }}');
-  const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+  if(!modal) return;
+
+  const sectionEl = document.getElementById('shopify-section-{{ section.id }}') || document;
   const imgEl = modal.querySelector('.media img');
   const titleEl = modal.querySelector('h3');
   const priceEl = modal.querySelector('.price');
@@ -215,62 +258,126 @@
   const gotoLink = modal.querySelector('.goto');
   const closeBtn = modal.querySelector('.close');
 
+  // mini toast
+  function toast(msg, ok){
+    let t = document.getElementById('qv-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.id = 'qv-toast';
+      t.style.position='fixed'; t.style.right='16px'; t.style.bottom='16px';
+      t.style.padding='10px 14px'; t.style.borderRadius='10px';
+      t.style.color='#fff'; t.style.zIndex='10000'; t.style.fontWeight='700';
+      document.body.appendChild(t);
+    }
+    t.style.background = ok ? '#16a34a' : '#ef4444';
+    t.textContent = msg;
+    t.style.opacity='1';
+    setTimeout(()=>{ t.style.transition='opacity .3s'; t.style.opacity='0'; }, 1500);
+  }
+
   const fmt = (m)=>Shopify.formatMoney(m, {{ shop.money_format | json }});
   const openModal=()=>modal.classList.add('open');
   const closeModal=()=>modal.classList.remove('open');
 
   closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', e=>{if(e.target===modal)closeModal();});
-  document.addEventListener('keydown', e=>{if(e.key==='Escape')closeModal();});
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
+  // Abrir Quick View desde las cards
   sectionEl.addEventListener('click', e=>{
     const btn=e.target.closest('[data-qv]');
-    if(!btn)return;
+    if(!btn) return;
     e.preventDefault();
+
     const card=btn.closest('.card');
     const jsonTag=card.querySelector('.qv-json');
-    const p=JSON.parse(jsonTag.textContent);
+    if(!jsonTag) return;
 
-    titleEl.textContent=p.title;
-    gotoLink.href=card.getAttribute('data-product-url');
-    const img=p.images?.[0];
-    imgEl.src=img;imgEl.alt=p.title;
+    let p;
+    try { p = JSON.parse(jsonTag.textContent); } catch { return; }
 
-    const v=p.variants.find(x=>x.available)||p.variants[0];
-    priceEl.textContent=fmt(v.price);
-    variantInput.value=v.id;
-    addBtn.disabled=!v.available;
-    availEl.textContent=v.available?'Disponible':'Agotado';
-    availEl.classList.toggle('oos',!v.available);
-    availEl.classList.toggle('ok',v.available);
+    titleEl.textContent=p.title || '';
+    gotoLink.href=card.getAttribute('data-product-url') || ('/products/' + p.handle);
 
+    const img=(p.images && p.images.length)? p.images[0] : null;
+    if(img){ imgEl.src=img; imgEl.alt=p.title || ''; } else { imgEl.removeAttribute('src'); imgEl.alt=''; }
+
+    const v=(p.variants||[]).find(x=>x.available) || (p.variants||[])[0];
+    if(v){
+      priceEl.textContent=fmt(v.price);
+      variantInput.value=v.id;
+      addBtn.disabled=!v.available;
+      availEl.textContent=v.available?'Disponible':'Agotado';
+      availEl.classList.toggle('oos',!v.available);
+      availEl.classList.toggle('ok',v.available);
+    }else{
+      priceEl.textContent=''; variantInput.value=''; addBtn.disabled=true;
+      availEl.textContent='Agotado'; availEl.classList.add('oos'); availEl.classList.remove('ok');
+    }
+
+    qtyInput.value=1;
     openModal();
   });
 
   async function updateCartCount(){
     try{
-      const res=await fetch('/cart.js');
-      const cart=await res.json();
-      const count=cart.item_count||0;
+      const r = await fetch('/cart.js', { credentials:'same-origin' });
+      if(!r.ok) return;
+      const cart = await r.json();
+      const count = cart.item_count || 0;
       document.querySelectorAll('.cart-count-bubble,[data-cart-count]').forEach(el=>{
-        el.textContent=count;
-        el.setAttribute('data-cart-count',count);
+        el.textContent = count;
+        el.setAttribute('data-cart-count', count);
       });
-    }catch(e){}
+    }catch{}
   }
 
+  // ADD TO CART por AJAX (sin redirección)
   formEl.addEventListener('submit', async e=>{
     e.preventDefault();
-    addBtn.disabled=true;
-    addBtn.textContent='Agregando...';
-    const fd=new FormData(formEl);
+
+    const id = variantInput.value;
+    const qty = qtyInput.value || 1;
+    if(!id){ toast('Variante no disponible', false); return; }
+
+    addBtn.disabled = true;
+    const prev = addBtn.textContent;
+    addBtn.textContent = 'Agregando…';
+
     try{
-      const r=await fetch('{{ routes.cart_add_url }}.json',{method:'POST',body:fd,headers:{Accept:'application/json'}});
-      if(!r.ok){formEl.submit();return;}
+      const fd = new FormData();
+      fd.append('id', id);
+      fd.append('quantity', qty);
+
+      const res = await fetch('{{ routes.cart_add_url }}.js', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Accept': 'application/json' },
+        body: fd
+      });
+
+      if(!res.ok){
+        const txt = await res.text();
+        console.warn('cart/add error', res.status, txt);
+        addBtn.disabled = false;
+        addBtn.textContent = prev;
+        toast('No se pudo agregar (ID/stock)', false);
+        return;
+      }
+
+      await res.json();
       await updateCartCount();
-      addBtn.textContent='Agregado ✓';
-      setTimeout(()=>{addBtn.textContent='Agregar al carrito';addBtn.disabled=false;closeModal();},800);
-    }catch{formEl.submit();}
+
+      addBtn.textContent = 'Agregado ✓';
+      toast('Agregado al carrito', true);
+      setTimeout(()=>{ addBtn.textContent = prev; addBtn.disabled = false; closeModal(); }, 800);
+
+    }catch(err){
+      console.warn('fetch error', err);
+      addBtn.disabled = false;
+      addBtn.textContent = prev;
+      toast('Error de red', false);
+    }
   });
 })();
 </script>
@@ -279,10 +386,10 @@
 {
   "name": "soltex-main-collection",
   "settings": [
-    {"type": "text","id": "title","label": "Título","default": "Catálogo de productos"},
-    {"type": "checkbox","id": "show_counts","label": "Mostrar conteo","default": true},
-    {"type": "range","id": "per_page","label": "Productos por página","min": 8,"max": 48,"step": 4,"default": 12}
+    { "type": "text", "id": "title", "label": "Título", "default": "Catálogo de productos" },
+    { "type": "checkbox", "id": "show_counts", "label": "Mostrar conteo en filtros", "default": true },
+    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 8, "max": 48, "step": 4, "default": 12 }
   ],
-  "presets": [{"name": "soltex-main-collection-advanced"}]
+  "presets": [{ "name": "soltex-main-collection-advanced" }]
 }
 {% endschema %}
