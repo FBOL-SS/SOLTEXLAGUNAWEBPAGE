@@ -1,106 +1,168 @@
-<section class="about-wrap" aria-label="Quiénes somos">
-  <div class="about-inner">
-    <h1 class="title">{{ section.settings.title }}</h1>
-    <p class="subtitle">{{ section.settings.subtitle }}</p>
+<style>
+  #shopify-section-{{ section.id }} {
+    --bg: {{ section.settings.background_color }};
+    --fg: {{ section.settings.text_color }};
+    --dim: color-mix(in srgb, {{ section.settings.text_color }} 85%, transparent);
+    --card: rgba(255,255,255,.06);
+    --bd: rgba(255,255,255,.18);
+  }
+  #shopify-section-{{ section.id }} .about-wrap{background:var(--bg);color:var(--fg)}
+  #shopify-section-{{ section.id }} .inner{max-width:min(1200px,92vw);margin:0 auto;padding:clamp(32px,6vw,80px) 16px;position:relative}
+  #shopify-section-{{ section.id }} .title{font:800 clamp(28px,4vw,44px)/1.15 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0 0 10px}
+  #shopify-section-{{ section.id }} .subtitle{font:400 clamp(15px,2.2vw,18px)/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0 0 26px;color:var(--dim)}
+  #shopify-section-{{ section.id }} .grid{display:grid;gap:18px}
+  @media(min-width:992px){#shopify-section-{{ section.id }} .cols-2{grid-template-columns:repeat(2,1fr)}.cols-3{grid-template-columns:repeat(3,1fr)}.cols-4{grid-template-columns:repeat(4,1fr)}}
+  #shopify-section-{{ section.id }} .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.16);padding:18px}
+  #shopify-section-{{ section.id }} .kpi{text-align:center}
+  #shopify-section-{{ section.id }} .kpi .n{font:800 clamp(24px,4vw,38px)/1 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  #shopify-section-{{ section.id }} .kpi .l{font-size:14px;color:var(--dim)}
+  #shopify-section-{{ section.id }} .value{display:flex;gap:12px;align-items:flex-start}
+  #shopify-section-{{ section.id }} .value .icon{width:36px;height:36px;border-radius:10px;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-weight:700}
+  #shopify-section-{{ section.id }} .value h4{margin:0 0 6px;font:800 16px/1.2 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  #shopify-section-{{ section.id }} .value p{margin:0;font-size:14px;color:var(--dim);line-height:1.6}
+  #shopify-section-{{ section.id }} .timeline .row{display:grid;gap:12px;grid-template-columns:90px 1fr}
+  #shopify-section-{{ section.id }} .timeline .yr{font:800 16px/1.2 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  #shopify-section-{{ section.id }} .timeline .txt{color:var(--dim)}
+  #shopify-section-{{ section.id }} .team .person{display:flex;gap:12px;align-items:center}
+  #shopify-section-{{ section.id }} .team .ph{width:64px;height:64px;border-radius:50%;overflow:hidden;background:#e5e7eb;border:1px solid var(--bd)}
+  #shopify-section-{{ section.id }} .team .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  #shopify-section-{{ section.id }} .team .nm{font:700 15px/1.2 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  #shopify-section-{{ section.id }} .team .rl{font-size:13px;opacity:.9}
+  #shopify-section-{{ section.id }} .team .bio{font-size:14px;color:var(--dim);margin-top:6px}
+  #shopify-section-{{ section.id }} .cta{text-align:center;margin-top:24px}
+  #shopify-section-{{ section.id }} .btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid var(--bd);color:var(--fg);text-decoration:none;font-weight:700}
+  #shopify-section-{{ section.id }} .btn:hover{background:rgba(255,255,255,.15)}
+  #shopify-section-{{ section.id }} .block + .block{margin-top:clamp(22px,4vw,36px)}
+  #shopify-section-{{ section.id }} .bg-img{position:absolute;inset:0}
+  #shopify-section-{{ section.id }} .bg-img img{width:100%;height:100%;object-fit:cover;display:block}
+  #shopify-section-{{ section.id }} .overlay{position:absolute;inset:0;background:#0d1b2a}
+</style>
 
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'mission' %}
-          <div class="block">
-            <h2>{{ block.settings.heading }}</h2>
-            <p>{{ block.settings.text }}</p>
-          </div>
-        {% when 'value' %}
-          <div class="block">
-            <h3>{{ block.settings.title }}</h3>
-            <p>{{ block.settings.desc }}</p>
-          </div>
-        {% when 'timeline' %}
-          <div class="block">
-            <strong>{{ block.settings.year }}</strong> — {{ block.settings.event }}
-          </div>
-      {% endcase %}
-    {% endfor %}
+<section class="about-wrap" aria-label="Quiénes somos">
+  {% if section.settings.background_style == 'image' and section.settings.background_image != blank %}
+    <div class="bg-img">
+      {{ section.settings.background_image | image_url: width: 2200 | image_tag: loading: 'lazy', sizes: '100vw' }}
+    </div>
+    <div class="overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}"></div>
+  {% endif %}
+
+  <div class="inner">
+    {% if section.settings.title != blank %}<h1 class="title">{{ section.settings.title | escape }}</h1>{% endif %}
+    {% if section.settings.subtitle != blank %}<p class="subtitle">{{ section.settings.subtitle }}</p>{% endif %}
+
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'mission' %}
+            <div class="block card" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}<h2 class="title" style="font-size:clamp(22px,3vw,28px)">{{ block.settings.heading | escape }}</h2>{% endif %}
+              {% if block.settings.text != blank %}<p class="subtitle" style="margin:0">{{ block.settings.text }}</p>{% endif %}
+            </div>
+
+          {% when 'kpi' %}
+            <div class="block grid cols-{{ section.settings.kpi_columns }}" {{ block.shopify_attributes }}>
+              <div class="card kpi">
+                <div class="n">{{ block.settings.number | escape }}</div>
+                {% if block.settings.label != blank %}<div class="l">{{ block.settings.label | escape }}</div>{% endif %}
+              </div>
+            </div>
+
+          {% when 'value' %}
+            <div class="block grid cols-{{ section.settings.value_columns }}" {{ block.shopify_attributes }}>
+              <article class="card value">
+                <div class="icon" aria-hidden="true">{{ block.settings.icon | default: '★' }}</div>
+                <div>
+                  {% if block.settings.title != blank %}<h4>{{ block.settings.title | escape }}</h4>{% endif %}
+                  {% if block.settings.desc != blank %}<p>{{ block.settings.desc }}</p>{% endif %}
+                </div>
+              </article>
+            </div>
+
+          {% when 'timeline' %}
+            <div class="block timeline card" {{ block.shopify_attributes }}>
+              <div class="row">
+                {% if block.settings.year != blank %}<div class="yr">{{ block.settings.year | escape }}</div>{% endif %}
+                <div class="txt">
+                  {% if block.settings.title != blank %}<strong>{{ block.settings.title | escape }}</strong>{% endif %}
+                  {% if block.settings.text != blank %}<p style="margin:6px 0 0">{{ block.settings.text }}</p>{% endif %}
+                </div>
+              </div>
+            </div>
+
+          {% when 'team' %}
+            <div class="block team card" {{ block.shopify_attributes }}>
+              <div class="person">
+                <div class="ph">
+                  {% if block.settings.photo != blank %}
+                    {{ block.settings.photo | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name | escape }}
+                  {% endif %}
+                </div>
+                <div>
+                  {% if block.settings.name != blank %}<div class="nm">{{ block.settings.name | escape }}</div>{% endif %}
+                  {% if block.settings.role != blank %}<div class="rl">{{ block.settings.role | escape }}</div>{% endif %}
+                  {% if block.settings.bio != blank %}<div class="bio">{{ block.settings.bio }}</div>{% endif %}
+                </div>
+              </div>
+            </div>
+
+          {% when 'cta' %}
+            <div class="block cta" {{ block.shopify_attributes }}>
+              {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
+                <a class="btn" href="{{ block.settings.cta_url }}">{{ block.settings.cta_label }}</a>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "SOLTEX - Quiénes somos",
+  "name": "SOLTEX – Quiénes somos",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Título",
-      "default": "Quiénes somos"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtítulo",
-      "default": "Soluciones industriales para el sector textil moderno."
-    }
+    { "type": "text", "id": "title", "label": "Título", "default": "Quiénes somos" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Experiencia textil para la industria moderna." },
+    { "type": "select", "id": "background_style", "label": "Fondo", "options": [
+      { "value": "solid", "label": "Sólido" }, { "value": "image", "label": "Imagen" }
+    ], "default": "solid" },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#0d1b2a" },
+    { "type": "image_picker", "id": "background_image", "label": "Imagen de fondo" },
+    { "type": "range", "id": "overlay_opacity", "label": "Opacidad overlay (%)", "min": 0, "max": 100, "step": 5, "default": 60 },
+    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#ffffff" },
+    { "type": "range", "id": "kpi_columns", "label": "Columnas KPIs (desktop)", "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "value_columns", "label": "Columnas valores (desktop)", "min": 2, "max": 4, "step": 1, "default": 3 }
   ],
   "blocks": [
-    {
-      "type": "mission",
-      "name": "Misión",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Encabezado",
-          "default": "Nuestra misión"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Texto",
-          "default": "Impulsar la productividad textil en América Latina con innovación y servicio técnico."
-        }
-      ]
-    },
-    {
-      "type": "value",
-      "name": "Valor",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Título del valor",
-          "default": "Compromiso"
-        },
-        {
-          "type": "textarea",
-          "id": "desc",
-          "label": "Descripción",
-          "default": "Cada cliente recibe atención personalizada y soluciones a medida."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "name": "Hito de la historia",
-      "settings": [
-        {
-          "type": "text",
-          "id": "year",
-          "label": "Año",
-          "default": "2012"
-        },
-        {
-          "type": "text",
-          "id": "event",
-          "label": "Evento",
-          "default": "Nace SOLTEX en Monterrey, México."
-        }
-      ]
-    }
+    { "type": "mission", "name": "Misión/Texto", "settings": [
+      { "type": "text", "id": "heading", "label": "Encabezado", "default": "Nuestra misión" },
+      { "type": "textarea", "id": "text", "label": "Contenido", "default": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización." }
+    ]},
+    { "type": "kpi", "name": "KPI/Estadística", "settings": [
+      { "type": "text", "id": "number", "label": "Número", "default": "500+" },
+      { "type": "text", "id": "label", "label": "Etiqueta", "default": "Clientes atendidos" }
+    ]},
+    { "type": "value", "name": "Valor", "settings": [
+      { "type": "text", "id": "icon", "label": "Icono (texto/SVG corto)" },
+      { "type": "text", "id": "title", "label": "Título", "default": "Confiabilidad" },
+      { "type": "textarea", "id": "desc", "label": "Descripción", "default": "Respaldo técnico cuando más se necesita." }
+    ]},
+    { "type": "timeline", "name": "Hito (timeline)", "settings": [
+      { "type": "text", "id": "year", "label": "Año", "default": "2012" },
+      { "type": "text", "id": "title", "label": "Título", "default": "Nace SOLTEX" },
+      { "type": "textarea", "id": "text", "label": "Descripción", "default": "Comenzamos en Monterrey con maquinaria de confección." }
+    ]},
+    { "type": "team", "name": "Miembro del equipo", "settings": [
+      { "type": "image_picker", "id": "photo", "label": "Foto" },
+      { "type": "text", "id": "name", "label": "Nombre", "default": "María López" },
+      { "type": "text", "id": "role", "label": "Rol", "default": "Directora Comercial" },
+      { "type": "textarea", "id": "bio", "label": "Bio" }
+    ]},
+    { "type": "cta", "name": "Botón CTA", "settings": [
+      { "type": "text", "id": "cta_label", "label": "Texto del botón", "default": "Ver catálogo" },
+      { "type": "url", "id": "cta_url", "label": "URL del botón" }
+    ]}
   ],
-  "presets": [
-    {
-      "name": "Página Quiénes Somos (SOLTEX)"
-    }
-  ]
+  "presets": [{ "name": "SOLTEX – Quiénes somos" }]
 }
 {% endschema %}
