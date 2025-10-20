@@ -125,27 +125,25 @@
         </p>
       {% endif %}
 
-      {% form 'product', product, id: 'product-form-' | append: section.id %}
+      {%- capture form_id -%}product-form-{{ section.id }}{%- endcapture -%}
+      {% form 'product', product, id: form_id %}
         <input type="hidden" name="id" value="{{ v.id }}" id="variant-id-{{ section.id }}">
 
-        {%- comment -%} Oculta el selector cuando solo hay 1 opción "Title" con un solo valor {%- endcomment -%}
-{% for opt in product.options_with_values %}
-  {%- comment -%}
-    Oculta el selector cuando SOLO hay 1 variante y la opción se llama exactamente "Title".
-  {%- endcomment -%}
-  {% unless product.variants.size == 1 and opt.values.size == 1 and opt.name == 'Title' %}
-    <div class="variant-group">
-      <label class="variant-label" for="opt-{{ section.id }}-{{ forloop.index0 }}">{{ opt.name }}</label>
-      <select id="opt-{{ section.id }}-{{ forloop.index0 }}" class="variant-select" data-index="{{ forloop.index0 }}">
-        {% for val in opt.values %}
-          {% assign sel = '' %}
-          {% if val == product.selected_or_first_available_variant.options[forloop.parentloop.index0] %}{% assign sel = 'selected' %}{% endif %}
-          <option value="{{ val | escape }}" {{ sel }}>{{ val }}</option>
+        {%- comment -%} Oculta el selector cuando solo hay 1 variante y la opción se llama "Title" {%- endcomment -%}
+        {% for opt in product.options_with_values %}
+          {% unless product.variants.size == 1 and opt.values.size == 1 and opt.name == 'Title' %}
+            <div class="variant-group">
+              <label class="variant-label" for="opt-{{ section.id }}-{{ forloop.index0 }}">{{ opt.name }}</label>
+              <select id="opt-{{ section.id }}-{{ forloop.index0 }}" class="variant-select" data-index="{{ forloop.index0 }}">
+                {% for val in opt.values %}
+                  {% assign sel = '' %}
+                  {% if val == product.selected_or_first_available_variant.options[forloop.parentloop.index0] %}{% assign sel = 'selected' %}{% endif %}
+                  <option value="{{ val | escape }}" {{ sel }}>{{ val }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endunless %}
         {% endfor %}
-      </select>
-    </div>
-  {% endunless %}
-{% endfor %}
 
         <div class="qty-row">
           <label for="qty-{{ section.id }}">Cantidad</label>
@@ -235,8 +233,8 @@
         type: {{ m.media_type | json }},
         src: {% if m.media_type == 'image' %}
                {{ m | image_url: width: 1200 | json }}
-             {% elsif m.media_type == 'video' %}
-               {{ m.sources[0].url | json }}
+             {% elsif m.media_type == 'video' and m.sources and m.sources.first %}
+               {{ m.sources.first.url | json }}
              {% else %}
                null
              {% endif %}
@@ -260,7 +258,7 @@
   var availEl = root.querySelector('#avail-{{ section.id }}');
   var variantInput = root.querySelector('#variant-id-{{ section.id }}');
   var addBtn = root.querySelector('#add-{{ section.id }}');
-  var form = root.querySelector('form[action*="/cart/add"]'); // robusto: no depende de id exacto
+  var form = root.querySelector('form[action*="/cart/add"]'); // robusto
 
   function getCurrentOptions(){
     var selects = root.querySelectorAll('.variant-select');
