@@ -62,6 +62,50 @@
           "show_payments": true,
           "show_back_to_top": true
         }
+      },
+      "soltex-about": {
+        "type": "soltex-about",
+        "blocks": {
+          "kpi_hAwjCb": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          },
+          "kpi_YEWRw7": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          },
+          "kpi_yQHUT4": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          }
+        },
+        "block_order": [
+          "kpi_hAwjCb",
+          "kpi_YEWRw7",
+          "kpi_yQHUT4"
+        ],
+        "settings": {
+          "tone": "light",
+          "container_max": 1100,
+          "content_align": "center",
+          "background_style": "solid",
+          "background_color": "#f8fafc",
+          "text_color": "#0d1b2a",
+          "overlay_opacity": 40,
+          "kpi_columns": 3,
+          "value_columns": 3,
+          "title": "Quiénes somos",
+          "subtitle": "Experiencia textil para la industria moderna."
+        }
       }
     },
     "content_for_index": []
