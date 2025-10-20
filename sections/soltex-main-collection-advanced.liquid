@@ -2,8 +2,8 @@
   #shopify-section-{{ section.id }}{
     --bg:#f8fafc; --fg:#0d1b2a; --bd:#e5e7eb; --muted:#475569; --card:#ffffff;
   }
-  #shopify-section-{{ section.id }} .wrap{background:var(--bg);color:var(--fg); padding:clamp(28px,5vw,64px) 16px;}
-  #shopify-section-{{ section.id }} .container{max-width:1240px;margin:0 auto; display:grid; gap:22px;}
+  #shopify-section-{{ section.id }} .wrap{background:var(--bg);color:var(--fg);padding:clamp(28px,5vw,64px) 16px;}
+  #shopify-section-{{ section.id }} .container{max-width:1240px;margin:0 auto;display:grid;gap:22px;}
   @media(min-width:1024px){ #shopify-section-{{ section.id }} .container{ grid-template-columns: 280px 1fr; } }
 
   .title{font:800 clamp(26px,4vw,40px)/1.1 Poppins,system-ui;margin:0 0 10px;text-align:center;}
@@ -31,7 +31,6 @@
 
   .card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff;transition:all .25s}
   .card:hover{box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
-  .card a{color:inherit;text-decoration:none}
   .media img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
   .info{padding:12px;text-align:center}
   .name{font-weight:600;font-size:15px;margin:0 0 4px;min-height:40px}
@@ -62,7 +61,6 @@
   <h1 class="title">{{ section.settings.title | default: collection.title }}</h1>
 
   <div class="container">
-    <!-- SIDEBAR FILTERS -->
     <aside class="sidebar">
       <form id="FacetFiltersForm" method="get" action="{{ collection.url }}">
         {% for filter in collection.filters %}
@@ -97,19 +95,9 @@
                          placeholder="{{ cart.currency.symbol }}9999"
                          {% if filter.max_value.value %}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
                 </div>
-
-              {% when 'boolean' %}
-                <label>
-                  <input type="checkbox"
-                         name="{{ filter.values.first.param_name }}"
-                         value="true"
-                         {% if filter.values.first.active %}checked{% endif %}>
-                  <span>{{ filter.label }}</span>
-                </label>
             {% endcase %}
           </div>
         {% endfor %}
-
         <div class="filter-actions">
           <button class="btn primary" type="submit">Aplicar filtros</button>
           <a class="btn link" href="{{ collection.url }}">Limpiar</a>
@@ -117,33 +105,16 @@
       </form>
     </aside>
 
-    <!-- PRODUCTS + SORT -->
     <div>
       <div class="toolbar">
         <div class="count">{{ collection.products_count }} productos</div>
         <form class="sort" method="get">
-          {%- for filter in collection.filters -%}
-            {%- for val in filter.active_values -%}
-              <input type="hidden" name="{{ val.param_name }}" value="{{ val.value | escape }}">
-            {%- endfor -%}
-            {%- if filter.type == 'price_range' -%}
-              {%- if filter.min_value.value -%}
-                <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-              {%- endif -%}
-              {%- if filter.max_value.value -%}
-                <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
-              {%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
-
           <label for="sort_by" class="visually-hidden">Ordenar por</label>
           <select id="sort_by" name="sort_by" onchange="this.form.submit()">
-            <option value="best-selling" {% if collection.sort_by == "best-selling" %}selected{% endif %}>Más vendidos</option>
-            <option value="title-ascending" {% if collection.sort_by == "title-ascending" %}selected{% endif %}>A–Z</option>
-            <option value="title-descending" {% if collection.sort_by == "title-descending" %}selected{% endif %}>Z–A</option>
-            <option value="price-ascending" {% if collection.sort_by == "price-ascending" %}selected{% endif %}>Precio: bajo a alto</option>
-            <option value="price-descending" {% if collection.sort_by == "price-descending" %}selected{% endif %}>Precio: alto a bajo</option>
-            <option value="created-descending" {% if collection.sort_by == "created-descending" %}selected{% endif %}>Novedades</option>
+            <option value="best-selling">Más vendidos</option>
+            <option value="price-ascending">Precio: bajo a alto</option>
+            <option value="price-descending">Precio: alto a bajo</option>
+            <option value="created-descending">Novedades</option>
           </select>
         </form>
       </div>
@@ -151,7 +122,6 @@
       {% paginate collection.products by section.settings.per_page %}
         {% if collection.products.size > 0 %}
           <div class="grid">
-            {%- comment -%} TARJETA DE PRODUCTO con JSON embebido para Quick View {%- endcomment -%}
             {% for product in collection.products %}
               {% assign featured = product.featured_image %}
               {% assign first_avail = product.selected_or_first_available_variant %}
@@ -163,7 +133,7 @@
 
                 <a class="media" href="{{ product.url | within: collection }}">
                   {% if featured %}
-                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
+                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
                   {% else %}
                     {{ 'product-1' | placeholder_svg_tag }}
                   {% endif %}
@@ -171,38 +141,25 @@
 
                 <div class="info">
                   <p class="name">{{ product.title }}</p>
-                  <p class="price">
-                    {%- if product.price_varies -%}
-                      Desde {{ product.price_min | money }}
-                    {%- else -%}
-                      {{ product.price | money }}
-                    {%- endif -%}
+                  <p class="price">{{ product.price | money }}</p>
+                  <p class="meta {% unless first_avail.available %}oos{% endunless %}">
+                    {% if first_avail.available %}Disponible{% else %}Agotado{% endif %}
                   </p>
-                  {% if first_avail.available %}
-                    <p class="meta">Disponible</p>
-                  {% else %}
-                    <p class="meta oos">Agotado</p>
-                  {% endif %}
                 </div>
 
                 <div class="actions">
                   <button class="btn qv" type="button" data-qv>Vista rápida</button>
                   <form action="{{ routes.cart_add_url }}" method="post">
                     <input type="hidden" name="id" value="{{ first_avail.id }}">
-                    <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>
-                      Agregar
-                    </button>
+                    <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>Agregar</button>
                   </form>
                 </div>
 
-                <script type="application/json" class="qv-json">
-                  {{ product | json }}
-                </script>
+                <script type="application/json" class="qv-json">{{ product | json }}</script>
               </div>
             {% endfor %}
           </div>
 
-          <!-- PAGINACIÓN INLINE -->
           {% if paginate.pages > 1 %}
             <nav class="pagination" role="navigation" style="text-align:center;margin-top:28px">
               {% if paginate.previous %}
@@ -215,23 +172,21 @@
             </nav>
           {% endif %}
         {% else %}
-          <p>No hay productos disponibles con estos filtros.</p>
+          <p>No hay productos disponibles.</p>
         {% endif %}
       {% endpaginate %}
     </div>
   </div>
 </section>
 
-<!-- QUICK VIEW MODAL -->
-<div id="qv-{{ section.id }}" class="modal" role="dialog" aria-modal="true" aria-label="Vista rápida">
+<div id="qv-{{ section.id }}" class="modal">
   <div class="box">
-    <button class="close" type="button">Cerrar ✕</button>
+    <button class="close" type="button">✕</button>
     <div class="media"><img alt="" width="800" height="800" /></div>
     <div class="content">
       <h3></h3>
       <p class="price"></p>
       <p class="avail"></p>
-
       <form class="qv-form" action="{{ routes.cart_add_url }}" method="post">
         <div class="qty">
           <label for="qv-qty-{{ section.id }}">Cantidad</label>
@@ -240,85 +195,82 @@
         <input type="hidden" name="id" value="">
         <button class="addtocart" type="submit">Agregar al carrito</button>
       </form>
-
-      <p style="margin-top:10px">
-        <a class="goto" href="#">Ver detalle del producto</a>
-      </p>
+      <p style="margin-top:10px"><a class="goto" href="#">Ver producto completo</a></p>
     </div>
   </div>
 </div>
 
 <script>
 (function(){
-  var modal = document.getElementById('qv-{{ section.id }}');
-  if(!modal) return;
+  const modal = document.getElementById('qv-{{ section.id }}');
+  const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+  const imgEl = modal.querySelector('.media img');
+  const titleEl = modal.querySelector('h3');
+  const priceEl = modal.querySelector('.price');
+  const availEl = modal.querySelector('.avail');
+  const formEl = modal.querySelector('.qv-form');
+  const variantInput = formEl.querySelector('input[name="id"]');
+  const qtyInput = formEl.querySelector('input[name="quantity"]');
+  const addBtn = formEl.querySelector('.addtocart');
+  const gotoLink = modal.querySelector('.goto');
+  const closeBtn = modal.querySelector('.close');
 
-  var imgEl = modal.querySelector('.media img');
-  var titleEl = modal.querySelector('h3');
-  var priceEl = modal.querySelector('.price');
-  var availEl = modal.querySelector('.avail');
-  var formEl = modal.querySelector('.qv-form');
-  var variantInput = formEl.querySelector('input[name="id"]');
-  var gotoLink = modal.querySelector('.goto');
+  const fmt = (m)=>Shopify.formatMoney(m, {{ shop.money_format | json }});
+  const openModal=()=>modal.classList.add('open');
+  const closeModal=()=>modal.classList.remove('open');
 
-  function fmt(m){ try { return Shopify.formatMoney(m, {{ shop.money_format | json }}) } catch(e){ return m; } }
-  function openModal(){ modal.classList.add('open'); document.documentElement.style.scrollBehavior='auto'; }
-  function closeModal(){ modal.classList.remove('open'); }
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown', e=>{if(e.key==='Escape')closeModal();});
 
-  modal.querySelector('.close').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
-
-  // Delegación dentro de la sección
-  var sectionEl = document.getElementById('shopify-section-{{ section.id }}') || document;
-
-  sectionEl.addEventListener('click', function(e){
-    var btn = e.target.closest('[data-qv]');
-    if(!btn) return;
-
+  sectionEl.addEventListener('click', e=>{
+    const btn=e.target.closest('[data-qv]');
+    if(!btn)return;
     e.preventDefault();
-    var card = btn.closest('.card');
-    if(!card) return;
+    const card=btn.closest('.card');
+    const jsonTag=card.querySelector('.qv-json');
+    const p=JSON.parse(jsonTag.textContent);
 
-    // Lee JSON embebido
-    var jsonTag = card.querySelector('.qv-json');
-    if(!jsonTag) return;
+    titleEl.textContent=p.title;
+    gotoLink.href=card.getAttribute('data-product-url');
+    const img=p.images?.[0];
+    imgEl.src=img;imgEl.alt=p.title;
 
-    var p;
-    try { p = JSON.parse(jsonTag.textContent); } catch(err){ return; }
-
-    // Título y enlace
-    titleEl.textContent = p.title || '';
-    gotoLink.href = card.getAttribute('data-product-url') || ('/products/' + p.handle);
-
-    // Imagen
-    var firstImg = (p.images && p.images.length) ? p.images[0] : null;
-    if(firstImg){ imgEl.src = firstImg; imgEl.alt = p.title || ''; }
-    else { imgEl.removeAttribute('src'); imgEl.alt = ''; }
-
-    // Variante disponible
-    var v = (p.variants || []).find(function(x){ return x.available; }) || (p.variants || [])[0];
-    if(v){
-      priceEl.textContent = fmt(v.price);
-      variantInput.value = v.id;
-      formEl.querySelector('button[type="submit"]').disabled = !v.available;
-      availEl.textContent = v.available ? 'Disponible' : 'Agotado';
-      availEl.classList.toggle('oos', !v.available);
-      availEl.classList.toggle('ok', !!v.available);
-    } else {
-      priceEl.textContent = '';
-      variantInput.value = '';
-      formEl.querySelector('button[type="submit"]').disabled = true;
-      availEl.textContent = 'Agotado';
-      availEl.classList.add('oos');
-      availEl.classList.remove('ok');
-    }
+    const v=p.variants.find(x=>x.available)||p.variants[0];
+    priceEl.textContent=fmt(v.price);
+    variantInput.value=v.id;
+    addBtn.disabled=!v.available;
+    availEl.textContent=v.available?'Disponible':'Agotado';
+    availEl.classList.toggle('oos',!v.available);
+    availEl.classList.toggle('ok',v.available);
 
     openModal();
   });
 
-  // Esc para cerrar
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeModal();
+  async function updateCartCount(){
+    try{
+      const res=await fetch('/cart.js');
+      const cart=await res.json();
+      const count=cart.item_count||0;
+      document.querySelectorAll('.cart-count-bubble,[data-cart-count]').forEach(el=>{
+        el.textContent=count;
+        el.setAttribute('data-cart-count',count);
+      });
+    }catch(e){}
+  }
+
+  formEl.addEventListener('submit', async e=>{
+    e.preventDefault();
+    addBtn.disabled=true;
+    addBtn.textContent='Agregando...';
+    const fd=new FormData(formEl);
+    try{
+      const r=await fetch('{{ routes.cart_add_url }}.json',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+      if(!r.ok){formEl.submit();return;}
+      await updateCartCount();
+      addBtn.textContent='Agregado ✓';
+      setTimeout(()=>{addBtn.textContent='Agregar al carrito';addBtn.disabled=false;closeModal();},800);
+    }catch{formEl.submit();}
   });
 })();
 </script>
@@ -327,10 +279,10 @@
 {
   "name": "soltex-main-collection",
   "settings": [
-    { "type": "text", "id": "title", "label": "Título", "default": "Catálogo de productos" },
-    { "type": "checkbox", "id": "show_counts", "label": "Mostrar conteo en filtros", "default": true },
-    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 8, "max": 48, "step": 4, "default": 12 }
+    {"type": "text","id": "title","label": "Título","default": "Catálogo de productos"},
+    {"type": "checkbox","id": "show_counts","label": "Mostrar conteo","default": true},
+    {"type": "range","id": "per_page","label": "Productos por página","min": 8,"max": 48,"step": 4,"default": 12}
   ],
-  "presets": [{ "name": "soltex-main-collection-advanced" }]
+  "presets": [{"name": "soltex-main-collection-advanced"}]
 }
 {% endschema %}
