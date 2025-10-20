@@ -7,11 +7,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  {{ 'tailwind.css' | asset_url | stylesheet_tag }}
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   {{ content_for_header }}
   <style>
+    :root {
+      --navy: #0B2242;
+      --blue: #1C4E80;
+      --lightblue: #3BA3FF;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
     .hero-gradient {
-      background: linear-gradient(135deg, #0B2242 0%, #1C4E80 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
     }
     .timeline-item::before {
       content: '';
@@ -21,28 +29,15 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: #3BA3FF;
-      border: 3px solid #0B2242;
+      background: var(--lightblue);
+      border: 3px solid var(--navy);
     }
-    .brand-card {
+    .brand-card, .contact-card {
       transition: all 0.3s ease;
     }
-    .brand-card:hover {
+    .brand-card:hover, .contact-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    .tab-active {
-      border-bottom: 2px solid #3BA3FF;
-      color: #3BA3FF;
-    }
-    .gallery-thumbnail {
-      transition: all 0.2s ease;
-    }
-    .gallery-thumbnail:hover, .gallery-thumbnail.active {
-      border: 2px solid #3BA3FF;
-    }
-    .spec-item:nth-child(odd) {
-      background-color: #f8fafc;
     }
     .card-hover {
       transition: all 0.3s ease;
@@ -51,19 +46,32 @@
       transform: translateY(-5px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
+    .tab-active {
+      border-bottom: 2px solid var(--lightblue);
+      color: var(--lightblue);
+    }
+    .gallery-thumbnail {
+      transition: all 0.2s ease;
+    }
+    .gallery-thumbnail:hover, .gallery-thumbnail.active {
+      border: 2px solid var(--lightblue);
+    }
+    .spec-item:nth-child(odd) {
+      background-color: #f8fafc;
+    }
     .checkbox-custom {
       appearance: none;
       -webkit-appearance: none;
       width: 18px;
       height: 18px;
-      border: 2px solid #1C4E80;
+      border: 2px solid var(--blue);
       border-radius: 4px;
       outline: none;
       cursor: pointer;
       position: relative;
     }
     .checkbox-custom:checked {
-      background-color: #1C4E80;
+      background-color: var(--blue);
     }
     .checkbox-custom:checked::after {
       content: '✓';
@@ -74,25 +82,26 @@
       transform: translate(-50%, -50%);
       font-size: 12px;
     }
-    .contact-card {
-      transition: all 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    /* Fallbacks para SVGs */
     svg {
       width: 24px;
       height: 24px;
     }
-    svg[data-feather] {
-      width: 1.5rem;
-      height: 1.5rem;
+    /* Estilo para el menú móvil */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--navy);
+      padding: 1rem;
+    }
+    .mobile-menu.active {
+      display: block;
     }
   </style>
 </head>
-<body class="font-sans bg-white text-navy">
+<body class="bg-gray-100 text-gray-800">
   {% section 'header' %}
   {{ content_for_layout }}
   {% section 'footer' %}
@@ -101,63 +110,36 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof feather !== 'undefined') {
         feather.replace();
-      } else {
-        console.error('Feather Icons no está cargado');
       }
-      // Mobile menu toggle
-      const mobileMenuButton = document.querySelector('.md\\:hidden button');
-      if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', () => {
-          // Toggle mobile menu logic here
-        });
-      }
-      // Mega menu
-      document.querySelectorAll('.mega-menu-trigger').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const menu = trigger.nextElementSibling;
-          if (menu) menu.classList.toggle('hidden');
-        });
+
+      // Menú móvil
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.createElement('div');
+      mobileMenu.className = 'mobile-menu';
+      mobileMenu.innerHTML = `
+        <a href="/" class="block py-2 hover:text-lightblue">Inicio</a>
+        <div class="relative">
+          <a href="/collections/maquinas" class="block py-2 hover:text-lightblue">Máquinas</a>
+          <div class="pl-4">
+            <a href="/collections/maquinas?filter.p.tag=industrial" class="block py-1 hover:bg-blue-100">Máquinas Industriales</a>
+            <a href="/collections/maquinas?filter.p.tag=automation" class="block py-1 hover:bg-blue-100">Sistemas de Automatización</a>
+          </div>
+        </div>
+        <a href="/collections/refacciones" class="block py-2 hover:text-lightblue">Refacciones</a>
+        <a href="/pages/quienes-somos" class="block py-2 hover:text-lightblue">Quiénes Somos</a>
+        <a href="/pages/contacto" class="block py-2 hover:text-lightblue">Contacto</a>
+      `;
+      mobileMenuButton.parentElement.appendChild(mobileMenu);
+
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
       });
-      // Tab switching
-      const tabs = ['description', 'specs', 'reviews', 'support'];
-      tabs.forEach(tab => {
-        const tabElement = document.getElementById(`${tab}-tab`);
-        if (tabElement) {
-          tabElement.addEventListener('click', () => {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('nav button').forEach(el => {
-              el.classList.remove('tab-active', 'text-blue-600');
-              el.classList.add('text-gray-500');
-            });
-            const contentElement = document.getElementById(`${tab}-content`);
-            if (contentElement) contentElement.classList.remove('hidden');
-            tabElement.classList.add('tab-active', 'text-blue-600');
-            tabElement.classList.remove('text-gray-500');
-          });
+
+      // Cierra el menú al hacer clic fuera
+      document.addEventListener('click', function(e) {
+        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('active');
         }
-      });
-      // Image change
-      function changeImage(src) {
-        const mainImage = document.getElementById('main-image');
-        if (mainImage) mainImage.src = src;
-        document.querySelectorAll('.gallery-thumbnail').forEach(el => el.classList.remove('active'));
-        event.currentTarget.classList.add('active');
-      }
-      // FAQ toggle
-      document.querySelectorAll('button.faq-toggle').forEach(button => {
-        button.addEventListener('click', () => {
-          const content = button.nextElementSibling;
-          const icon = button.querySelector('i');
-          if (content.classList.contains('hidden')) {
-            content.classList.remove('hidden');
-            icon.setAttribute('data-feather', 'chevron-up');
-          } else {
-            content.classList.add('hidden');
-            icon.setAttribute('data-feather', 'chevron-down');
-          }
-          feather.replace();
-        });
       });
     });
   </script>

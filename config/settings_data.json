@@ -1,0 +1,113 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "theme_version": "soltex-mag-20251017",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_max_width": 160,
+          "menu": "main-menu",
+          "sticky_header": true,
+          "bg_color": "#0d1b2a",
+          "text_color": "#ffffff",
+          "show_search": true,
+          "show_cart": true,
+          "show_phone": false,
+          "phone_text": "Contáctanos",
+          "phone_url": "",
+          "mobile_title": "Menú"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "bg_color": "#0d1b2a",
+          "text_color": "#ffffff",
+          "desktop_columns": 4,
+          "show_brand": true,
+          "logo_max_width": 160,
+          "about_text": "Industrial sewing solutions for manufacturers across Mexico and Central America.",
+          "show_social": true,
+          "facebook_url": "",
+          "instagram_url": "",
+          "linkedin_url": "",
+          "youtube_url": "",
+          "whatsapp_url": "",
+          "menu_1_title": "Productos",
+          "menu_1": "",
+          "menu_2_title": "Soporte",
+          "menu_2": "",
+          "menu_3_title": "Compañía",
+          "menu_3": "",
+          "show_contact": true,
+          "contact_title": "Contacto",
+          "address_line_1": "",
+          "address_line_2": "",
+          "phone_text": "",
+          "phone_url": "",
+          "email_text": "",
+          "email_url": "",
+          "hours_text": "",
+          "legal_menu": "",
+          "copyright_text": "Todos los derechos reservados.",
+          "show_payments": true,
+          "show_back_to_top": true
+        }
+      },
+      "soltex-about": {
+        "type": "soltex-about",
+        "blocks": {
+          "kpi_hAwjCb": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          },
+          "kpi_YEWRw7": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          },
+          "kpi_yQHUT4": {
+            "type": "kpi",
+            "settings": {
+              "number": "500+",
+              "label": "Clientes atendidos"
+            }
+          }
+        },
+        "block_order": [
+          "kpi_hAwjCb",
+          "kpi_YEWRw7",
+          "kpi_yQHUT4"
+        ],
+        "settings": {
+          "tone": "light",
+          "container_max": 1100,
+          "content_align": "center",
+          "background_style": "solid",
+          "background_color": "#f8fafc",
+          "text_color": "#0d1b2a",
+          "overlay_opacity": 40,
+          "kpi_columns": 3,
+          "value_columns": 3,
+          "title": "Quiénes somos",
+          "subtitle": "Experiencia textil para la industria moderna."
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

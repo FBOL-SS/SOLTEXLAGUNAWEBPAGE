@@ -1,0 +1,156 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    --bg: {{ section.settings.background_color }};
+    --fg: {{ section.settings.text_color }};
+    --muted: color-mix(in srgb, {{ section.settings.text_color }} 80%, transparent);
+    --card: {% if section.settings.tone == 'light' %}#ffffff{% else %}rgba(255,255,255,.06){% endif %};
+    --bd: {% if section.settings.tone == 'light' %}#e5e7eb{% else %}rgba(255,255,255,.18){% endif %};
+    --shadow: {% if section.settings.tone == 'light' %}0 10px 24px rgba(15,23,42,.08){% else %}0 10px 24px rgba(0,0,0,.16){% endif %};
+    --primary: {{ section.settings.primary_color }};
+  }
+
+  #shopify-section-{{ section.id }} .ct-wrap{background:var(--bg);color:var(--fg); position:relative;}
+  #shopify-section-{{ section.id }} .inner{max-width: {{ section.settings.container_max }}px; margin:0 auto; padding: clamp(32px,6vw,80px) 16px;}
+
+  #shopify-section-{{ section.id }} .title{
+    font: 800 clamp(26px,4vw,40px)/1.15 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    margin:0 0 8px; text-align: {{ section.settings.header_align }};
+  }
+  #shopify-section-{{ section.id }} .subtitle{
+    font: 400 clamp(15px,2.2vw,18px)/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    margin:0 0 26px; color: var(--muted); text-align: {{ section.settings.header_align }};
+  }
+
+  .grid{display:grid; gap:18px;}
+  @media(min-width:992px){
+    .cols-2{grid-template-columns: 1fr 1fr;}
+    .cols-3{grid-template-columns: 2fr 1fr;}
+  }
+
+  .card{background:var(--card); border:1px solid var(--bd); border-radius:12px; box-shadow:var(--shadow); padding:18px;}
+
+  .form-grid{display:grid; gap:14px;}
+  @media(min-width:768px){ .form-grid.two{grid-template-columns: 1fr 1fr;} }
+
+  .label{font-size:13px; font-weight:600; margin-bottom:6px; display:block;}
+  .input, .textarea{
+    width:100%; background:#fff; color:#0f172a; border:1px solid #cbd5e1; border-radius:10px;
+    padding:12px 14px; font-size:16px;
+  }
+  {% if section.settings.tone == 'dark' %}
+  .input, .textarea{ background:rgba(255,255,255,.9); }
+  {% endif %}
+  .textarea{min-height:130px; resize:vertical;}
+  .btn{
+    display:inline-block; padding:12px 18px; border-radius:10px; border:1px solid var(--bd);
+    background: var(--primary); color:#fff; font-weight:700; cursor:pointer;
+  }
+  .msg{padding:12px 14px; border-radius:10px; margin-bottom:12px; font-size:14px;}
+  .msg.ok{background:#ecfdf5; border:1px solid #10b981; color:#065f46;}
+  .msg.err{background:#fef2f2; border:1px solid #ef4444; color:#991b1b;}
+  .info-list{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  .info-list a{color:var(--fg); text-decoration:none;}
+  .info-list a:hover{text-decoration:underline;}
+  .map-wrap{border-radius:12px; overflow:hidden; border:1px solid var(--bd); box-shadow:var(--shadow);}
+</style>
+
+<section class="ct-wrap" aria-label="Contáctanos">
+  <div class="inner">
+    {% if section.settings.title != blank %}<h1 class="title">{{ section.settings.title | escape }}</h1>{% endif %}
+    {% if section.settings.subtitle != blank %}<p class="subtitle">{{ section.settings.subtitle }}</p>{% endif %}
+
+    <div class="grid cols-3">
+      <!-- FORM -->
+      <div class="card">
+        {% form 'contact', id: 'contact-form-'.concat(section.id), class: 'contact-form' %}
+          <input type="hidden" name="contact[tags]" value="contact_form,soltex">
+          {% if form.posted_successfully? %}
+            <div class="msg ok">{{ section.settings.success_message }}</div>
+          {% endif %}
+          {% if form.errors %}
+            <div class="msg err">{{ section.settings.error_message }}</div>
+          {% endif %}
+
+          <div class="form-grid two">
+            <div>
+              <label class="label" for="ct-name-{{ section.id }}">Nombre</label>
+              <input class="input" id="ct-name-{{ section.id }}" type="text" name="contact[name]" placeholder="Tu nombre" required>
+            </div>
+            <div>
+              <label class="label" for="ct-email-{{ section.id }}">Email</label>
+              <input class="input" id="ct-email-{{ section.id }}" type="email" name="contact[email]" placeholder="tu@email.com" required>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label class="label" for="ct-phone-{{ section.id }}">Teléfono</label>
+            <input class="input" id="ct-phone-{{ section.id }}" type="tel" name="contact[phone]" placeholder="+52 ...">
+          </div>
+
+          <div style="margin-top:10px">
+            <label class="label" for="ct-message-{{ section.id }}">Mensaje</label>
+            <textarea class="textarea" id="ct-message-{{ section.id }}" name="contact[body]" placeholder="Cuéntanos qué necesitas…" required></textarea>
+          </div>
+
+          <div style="margin-top:12px">
+            <button class="btn" type="submit" id="ct-submit-{{ section.id }}">Enviar mensaje</button>
+          </div>
+        {% endform %}
+      </div>
+
+      <!-- INFO -->
+      <aside class="card">
+        <h3 style="margin:0 0 8px; font:800 16px/1.2 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">Información de contacto</h3>
+        <ul class="info-list">
+          <li>📍 Av. Mariano López Ortiz Norte 326</li>
+          <li>Torreón, Coahuila. C.P. 27023</li>
+          <li><a href="mailto:info@soltexlaguna.com">info@soltexlaguna.com</a></li>
+          <li><a href="https://wa.me/528710000000">WhatsApp</a></li>
+          <li>Lunes a Viernes: 9:00 a 18:00</li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- MAPA -->
+    <div style="margin-top:24px" class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.547217197708!2d-103.42070422547722!3d25.54038197749298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fd9c87c03f5d5%3A0x31e0e9c15474d06c!2sAv.%20Mariano%20L%C3%B3pez%20Ortiz%20Nte%20326%2C%20Centro%2C%2027023%20Torre%C3%B3n%2C%20Coah.!5e0!3m2!1ses-419!2smx!4v1729460000000!5m2!1ses-419!2smx"
+        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if(!root) return;
+    var form = root.querySelector('form.contact-form');
+    var btn  = root.querySelector('#ct-submit-{{ section.id }}');
+    if(!form) return;
+    form.addEventListener('submit', function(){
+      if(btn){ btn.disabled = true; btn.textContent = 'Enviando…'; }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-contact",
+  "settings": [
+    { "type": "select", "id": "tone", "label": "Tono", "options": [
+      { "value": "light", "label": "Claro" }, { "value": "dark", "label": "Oscuro" }
+    ], "default": "light" },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#f8fafc" },
+    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#0d1b2a" },
+    { "type": "color", "id": "primary_color", "label": "Color primario (botón)", "default": "#0d1b2a" },
+    { "type": "range", "id": "container_max", "label": "Ancho máximo (px)", "min": 900, "max": 1400, "step": 50, "default": 1100 },
+    { "type": "text", "id": "title", "label": "Título", "default": "Contáctanos" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Estamos listos para ayudarte." },
+    { "type": "select", "id": "header_align", "label": "Alineación título", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }
+    ], "default": "center" }
+  ],
+  "presets": [{ "name": "soltex-contact" }]
+}
+{% endschema %}

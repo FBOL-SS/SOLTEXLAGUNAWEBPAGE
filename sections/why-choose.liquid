@@ -1,28 +1,607 @@
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">Why Choose SOLUCIONES TEXTILES LAGUNA</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center p-6">
-                <div class="bg-lightblue bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                    <i data-feather="award" class="text-lightblue w-8 h-8"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">30+ Years Experience</h3>
-                <p class="text-gray-600">Proven track record in textile machinery</p>
-            </div>
-            <div class="text-center p-6">
-                <div class="bg-lightblue bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                    <i data-feather="truck" class="text-lightblue w-8 h-8"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
-                <p class="text-gray-600">Regional warehouses for quick shipping</p>
-            </div>
-            <div class="text-center p-6">
-                <div class="bg-lightblue bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                    <i data-feather="headphones" class="text-lightblue w-8 h-8"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Expert Support</h3>
-                <p class="text-gray-600">24/7 technical assistance</p>
-            </div>
-        </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
+
+<style>
+  #shopify-section-{{ section.id }} {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Poppins', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .section-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.6;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px 24px;
+    box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .feature-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card:hover .feature-icon-wrapper {
+    background: #0d1b2a;
+    transform: scale(1.1);
+  }
+
+  #shopify-section-{{ section.id }} .feature-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+    fill: #0d1b2a;
+    transition: fill 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card:hover .feature-icon-wrapper svg {
+    fill: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .feature-icon-wrapper img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .feature-card:hover .feature-icon-wrapper img {
+    transform: scale(1.15);
+  }
+
+  #shopify-section-{{ section.id }} .feature-title {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700;
+    color: #0d1b2a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .feature-description {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+
+  #shopify-section-{{ section.id }} .feature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0d1b2a;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .feature-cta:hover {
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .kpi-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .kpi-container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .kpi-item {
+    text-align: center;
+    padding: 24px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .kpi-value {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: #0d1b2a;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .kpi-label {
+    font-size: clamp(12px, 1.5vw, 14px);
+    color: #4a5568;
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .main-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #0d1b2a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .main-cta:hover {
+    background: #1a2f47;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.3);
+  }
+
+  @keyframes fadeInUp-{{ section.id }} {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .fade-in-up {
+    animation: fadeInUp-{{ section.id }} 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+  #shopify-section-{{ section.id }} .fade-in-up:nth-child(6) { animation-delay: 0.6s; }
+</style>
+
+<div class="w-full relative" style="{% if section.settings.background_type == 'color' %}background-color: {{ section.settings.background_color }};{% endif %}">
+  {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}
+    <div class="absolute inset-0 w-full h-full">
+      {{ section.settings.background_image | image_url: width: 2000 | image_tag: 
+        loading: 'lazy',
+        class: 'w-full h-full object-cover',
+        sizes: '100vw'
+      }}
+      <div class="absolute inset-0 bg-black" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}"></div>
     </div>
-</section>
+  {% endif %}
+
+  <div class="relative max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      {% if section.settings.section_title != blank %}
+        <h2 class="section-title font-bold mb-4" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}#ffffff{% else %}#0d1b2a{% endif %}">
+          {{ section.settings.section_title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.section_subtitle != blank %}
+        <p class="section-subtitle max-w-3xl mx-auto" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}rgba(255, 255, 255, 0.9){% else %}#4a5568{% endif %}">
+          {{ section.settings.section_subtitle }}
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- Features Grid -->
+    {% if section.blocks.size > 0 %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ section.settings.desktop_columns }} gap-6 md:gap-8">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="fade-in-up" {{ block.shopify_attributes }}>
+              <div class="feature-card">
+                <!-- Icon/Image -->
+                <div class="feature-icon-wrapper">
+                  {% if block.settings.icon_svg != blank %}
+                    {{ block.settings.icon_svg }}
+                  {% elsif block.settings.icon_image != blank %}
+                    {{ block.settings.icon_image | image_url: width: 80 | image_tag: 
+                      loading: 'lazy',
+                      alt: block.settings.feature_title
+                    }}
+                  {% else %}
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  {% endif %}
+                </div>
+
+                <!-- Content -->
+                {% if block.settings.feature_title != blank %}
+                  <h3 class="feature-title">{{ block.settings.feature_title }}</h3>
+                {% endif %}
+
+                {% if block.settings.feature_description != blank %}
+                  <p class="feature-description">{{ block.settings.feature_description }}</p>
+                {% endif %}
+
+                {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+                  <a href="{{ block.settings.cta_link }}" class="feature-cta" aria-label="{{ block.settings.cta_text }}">
+                    {{ block.settings.cta_text }}
+                    <i class="ph ph-arrow-right"></i>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- KPI Metrics -->
+    {% if section.settings.show_kpis %}
+      <div class="kpi-container">
+        {% if section.settings.kpi_1_value != blank %}
+          <div class="kpi-item">
+            <div class="kpi-value" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}#ffffff{% else %}#0d1b2a{% endif %}">
+              {{ section.settings.kpi_1_value }}
+            </div>
+            <div class="kpi-label" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}rgba(255, 255, 255, 0.8){% else %}#4a5568{% endif %}">
+              {{ section.settings.kpi_1_label }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.kpi_2_value != blank %}
+          <div class="kpi-item">
+            <div class="kpi-value" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}#ffffff{% else %}#0d1b2a{% endif %}">
+              {{ section.settings.kpi_2_value }}
+            </div>
+            <div class="kpi-label" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}rgba(255, 255, 255, 0.8){% else %}#4a5568{% endif %}">
+              {{ section.settings.kpi_2_label }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.kpi_3_value != blank %}
+          <div class="kpi-item">
+            <div class="kpi-value" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}#ffffff{% else %}#0d1b2a{% endif %}">
+              {{ section.settings.kpi_3_value }}
+            </div>
+            <div class="kpi-label" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}rgba(255, 255, 255, 0.8){% else %}#4a5568{% endif %}">
+              {{ section.settings.kpi_3_label }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.kpi_4_value != blank %}
+          <div class="kpi-item">
+            <div class="kpi-value" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}#ffffff{% else %}#0d1b2a{% endif %}">
+              {{ section.settings.kpi_4_value }}
+            </div>
+            <div class="kpi-label" style="color: {% if section.settings.background_type == 'image' and section.settings.background_image != blank %}rgba(255, 255, 255, 0.8){% else %}#4a5568{% endif %}">
+              {{ section.settings.kpi_4_label }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Main CTA -->
+    {% if section.settings.main_cta_text != blank and section.settings.main_cta_link != blank %}
+      <div class="text-center">
+        <a href="{{ section.settings.main_cta_link }}" class="main-cta">
+          {{ section.settings.main_cta_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "soltex-why-choose-us",
+  "class": "shopdev",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "¿Por qué elegirnos?"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Descubre las razones por las que miles de clientes confían en SOLTEX para sus necesidades de energía solar"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop Columns",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Background Type",
+      "options": [
+        {
+          "value": "color",
+          "label": "Solid Color"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Overlay Opacity",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "KPI Metrics"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_kpis",
+      "label": "Show KPI Metrics",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "kpi_1_value",
+      "label": "KPI 1 Value",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "kpi_1_label",
+      "label": "KPI 1 Label",
+      "default": "Clientes Satisfechos"
+    },
+    {
+      "type": "text",
+      "id": "kpi_2_value",
+      "label": "KPI 2 Value",
+      "default": "24/7"
+    },
+    {
+      "type": "text",
+      "id": "kpi_2_label",
+      "label": "KPI 2 Label",
+      "default": "Soporte Técnico"
+    },
+    {
+      "type": "text",
+      "id": "kpi_3_value",
+      "label": "KPI 3 Value",
+      "default": "15+"
+    },
+    {
+      "type": "text",
+      "id": "kpi_3_label",
+      "label": "KPI 3 Label",
+      "default": "Años de Experiencia"
+    },
+    {
+      "type": "text",
+      "id": "kpi_4_value",
+      "label": "KPI 4 Value",
+      "default": "98%"
+    },
+    {
+      "type": "text",
+      "id": "kpi_4_label",
+      "label": "KPI 4 Label",
+      "default": "Tasa de Satisfacción"
+    },
+    {
+      "type": "header",
+      "content": "Main Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "main_cta_text",
+      "label": "CTA Button Text",
+      "default": "Solicita tu Cotización"
+    },
+    {
+      "type": "url",
+      "id": "main_cta_link",
+      "label": "CTA Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Icon Settings"
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "SVG Icon Code",
+          "info": "Paste your SVG code here (recommended)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image (Fallback)",
+          "info": "Used if no SVG is provided"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_description",
+          "label": "Feature Description",
+          "default": "Describe the key benefit or feature that sets your business apart from competitors."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "soltex-why-choose-us",
+      "settings": {
+        "section_title": "¿Por qué elegirnos?",
+        "section_subtitle": "En SOLTEX, nos comprometemos a ofrecer soluciones de energía solar de la más alta calidad con un servicio excepcional",
+        "background_type": "color",
+        "background_color": "#f4f4f4",
+        "desktop_columns": 3,
+        "show_kpis": true,
+        "kpi_1_value": "500+",
+        "kpi_1_label": "Clientes Satisfechos",
+        "kpi_2_value": "24/7",
+        "kpi_2_label": "Soporte Técnico",
+        "kpi_3_value": "15+",
+        "kpi_3_label": "Años de Experiencia",
+        "kpi_4_value": "98%",
+        "kpi_4_label": "Tasa de Satisfacción",
+        "main_cta_text": "Solicita tu Cotización Gratuita",
+        "main_cta_link": "/pages/contact"
+      },
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M184,144a8,8,0,0,1-8,8H136v40a8,8,0,0,1-16,0V152H80a8,8,0,0,1,0-16h40V96a8,8,0,0,1,16,0v40h40A8,8,0,0,1,184,144Zm56-16A104,104,0,1,1,136,24,104.11,104.11,0,0,1,240,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,224,128Z\" fill=\"currentColor\"/></svg>",
+            "icon_image": "shopify://shop_images/golden-light-on-building-tops-under-setting-sun.jpg",
+            "feature_title": "Calidad Garantizada",
+            "feature_description": "Utilizamos únicamente paneles solares de marcas líderes con certificaciones internacionales y garantías extendidas de hasta 25 años.",
+            "cta_text": "Ver Productos",
+            "cta_link": "/collections/all"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-68a28,28,0,0,1-28,28h-4v8a8,8,0,0,1-16,0v-8H104a8,8,0,0,1,0-16h36a12,12,0,0,0,0-24H116a28,28,0,0,1,0-56h4V72a8,8,0,0,1,16,0v8h16a8,8,0,0,1,0,16H116a12,12,0,0,0,0,24h24A28,28,0,0,1,168,148Z\" fill=\"currentColor\"/></svg>",
+            "icon_image": "shopify://shop_images/shopper-checks-product-prices.jpg",
+            "feature_title": "Precios Competitivos",
+            "feature_description": "Ofrecemos las mejores tarifas del mercado sin comprometer la calidad. Financiamiento flexible disponible para todos nuestros clientes.",
+            "cta_text": "Ver Precios",
+            "cta_link": "/pages/pricing"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z\" fill=\"currentColor\"/></svg>",
+            "icon_image": "shopify://shop_images/front-facing-view-of-clean-desk-setup.jpg",
+            "feature_title": "Instalación Profesional",
+            "feature_description": "Nuestro equipo de técnicos certificados garantiza una instalación impecable y segura, cumpliendo con todas las normativas vigentes.",
+            "cta_text": "Conocer Más",
+            "cta_link": "/pages/installation"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M232,128c0,12.51-17.82,21.95-22.68,33.69-4.68,11.32,1.42,30.65-7.78,39.85s-28.53,3.1-39.85,7.78C150,214.18,140.5,232,128,232s-22-17.82-33.69-22.68c-11.32-4.68-30.65,1.42-39.85-7.78s-3.1-28.53-7.78-39.85C41.82,150,24,140.5,24,128s17.82-22,22.68-33.69C51.36,83,45.26,63.66,54.46,54.46S83,51.36,94.31,46.68C106.05,41.82,115.5,24,128,24s22,17.82,33.69,22.68c11.32,4.68,30.65-1.42,39.85,7.78s3.1,28.53,7.78,39.85C214.18,106.05,232,115.5,232,128Z\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\"/><polyline points=\"88 136 112 160 168 104\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"16\"/></svg>",
+            "icon_image": "shopify://shop_images/contact-us-image.jpg",
+            "feature_title": "Soporte 24/7",
+            "feature_description": "Estamos disponibles las 24 horas del día, los 7 días de la semana para resolver cualquier duda o emergencia técnica que puedas tener.",
+            "cta_text": "Contactar Soporte",
+            "cta_link": "/pages/support"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z\" fill=\"currentColor\"/></svg>",
+            "icon_image": "shopify://shop_images/green-door-with-open-sign.jpg",
+            "feature_title": "Compromiso Ambiental",
+            "feature_description": "Contribuye al cuidado del planeta mientras ahorras en tu factura eléctrica. Reduce tu huella de carbono con energía 100% limpia.",
+            "cta_text": "Impacto Ambiental",
+            "cta_link": "/pages/sustainability"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewBox=\"0 0 256 256\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z\" fill=\"currentColor\"/></svg>",
+            "icon_image": "shopify://shop_images/a-note-on-a-computer-monitor-with-a-positive-message.jpg",
+            "feature_title": "Monitoreo en Tiempo Real",
+            "feature_description": "Accede a nuestra plataforma de monitoreo avanzada para visualizar la producción de energía de tu sistema solar desde cualquier dispositivo.",
+            "cta_text": "Ver Demo",
+            "cta_link": "/pages/monitoring"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

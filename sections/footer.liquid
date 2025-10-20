@@ -1,17 +1,209 @@
-<footer class="bg-blue text-white p-4 md:p-6">
-  <div class="container mx-auto text-center">
-    <p>&copy; 2025 SOLUCIONES TEXTILES LAGUNA. Todos los derechos reservados.</p>
-    <div class="flex justify-center space-x-4 mt-2">
-      <a href="/pages/contacto" class="hover:text-lightblue">Contacto</a>
-      <a href="#" class="hover:text-lightblue">Política de Privacidad</a>
+{% comment %}
+SOLTEX — Footer (CSS nativo, sin dependencias)
+- 2–4 columnas configurables: Menús, Contacto, Sobre la marca, Social
+- Barra inferior con derechos, menú legal y métodos de pago opcionales
+- Sin defaults en campos URL (cumple validación de schema)
+- Estilos encapsulados por #shopify-section-{{ section.id }}
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --ft-bg: {{ section.settings.bg_color }};
+    --ft-fg: {{ section.settings.text_color }};
+    --ft-dim: color-mix(in srgb, {{ section.settings.text_color }} 80%, transparent);
+    --ft-border: color-mix(in srgb, {{ section.settings.text_color }} 12%, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .ft { background: var(--ft-bg); color: var(--ft-fg); }
+  #shopify-section-{{ section.id }} .ft-inner { max-width: min(1200px, 92vw); margin: 0 auto; padding: 36px 12px; }
+
+  #shopify-section-{{ section.id }} .ft-top { display:grid; gap: 22px; grid-template-columns: 1fr; border-bottom: 1px solid var(--ft-border); padding-bottom: 24px; }
+  @media (min-width: 800px){ #shopify-section-{{ section.id }} .ft-top { grid-template-columns: repeat({{ section.settings.desktop_columns }}, minmax(0,1fr)); } }
+
+  #shopify-section-{{ section.id }} .ft-col h3 { font-weight: 800; font-size: 15px; margin: 0 0 10px; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  #shopify-section-{{ section.id }} .ft-col p, #shopify-section-{{ section.id }} .ft-col li, #shopify-section-{{ section.id }} .ft-col a { font-size: 14px; line-height: 1.6; }
+  #shopify-section-{{ section.id }} .ft-col a { color: var(--ft-fg); text-decoration: none; }
+  #shopify-section-{{ section.id }} .ft-col a:hover { opacity: .85; }
+  #shopify-section-{{ section.id }} .muted { color: var(--ft-dim); }
+
+  /* Logo/About */
+  #shopify-section-{{ section.id }} .brand { display:flex; gap: 12px; align-items:center; margin-bottom: 10px; }
+  #shopify-section-{{ section.id }} .brand img { max-width: {{ section.settings.logo_max_width }}px; height:auto; width:auto; display:block; }
+
+  /* Menus */
+  #shopify-section-{{ section.id }} .menu ul { list-style:none; padding:0; margin:0; display:grid; gap: 8px; }
+
+  /* Contact */
+  #shopify-section-{{ section.id }} .contact ul { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+
+  /* Social */
+  #shopify-section-{{ section.id }} .social { display:flex; gap:10px; flex-wrap:wrap; }
+  #shopify-section-{{ section.id }} .social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; border:1px solid var(--ft-border); }
+  #shopify-section-{{ section.id }} .social a:hover { background: var(--ft-border); }
+  #shopify-section-{{ section.id }} .social svg { width:18px; height:18px; fill: currentColor; }
+
+  /* Bottom bar */
+  #shopify-section-{{ section.id }} .ft-bottom { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding: 14px 0; }
+  #shopify-section-{{ section.id }} .legal { display:flex; gap:12px; flex-wrap:wrap; }
+  #shopify-section-{{ section.id }} .payments { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  #shopify-section-{{ section.id }} .payments svg { width:34px; height:auto; }
+
+  /* Back to top */
+  #shopify-section-{{ section.id }} .backtop { margin-left:auto; font-size: 14px; text-decoration:none; border:1px solid var(--ft-border); padding:6px 10px; border-radius:8px; }
+  #shopify-section-{{ section.id }} .backtop:hover { background: var(--ft-border); }
+</style>
+
+<footer class="ft" role="contentinfo">
+  <div class="ft-inner">
+    <div class="ft-top">
+      {% if section.settings.show_brand %}
+        <div class="ft-col">
+          {% if section.settings.logo != blank %}
+            <div class="brand">
+              {{ section.settings.logo | image_url: width: 320 | image_tag: alt: shop.name | escape }}
+            </div>
+          {% endif %}
+          {% if section.settings.about_text != blank %}
+            <p class="muted">{{ section.settings.about_text }}</p>
+          {% endif %}
+          {% if section.settings.show_social %}
+            <div class="social" aria-label="Redes sociales">
+              {% if section.settings.facebook_url != blank %}
+                <a href="{{ section.settings.facebook_url }}" aria-label="Facebook">{% render 'icon-facebook' %}</a>
+              {% endif %}
+              {% if section.settings.instagram_url != blank %}
+                <a href="{{ section.settings.instagram_url }}" aria-label="Instagram">{% render 'icon-instagram' %}</a>
+              {% endif %}
+              {% if section.settings.linkedin_url != blank %}
+                <a href="{{ section.settings.linkedin_url }}" aria-label="LinkedIn">{% render 'icon-linkedin' %}</a>
+              {% endif %}
+              {% if section.settings.youtube_url != blank %}
+                <a href="{{ section.settings.youtube_url }}" aria-label="YouTube">{% render 'icon-youtube' %}</a>
+              {% endif %}
+              {% if section.settings.whatsapp_url != blank %}
+                <a href="{{ section.settings.whatsapp_url }}" aria-label="WhatsApp">{% render 'icon-whatsapp' %}</a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.menu_1 != blank %}
+        <div class="ft-col menu">
+          {% if section.settings.menu_1_title != blank %}<h3>{{ section.settings.menu_1_title }}</h3>{% endif %}
+          <ul>
+            {% for link in section.settings.menu_1.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.menu_2 != blank %}
+        <div class="ft-col menu">
+          {% if section.settings.menu_2_title != blank %}<h3>{{ section.settings.menu_2_title }}</h3>{% endif %}
+          <ul>
+            {% for link in section.settings.menu_2.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.menu_3 != blank %}
+        <div class="ft-col menu">
+          {% if section.settings.menu_3_title != blank %}<h3>{{ section.settings.menu_3_title }}</h3>{% endif %}
+          <ul>
+            {% for link in section.settings.menu_3.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_contact %}
+        <div class="ft-col contact">
+          {% if section.settings.contact_title != blank %}<h3>{{ section.settings.contact_title }}</h3>{% endif %}
+          <ul>
+            {% if section.settings.address_line_1 != blank %}<li class="muted">{{ section.settings.address_line_1 }}</li>{% endif %}
+            {% if section.settings.address_line_2 != blank %}<li class="muted">{{ section.settings.address_line_2 }}</li>{% endif %}
+            {% if section.settings.phone_text != blank and section.settings.phone_url != blank %}<li><a href="{{ section.settings.phone_url }}">{{ section.settings.phone_text }}</a></li>{% endif %}
+            {% if section.settings.email_text != blank and section.settings.email_url != blank %}<li><a href="{{ section.settings.email_url }}">{{ section.settings.email_text }}</a></li>{% endif %}
+            {% if section.settings.hours_text != blank %}<li class="muted">{{ section.settings.hours_text }}</li>{% endif %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
-    <div class="mt-4">
-      <button class="focus:outline-none">
-        <svg data-feather="facebook" width="24" height="24"></svg>
-      </button>
-      <button class="focus:outline-none ml-2">
-        <svg data-feather="instagram" width="24" height="24"></svg>
-      </button>
+
+    <div class="ft-bottom">
+      <div class="copyright muted">© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}</div>
+
+      <div class="legal">
+        {% if section.settings.legal_menu != blank %}
+          {% for link in section.settings.legal_menu.links %}
+            <a class="muted" href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_payments %}
+        <div class="payments" aria-label="Métodos de pago aceptados">
+          {% for type in shop.enabled_payment_types %}
+            {{ type | payment_type_svg_tag }}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_back_to_top %}
+        <a href="#top" class="backtop" aria-label="Volver arriba">↑ Arriba</a>
+      {% endif %}
     </div>
   </div>
 </footer>
+
+{% schema %}
+{
+  "name": "soltex-footer",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#0d1b2a" },
+    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#ffffff" },
+    { "type": "range", "id": "desktop_columns", "label": "Columnas en desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
+
+    { "type": "checkbox", "id": "show_brand", "label": "Mostrar bloque de marca", "default": true },
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "range", "id": "logo_max_width", "label": "Ancho máx. del logo (px)", "min": 60, "max": 300, "step": 10, "default": 160 },
+    { "type": "textarea", "id": "about_text", "label": "Descripción breve", "default": "Industrial sewing solutions for manufacturers across Mexico and Central America." },
+
+    { "type": "checkbox", "id": "show_social", "label": "Mostrar redes sociales", "default": true },
+    { "type": "url", "id": "facebook_url", "label": "Facebook" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram" },
+    { "type": "url", "id": "linkedin_url", "label": "LinkedIn" },
+    { "type": "url", "id": "youtube_url", "label": "YouTube" },
+    { "type": "url", "id": "whatsapp_url", "label": "WhatsApp" },
+
+    { "type": "text", "id": "menu_1_title", "label": "Título menú 1", "default": "Productos" },
+    { "type": "link_list", "id": "menu_1", "label": "Menú 1" },
+    { "type": "text", "id": "menu_2_title", "label": "Título menú 2", "default": "Soporte" },
+    { "type": "link_list", "id": "menu_2", "label": "Menú 2" },
+    { "type": "text", "id": "menu_3_title", "label": "Título menú 3", "default": "Compañía" },
+    { "type": "link_list", "id": "menu_3", "label": "Menú 3" },
+
+    { "type": "checkbox", "id": "show_contact", "label": "Mostrar contacto", "default": true },
+    { "type": "text", "id": "contact_title", "label": "Título de contacto", "default": "Contacto" },
+    { "type": "text", "id": "address_line_1", "label": "Dirección línea 1" },
+    { "type": "text", "id": "address_line_2", "label": "Dirección línea 2" },
+    { "type": "text", "id": "phone_text", "label": "Teléfono/WhatsApp (texto)" },
+    { "type": "url", "id": "phone_url", "label": "Teléfono/WhatsApp (URL)" },
+    { "type": "text", "id": "email_text", "label": "Email (texto)" },
+    { "type": "url", "id": "email_url", "label": "Email (mailto:)" },
+    { "type": "text", "id": "hours_text", "label": "Horario" },
+
+    { "type": "link_list", "id": "legal_menu", "label": "Menú legal" },
+    { "type": "text", "id": "copyright_text", "label": "Texto derechos", "default": "Todos los derechos reservados." },
+
+    { "type": "checkbox", "id": "show_payments", "label": "Mostrar métodos de pago", "default": true },
+    { "type": "checkbox", "id": "show_back_to_top", "label": "Mostrar botón Arriba", "default": true }
+  ],
+  "presets": [ { "name": "soltex-footer" } ]
+}
+{% endschema %}

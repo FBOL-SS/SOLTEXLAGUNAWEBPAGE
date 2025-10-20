@@ -1,12 +1,682 @@
-<section class="py-16 bg-navy text-white">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6">Stay Updated</h2>
-        <p class="max-w-2xl mx-auto mb-8">Subscribe to our newsletter for product updates, industry insights, and exclusive offers.</p>
-        <div class="max-w-md mx-auto flex">
-            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
-            <button class="bg-lightblue hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-r-lg transition duration-300">
-                Subscribe
-            </button>
-        </div>
+<style>
+  #shopify-section-{{ section.id }} {
+    --soltex-navy: #0d1b2a;
+    --soltex-white: #ffffff;
+    --soltex-light-gray: #f4f4f4;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--soltex-navy);
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-content {
+    position: relative;
+    z-index: 2;
+    padding: 64px 24px;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-inner {
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--soltex-white);
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-subtitle {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    color: var(--soltex-white);
+    opacity: 0.9;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .form-field {
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--soltex-white);
+  }
+
+  #shopify-section-{{ section.id }} .form-input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-color: var(--soltex-white);
+    color: var(--soltex-navy);
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .form-input:focus {
+    outline: none;
+    border-color: var(--soltex-navy);
+    box-shadow: 0 0 0 3px rgba(13, 27, 42, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .form-input::placeholder {
+    color: rgba(13, 27, 42, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .consent-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .consent-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .consent-label {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--soltex-white);
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .consent-label a {
+    color: var(--soltex-white);
+    text-decoration: underline;
+  }
+
+  #shopify-section-{{ section.id }} .form-button {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--soltex-white);
+    color: var(--soltex-navy);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .form-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #shopify-section-{{ section.id }} .form-button:active {
+    transform: translateY(0);
+  }
+
+  #shopify-section-{{ section.id }} .form-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  #shopify-section-{{ section.id }} .small-print {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 16px;
+    text-align: center;
+    color: var(--soltex-white);
+    opacity: 0.8;
+  }
+
+  #shopify-section-{{ section.id }} .form-message {
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .form-message.success {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--soltex-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  #shopify-section-{{ section.id }} .form-message.error {
+    background-color: rgba(220, 38, 38, 0.15);
+    color: var(--soltex-white);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+  }
+
+  #shopify-section-{{ section.id }} .social-proof {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .social-proof-text {
+    font-size: 14px;
+    color: var(--soltex-white);
+    opacity: 0.9;
+  }
+
+  #shopify-section-{{ section.id }} .email-flex-wrapper {
+    display: flex;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .email-flex-wrapper .form-field {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .email-flex-wrapper .form-button {
+    width: auto;
+    padding: 14px 32px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .newsletter-content {
+      padding: 48px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .email-flex-wrapper {
+      flex-direction: column;
+    }
+
+    #shopify-section-{{ section.id }} .email-flex-wrapper .form-button {
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .email-flex-wrapper .form-field {
+      margin-bottom: 16px;
+    }
+  }
+</style>
+
+<div class="newsletter-container">
+  {% if section.settings.background_image != blank %}
+    <div class="newsletter-background">
+      {{ section.settings.background_image | image_url: width: 1920 | image_tag: 
+        loading: 'lazy',
+        sizes: '100vw'
+      }}
     </div>
-</section>
+    <div class="newsletter-overlay" style="opacity: {{ section.settings.overlay_opacity }}"></div>
+  {% else %}
+    <div class="newsletter-background" style="background-color: {{ section.settings.background_color }}"></div>
+  {% endif %}
+
+  <div class="newsletter-content">
+    <div class="newsletter-inner" style="max-width: {% if section.settings.layout == 'contained' %}800px{% else %}100%{% endif %}; text-align: {{ section.settings.text_alignment }};">
+      
+      {% if section.settings.title != blank %}
+        <h2 class="newsletter-title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <p class="newsletter-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      {% form 'customer', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <div aria-live="polite" aria-atomic="true">
+          {% if form.posted_successfully? %}
+            <div class="form-message success" role="status">
+              {{ section.settings.success_message }}
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="form-message error" role="alert">
+              {{ section.settings.error_message }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.show_name_field %}
+          <div class="form-field">
+            <label for="newsletter-name-{{ section.id }}" class="form-label">
+              {{ section.settings.name_label }}
+            </label>
+            <input 
+              type="text" 
+              id="newsletter-name-{{ section.id }}"
+              name="contact[first_name]"
+              class="form-input"
+              placeholder="{{ section.settings.name_placeholder }}"
+              {% if section.settings.name_required %}required{% endif %}
+            >
+          </div>
+        {% endif %}
+
+        <div class="honeypot" aria-hidden="true">
+          <label for="newsletter-honeypot-{{ section.id }}">Don't fill this out if you're human:</label>
+          <input 
+            type="text" 
+            id="newsletter-honeypot-{{ section.id }}"
+            name="contact[honeypot]"
+            tabindex="-1"
+            autocomplete="off"
+          >
+        </div>
+
+        {% if section.settings.inline_layout %}
+          <div class="email-flex-wrapper">
+            <div class="form-field">
+              <label for="newsletter-email-{{ section.id }}" class="form-label">
+                {{ section.settings.email_label }}
+              </label>
+              <input 
+                type="email" 
+                id="newsletter-email-{{ section.id }}"
+                name="contact[email]"
+                class="form-input"
+                placeholder="{{ section.settings.email_placeholder }}"
+                required
+                aria-required="true"
+              >
+            </div>
+            <button 
+              type="submit" 
+              class="form-button"
+              id="newsletter-submit-{{ section.id }}"
+            >
+              {{ section.settings.button_label }}
+            </button>
+          </div>
+        {% else %}
+          <div class="form-field">
+            <label for="newsletter-email-{{ section.id }}" class="form-label">
+              {{ section.settings.email_label }}
+            </label>
+            <input 
+              type="email" 
+              id="newsletter-email-{{ section.id }}"
+              name="contact[email]"
+              class="form-input"
+              placeholder="{{ section.settings.email_placeholder }}"
+              required
+              aria-required="true"
+            >
+          </div>
+
+          {% if section.settings.show_gdpr_consent %}
+            <div class="consent-wrapper">
+              <input 
+                type="checkbox" 
+                id="newsletter-consent-{{ section.id }}"
+                class="consent-checkbox"
+                required
+                aria-required="true"
+              >
+              <label for="newsletter-consent-{{ section.id }}" class="consent-label">
+                {{ section.settings.consent_text }}
+              </label>
+            </div>
+          {% endif %}
+
+          <button 
+            type="submit" 
+            class="form-button"
+            id="newsletter-submit-{{ section.id }}"
+          >
+            {{ section.settings.button_label }}
+          </button>
+        {% endif %}
+
+        {% if section.settings.small_print != blank %}
+          <p class="small-print">{{ section.settings.small_print }}</p>
+        {% endif %}
+      {% endform %}
+
+      {% if section.settings.show_social_proof and section.settings.social_proof_text != blank %}
+        <div class="social-proof">
+          <p class="social-proof-text">{{ section.settings.social_proof_text }}</p>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const form = document.querySelector('#shopify-section-{{ section.id }} form');
+    const submitButton = document.getElementById('newsletter-submit-{{ section.id }}');
+    const honeypot = document.querySelector('#shopify-section-{{ section.id }} input[name="contact[honeypot]"]');
+    {% if section.settings.show_gdpr_consent %}
+    const consentCheckbox = document.getElementById('newsletter-consent-{{ section.id }}');
+    {% endif %}
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // Honeypot spam protection
+        if (honeypot && honeypot.value !== '') {
+          e.preventDefault();
+          return false;
+        }
+
+        {% if section.settings.show_gdpr_consent %}
+        // GDPR consent validation
+        if (consentCheckbox && !consentCheckbox.checked) {
+          e.preventDefault();
+          alert('{{ section.settings.consent_error_message }}');
+          return false;
+        }
+        {% endif %}
+
+        // Disable submit button to prevent double submission
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = '{{ section.settings.button_loading_label }}';
+        }
+      });
+
+      {% if section.settings.show_gdpr_consent %}
+      // Enable/disable submit button based on consent
+      if (consentCheckbox && submitButton) {
+        consentCheckbox.addEventListener('change', function() {
+          submitButton.disabled = !this.checked;
+        });
+        
+        // Initial state
+        submitButton.disabled = !consentCheckbox.checked;
+      }
+      {% endif %}
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-newsletter",
+  "class": "shopdev",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Stay Connected with SOLTEX"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Subscribe to receive exclusive updates, product launches, and special offers delivered straight to your inbox."
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Form Fields"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_name_field",
+      "label": "Show name field",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Name field label",
+      "default": "First Name"
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Name field placeholder",
+      "default": "Enter your first name"
+    },
+    {
+      "type": "checkbox",
+      "id": "name_required",
+      "label": "Name field required",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email field label",
+      "default": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email field placeholder",
+      "default": "your.email@example.com"
+    },
+    {
+      "type": "checkbox",
+      "id": "inline_layout",
+      "label": "Inline layout (email + button side by side)",
+      "default": false,
+      "info": "Works best without GDPR consent checkbox"
+    },
+    {
+      "type": "header",
+      "content": "GDPR Compliance"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gdpr_consent",
+      "label": "Show GDPR consent checkbox",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "consent_text",
+      "label": "Consent text",
+      "default": "I agree to receive marketing emails from SOLTEX and understand I can unsubscribe at any time. View our Privacy Policy."
+    },
+    {
+      "type": "text",
+      "id": "consent_error_message",
+      "label": "Consent error message",
+      "default": "Please agree to receive marketing emails to continue."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe Now"
+    },
+    {
+      "type": "text",
+      "id": "button_loading_label",
+      "label": "Button loading label",
+      "default": "Subscribing..."
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for subscribing! Check your inbox for a confirmation email."
+    },
+    {
+      "type": "textarea",
+      "id": "error_message",
+      "label": "Error message",
+      "default": "Something went wrong. Please check your email address and try again."
+    },
+    {
+      "type": "textarea",
+      "id": "small_print",
+      "label": "Small print",
+      "default": "We respect your privacy. Unsubscribe at any time."
+    },
+    {
+      "type": "header",
+      "content": "Social Proof"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_proof",
+      "label": "Show social proof",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "social_proof_text",
+      "label": "Social proof text",
+      "default": "Join 10,000+ subscribers who trust SOLTEX"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "contained",
+          "label": "Contained"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "contained"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image",
+      "info": "Optional. Will override background color if set."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Image overlay opacity",
+      "default": 0.7,
+      "info": "Only applies when background image is set"
+    }
+  ],
+  "presets": [
+    {
+      "name": "soltex-newsletter",
+      "settings": {
+        "title": "Stay Connected with SOLTEX",
+        "subtitle": "Subscribe to receive exclusive updates, product launches, and special offers delivered straight to your inbox.",
+        "text_alignment": "center",
+        "show_name_field": true,
+        "name_label": "First Name",
+        "name_placeholder": "Enter your first name",
+        "name_required": false,
+        "email_label": "Email Address",
+        "email_placeholder": "your.email@example.com",
+        "inline_layout": false,
+        "show_gdpr_consent": true,
+        "consent_text": "I agree to receive marketing emails from SOLTEX and understand I can unsubscribe at any time. View our Privacy Policy.",
+        "consent_error_message": "Please agree to receive marketing emails to continue.",
+        "button_label": "Subscribe Now",
+        "button_loading_label": "Subscribing...",
+        "success_message": "Thank you for subscribing! Check your inbox for a confirmation email.",
+        "error_message": "Something went wrong. Please check your email address and try again.",
+        "small_print": "We respect your privacy. Unsubscribe at any time.",
+        "show_social_proof": true,
+        "social_proof_text": "Join 10,000+ subscribers who trust SOLTEX",
+        "layout": "contained",
+        "background_color": "#0d1b2a",
+        "overlay_opacity": 0.7
+      }
+    }
+  ]
+}
+{% endschema %}

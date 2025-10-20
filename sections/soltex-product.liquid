@@ -1,0 +1,344 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    --bg:#ffffff; --fg:#0d1b2a; --muted:#64748b; --bd:#e5e7eb; --accent:#0d1b2a;
+  }
+  .p-wrap{background:var(--bg);color:var(--fg);padding:clamp(24px,5vw,60px) 16px;}
+  .p-container{max-width:1200px;margin:0 auto;display:grid;gap:24px;}
+  @media(min-width:992px){ .p-container{grid-template-columns: 1.1fr 1fr;} }
+
+  /* GALLERY */
+  .gallery{position:sticky;top:16px}
+  .main-media{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
+  .main-media .img-wrap{position:relative;overflow:hidden}
+  .main-media .img-wrap img{
+    width:100%;height:auto;display:block;
+    transition:transform .35s ease;
+    -webkit-user-drag:none; user-select:none;
+  }
+  @media(hover:hover){
+    .main-media .img-wrap:hover img{ transform:scale(1.08); cursor: zoom-in; }
+  }
+
+  .thumbs{display:grid;grid-template-columns:repeat(auto-fill, minmax(70px,1fr)); gap:10px;margin-top:10px}
+  .thumb{border:1px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer;background:#fff;outline:2px solid transparent; outline-offset:2px}
+  .thumb img{width:100%;height:74px;object-fit:cover;display:block;-webkit-user-drag:none; user-select:none;}
+  .thumb:focus{outline-color:var(--accent)}
+  .thumb.active{outline-color:var(--accent)}
+
+  /* INFO */
+  .title{font:800 clamp(22px,3.6vw,36px)/1.15 Poppins,system-ui;margin:0 0 6px}
+  .vendor-sku{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+  .price{font:800 20px/1.2 Poppins,system-ui;margin:8px 0}
+  .price .compare{color:#ef4444;text-decoration:line-through;margin-left:8px;font-weight:600}
+  .avail{font:700 13px/1.2 Inter,system-ui;margin:4px 0}
+  .avail.ok{color:#16a34a}.avail.oos{color:#ef4444}
+
+  .variant-group{margin:14px 0}
+  .variant-label{font-weight:700;font-size:13px;margin:0 0 6px}
+  .variant-select, .qty-input{
+    width:100%;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;background:#fff;font-size:15px
+  }
+  .qty-row{display:flex;gap:10px;align-items:center;margin:14px 0}
+  .qty-input{max-width:110px}
+
+  .btn{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+  .btn[disabled]{opacity:.6;cursor:not-allowed}
+  .btn.secondary{background:#fff;color:var(--accent)}
+  .buy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+  /* Payment button (PayPal/ShopPay) con bordes redondos */
+  .pay-container{border-radius:12px;overflow:hidden}
+  .shopify-payment-button .shopify-payment-button__button,
+  .shopify-payment-button .shopify-payment-button__button--unbranded{
+    border-radius:12px !important;
+  }
+  .shopify-payment-button{gap:8px}
+
+  details.ac{border:1px solid var(--bd);border-radius:12px;background:#fff}
+  details.ac + details.ac{margin-top:10px}
+  summary.ac-h{cursor:pointer;padding:12px 14px;font-weight:700}
+  .ac-b{padding:0 14px 14px;color:var(--muted);line-height:1.6}
+
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+  .badge{border:1px solid var(--bd);border-radius:999px;padding:8px 12px;font-weight:700;background:#fff;font-size:12px;color:var(--muted)}
+</style>
+
+<section id="soltex-pdp-{{ section.id }}" class="p-wrap" itemscope itemtype="https://schema.org/Product">
+  <div class="p-container">
+    <!-- GALLERY -->
+    <div class="gallery" oncontextmenu="return false;">
+      {% assign initial_media = product.selected_or_first_available_variant.featured_media | default: product.media.first %}
+      <div class="main-media" id="main-media-{{ section.id }}">
+        <div class="img-wrap">
+          {% if initial_media %}
+            {% case initial_media.media_type %}
+              {% when 'image' %}
+                {{ initial_media | image_url: width: 1100 | image_tag: loading: 'eager', alt: product.title, widths: '550, 740, 1100', draggable: false }}
+              {% when 'video' %}
+                {{ initial_media | video_tag: controls: true, image_size: '1100x' }}
+              {% when 'external_video' %}
+                {{ initial_media | external_video_tag }}
+              {% when 'model' %}
+                {{ initial_media | model_viewer_tag }}
+            {% endcase %}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
+      </div>
+
+      {% if product.media.size > 1 %}
+        <div class="thumbs" id="thumbs-{{ section.id }}">
+          {% for m in product.media %}
+            <button type="button" class="thumb{% if m.id == initial_media.id %} active{% endif %}" data-media-id="{{ m.id }}" aria-label="Ver medio {{ forloop.index }}">
+              {% if m.preview_image %}
+                {{ m.preview_image | image_url: width: 180 | image_tag: alt: product.title, widths: '90, 120, 180', draggable: false }}
+              {% endif %}
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <h1 class="title" itemprop="name">{{ product.title }}</h1>
+
+      {% if section.settings.show_vendor or section.settings.show_sku %}
+        <div class="vendor-sku">
+          {% if section.settings.show_vendor and product.vendor != blank %}<span>Marca: {{ product.vendor }}</span>{% endif %}
+          {% if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank %}<span>SKU: {{ product.selected_or_first_available_variant.sku }}</span>{% endif %}
+        </div>
+      {% endif %}
+
+      <div class="price" id="price-{{ section.id }}">
+        {% assign v = product.selected_or_first_available_variant %}
+        <span class="now">{{ v.price | money }}</span>
+        {% if v.compare_at_price > v.price %}
+          <span class="compare">{{ v.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_availability %}
+        <p class="avail {% if v.available %}ok{% else %}oos{% endif %}" id="avail-{{ section.id }}">
+          {% if v.available %}Disponible{% else %}Agotado{% endif %}
+        </p>
+      {% endif %}
+
+      {%- capture form_id -%}product-form-{{ section.id }}{%- endcapture -%}
+      {% form 'product', product, id: form_id %}
+        <input type="hidden" name="id" value="{{ v.id }}" id="variant-id-{{ section.id }}">
+
+        {%- comment -%} Oculta el selector cuando solo hay 1 variante y la opción se llama "Title" {%- endcomment -%}
+        {% for opt in product.options_with_values %}
+          {% unless product.variants.size == 1 and opt.values.size == 1 and opt.name == 'Title' %}
+            <div class="variant-group">
+              <label class="variant-label" for="opt-{{ section.id }}-{{ forloop.index0 }}">{{ opt.name }}</label>
+              <select id="opt-{{ section.id }}-{{ forloop.index0 }}" class="variant-select" data-index="{{ forloop.index0 }}">
+                {% for val in opt.values %}
+                  {% assign sel = '' %}
+                  {% if val == product.selected_or_first_available_variant.options[forloop.parentloop.index0] %}{% assign sel = 'selected' %}{% endif %}
+                  <option value="{{ val | escape }}" {{ sel }}>{{ val }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endunless %}
+        {% endfor %}
+
+        <div class="qty-row">
+          <label for="qty-{{ section.id }}">Cantidad</label>
+          <input id="qty-{{ section.id }}" class="qty-input" type="number" name="quantity" min="1" value="1">
+        </div>
+
+        <div class="buy-row">
+          <button class="btn" type="submit" id="add-{{ section.id }}" {% unless v.available %}disabled{% endunless %}>Agregar al carrito</button>
+
+          {% if section.settings.enable_dynamic_checkout %}
+            <div class="pay-container">
+              {{ form | payment_button }}
+            </div>
+          {% endif %}
+        </div>
+      {% endform %}
+
+      {% if section.settings.show_badges %}
+        <div class="badges">
+          <span class="badge">Pago seguro</span>
+          <span class="badge">Envíos a todo México</span>
+          <span class="badge">Garantía 30 días</span>
+        </div>
+      {% endif %}
+
+      {% if product.description != blank %}
+        <details class="ac" {% if section.settings.open_description %}open{% endif %}>
+          <summary class="ac-h">Descripción</summary>
+          <div class="ac-b" itemprop="description">{{ product.description }}</div>
+        </details>
+      {% endif %}
+
+      {% if section.settings.shipping_text != blank %}
+        <details class="ac">
+          <summary class="ac-h">Envíos</summary>
+          <div class="ac-b">{{ section.settings.shipping_text }}</div>
+        </details>
+      {% endif %}
+
+      {% if section.settings.warranty_text != blank %}
+        <details class="ac">
+          <summary class="ac-h">Garantía</summary>
+          <div class="ac-b">{{ section.settings.warranty_text }}</div>
+        </details>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.show_related %}
+    <div style="max-width:1200px;margin:28px auto 0;padding:0 16px;">
+      <h2 class="title" style="font-size:22px;">También te puede interesar</h2>
+      {% assign rel_collection = product.collections.first %}
+      {% if rel_collection %}
+        <div class="r-grid" style="display:grid;gap:16px">
+          {% for rp in rel_collection.products limit: 8 %}
+            {% unless rp.id == product.id %}
+              <a class="r-card" href="{{ rp.url }}" style="border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff">
+                {% if rp.featured_image %}
+                  {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title, widths: '250, 380, 500', draggable: false }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag }}
+                {% endif %}
+                <div class="r-info" style="padding:10px;text-align:center">
+                  <p class="r-name" style="font-weight:600;font-size:14px;margin:0 0 4px">{{ rp.title }}</p>
+                  <p class="r-price" style="font-weight:800">{% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}</p>
+                </div>
+              </a>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p style="color:var(--muted)">Agrega este producto a una colección para mostrar relacionados.</p>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+
+<script>
+(function(){
+  var root = document.getElementById('soltex-pdp-{{ section.id }}');
+
+  // --- MAPA DE MEDIOS (ids + src) construido en Liquid ---
+  var MEDIA_MAP = [
+    {% for m in product.media %}
+      {
+        id: {{ m.id | json }},
+        type: {{ m.media_type | json }},
+        src: {% if m.media_type == 'image' %}
+               {{ m | image_url: width: 1200 | json }}
+             {% elsif m.media_type == 'video' and m.sources and m.sources.first %}
+               {{ m.sources.first.url | json }}
+             {% else %}
+               null
+             {% endif %}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  function getMediaById(id){
+    id = Number(id);
+    for (var i=0;i<MEDIA_MAP.length;i++){ if(MEDIA_MAP[i].id === id) return MEDIA_MAP[i]; }
+    return MEDIA_MAP[0] || null;
+  }
+
+  // Prevención básica "guardar como"
+  root.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    img.setAttribute('draggable', 'false');
+    img.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  });
+
+  var priceEl = root.querySelector('#price-{{ section.id }}');
+  var availEl = root.querySelector('#avail-{{ section.id }}');
+  var variantInput = root.querySelector('#variant-id-{{ section.id }}');
+  var addBtn = root.querySelector('#add-{{ section.id }}');
+  var form = root.querySelector('form[action*="/cart/add"]'); // robusto
+
+  function getCurrentOptions(){
+    var selects = root.querySelectorAll('.variant-select');
+    return Array.from(selects).map(function(s){ return s.value; });
+  }
+  var productJSON = {{ product | json }};
+  function findVariant(values){
+    return productJSON.variants.find(function(v){
+      return v.options.every(function(opt, i){ return opt == values[i]; });
+    });
+  }
+
+  function swapMainMedia(mediaId){
+    var m = getMediaById(mediaId);
+    var main = root.querySelector('#main-media-{{ section.id }}');
+    if(!m || !main) return;
+    var html = '<div class="img-wrap">';
+    if(m.type === 'video'){
+      html += '<video controls playsinline src="'+ (m.src || '') +'"></video>';
+    } else {
+      html += '<img src="'+ (m.src || '') +'" alt="{{ product.title | escape }}" width="1100" height="1100" draggable="false"/>';
+    }
+    html += '</div>';
+    main.innerHTML = html;
+  }
+
+  // Thumbnails – clickeables
+  var thumbsWrap = root.querySelector('#thumbs-{{ section.id }}');
+  if(thumbsWrap){
+    thumbsWrap.addEventListener('click', function(e){
+      var btn = e.target.closest('.thumb'); if(!btn) return;
+      var id = btn.getAttribute('data-media-id');
+      swapMainMedia(id);
+      Array.from(thumbsWrap.querySelectorAll('.thumb')).forEach(function(t){ t.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  }
+
+  // Cambio de variantes (si existieran)
+  if(form){
+    form.addEventListener('change', function(e){
+      if(!e.target.classList.contains('variant-select')) return;
+      var v = findVariant(getCurrentOptions());
+      if(!v) return;
+      variantInput.value = v.id;
+
+      if(priceEl){
+        var html = '<span class="now">' + Shopify.formatMoney(v.price, {{ shop.money_format | json }}) + '</span>';
+        if(v.compare_at_price && v.compare_at_price > v.price){
+          html += ' <span class="compare">' + Shopify.formatMoney(v.compare_at_price, {{ shop.money_format | json }}) + '</span>';
+        }
+        priceEl.innerHTML = html;
+      }
+      if(availEl){
+        availEl.textContent = v.available ? 'Disponible' : 'Agotado';
+        availEl.classList.toggle('ok', !!v.available);
+        availEl.classList.toggle('oos', !v.available);
+      }
+      if(addBtn){ addBtn.disabled = !v.available; }
+
+      if(v.featured_media && v.featured_media.id){ swapMainMedia(v.featured_media.id); }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-product",
+  "settings": [
+    { "type": "checkbox", "id": "show_vendor", "label": "Mostrar marca (vendor)", "default": true },
+    { "type": "checkbox", "id": "show_sku", "label": "Mostrar SKU", "default": true },
+    { "type": "checkbox", "id": "show_availability", "label": "Mostrar disponibilidad", "default": true },
+    { "type": "checkbox", "id": "enable_dynamic_checkout", "label": "Botón de pago dinámico (PayPal/ShopPay)", "default": true },
+    { "type": "checkbox", "id": "show_badges", "label": "Mostrar badges de confianza", "default": true },
+    { "type": "checkbox", "id": "open_description", "label": "Descripción abierta por defecto", "default": true },
+    { "type": "textarea", "id": "shipping_text", "label": "Texto de envíos", "default": "Envíos nacionales. Costos calculados al finalizar la compra." },
+    { "type": "textarea", "id": "warranty_text", "label": "Texto de garantía", "default": "Garantía 30 días contra defectos de fabricación." },
+    { "type": "checkbox", "id": "show_related", "label": "Mostrar relacionados (primera colección)", "default": true }
+  ],
+  "presets": [{ "name": "soltex-product" }]
+}
+{% endschema %}
