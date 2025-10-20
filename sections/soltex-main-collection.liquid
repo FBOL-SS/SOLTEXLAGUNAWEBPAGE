@@ -11,7 +11,6 @@
   .toolbar .count{color:var(--muted);font-size:14px}
   .toolbar .sort select{border:1px solid var(--bd);border-radius:8px;padding:8px 12px;font-size:15px;background:#fff}
 
-  /* SIDEBAR */
   .sidebar{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:16px;height:max-content;position:sticky;top:16px}
   .filter{border-top:1px solid var(--bd);padding-top:12px;margin-top:12px}
   .filter:first-child{border-top:0;margin-top:0;padding-top:0}
@@ -26,7 +25,6 @@
   .btn.primary{background:#0d1b2a;color:#fff;border-color:#0d1b2a}
   .btn.link{background:transparent;border:none;color:#0d1b2a;padding:0}
 
-  /* GRID */
   .grid{display:grid;gap:18px}
   @media(min-width:768px){ .grid{grid-template-columns:repeat(3,1fr)} }
   @media(min-width:1140px){ .grid{grid-template-columns:repeat(4,1fr)} }
@@ -43,13 +41,12 @@
   .actions{display:flex;gap:8px;justify-content:center;padding:12px;border-top:1px solid var(--bd);background:#fafafa}
   .btn.qv{background:#fff}
 
-  /* MODAL */
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
   .modal.open{display:flex}
   .modal .box{background:#fff;color:#0f172a;max-width:860px;width:100%;border-radius:14px;overflow:hidden;display:grid}
   @media(min-width:900px){ .modal .box{grid-template-columns: 1.2fr 1fr} }
   .modal .media{background:#f8fafc}
-  .modal .media img{width:100%;height:100%;object-fit:cover}
+  .modal .media img{width:100%;height:auto;display:block}
   .modal .content{padding:18px}
   .modal h3{margin:0 0 6px;font:800 20px/1.2 Poppins,system-ui}
   .modal .price{font-weight:800;margin:6px 0 10px}
@@ -160,7 +157,7 @@
               <div class="card" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url }}" data-product-title="{{ product.title | escape }}">
                 <a class="media" href="{{ product.url }}">
                   {% if featured %}
-                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
+                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
                   {% else %}
                     {{ 'product-1' | placeholder_svg_tag }}
                   {% endif %}
@@ -182,7 +179,7 @@
                 </div>
                 <div class="actions">
                   <button class="btn qv" type="button" data-qv="{{ product.handle }}">Vista rápida</button>
-                  <form action="/cart/add" method="post">
+                  <form action="{{ routes.cart_add_url }}" method="post">
                     <input type="hidden" name="id" value="{{ first_avail.id }}">
                     <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>
                       Agregar
@@ -193,11 +190,18 @@
             {% endfor %}
           </div>
 
-          <div style="margin-top:28px;text-align:center;">
-            {% if paginate.pages > 1 %}
-              {% render 'pagination', paginate: paginate %}
-            {% endif %}
-          </div>
+          <!-- PAGINACIÓN INLINE (sin snippet) -->
+          {% if paginate.pages > 1 %}
+            <nav class="pagination" role="navigation" style="text-align:center;margin-top:28px">
+              {% if paginate.previous %}
+                <a href="{{ paginate.previous.url }}">&larr; Anterior</a>
+              {% endif %}
+              <span style="margin:0 10px">Página {{ paginate.current_page }} de {{ paginate.pages }}</span>
+              {% if paginate.next %}
+                <a href="{{ paginate.next.url }}">Siguiente &rarr;</a>
+              {% endif %}
+            </nav>
+          {% endif %}
         {% else %}
           <p>No hay productos disponibles con estos filtros.</p>
         {% endif %}
@@ -210,13 +214,13 @@
 <div id="qv-{{ section.id }}" class="modal" role="dialog" aria-modal="true" aria-label="Vista rápida">
   <div class="box">
     <button class="close" type="button">Cerrar ✕</button>
-    <div class="media"><img alt="" /></div>
+    <div class="media"><img alt="" width="800" height="800" /></div>
     <div class="content">
       <h3></h3>
       <p class="price"></p>
       <p class="avail"></p>
 
-      <form class="qv-form" action="/cart/add" method="post">
+      <form class="qv-form" action="{{ routes.cart_add_url }}" method="post">
         <div class="qty">
           <label for="qv-qty-{{ section.id }}">Cantidad</label>
           <input id="qv-qty-{{ section.id }}" type="number" name="quantity" min="1" value="1">
@@ -244,11 +248,8 @@
   var variantInput = formEl.querySelector('input[name="id"]');
   var gotoLink = modal.querySelector('.goto');
 
-  function fmtMoney(cents){ try { return ({{ shop.money_format | json }}).replace('{{amount}}', (cents/100).toFixed(2)); } catch(_){ return '$' + (cents/100).toFixed(2); } }
-
   function openModal(){ modal.classList.add('open'); }
   function closeModal(){ modal.classList.remove('open'); }
-
   modal.querySelector('.close').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
 
@@ -259,40 +260,30 @@
     var handle = btn.getAttribute('data-qv');
     var url = card.getAttribute('data-product-url');
 
-    // Cargar JSON del producto
     fetch('/products/' + handle + '.js')
       .then(r => r.json())
       .then(p => {
-        // Imagen principal
         if (p.images && p.images.length) {
           imgEl.src = p.images[0];
           imgEl.alt = p.title;
         } else {
-          imgEl.removeAttribute('src');
-          imgEl.alt = '';
+          imgEl.removeAttribute('src'); imgEl.alt = '';
         }
-
-        // Título y link
         titleEl.textContent = p.title;
         gotoLink.href = url;
 
-        // Variante disponible
         var v = p.variants.find(x => x.available) || p.variants[0];
         var available = v ? v.available : false;
-        priceEl.textContent = v ? fmtMoney(v.price) : '';
+        priceEl.textContent = Shopify.formatMoney(v.price, {{ shop.money_format | json }});
         availEl.textContent = available ? 'Disponible' : 'Agotado';
         availEl.classList.toggle('oos', !available);
 
-        // Setear variante en form
         if (v) variantInput.value = v.id;
         formEl.querySelector('button[type="submit"]').disabled = !available;
 
         openModal();
       })
-      .catch(() => {
-        // Si falla, ir al producto
-        window.location.href = url;
-      });
+      .catch(() => { window.location.href = url; });
   });
 })();
 </script>
