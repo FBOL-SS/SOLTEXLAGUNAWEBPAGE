@@ -1,0 +1,106 @@
+<section class="about-wrap" aria-label="Quiénes somos">
+  <div class="about-inner">
+    <h1 class="title">{{ section.settings.title }}</h1>
+    <p class="subtitle">{{ section.settings.subtitle }}</p>
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'mission' %}
+          <div class="block">
+            <h2>{{ block.settings.heading }}</h2>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% when 'value' %}
+          <div class="block">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.desc }}</p>
+          </div>
+        {% when 'timeline' %}
+          <div class="block">
+            <strong>{{ block.settings.year }}</strong> — {{ block.settings.event }}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SOLTEX - Quiénes somos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Quiénes somos"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Soluciones industriales para el sector textil moderno."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mission",
+      "name": "Misión",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Encabezado",
+          "default": "Nuestra misión"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto",
+          "default": "Impulsar la productividad textil en América Latina con innovación y servicio técnico."
+        }
+      ]
+    },
+    {
+      "type": "value",
+      "name": "Valor",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título del valor",
+          "default": "Compromiso"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Descripción",
+          "default": "Cada cliente recibe atención personalizada y soluciones a medida."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "name": "Hito de la historia",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Año",
+          "default": "2012"
+        },
+        {
+          "type": "text",
+          "id": "event",
+          "label": "Evento",
+          "default": "Nace SOLTEX en Monterrey, México."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Página Quiénes Somos (SOLTEX)"
+    }
+  ]
+}
+{% endschema %}
