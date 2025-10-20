@@ -6,23 +6,18 @@
   .p-container{max-width:1200px;margin:0 auto;display:grid;gap:24px;}
   @media(min-width:992px){ .p-container{grid-template-columns: 1.1fr 1fr;} }
 
-  /* Gallery */
   .gallery{position:sticky;top:16px}
   .main-media{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
-  .main-media img, .main-media video{width:100%;height:auto;display:block}
   .thumbs{display:grid;grid-auto-flow:column;gap:10px;margin-top:10px;overflow:auto;padding-bottom:4px}
   .thumb{border:1px solid var(--bd);border-radius:8px;overflow:hidden;width:84px;height:84px;cursor:pointer;flex:0 0 auto;background:#fff}
-  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .thumb.active{outline:2px solid var(--accent)}
 
-  /* Info */
   .title{font:800 clamp(22px,3.6vw,36px)/1.15 Poppins,system-ui;margin:0 0 6px}
   .vendor-sku{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
   .price{font:800 20px/1.2 Poppins,system-ui;margin:8px 0}
   .price .compare{color:#ef4444;text-decoration:line-through;margin-left:8px;font-weight:600}
   .avail{font:700 13px/1.2 Inter,system-ui;margin:4px 0}
-  .avail.ok{color:#16a34a}
-  .avail.oos{color:#ef4444}
+  .avail.ok{color:#16a34a}.avail.oos{color:#ef4444}
 
   .variant-group{margin:14px 0}
   .variant-label{font-weight:700;font-size:13px;margin:0 0 6px}
@@ -45,25 +40,6 @@
   .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
   .badge{border:1px solid var(--bd);border-radius:999px;padding:8px 12px;font-weight:700;background:#fff;font-size:12px;color:var(--muted)}
 
-  /* Related */
-  .related{margin-top:32px}
-  .r-grid{display:grid;gap:16px}
-  @media(min-width:768px){ .r-grid{grid-template-columns:repeat(4,1fr)} }
-  .r-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
-  .r-card img{width:100%;aspect-ratio:1/1;object-fit:cover}
-  .r-card .r-info{padding:10px;text-align:center}
-  .r-card .r-name{font-weight:600;font-size:14px;margin:0 0 4px}
-  .r-card .r-price{font-weight:800}
-
-  /* Sticky ATC */
-  .sticky-atc{position:fixed;left:0;right:0;bottom:-120px;transition:bottom .25s ease;background:rgba(255,255,255,.96);backdrop-filter:saturate(150%) blur(6px);border-top:1px solid var(--bd);z-index:50}
-  .sticky-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-  .sticky-title{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .sticky-price{font-weight:800}
-  .sticky-atc .btn{padding:10px 14px}
-  .sticky-atc.show{bottom:0}
-
-  /* Zoom modal */
   .mz{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
   .mz.open{display:flex}
   .mz img{max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
@@ -72,12 +48,21 @@
 
 <section class="p-wrap" itemscope itemtype="https://schema.org/Product">
   <div class="p-container">
-    <!-- GALLERY -->
+    <!-- GALLERY (sin snippet 'media') -->
     <div class="gallery">
       {% assign initial_media = product.selected_or_first_available_variant.featured_media | default: product.media.first %}
       <div class="main-media" id="main-media-{{ section.id }}">
         {% if initial_media %}
-          {% render 'media', media: initial_media %}
+          {% case initial_media.media_type %}
+            {% when 'image' %}
+              {{ initial_media | image_url: width: 1100 | image_tag: loading: 'eager', alt: product.title, widths: '550, 740, 1100' }}
+            {% when 'video' %}
+              {{ initial_media | video_tag: controls: true, image_size: '1100x' }}
+            {% when 'external_video' %}
+              {{ initial_media | external_video_tag }}
+            {% when 'model' %}
+              {{ initial_media | model_viewer_tag }}
+          {% endcase %}
         {% else %}
           {{ 'product-1' | placeholder_svg_tag }}
         {% endif %}
@@ -88,7 +73,7 @@
           {% for m in product.media %}
             <button type="button" class="thumb{% if m.id == initial_media.id %} active{% endif %}" data-media-id="{{ m.id }}" aria-label="Ver medio {{ forloop.index }}">
               {% if m.preview_image %}
-                {{ m.preview_image | image_url: width: 180 | image_tag }}
+                {{ m.preview_image | image_url: width: 180 | image_tag: alt: product.title, widths: '90, 120, 180' }}
               {% endif %}
             </button>
           {% endfor %}
@@ -183,34 +168,30 @@
   </div>
 
   {% if section.settings.show_related %}
-    <div class="related">
-      <div style="max-width:1200px;margin:28px auto 0;padding:0 16px;">
-        <h2 class="title" style="font-size:22px;">También te puede interesar</h2>
-        {% assign rel_collection = product.collections.first %}
-        {% if rel_collection %}
-          <div class="r-grid">
-            {% for rp in rel_collection.products limit: 8 %}
-              {% unless rp.id == product.id %}
-                <a class="r-card" href="{{ rp.url }}">
-                  {% if rp.featured_image %}
-                    {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title }}
-                  {% else %}
-                    {{ 'product-1' | placeholder_svg_tag }}
-                  {% endif %}
-                  <div class="r-info">
-                    <p class="r-name">{{ rp.title }}</p>
-                    <p class="r-price">
-                      {% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}
-                    </p>
-                  </div>
-                </a>
-              {% endunless %}
-            {% endfor %}
-          </div>
-        {% else %}
-          <p style="color:var(--muted)">Agrega este producto a una colección para mostrar relacionados.</p>
-        {% endif %}
-      </div>
+    <div style="max-width:1200px;margin:28px auto 0;padding:0 16px;">
+      <h2 class="title" style="font-size:22px;">También te puede interesar</h2>
+      {% assign rel_collection = product.collections.first %}
+      {% if rel_collection %}
+        <div class="r-grid">
+          {% for rp in rel_collection.products limit: 8 %}
+            {% unless rp.id == product.id %}
+              <a class="r-card" href="{{ rp.url }}">
+                {% if rp.featured_image %}
+                  {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title, widths: '250, 380, 500' }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag }}
+                {% endif %}
+                <div class="r-info">
+                  <p class="r-name">{{ rp.title }}</p>
+                  <p class="r-price">{% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}</p>
+                </div>
+              </a>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p style="color:var(--muted)">Agrega este producto a una colección para mostrar relacionados.</p>
+      {% endif %}
     </div>
   {% endif %}
 </section>
@@ -218,7 +199,7 @@
 <!-- ZOOM MODAL -->
 <div class="mz" id="mz-{{ section.id }}">
   <button class="close" type="button">Cerrar ✕</button>
-  <img alt="{{ product.title }}">
+  <img alt="{{ product.title }}" width="1100" height="1100">
 </div>
 
 <script>
@@ -233,7 +214,6 @@
   var variantInput = document.getElementById('variant-id-' + sectionId);
   var addBtn = document.getElementById('add-' + sectionId);
 
-  // Variant change handler (simple selects)
   function getCurrentOptions(){
     var selects = form.querySelectorAll('.variant-select');
     return Array.from(selects).map(function(s){ return s.value; });
@@ -243,46 +223,40 @@
       return v.options.every(function(opt, i){ return opt == values[i]; });
     });
   }
+  function swapMainMedia(mediaId){
+    var target = productJSON.media.find(m => m.id == mediaId) || productJSON.media[0];
+    var main = document.getElementById('main-media-' + sectionId);
+    if(!target || !main) return;
+    var html = '';
+    if(target.media_type === 'video'){
+      html = '<video controls playsinline src="'+ (target.sources && target.sources[0] ? target.sources[0].url : '') +'"></video>';
+    } else {
+      var src = target.src || (target.preview_image && target.preview_image.src) || '';
+      html = '<img src="'+ src +'" alt="{{ product.title | escape }}" width="1100" height="1100"/>';
+    }
+    main.innerHTML = html;
+
+    var thumbs = document.querySelectorAll('#thumbs-' + sectionId + ' .thumb');
+    thumbs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-media-id') == mediaId); });
+  }
   function renderVariant(v){
     if(!v) return;
     variantInput.value = v.id;
-    // price
     if(priceEl){
       var html = '';
-      html += '<span class="now">' + Shopify.formatMoney(v.price, "{{ shop.money_format | escape }}") + '</span>';
+      html += '<span class="now">' + Shopify.formatMoney(v.price, {{ shop.money_format | json }}) + '</span>';
       if(v.compare_at_price && v.compare_at_price > v.price){
-        html += ' <span class="compare">' + Shopify.formatMoney(v.compare_at_price, "{{ shop.money_format | escape }}") + '</span>';
+        html += ' <span class="compare">' + Shopify.formatMoney(v.compare_at_price, {{ shop.money_format | json }}) + '</span>';
       }
       priceEl.innerHTML = html;
     }
-    // availability
     if(availEl){
       availEl.textContent = v.available ? 'Disponible' : 'Agotado';
       availEl.classList.toggle('ok', !!v.available);
       availEl.classList.toggle('oos', !v.available);
     }
     if(addBtn){ addBtn.disabled = !v.available; }
-    // media swap if available
-    if(v.featured_media && v.featured_media.id){
-      swapMainMedia(v.featured_media.id);
-    }
-  }
-
-  // Thumbs
-  var main = document.getElementById('main-media-' + sectionId);
-  function swapMainMedia(mediaId){
-    var target = productJSON.media.find(m => m.id == mediaId) || productJSON.media[0];
-    if(!target || !main) return;
-    var html = '';
-    if(target.media_type === 'video'){
-      html = '<video controls playsinline src="'+ (target.sources && target.sources[0] ? target.sources[0].url : '') +'"></video>';
-    } else {
-      html = '<img src="'+ (target.src || (target.preview_image && target.preview_image.src) || '') +'" alt="{{ product.title | escape }}"/>';
-    }
-    main.innerHTML = html;
-    // active thumb
-    var thumbs = document.querySelectorAll('#thumbs-' + sectionId + ' .thumb');
-    thumbs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-media-id') == mediaId); });
+    if(v.featured_media && v.featured_media.id){ swapMainMedia(v.featured_media.id); }
   }
 
   var thumbsWrap = document.getElementById('thumbs-' + sectionId);
@@ -292,43 +266,19 @@
       swapMainMedia(b.getAttribute('data-media-id'));
     });
   }
-
-  // Change events
   form.addEventListener('change', function(e){
     if(!e.target.classList.contains('variant-select')) return;
     var v = findVariant(getCurrentOptions());
     renderVariant(v);
   });
 
-  // Sticky ATC
-  {% if section.settings.enable_sticky_atc %}
-  var sticky = document.createElement('div');
-  sticky.className = 'sticky-atc';
-  sticky.innerHTML = '<div class="sticky-inner"><div class="sticky-title">{{ product.title | escape }}</div><div class="sticky-price"></div><button class="btn" type="button">Agregar</button></div>';
-  document.body.appendChild(sticky);
-  var stickBtn = sticky.querySelector('button');
-  var stickyPrice = sticky.querySelector('.sticky-price');
-
-  function updateStickyPrice(v){
-    stickyPrice.textContent = Shopify.formatMoney(v.price, "{{ shop.money_format | escape }}");
-    stickBtn.disabled = !v.available;
-  }
-  updateStickyPrice(productJSON.variants.find(v => v.id == {{ product.selected_or_first_available_variant.id }}));
-
-  window.addEventListener('scroll', function(){
-    var rect = form.getBoundingClientRect();
-    if(rect.bottom < 0){ sticky.classList.add('show'); } else { sticky.classList.remove('show'); }
-  });
-  stickBtn.addEventListener('click', function(){ addBtn && addBtn.click(); });
-  {% endif %}
-
-  // Zoom modal
+  // Zoom
   var zoomBtn = document.getElementById('zoom-{{ section.id }}');
   var mz = document.getElementById('mz-{{ section.id }}');
   if(zoomBtn && mz){
     var mzImg = mz.querySelector('img');
+    var main = document.getElementById('main-media-' + sectionId);
     zoomBtn.addEventListener('click', function(){
-      // use current main image
       var img = main.querySelector('img');
       if(img){ mzImg.src = img.src; }
       mz.classList.add('open');
@@ -351,10 +301,8 @@
     { "type": "checkbox", "id": "open_description", "label": "Descripción abierta por defecto", "default": true },
     { "type": "textarea", "id": "shipping_text", "label": "Texto de envíos", "default": "Envíos nacionales. Costos calculados al finalizar la compra." },
     { "type": "textarea", "id": "warranty_text", "label": "Texto de garantía", "default": "Garantía 30 días contra defectos de fabricación." },
-    { "type": "checkbox", "id": "show_related", "label": "Mostrar relacionados (primera colección)", "default": true },
-    { "type": "checkbox", "id": "enable_sticky_atc", "label": "Barra fija de \"Agregar al carrito\"", "default": true }
+    { "type": "checkbox", "id": "show_related", "label": "Mostrar relacionados (primera colección)", "default": true }
   ],
-  "blocks": [],
   "presets": [{ "name": "soltex-product" }]
 }
 {% endschema %}
