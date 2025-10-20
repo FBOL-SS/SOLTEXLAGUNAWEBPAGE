@@ -1,5 +1,4 @@
 <style>
-  /* ---------- THEME TOKENS (auto según tono) ---------- */
   #shopify-section-{{ section.id }}{
     --bg: {{ section.settings.background_color }};
     --fg: {{ section.settings.text_color }};
@@ -9,7 +8,6 @@
     --shadow: {% if section.settings.tone == 'light' %}0 10px 24px rgba(15,23,42,.08){% else %}0 10px 24px rgba(0,0,0,.16){% endif %};
   }
 
-  /* ---------- LAYOUT ---------- */
   #shopify-section-{{ section.id }} .about-wrap{background:var(--bg);color:var(--fg); position:relative;}
   #shopify-section-{{ section.id }} .bg-img{position:absolute; inset:0;}
   #shopify-section-{{ section.id }} .bg-img img{width:100%;height:100%;object-fit:cover;display:block}
@@ -23,7 +21,6 @@
     text-align: {{ section.settings.content_align }};
   }
 
-  /* ---------- TYPO ---------- */
   #shopify-section-{{ section.id }} .title{
     font: 800 clamp(28px,4vw,44px)/1.15 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     margin:0 0 10px;
@@ -33,12 +30,11 @@
     margin:0 0 26px; color: var(--muted);
   }
 
-  /* ---------- BLOCKS ---------- */
   #shopify-section-{{ section.id }} .grid{ display:grid; gap:18px; }
   @media(min-width:992px){
     #shopify-section-{{ section.id }} .cols-2{grid-template-columns:repeat(2,1fr)}
-    .cols-3{grid-template-columns:repeat(3,1fr)}
-    .cols-4{grid-template-columns:repeat(4,1fr)}
+    #shopify-section-{{ section.id }} .cols-3{grid-template-columns:repeat(3,1fr)}
+    #shopify-section-{{ section.id }} .cols-4{grid-template-columns:repeat(4,1fr)}
   }
 
   #shopify-section-{{ section.id }} .card{
@@ -86,7 +82,6 @@
   }
   #shopify-section-{{ section.id }} .btn:hover{ {% if section.settings.tone == 'light' %} background:#f3f4f6 {% else %} background:rgba(255,255,255,.15) {% endif %} }
 
-  /* separaciones entre bloques */
   #shopify-section-{{ section.id }} .block + .block{ margin-top: clamp(22px, 4vw, 36px); }
 </style>
 
@@ -102,73 +97,85 @@
     {% if section.settings.title != blank %}<h1 class="title">{{ section.settings.title | escape }}</h1>{% endif %}
     {% if section.settings.subtitle != blank %}<p class="subtitle">{{ section.settings.subtitle }}</p>{% endif %}
 
+    {%- comment -%}
+      AGRUPAR TODOS LOS KPI EN UNA SOLA FILA
+    {%- endcomment -%}
+    {% assign kpi_blocks = section.blocks | where: 'type', 'kpi' %}
+    {% if kpi_blocks.size > 0 %}
+      <div class="block grid cols-{{ section.settings.kpi_columns }}">
+        {% for block in kpi_blocks %}
+          <div class="card kpi" {{ block.shopify_attributes }}>
+            <div class="n">{{ block.settings.number | escape }}</div>
+            {% if block.settings.label != blank %}<div class="l">{{ block.settings.label | escape }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {%- comment -%}
+      RENDERIZAR EL RESTO DE BLOQUES (sin duplicar los KPI)
+    {%- endcomment -%}
     {% for block in section.blocks %}
-      {% case block.type %}
+      {% unless block.type == 'kpi' %}
+        {% case block.type %}
 
-        {% when 'kpi' %}
-          <div class="block grid cols-{{ section.settings.kpi_columns }}" {{ block.shopify_attributes }}>
-            <div class="card kpi">
-              <div class="n">{{ block.settings.number | escape }}</div>
-              {% if block.settings.label != blank %}<div class="l">{{ block.settings.label | escape }}</div>{% endif %}
+          {% when 'mission' %}
+            <div class="block card" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                <h2 class="title" style="font-size:clamp(22px,3vw,28px); text-align:inherit;">{{ block.settings.heading | escape }}</h2>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p class="subtitle" style="margin:0; text-align:inherit;">{{ block.settings.text }}</p>
+              {% endif %}
             </div>
-          </div>
 
-        {% when 'mission' %}
-          <div class="block card" {{ block.shopify_attributes }}>
-            {% if block.settings.heading != blank %}
-              <h2 class="title" style="font-size:clamp(22px,3vw,28px); text-align:inherit;">{{ block.settings.heading | escape }}</h2>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p class="subtitle" style="margin:0; text-align:inherit;">{{ block.settings.text }}</p>
-            {% endif %}
-          </div>
+          {% when 'value' %}
+            <div class="block grid cols-{{ section.settings.value_columns }}" {{ block.shopify_attributes }}>
+              <article class="card value">
+                <div class="icon" aria-hidden="true">{{ block.settings.icon | default: '★' }}</div>
+                <div>
+                  {% if block.settings.title != blank %}<h4>{{ block.settings.title | escape }}</h4>{% endif %}
+                  {% if block.settings.desc != blank %}<p>{{ block.settings.desc }}</p>{% endif %}
+                </div>
+              </article>
+            </div>
 
-        {% when 'value' %}
-          <div class="block grid cols-{{ section.settings.value_columns }}" {{ block.shopify_attributes }}>
-            <article class="card value">
-              <div class="icon" aria-hidden="true">{{ block.settings.icon | default: '★' }}</div>
-              <div>
-                {% if block.settings.title != blank %}<h4>{{ block.settings.title | escape }}</h4>{% endif %}
-                {% if block.settings.desc != blank %}<p>{{ block.settings.desc }}</p>{% endif %}
-              </div>
-            </article>
-          </div>
-
-        {% when 'timeline' %}
-          <div class="block timeline card" {{ block.shopify_attributes }}>
-            <div class="row">
-              {% if block.settings.year != blank %}<div class="yr">{{ block.settings.year | escape }}</div>{% endif %}
-              <div class="txt">
-                {% if block.settings.title != blank %}<strong>{{ block.settings.title | escape }}</strong>{% endif %}
-                {% if block.settings.text != blank %}<p style="margin:6px 0 0">{{ block.settings.text }}</p>{% endif %}
+          {% when 'timeline' %}
+            <div class="block timeline card" {{ block.shopify_attributes }}>
+              <div class="row">
+                {% if block.settings.year != blank %}<div class="yr">{{ block.settings.year | escape }}</div>{% endif %}
+                <div class="txt">
+                  {% if block.settings.title != blank %}<strong>{{ block.settings.title | escape }}</strong>{% endif %}
+                  {% if block.settings.text != blank %}<p style="margin:6px 0 0">{{ block.settings.text }}</p>{% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-        {% when 'team' %}
-          <div class="block team card" {{ block.shopify_attributes }}>
-            <div class="person">
-              <div class="ph">
-                {% if block.settings.photo != blank %}
-                  {{ block.settings.photo | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name | escape }}
-                {% endif %}
-              </div>
-              <div>
-                {% if block.settings.name != blank %}<div class="nm">{{ block.settings.name | escape }}</div>{% endif %}
-                {% if block.settings.role != blank %}<div class="rl">{{ block.settings.role | escape }}</div>{% endif %}
-                {% if block.settings.bio != blank %}<div class="bio">{{ block.settings.bio }}</div>{% endif %}
+          {% when 'team' %}
+            <div class="block team card" {{ block.shopify_attributes }}>
+              <div class="person">
+                <div class="ph">
+                  {% if block.settings.photo != blank %}
+                    {{ block.settings.photo | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.name | escape }}
+                  {% endif %}
+                </div>
+                <div>
+                  {% if block.settings.name != blank %}<div class="nm">{{ block.settings.name | escape }}</div>{% endif %}
+                  {% if block.settings.role != blank %}<div class="rl">{{ block.settings.role | escape }}</div>{% endif %}
+                  {% if block.settings.bio != blank %}<div class="bio">{{ block.settings.bio }}</div>{% endif %}
+                </div>
               </div>
             </div>
-          </div>
 
-        {% when 'cta' %}
-          <div class="block cta" {{ block.shopify_attributes }}>
-            {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
-              <a class="btn" href="{{ block.settings.cta_url }}">{{ block.settings.cta_label }}</a>
-            {% endif %}
-          </div>
+          {% when 'cta' %}
+            <div class="block cta" {{ block.shopify_attributes }}>
+              {% if block.settings.cta_label != blank and block.settings.cta_url != blank %}
+                <a class="btn" href="{{ block.settings.cta_url }}">{{ block.settings.cta_label }}</a>
+              {% endif %}
+            </div>
 
-      {% endcase %}
+        {% endcase %}
+      {% endunless %}
     {% endfor %}
   </div>
 </section>
@@ -192,11 +199,8 @@
       { "value": "solid", "label": "Sólido" }, { "value": "image", "label": "Imagen" }
     ], "default": "solid" },
 
-    { "type": "color", "id": "background_color", "label": "Color de fondo",
-      "default": "#f8fafc" },
-
-    { "type": "color", "id": "text_color", "label": "Color de texto",
-      "default": "#0d1b2a" },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#f8fafc" },
+    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#0d1b2a" },
 
     { "type": "image_picker", "id": "background_image", "label": "Imagen de fondo" },
     { "type": "range", "id": "overlay_opacity", "label": "Opacidad overlay (%)", "min": 0, "max": 100, "step": 5, "default": 40 },
@@ -237,6 +241,6 @@
       { "type": "url",  "id": "cta_url",   "label": "URL del botón" }
     ]}
   ],
-  "presets": [{ "name": "SOLTEX – Quiénes somos (v2)" }]
+  "presets": [{ "name": "SOLTEX – Quiénes somos (v2.1)" }]
 }
 {% endschema %}
