@@ -11,23 +11,120 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "overlay_opacity": 75,
+        "headline": "Soluciones textiles para la industria moderna",
+        "subheadline": "Distribuimos maquinaria, refacciones y automatización textil en México y Centroamérica.",
+        "button_text": "Ver catálogo",
+        "button_url": ""
+      }
     },
     "featured-categories": {
       "type": "featured-categories",
-      "settings": {}
+      "settings": {
+        "section_title": "Categorías destacadas",
+        "section_subtitle": "Explore our comprehensive range of industrial machinery and parts"
+      }
     },
     "why-choose": {
       "type": "why-choose",
-      "settings": {}
+      "settings": {
+        "section_title": "¿Por qué elegirnos?",
+        "section_subtitle": "Descubre las razones por las que miles de clientes confían en SOLTEX para sus necesidades de energía solar",
+        "desktop_columns": 3,
+        "background_type": "color",
+        "background_color": "#f4f4f4",
+        "overlay_opacity": 50,
+        "show_kpis": true,
+        "kpi_1_value": "500+",
+        "kpi_1_label": "Clientes Satisfechos",
+        "kpi_2_value": "24/7",
+        "kpi_2_label": "Soporte Técnico",
+        "kpi_3_value": "15+",
+        "kpi_3_label": "Años de Experiencia",
+        "kpi_4_value": "98%",
+        "kpi_4_label": "Tasa de Satisfacción",
+        "main_cta_text": "Solicita tu Cotización",
+        "main_cta_link": ""
+      }
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": {}
+      "blocks": {
+        "testimonial_jJKKi6": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX.",
+            "author_name": "María López",
+            "author_role": "Gerente de Producción",
+            "company": "Textiles del Norte",
+            "rating": 5
+          }
+        },
+        "testimonial_HRqmjJ": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX.",
+            "author_name": "María López",
+            "author_role": "Gerente de Producción",
+            "company": "Textiles del Norte",
+            "rating": 5
+          }
+        },
+        "testimonial_aPi4AK": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX.",
+            "author_name": "María López",
+            "author_role": "Gerente de Producción",
+            "company": "Textiles del Norte",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_jJKKi6",
+        "testimonial_HRqmjJ",
+        "testimonial_aPi4AK"
+      ],
+      "settings": {
+        "title": "Lo que opinan nuestros clientes",
+        "subtitle": "Resultados reales en plantas reales.",
+        "layout_mode": "grid",
+        "desktop_columns": 3,
+        "overlay_opacity": 60,
+        "background_style": "solid",
+        "background_color": "#0d1b2a",
+        "text_color": "#ffffff"
+      }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "title": "Stay Connected with SOLTEX",
+        "subtitle": "Subscribe to receive exclusive updates, product launches, and special offers delivered straight to your inbox.",
+        "text_alignment": "center",
+        "show_name_field": true,
+        "name_label": "First Name",
+        "name_placeholder": "Enter your first name",
+        "name_required": false,
+        "email_label": "Email Address",
+        "email_placeholder": "your.email@example.com",
+        "inline_layout": false,
+        "show_gdpr_consent": true,
+        "consent_text": "I agree to receive marketing emails from SOLTEX and understand I can unsubscribe at any time. View our Privacy Policy.",
+        "consent_error_message": "Please agree to receive marketing emails to continue.",
+        "button_label": "Subscribe Now",
+        "button_loading_label": "Subscribing...",
+        "success_message": "Thank you for subscribing! Check your inbox for a confirmation email.",
+        "error_message": "Something went wrong. Please check your email address and try again.",
+        "small_print": "We respect your privacy. Unsubscribe at any time.",
+        "show_social_proof": true,
+        "social_proof_text": "Join 10,000+ subscribers who trust SOLTEX",
+        "layout": "contained",
+        "background_color": "#0d1b2a",
+        "overlay_opacity": 0.7
+      }
     }
   },
   "order": [
