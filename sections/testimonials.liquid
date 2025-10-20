@@ -1,22 +1,259 @@
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 p-6 rounded-lg">
-                <div class="flex items-center mb-4">
-                    <img src="{{ 'people/200x200/1' | asset_url }}" alt="Maria G." class="h-12 w-12 rounded-full">
-                    <div class="ml-4">
-                        <h4 class="font-semibold">Maria G.</h4>
-                        <p class="text-gray-500 text-sm">Production Manager, Mexico</p>
-                    </div>
-                </div>
-                <p class="text-gray-700">"SOLUCIONES TEXTILES LAGUNA machines increased our production by 40%. Their support team is outstanding."</p>
-                <div class="flex mt-4">
-                    <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
-                    <!-- Repeat 5 times -->
-                </div>
-            </div>
-            <!-- Add other testimonials -->
-        </div>
+{% comment %}
+SOLTEX — Testimonials / Opiniones (CSS nativo, sin dependencias)
+- Scope CSS por #shopify-section-{{ section.id }}
+- Soporta dos modos: grid y carousel (JS mínimo, sin librerías)
+- Overlay en fondo con range 0–100 (se divide entre 100.0)
+- Sin defaults en campos URL (no usados aquí)
+- Accesible (roles/aria), tipografías con fallback si no están cargadas globalmente
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --soltex-navy: #0d1b2a;
+    --soltex-white: #ffffff;
+    --soltex-light-gray: #f4f4f4;
+    --soltex-shadow: 0 10px 24px rgba(0,0,0,.15);
+  }
+
+  #shopify-section-{{ section.id }} .tst-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .tst-bg { position:absolute; inset:0; z-index:0; }
+  #shopify-section-{{ section.id }} .tst-bg img { width:100%; height:100%; object-fit:cover; display:block; }
+  #shopify-section-{{ section.id }} .tst-overlay { position:absolute; inset:0; background:var(--soltex-navy); z-index:1; }
+
+  #shopify-section-{{ section.id }} .tst-content { position:relative; z-index:2; padding: clamp(40px, 6vw, 80px) 20px; color: var(--soltex-white); }
+  #shopify-section-{{ section.id }} .tst-inner { margin:0 auto; max-width: min(1180px, 92vw); }
+
+  #shopify-section-{{ section.id }} .tst-title {
+    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 700; line-height: 1.2; margin:0 0 8px; color: currentColor;
+    font-size: clamp(28px, 4vw, 40px);
+  }
+  #shopify-section-{{ section.id }} .tst-subtitle {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    opacity:.92; margin:0 0 28px; font-size: clamp(15px, 2vw, 18px); line-height:1.6; color: currentColor;
+  }
+
+  /* Grid */
+  #shopify-section-{{ section.id }} .tst-grid {
+    display:grid; gap: 18px; grid-template-columns: repeat(1, minmax(0,1fr));
+  }
+  @media (min-width: 640px){ #shopify-section-{{ section.id }} .tst-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media (min-width: 1024px){
+    #shopify-section-{{ section.id }} .tst-grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    #shopify-section-{{ section.id }} .tst-grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    #shopify-section-{{ section.id }} .tst-grid.cols-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  }
+
+  #shopify-section-{{ section.id }} .tst-card {
+    background: rgba(255,255,255,0.06);
+    color: var(--soltex-white);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    box-shadow: var(--soltex-shadow);
+    padding: 20px; display:flex; flex-direction:column; gap:12px;
+    backdrop-filter: blur(2px);
+    transform: translateY(0); transition: transform .2s ease, box-shadow .2s ease;
+  }
+  #shopify-section-{{ section.id }} .tst-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.22); }
+
+  #shopify-section-{{ section.id }} .tst-top { display:flex; align-items:center; gap:12px; }
+  #shopify-section-{{ section.id }} .tst-avatar { width:48px; height:48px; border-radius:50%; overflow:hidden; background: var(--soltex-light-gray); flex-shrink:0; border:1px solid rgba(255,255,255,0.25); }
+  #shopify-section-{{ section.id }} .tst-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+  #shopify-section-{{ section.id }} .tst-logo { width:auto; height:28px; object-fit:contain; }
+
+  #shopify-section-{{ section.id }} .tst-meta { display:flex; flex-direction:column; gap:2px; min-width:0; }
+  #shopify-section-{{ section.id }} .tst-name { font-weight: 700; font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 15px; }
+  #shopify-section-{{ section.id }} .tst-role { font-size: 13px; opacity:.9; }
+
+  #shopify-section-{{ section.id }} .tst-quote { font-size: 15.5px; line-height:1.65; opacity:.98; margin: 4px 0 0; font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  #shopify-section-{{ section.id }} .tst-stars { color: #ffd166; letter-spacing: 1px; font-size: 14px; }
+
+  /* Carousel */
+  #shopify-section-{{ section.id }} .tst-carousel { position:relative; overflow:hidden; }
+  #shopify-section-{{ section.id }} .tst-track { display:flex; gap:16px; transition: transform .35s ease; will-change: transform; }
+  #shopify-section-{{ section.id }} .tst-slide { min-width: min(88%, 520px); flex: 0 0 auto; }
+  @media (min-width: 1024px){ #shopify-section-{{ section.id }} .tst-slide { min-width: min(33%, 520px); } }
+
+  #shopify-section-{{ section.id }} .tst-nav { display:flex; gap:10px; justify-content:center; margin-top: 16px; }
+  #shopify-section-{{ section.id }} .tst-btn {
+    appearance:none; border:1px solid rgba(255,255,255,0.35); background:transparent; color:var(--soltex-white);
+    padding:8px 12px; border-radius:8px; cursor:pointer; transition: background .2s ease, transform .2s ease;
+  }
+  #shopify-section-{{ section.id }} .tst-btn:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
+  #shopify-section-{{ section.id }} .tst-btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+
+  /* Fade-up animation */
+  #shopify-section-{{ section.id }} .fade-up { opacity:0; transform: translateY(16px); animation: fadeUp-{{ section.id }} .6s ease forwards; }
+  @keyframes fadeUp-{{ section.id }} { to { opacity:1; transform: translateY(0); } }
+</style>
+
+<section class="tst-wrap" aria-label="Opiniones de clientes">
+  {% if section.settings.background_style == 'image' and section.settings.background_image != blank %}
+    <div class="tst-bg">
+      {{ section.settings.background_image | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '100vw' }}
     </div>
+    <div class="tst-overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}"></div>
+  {% else %}
+    <div class="tst-bg" style="background-color: {{ section.settings.background_color }}"></div>
+  {% endif %}
+
+  <div class="tst-content" style="color: {{ section.settings.text_color }}">
+    <div class="tst-inner">
+      {% if section.settings.title != blank %}
+        <h2 class="tst-title">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="tst-subtitle">{{ section.settings.subtitle | escape }}</p>
+      {% endif %}
+
+      {% if section.settings.layout_mode == 'carousel' %}
+        <div class="tst-carousel" aria-live="polite">
+          <div class="tst-track" id="tst-track-{{ section.id }}">
+            {% for block in section.blocks %}
+              {% if block.type == 'testimonial' %}
+                <div class="tst-slide fade-up" {{ block.shopify_attributes }}>
+                  <figure class="tst-card">
+                    <div class="tst-top">
+                      {% if block.settings.logo != blank %}
+                        {{ block.settings.logo | image_url: width: 200 | image_tag: loading: 'lazy', class: 'tst-logo', alt: block.settings.company | default: 'Logo' | escape }}
+                      {% elsif block.settings.photo != blank %}
+                        <div class="tst-avatar">{{ block.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', alt: block.settings.author_name | escape }}</div>
+                      {% else %}
+                        <div class="tst-avatar" aria-hidden="true"></div>
+                      {% endif %}
+                      <figcaption class="tst-meta">
+                        {% if block.settings.author_name != blank %}<div class="tst-name">{{ block.settings.author_name | escape }}</div>{% endif %}
+                        {% assign role_line = '' %}
+                        {% if block.settings.author_role != blank %}
+                          {% assign role_line = block.settings.author_role %}
+                        {% endif %}
+                        {% if block.settings.company != blank %}
+                          {% if role_line != '' %}{% assign role_line = role_line | append: ' · ' | append: block.settings.company %}{% else %}{% assign role_line = block.settings.company %}{% endif %}
+                        {% endif %}
+                        {% if role_line != '' %}<div class="tst-role">{{ role_line | escape }}</div>{% endif %}
+                      </figcaption>
+                    </div>
+                    {% if section.settings.show_rating and block.settings.rating > 0 %}
+                      <div class="tst-stars" aria-label="{{ block.settings.rating }} de 5">{{ '★★★★★' | slice: 0, block.settings.rating }}</div>
+                    {% endif %}
+                    {% if block.settings.quote != blank %}
+                      <blockquote class="tst-quote">{{ block.settings.quote | escape }}</blockquote>
+                    {% endif %}
+                  </figure>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="tst-nav">
+            <button class="tst-btn" id="tst-prev-{{ section.id }}" aria-label="Anterior">‹</button>
+            <button class="tst-btn" id="tst-next-{{ section.id }}" aria-label="Siguiente">›</button>
+          </div>
+        </div>
+      {% else %}
+        <div class="tst-grid cols-{{ section.settings.desktop_columns }}">
+          {% for block in section.blocks %}
+            {% if block.type == 'testimonial' %}
+              <figure class="tst-card fade-up" {{ block.shopify_attributes }}>
+                <div class="tst-top">
+                  {% if block.settings.logo != blank %}
+                    {{ block.settings.logo | image_url: width: 240 | image_tag: loading: 'lazy', class: 'tst-logo', alt: block.settings.company | default: 'Logo' | escape }}
+                  {% elsif block.settings.photo != blank %}
+                    <div class="tst-avatar">{{ block.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', alt: block.settings.author_name | escape }}</div>
+                  {% else %}
+                    <div class="tst-avatar" aria-hidden="true"></div>
+                  {% endif %}
+                  <figcaption class="tst-meta">
+                    {% if block.settings.author_name != blank %}<div class="tst-name">{{ block.settings.author_name | escape }}</div>{% endif %}
+                    {% assign role_line = '' %}
+                    {% if block.settings.author_role != blank %}
+                      {% assign role_line = block.settings.author_role %}
+                    {% endif %}
+                    {% if block.settings.company != blank %}
+                      {% if role_line != '' %}{% assign role_line = role_line | append: ' · ' | append: block.settings.company %}{% else %}{% assign role_line = block.settings.company %}{% endif %}
+                    {% endif %}
+                    {% if role_line != '' %}<div class="tst-role">{{ role_line | escape }}</div>{% endif %}
+                  </figcaption>
+                </div>
+                {% if section.settings.show_rating and block.settings.rating > 0 %}
+                  <div class="tst-stars" aria-label="{{ block.settings.rating }} de 5">{{ '★★★★★' | slice: 0, block.settings.rating }}</div>
+                {% endif %}
+                {% if block.settings.quote != blank %}
+                  <blockquote class="tst-quote">{{ block.settings.quote | escape }}</blockquote>
+                {% endif %}
+              </figure>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
 </section>
+
+<script>
+  (function(){
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if(!root) return;
+    var track = root.querySelector('#tst-track-{{ section.id }}');
+    var prev = root.querySelector('#tst-prev-{{ section.id }}');
+    var next = root.querySelector('#tst-next-{{ section.id }}');
+    if(!track || !prev || !next) return;
+
+    var index = 0;
+    function update(){
+      var slide = track.querySelector('.tst-slide');
+      if(!slide) return;
+      var slideW = slide.getBoundingClientRect().width + 16; // gap
+      track.style.transform = 'translateX(' + (-index * slideW) + 'px)';
+      prev.disabled = index <= 0;
+      var total = track.children.length;
+      var perView = (window.innerWidth >= 1024) ? 3 : 1;
+      next.disabled = index >= Math.max(0, total - perView);
+    }
+    prev.addEventListener('click', function(){ index = Math.max(0, index - 1); update(); });
+    next.addEventListener('click', function(){ index = index + 1; update(); });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-testimonials",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que opinan nuestros clientes" },
+    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Resultados reales en plantas reales." },
+
+    { "type": "select", "id": "layout_mode", "label": "Modo de layout", "options": [
+      { "value": "grid", "label": "Grid" },
+      { "value": "carousel", "label": "Carousel" }
+    ], "default": "grid" },
+
+    { "type": "range", "id": "desktop_columns", "label": "Columnas en desktop (grid)", "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "overlay_opacity", "label": "Opacidad de overlay (%)", "min": 0, "max": 100, "step": 5, "default": 60 },
+
+    { "type": "select", "id": "background_style", "label": "Fondo", "options": [
+      { "value": "solid", "label": "Sólido" },
+      { "value": "image", "label": "Imagen" }
+    ], "default": "solid" },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#0d1b2a" },
+    { "type": "image_picker", "id": "background_image", "label": "Imagen de fondo" },
+    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#ffffff" }
+  ],
+  "blocks": [
+    { "type": "testimonial", "name": "Testimonio", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Cita / Opinión", "default": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX." },
+      { "type": "text", "id": "author_name", "label": "Nombre", "default": "María López" },
+      { "type": "text", "id": "author_role", "label": "Rol", "default": "Gerente de Producción" },
+      { "type": "text", "id": "company", "label": "Empresa", "default": "Textiles del Norte" },
+      { "type": "image_picker", "id": "photo", "label": "Foto de autor" },
+      { "type": "image_picker", "id": "logo", "label": "Logo de empresa" },
+      { "type": "range", "id": "rating", "label": "Estrellas", "min": 0, "max": 5, "step": 1, "default": 5 }
+    ] }
+  ],
+  "presets": [ { "name": "soltex-testimonials" } ]
+}
+{% endschema %}
