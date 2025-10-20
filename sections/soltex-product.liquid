@@ -6,12 +6,25 @@
   .p-container{max-width:1200px;margin:0 auto;display:grid;gap:24px;}
   @media(min-width:992px){ .p-container{grid-template-columns: 1.1fr 1fr;} }
 
+  /* GALLERY */
   .gallery{position:sticky;top:16px}
   .main-media{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
-  .thumbs{display:grid;grid-auto-flow:column;gap:10px;margin-top:10px;overflow:auto;padding-bottom:4px}
-  .thumb{border:1px solid var(--bd);border-radius:8px;overflow:hidden;width:84px;height:84px;cursor:pointer;flex:0 0 auto;background:#fff}
+  .main-media .img-wrap{position:relative;overflow:hidden}
+  .main-media .img-wrap img{
+    width:100%;height:auto;display:block;
+    transition:transform .35s ease;
+    -webkit-user-drag:none; user-select:none;
+  }
+  @media(hover:hover){
+    .main-media .img-wrap:hover img{ transform:scale(1.08); cursor: zoom-in; }
+  }
+
+  .thumbs{display:grid;grid-template-columns:repeat(auto-fill, minmax(70px,1fr)); gap:10px;margin-top:10px}
+  .thumb{border:1px solid var(--bd);border-radius:8px;overflow:hidden;cursor:pointer;background:#fff}
+  .thumb img{width:100%;height:74px;object-fit:cover;display:block;-webkit-user-drag:none; user-select:none;}
   .thumb.active{outline:2px solid var(--accent)}
 
+  /* INFO */
   .title{font:800 clamp(22px,3.6vw,36px)/1.15 Poppins,system-ui;margin:0 0 6px}
   .vendor-sku{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
   .price{font:800 20px/1.2 Poppins,system-ui;margin:8px 0}
@@ -32,6 +45,14 @@
   .btn.secondary{background:#fff;color:var(--accent)}
   .buy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
+  /* Payment button (PayPal/ShopPay) con bordes redondos */
+  .pay-container{border-radius:12px;overflow:hidden}
+  .shopify-payment-button .shopify-payment-button__button,
+  .shopify-payment-button .shopify-payment-button__button--unbranded{
+    border-radius:12px !important;
+  }
+  .shopify-payment-button{gap:8px}
+
   details.ac{border:1px solid var(--bd);border-radius:12px;background:#fff}
   details.ac + details.ac{margin-top:10px}
   summary.ac-h{cursor:pointer;padding:12px 14px;font-weight:700}
@@ -39,33 +60,30 @@
 
   .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
   .badge{border:1px solid var(--bd);border-radius:999px;padding:8px 12px;font-weight:700;background:#fff;font-size:12px;color:var(--muted)}
-
-  .mz{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
-  .mz.open{display:flex}
-  .mz img{max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
-  .mz .close{position:absolute;top:14px;right:18px;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:6px 10px;cursor:pointer}
 </style>
 
 <section class="p-wrap" itemscope itemtype="https://schema.org/Product">
   <div class="p-container">
     <!-- GALLERY -->
-    <div class="gallery">
+    <div class="gallery" oncontextmenu="return false;">
       {% assign initial_media = product.selected_or_first_available_variant.featured_media | default: product.media.first %}
       <div class="main-media" id="main-media-{{ section.id }}">
-        {% if initial_media %}
-          {% case initial_media.media_type %}
-            {% when 'image' %}
-              {{ initial_media | image_url: width: 1100 | image_tag: loading: 'eager', alt: product.title, widths: '550, 740, 1100' }}
-            {% when 'video' %}
-              {{ initial_media | video_tag: controls: true, image_size: '1100x' }}
-            {% when 'external_video' %}
-              {{ initial_media | external_video_tag }}
-            {% when 'model' %}
-              {{ initial_media | model_viewer_tag }}
-          {% endcase %}
-        {% else %}
-          {{ 'product-1' | placeholder_svg_tag }}
-        {% endif %}
+        <div class="img-wrap">
+          {% if initial_media %}
+            {% case initial_media.media_type %}
+              {% when 'image' %}
+                {{ initial_media | image_url: width: 1100 | image_tag: loading: 'eager', alt: product.title, widths: '550, 740, 1100', draggable: false }}
+              {% when 'video' %}
+                {{ initial_media | video_tag: controls: true, image_size: '1100x' }}
+              {% when 'external_video' %}
+                {{ initial_media | external_video_tag }}
+              {% when 'model' %}
+                {{ initial_media | model_viewer_tag }}
+            {% endcase %}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {% endif %}
+        </div>
       </div>
 
       {% if product.media.size > 1 %}
@@ -73,7 +91,7 @@
           {% for m in product.media %}
             <button type="button" class="thumb{% if m.id == initial_media.id %} active{% endif %}" data-media-id="{{ m.id }}" aria-label="Ver medio {{ forloop.index }}">
               {% if m.preview_image %}
-                {{ m.preview_image | image_url: width: 180 | image_tag: alt: product.title, widths: '90, 120, 180' }}
+                {{ m.preview_image | image_url: width: 180 | image_tag: alt: product.title, widths: '90, 120, 180', draggable: false }}
               {% endif %}
             </button>
           {% endfor %}
@@ -129,10 +147,12 @@
 
         <div class="buy-row">
           <button class="btn" type="submit" id="add-{{ section.id }}" {% unless v.available %}disabled{% endunless %}>Agregar al carrito</button>
+
           {% if section.settings.enable_dynamic_checkout %}
-            {{ form | payment_button }}
+            <div class="pay-container">
+              {{ form | payment_button }}
+            </div>
           {% endif %}
-          <button class="btn secondary" type="button" id="zoom-{{ section.id }}">Zoom</button>
         </div>
       {% endform %}
 
@@ -172,18 +192,18 @@
       <h2 class="title" style="font-size:22px;">También te puede interesar</h2>
       {% assign rel_collection = product.collections.first %}
       {% if rel_collection %}
-        <div class="r-grid">
+        <div class="r-grid" style="display:grid;gap:16px">
           {% for rp in rel_collection.products limit: 8 %}
             {% unless rp.id == product.id %}
-              <a class="r-card" href="{{ rp.url }}">
+              <a class="r-card" href="{{ rp.url }}" style="border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff">
                 {% if rp.featured_image %}
-                  {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title, widths: '250, 380, 500' }}
+                  {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title, widths: '250, 380, 500', draggable: false }}
                 {% else %}
                   {{ 'product-1' | placeholder_svg_tag }}
                 {% endif %}
-                <div class="r-info">
-                  <p class="r-name">{{ rp.title }}</p>
-                  <p class="r-price">{% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}</p>
+                <div class="r-info" style="padding:10px;text-align:center">
+                  <p class="r-name" style="font-weight:600;font-size:14px;margin:0 0 4px">{{ rp.title }}</p>
+                  <p class="r-price" style="font-weight:800">{% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}</p>
                 </div>
               </a>
             {% endunless %}
@@ -195,12 +215,6 @@
     </div>
   {% endif %}
 </section>
-
-<!-- ZOOM MODAL -->
-<div class="mz" id="mz-{{ section.id }}">
-  <button class="close" type="button">Cerrar ✕</button>
-  <img alt="{{ product.title }}" width="1100" height="1100">
-</div>
 
 <script>
 (function(){
@@ -214,6 +228,13 @@
   var variantInput = document.getElementById('variant-id-' + sectionId);
   var addBtn = document.getElementById('add-' + sectionId);
 
+  // Prevención básica "guardar como"
+  document.querySelectorAll('#shopify-section-{{ section.id }} img').forEach(function(img){
+    img.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    img.setAttribute('draggable', 'false');
+    img.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  });
+
   function getCurrentOptions(){
     var selects = form.querySelectorAll('.variant-select');
     return Array.from(selects).map(function(s){ return s.value; });
@@ -224,20 +245,20 @@
     });
   }
   function swapMainMedia(mediaId){
-    var target = productJSON.media.find(m => m.id == mediaId) || productJSON.media[0];
+    var target = productJSON.media.find(function(m){ return m.id == Number(mediaId); }) || productJSON.media[0];
     var main = document.getElementById('main-media-' + sectionId);
     if(!target || !main) return;
-    var html = '';
-    if(target.media_type === 'video'){
-      html = '<video controls playsinline src="'+ (target.sources && target.sources[0] ? target.sources[0].url : '') +'"></video>';
-    } else {
-      var src = target.src || (target.preview_image && target.preview_image.src) || '';
-      html = '<img src="'+ src +'" alt="{{ product.title | escape }}" width="1100" height="1100"/>';
-    }
-    main.innerHTML = html;
 
-    var thumbs = document.querySelectorAll('#thumbs-' + sectionId + ' .thumb');
-    thumbs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-media-id') == mediaId); });
+    var html = '<div class="img-wrap">';
+    if(target.media_type === 'video'){
+      var src = (target.sources && target.sources[0] ? target.sources[0].url : '');
+      html += '<video controls playsinline src="'+ src +'"></video>';
+    } else {
+      var srcImg = target.src || (target.preview_image && target.preview_image.src) || '';
+      html += '<img src="'+ srcImg +'" alt="{{ product.title | escape }}" width="1100" height="1100" draggable="false"/>';
+    }
+    html += '</div>';
+    main.innerHTML = html;
   }
   function renderVariant(v){
     if(!v) return;
@@ -259,33 +280,24 @@
     if(v.featured_media && v.featured_media.id){ swapMainMedia(v.featured_media.id); }
   }
 
+  // Thumbnails – clickeables
   var thumbsWrap = document.getElementById('thumbs-' + sectionId);
   if(thumbsWrap){
     thumbsWrap.addEventListener('click', function(e){
-      var b = e.target.closest('.thumb'); if(!b) return;
-      swapMainMedia(b.getAttribute('data-media-id'));
+      var btn = e.target.closest('.thumb'); if(!btn) return;
+      var id = btn.getAttribute('data-media-id');
+      swapMainMedia(id);
+      Array.from(thumbsWrap.querySelectorAll('.thumb')).forEach(function(t){ t.classList.remove('active'); });
+      btn.classList.add('active');
     });
   }
+
+  // Cambio de variantes
   form.addEventListener('change', function(e){
     if(!e.target.classList.contains('variant-select')) return;
     var v = findVariant(getCurrentOptions());
     renderVariant(v);
   });
-
-  // Zoom
-  var zoomBtn = document.getElementById('zoom-{{ section.id }}');
-  var mz = document.getElementById('mz-{{ section.id }}');
-  if(zoomBtn && mz){
-    var mzImg = mz.querySelector('img');
-    var main = document.getElementById('main-media-' + sectionId);
-    zoomBtn.addEventListener('click', function(){
-      var img = main.querySelector('img');
-      if(img){ mzImg.src = img.src; }
-      mz.classList.add('open');
-    });
-    mz.querySelector('.close').addEventListener('click', function(){ mz.classList.remove('open'); });
-    mz.addEventListener('click', function(e){ if(e.target === mz) mz.classList.remove('open'); });
-  }
 })();
 </script>
 
@@ -296,7 +308,7 @@
     { "type": "checkbox", "id": "show_vendor", "label": "Mostrar marca (vendor)", "default": true },
     { "type": "checkbox", "id": "show_sku", "label": "Mostrar SKU", "default": true },
     { "type": "checkbox", "id": "show_availability", "label": "Mostrar disponibilidad", "default": true },
-    { "type": "checkbox", "id": "enable_dynamic_checkout", "label": "Botón de pago dinámico", "default": true },
+    { "type": "checkbox", "id": "enable_dynamic_checkout", "label": "Botón de pago dinámico (PayPal/ShopPay)", "default": true },
     { "type": "checkbox", "id": "show_badges", "label": "Mostrar badges de confianza", "default": true },
     { "type": "checkbox", "id": "open_description", "label": "Descripción abierta por defecto", "default": true },
     { "type": "textarea", "id": "shipping_text", "label": "Texto de envíos", "default": "Envíos nacionales. Costos calculados al finalizar la compra." },
