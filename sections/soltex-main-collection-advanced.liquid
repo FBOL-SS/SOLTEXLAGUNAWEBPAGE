@@ -43,7 +43,7 @@
 
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
   .modal.open{display:flex}
-  .modal .box{background:#fff;color:#0f172a;max-width:860px;width:100%;border-radius:14px;overflow:hidden;display:grid}
+  .modal .box{position:relative;background:#fff;color:#0f172a;max-width:860px;width:100%;border-radius:14px;overflow:hidden;display:grid}
   @media(min-width:900px){ .modal .box{grid-template-columns: 1.2fr 1fr} }
   .modal .media{background:#f8fafc}
   .modal .media img{width:100%;height:auto;display:block}
@@ -151,10 +151,16 @@
       {% paginate collection.products by section.settings.per_page %}
         {% if collection.products.size > 0 %}
           <div class="grid">
+            {%- comment -%} TARJETA DE PRODUCTO con JSON embebido para Quick View {%- endcomment -%}
             {% for product in collection.products %}
               {% assign featured = product.featured_image %}
               {% assign first_avail = product.selected_or_first_available_variant %}
-              <div class="card" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url | within: collection }}" data-product-title="{{ product.title | escape }}">
+
+              <div class="card"
+                   data-product-handle="{{ product.handle }}"
+                   data-product-url="{{ product.url | within: collection }}"
+                   data-product-title="{{ product.title | escape }}">
+
                 <a class="media" href="{{ product.url | within: collection }}">
                   {% if featured %}
                     {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
@@ -162,6 +168,7 @@
                     {{ 'product-1' | placeholder_svg_tag }}
                   {% endif %}
                 </a>
+
                 <div class="info">
                   <p class="name">{{ product.title }}</p>
                   <p class="price">
@@ -177,8 +184,9 @@
                     <p class="meta oos">Agotado</p>
                   {% endif %}
                 </div>
+
                 <div class="actions">
-                  <button class="btn qv" type="button" data-qv="{{ product.handle }}">Vista rápida</button>
+                  <button class="btn qv" type="button" data-qv>Vista rápida</button>
                   <form action="{{ routes.cart_add_url }}" method="post">
                     <input type="hidden" name="id" value="{{ first_avail.id }}">
                     <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>
@@ -186,6 +194,10 @@
                     </button>
                   </form>
                 </div>
+
+                <script type="application/json" class="qv-json">
+                  {{ product | json }}
+                </script>
               </div>
             {% endfor %}
           </div>
@@ -240,6 +252,7 @@
 (function(){
   var modal = document.getElementById('qv-{{ section.id }}');
   if(!modal) return;
+
   var imgEl = modal.querySelector('.media img');
   var titleEl = modal.querySelector('h3');
   var priceEl = modal.querySelector('.price');
@@ -248,42 +261,64 @@
   var variantInput = formEl.querySelector('input[name="id"]');
   var gotoLink = modal.querySelector('.goto');
 
-  function openModal(){ modal.classList.add('open'); }
+  function fmt(m){ try { return Shopify.formatMoney(m, {{ shop.money_format | json }}) } catch(e){ return m; } }
+  function openModal(){ modal.classList.add('open'); document.documentElement.style.scrollBehavior='auto'; }
   function closeModal(){ modal.classList.remove('open'); }
+
   modal.querySelector('.close').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
 
-  document.addEventListener('click', function(e){
+  // Delegación dentro de la sección
+  var sectionEl = document.getElementById('shopify-section-{{ section.id }}') || document;
+
+  sectionEl.addEventListener('click', function(e){
     var btn = e.target.closest('[data-qv]');
     if(!btn) return;
+
+    e.preventDefault();
     var card = btn.closest('.card');
-    var handle = btn.getAttribute('data-qv');
-    var url = card.getAttribute('data-product-url');
+    if(!card) return;
 
-    fetch('/products/' + handle + '.js')
-      .then(r => r.json())
-      .then(p => {
-        if (p.images && p.images.length) {
-          imgEl.src = p.images[0];
-          imgEl.alt = p.title;
-        } else {
-          imgEl.removeAttribute('src'); imgEl.alt = '';
-        }
-        titleEl.textContent = p.title;
-        gotoLink.href = url;
+    // Lee JSON embebido
+    var jsonTag = card.querySelector('.qv-json');
+    if(!jsonTag) return;
 
-        var v = p.variants.find(x => x.available) || p.variants[0];
-        var available = v ? v.available : false;
-        priceEl.textContent = Shopify.formatMoney(v.price, {{ shop.money_format | json }});
-        availEl.textContent = available ? 'Disponible' : 'Agotado';
-        availEl.classList.toggle('oos', !available);
+    var p;
+    try { p = JSON.parse(jsonTag.textContent); } catch(err){ return; }
 
-        if (v) variantInput.value = v.id;
-        formEl.querySelector('button[type="submit"]').disabled = !available;
+    // Título y enlace
+    titleEl.textContent = p.title || '';
+    gotoLink.href = card.getAttribute('data-product-url') || ('/products/' + p.handle);
 
-        openModal();
-      })
-      .catch(() => { window.location.href = url; });
+    // Imagen
+    var firstImg = (p.images && p.images.length) ? p.images[0] : null;
+    if(firstImg){ imgEl.src = firstImg; imgEl.alt = p.title || ''; }
+    else { imgEl.removeAttribute('src'); imgEl.alt = ''; }
+
+    // Variante disponible
+    var v = (p.variants || []).find(function(x){ return x.available; }) || (p.variants || [])[0];
+    if(v){
+      priceEl.textContent = fmt(v.price);
+      variantInput.value = v.id;
+      formEl.querySelector('button[type="submit"]').disabled = !v.available;
+      availEl.textContent = v.available ? 'Disponible' : 'Agotado';
+      availEl.classList.toggle('oos', !v.available);
+      availEl.classList.toggle('ok', !!v.available);
+    } else {
+      priceEl.textContent = '';
+      variantInput.value = '';
+      formEl.querySelector('button[type="submit"]').disabled = true;
+      availEl.textContent = 'Agotado';
+      availEl.classList.add('oos');
+      availEl.classList.remove('ok');
+    }
+
+    openModal();
+  });
+
+  // Esc para cerrar
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
   });
 })();
 </script>
