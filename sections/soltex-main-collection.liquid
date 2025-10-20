@@ -154,9 +154,9 @@
             {% for product in collection.products %}
               {% assign featured = product.featured_image %}
               {% assign first_avail = product.selected_or_first_available_variant %}
-              <div class="card" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url }}" data-product-title="{{ product.title | escape }}">
-                <a class="media" href="{{ product.url }}">
-                  {% if featured %}
+              <div class="card" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url | within: collection }}" data-product-title="{{ product.title | escape }}">
+              <a class="media" href="{{ product.url | within: collection }}">
+                {% if featured %}
                     {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
                   {% else %}
                     {{ 'product-1' | placeholder_svg_tag }}
