@@ -1,37 +1,342 @@
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">Our Product Categories</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
-                <img src="{{ 'industry/640x360/1' | asset_url }}" alt="Industrial Machines" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Industrial Machines</h3>
-                    <p class="text-gray-600 mb-4">Heavy-duty sewing solutions for continuous production</p>
-                    <a href="/collections/maquinas" class="text-lightblue font-medium flex items-center">
-                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </a>
-                </div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap">
+
+<style>
+  .shopdev .featured-categories-section {
+    font-family: 'Inter', sans-serif;
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
+
+  .shopdev .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .shopdev .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0d1b2a;
+    margin-bottom: 12px;
+  }
+
+  .shopdev .section-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .shopdev .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .shopdev .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .shopdev .categories-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .shopdev .category-card {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: block;
+    text-decoration: none;
+  }
+
+  .shopdev .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
+  }
+
+  .shopdev .category-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .shopdev .category-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .shopdev .category-card:hover .category-image {
+    transform: scale(1.08);
+  }
+
+  .shopdev .category-content {
+    padding: 20px;
+  }
+
+  .shopdev .category-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d1b2a;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .shopdev .category-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @keyframes shopdev-fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .shopdev .category-card {
+    animation: shopdev-fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .shopdev .category-card:nth-child(1) { animation-delay: 0.1s; }
+  .shopdev .category-card:nth-child(2) { animation-delay: 0.2s; }
+  .shopdev .category-card:nth-child(3) { animation-delay: 0.3s; }
+  .shopdev .category-card:nth-child(4) { animation-delay: 0.4s; }
+  .shopdev .category-card:nth-child(5) { animation-delay: 0.5s; }
+  .shopdev .category-card:nth-child(6) { animation-delay: 0.6s; }
+  .shopdev .category-card:nth-child(7) { animation-delay: 0.7s; }
+  .shopdev .category-card:nth-child(8) { animation-delay: 0.8s; }
+
+  @media (max-width: 767px) {
+    .shopdev .section-title {
+      font-size: 28px;
+    }
+
+    .shopdev .section-subtitle {
+      font-size: 14px;
+    }
+
+    .shopdev .featured-categories-section {
+      padding: 40px 16px;
+    }
+
+    .shopdev .category-title {
+      font-size: 16px;
+    }
+
+    .shopdev .category-description {
+      font-size: 13px;
+    }
+
+    .shopdev .category-content {
+      padding: 16px;
+    }
+  }
+</style>
+
+<div class="w-full">
+  <div class="featured-categories-section">
+    {% if section.settings.section_title != blank or section.settings.section_subtitle != blank %}
+      <div class="section-header">
+        {% if section.settings.section_title != blank %}
+          <h2 class="section-title">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.section_subtitle != blank %}
+          <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="categories-grid">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.category_url | default: '#' }}" class="category-card" {{ block.shopify_attributes }}>
+            <div class="category-image-wrapper">
+              {%- if block.settings.category_image != blank -%}
+                {{ block.settings.category_image | image_url: width: 600 | image_tag: 
+                  class: 'category-image',
+                  loading: 'lazy',
+                  alt: block.settings.category_name
+                }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'category-image' }}
+              {%- endif -%}
             </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
-                <img src="{{ 'technology/640x360/2' | asset_url }}" alt="Automation Systems" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Automation Systems</h3>
-                    <p class="text-gray-600 mb-4">Cutting-edge technology to streamline your workflow</p>
-                    <a href="/collections/maquinas?filter.p.tag=automation" class="text-lightblue font-medium flex items-center">
-                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </a>
-                </div>
+            <div class="category-content">
+              {% if block.settings.category_name != blank %}
+                <h3 class="category-title">{{ block.settings.category_name }}</h3>
+              {% endif %}
+              {% if block.settings.category_description != blank %}
+                <p class="category-description">{{ block.settings.category_description }}</p>
+              {% endif %}
             </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
-                <img src="{{ 'industry/640x360/3' | asset_url }}" alt="Replacement Parts" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2">Replacement Parts</h3>
-                    <p class="text-gray-600 mb-4">Genuine components for optimal machine performance</p>
-                    <a href="/collections/refacciones" class="text-lightblue font-medium flex items-center">
-                        View Collection <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div style="text-align: center; padding: 60px 20px; color: #6b7280;">
+        <p>Add category blocks to display your featured categories</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "soltex-featured-categorie",
+  "class": "shopdev",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Categorías destacadas"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Explore our comprehensive range of industrial machinery and parts"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category Name",
+          "default": "Category Name"
+        },
+        {
+          "type": "textarea",
+          "id": "category_description",
+          "label": "Category Description",
+          "default": "Brief description of this category"
+        },
+        {
+          "type": "url",
+          "id": "category_url",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "soltex-featured-categories",
+      "settings": {
+        "section_title": "Categorías destacadas",
+        "section_subtitle": "Descubre nuestra amplia gama de maquinaria industrial y componentes de alta calidad"
+      },
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/vertical-pumpkin-pile.jpg",
+            "category_name": "Bombas Hidráulicas",
+            "category_description": "Bombas de alta presión para aplicaciones industriales exigentes",
+            "category_url": "/collections/activewear"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/button-tubes.jpg",
+            "category_name": "Válvulas Industriales",
+            "category_description": "Válvulas de control y regulación para sistemas hidráulicos",
+            "category_url": "/collections/leasure"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/sewing-machine-in-use.jpg",
+            "category_name": "Motores Eléctricos",
+            "category_description": "Motores de alto rendimiento para maquinaria pesada",
+            "category_url": "/collections/all"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/shutter-and-trolleys.jpg",
+            "category_name": "Rodamientos",
+            "category_description": "Rodamientos de precisión para aplicaciones críticas",
+            "category_url": "/collections/activewear"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/bikes-take-the-turn.jpg",
+            "category_name": "Sistemas de Transmisión",
+            "category_description": "Engranajes y componentes de transmisión de potencia",
+            "category_url": "/collections/leasure"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/button-tubes.jpg",
+            "category_name": "Cilindros Neumáticos",
+            "category_description": "Actuadores neumáticos para automatización industrial",
+            "category_url": "/collections/all"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/cup-filtered-coffee.jpg",
+            "category_name": "Filtros Industriales",
+            "category_description": "Sistemas de filtración para fluidos y aire comprimido",
+            "category_url": "/collections/activewear"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_image": "shopify://shop_images/gift-wrapping-supplies.jpg",
+            "category_name": "Sellos y Juntas",
+            "category_description": "Componentes de sellado para equipos industriales",
+            "category_url": "/collections/leasure"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
