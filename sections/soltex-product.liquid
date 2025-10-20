@@ -1,0 +1,360 @@
+<style>
+  #shopify-section-{{ section.id }}{
+    --bg:#ffffff; --fg:#0d1b2a; --muted:#64748b; --bd:#e5e7eb; --accent:#0d1b2a;
+  }
+  .p-wrap{background:var(--bg);color:var(--fg);padding:clamp(24px,5vw,60px) 16px;}
+  .p-container{max-width:1200px;margin:0 auto;display:grid;gap:24px;}
+  @media(min-width:992px){ .p-container{grid-template-columns: 1.1fr 1fr;} }
+
+  /* Gallery */
+  .gallery{position:sticky;top:16px}
+  .main-media{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
+  .main-media img, .main-media video{width:100%;height:auto;display:block}
+  .thumbs{display:grid;grid-auto-flow:column;gap:10px;margin-top:10px;overflow:auto;padding-bottom:4px}
+  .thumb{border:1px solid var(--bd);border-radius:8px;overflow:hidden;width:84px;height:84px;cursor:pointer;flex:0 0 auto;background:#fff}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .thumb.active{outline:2px solid var(--accent)}
+
+  /* Info */
+  .title{font:800 clamp(22px,3.6vw,36px)/1.15 Poppins,system-ui;margin:0 0 6px}
+  .vendor-sku{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+  .price{font:800 20px/1.2 Poppins,system-ui;margin:8px 0}
+  .price .compare{color:#ef4444;text-decoration:line-through;margin-left:8px;font-weight:600}
+  .avail{font:700 13px/1.2 Inter,system-ui;margin:4px 0}
+  .avail.ok{color:#16a34a}
+  .avail.oos{color:#ef4444}
+
+  .variant-group{margin:14px 0}
+  .variant-label{font-weight:700;font-size:13px;margin:0 0 6px}
+  .variant-select, .qty-input{
+    width:100%;border:1px solid var(--bd);border-radius:10px;padding:10px 12px;background:#fff;font-size:15px
+  }
+  .qty-row{display:flex;gap:10px;align-items:center;margin:14px 0}
+  .qty-input{max-width:110px}
+
+  .btn{display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+  .btn[disabled]{opacity:.6;cursor:not-allowed}
+  .btn.secondary{background:#fff;color:var(--accent)}
+  .buy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+  details.ac{border:1px solid var(--bd);border-radius:12px;background:#fff}
+  details.ac + details.ac{margin-top:10px}
+  summary.ac-h{cursor:pointer;padding:12px 14px;font-weight:700}
+  .ac-b{padding:0 14px 14px;color:var(--muted);line-height:1.6}
+
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+  .badge{border:1px solid var(--bd);border-radius:999px;padding:8px 12px;font-weight:700;background:#fff;font-size:12px;color:var(--muted)}
+
+  /* Related */
+  .related{margin-top:32px}
+  .r-grid{display:grid;gap:16px}
+  @media(min-width:768px){ .r-grid{grid-template-columns:repeat(4,1fr)} }
+  .r-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff}
+  .r-card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .r-card .r-info{padding:10px;text-align:center}
+  .r-card .r-name{font-weight:600;font-size:14px;margin:0 0 4px}
+  .r-card .r-price{font-weight:800}
+
+  /* Sticky ATC */
+  .sticky-atc{position:fixed;left:0;right:0;bottom:-120px;transition:bottom .25s ease;background:rgba(255,255,255,.96);backdrop-filter:saturate(150%) blur(6px);border-top:1px solid var(--bd);z-index:50}
+  .sticky-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .sticky-title{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sticky-price{font-weight:800}
+  .sticky-atc .btn{padding:10px 14px}
+  .sticky-atc.show{bottom:0}
+
+  /* Zoom modal */
+  .mz{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
+  .mz.open{display:flex}
+  .mz img{max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  .mz .close{position:absolute;top:14px;right:18px;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:6px 10px;cursor:pointer}
+</style>
+
+<section class="p-wrap" itemscope itemtype="https://schema.org/Product">
+  <div class="p-container">
+    <!-- GALLERY -->
+    <div class="gallery">
+      {% assign initial_media = product.selected_or_first_available_variant.featured_media | default: product.media.first %}
+      <div class="main-media" id="main-media-{{ section.id }}">
+        {% if initial_media %}
+          {% render 'media', media: initial_media %}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+
+      {% if product.media.size > 1 %}
+        <div class="thumbs" id="thumbs-{{ section.id }}">
+          {% for m in product.media %}
+            <button type="button" class="thumb{% if m.id == initial_media.id %} active{% endif %}" data-media-id="{{ m.id }}" aria-label="Ver medio {{ forloop.index }}">
+              {% if m.preview_image %}
+                {{ m.preview_image | image_url: width: 180 | image_tag }}
+              {% endif %}
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <h1 class="title" itemprop="name">{{ product.title }}</h1>
+
+      {% if section.settings.show_vendor or section.settings.show_sku %}
+        <div class="vendor-sku">
+          {% if section.settings.show_vendor and product.vendor != blank %}<span>Marca: {{ product.vendor }}</span>{% endif %}
+          {% if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank %}<span>SKU: {{ product.selected_or_first_available_variant.sku }}</span>{% endif %}
+        </div>
+      {% endif %}
+
+      <div class="price" id="price-{{ section.id }}">
+        {% assign v = product.selected_or_first_available_variant %}
+        <span class="now">{{ v.price | money }}</span>
+        {% if v.compare_at_price > v.price %}
+          <span class="compare">{{ v.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_availability %}
+        <p class="avail {% if v.available %}ok{% else %}oos{% endif %}" id="avail-{{ section.id }}">
+          {% if v.available %}Disponible{% else %}Agotado{% endif %}
+        </p>
+      {% endif %}
+
+      {% form 'product', product, id: 'product-form-'.concat(section.id) %}
+        <input type="hidden" name="id" value="{{ v.id }}" id="variant-id-{{ section.id }}">
+
+        {% for opt in product.options_with_values %}
+          <div class="variant-group">
+            <label class="variant-label" for="opt-{{ section.id }}-{{ forloop.index0 }}">{{ opt.name }}</label>
+            <select id="opt-{{ section.id }}-{{ forloop.index0 }}" class="variant-select" data-index="{{ forloop.index0 }}">
+              {% for val in opt.values %}
+                {% assign sel = '' %}
+                {% if val == product.selected_or_first_available_variant.options[forloop.parentloop.index0] %}{% assign sel = 'selected' %}{% endif %}
+                <option value="{{ val | escape }}" {{ sel }}>{{ val }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endfor %}
+
+        <div class="qty-row">
+          <label for="qty-{{ section.id }}">Cantidad</label>
+          <input id="qty-{{ section.id }}" class="qty-input" type="number" name="quantity" min="1" value="1">
+        </div>
+
+        <div class="buy-row">
+          <button class="btn" type="submit" id="add-{{ section.id }}" {% unless v.available %}disabled{% endunless %}>Agregar al carrito</button>
+          {% if section.settings.enable_dynamic_checkout %}
+            {{ form | payment_button }}
+          {% endif %}
+          <button class="btn secondary" type="button" id="zoom-{{ section.id }}">Zoom</button>
+        </div>
+      {% endform %}
+
+      {% if section.settings.show_badges %}
+        <div class="badges">
+          <span class="badge">Pago seguro</span>
+          <span class="badge">Envíos a todo México</span>
+          <span class="badge">Garantía 30 días</span>
+        </div>
+      {% endif %}
+
+      {% if product.description != blank %}
+        <details class="ac" {% if section.settings.open_description %}open{% endif %}>
+          <summary class="ac-h">Descripción</summary>
+          <div class="ac-b" itemprop="description">{{ product.description }}</div>
+        </details>
+      {% endif %}
+
+      {% if section.settings.shipping_text != blank %}
+        <details class="ac">
+          <summary class="ac-h">Envíos</summary>
+          <div class="ac-b">{{ section.settings.shipping_text }}</div>
+        </details>
+      {% endif %}
+
+      {% if section.settings.warranty_text != blank %}
+        <details class="ac">
+          <summary class="ac-h">Garantía</summary>
+          <div class="ac-b">{{ section.settings.warranty_text }}</div>
+        </details>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.show_related %}
+    <div class="related">
+      <div style="max-width:1200px;margin:28px auto 0;padding:0 16px;">
+        <h2 class="title" style="font-size:22px;">También te puede interesar</h2>
+        {% assign rel_collection = product.collections.first %}
+        {% if rel_collection %}
+          <div class="r-grid">
+            {% for rp in rel_collection.products limit: 8 %}
+              {% unless rp.id == product.id %}
+                <a class="r-card" href="{{ rp.url }}">
+                  {% if rp.featured_image %}
+                    {{ rp.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: rp.title }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                  <div class="r-info">
+                    <p class="r-name">{{ rp.title }}</p>
+                    <p class="r-price">
+                      {% if rp.price_varies %}Desde {{ rp.price_min | money }}{% else %}{{ rp.price | money }}{% endif %}
+                    </p>
+                  </div>
+                </a>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <p style="color:var(--muted)">Agrega este producto a una colección para mostrar relacionados.</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<!-- ZOOM MODAL -->
+<div class="mz" id="mz-{{ section.id }}">
+  <button class="close" type="button">Cerrar ✕</button>
+  <img alt="{{ product.title }}">
+</div>
+
+<script>
+(function(){
+  var sectionId = "{{ section.id }}";
+  var productJSON = {{ product | json }};
+  var form = document.getElementById('product-form-' + sectionId);
+  if(!form) return;
+
+  var priceEl = document.getElementById('price-' + sectionId);
+  var availEl = document.getElementById('avail-' + sectionId);
+  var variantInput = document.getElementById('variant-id-' + sectionId);
+  var addBtn = document.getElementById('add-' + sectionId);
+
+  // Variant change handler (simple selects)
+  function getCurrentOptions(){
+    var selects = form.querySelectorAll('.variant-select');
+    return Array.from(selects).map(function(s){ return s.value; });
+  }
+  function findVariant(values){
+    return productJSON.variants.find(function(v){
+      return v.options.every(function(opt, i){ return opt == values[i]; });
+    });
+  }
+  function renderVariant(v){
+    if(!v) return;
+    variantInput.value = v.id;
+    // price
+    if(priceEl){
+      var html = '';
+      html += '<span class="now">' + Shopify.formatMoney(v.price, "{{ shop.money_format | escape }}") + '</span>';
+      if(v.compare_at_price && v.compare_at_price > v.price){
+        html += ' <span class="compare">' + Shopify.formatMoney(v.compare_at_price, "{{ shop.money_format | escape }}") + '</span>';
+      }
+      priceEl.innerHTML = html;
+    }
+    // availability
+    if(availEl){
+      availEl.textContent = v.available ? 'Disponible' : 'Agotado';
+      availEl.classList.toggle('ok', !!v.available);
+      availEl.classList.toggle('oos', !v.available);
+    }
+    if(addBtn){ addBtn.disabled = !v.available; }
+    // media swap if available
+    if(v.featured_media && v.featured_media.id){
+      swapMainMedia(v.featured_media.id);
+    }
+  }
+
+  // Thumbs
+  var main = document.getElementById('main-media-' + sectionId);
+  function swapMainMedia(mediaId){
+    var target = productJSON.media.find(m => m.id == mediaId) || productJSON.media[0];
+    if(!target || !main) return;
+    var html = '';
+    if(target.media_type === 'video'){
+      html = '<video controls playsinline src="'+ (target.sources && target.sources[0] ? target.sources[0].url : '') +'"></video>';
+    } else {
+      html = '<img src="'+ (target.src || (target.preview_image && target.preview_image.src) || '') +'" alt="{{ product.title | escape }}"/>';
+    }
+    main.innerHTML = html;
+    // active thumb
+    var thumbs = document.querySelectorAll('#thumbs-' + sectionId + ' .thumb');
+    thumbs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-media-id') == mediaId); });
+  }
+
+  var thumbsWrap = document.getElementById('thumbs-' + sectionId);
+  if(thumbsWrap){
+    thumbsWrap.addEventListener('click', function(e){
+      var b = e.target.closest('.thumb'); if(!b) return;
+      swapMainMedia(b.getAttribute('data-media-id'));
+    });
+  }
+
+  // Change events
+  form.addEventListener('change', function(e){
+    if(!e.target.classList.contains('variant-select')) return;
+    var v = findVariant(getCurrentOptions());
+    renderVariant(v);
+  });
+
+  // Sticky ATC
+  {% if section.settings.enable_sticky_atc %}
+  var sticky = document.createElement('div');
+  sticky.className = 'sticky-atc';
+  sticky.innerHTML = '<div class="sticky-inner"><div class="sticky-title">{{ product.title | escape }}</div><div class="sticky-price"></div><button class="btn" type="button">Agregar</button></div>';
+  document.body.appendChild(sticky);
+  var stickBtn = sticky.querySelector('button');
+  var stickyPrice = sticky.querySelector('.sticky-price');
+
+  function updateStickyPrice(v){
+    stickyPrice.textContent = Shopify.formatMoney(v.price, "{{ shop.money_format | escape }}");
+    stickBtn.disabled = !v.available;
+  }
+  updateStickyPrice(productJSON.variants.find(v => v.id == {{ product.selected_or_first_available_variant.id }}));
+
+  window.addEventListener('scroll', function(){
+    var rect = form.getBoundingClientRect();
+    if(rect.bottom < 0){ sticky.classList.add('show'); } else { sticky.classList.remove('show'); }
+  });
+  stickBtn.addEventListener('click', function(){ addBtn && addBtn.click(); });
+  {% endif %}
+
+  // Zoom modal
+  var zoomBtn = document.getElementById('zoom-{{ section.id }}');
+  var mz = document.getElementById('mz-{{ section.id }}');
+  if(zoomBtn && mz){
+    var mzImg = mz.querySelector('img');
+    zoomBtn.addEventListener('click', function(){
+      // use current main image
+      var img = main.querySelector('img');
+      if(img){ mzImg.src = img.src; }
+      mz.classList.add('open');
+    });
+    mz.querySelector('.close').addEventListener('click', function(){ mz.classList.remove('open'); });
+    mz.addEventListener('click', function(e){ if(e.target === mz) mz.classList.remove('open'); });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-product",
+  "settings": [
+    { "type": "checkbox", "id": "show_vendor", "label": "Mostrar marca (vendor)", "default": true },
+    { "type": "checkbox", "id": "show_sku", "label": "Mostrar SKU", "default": true },
+    { "type": "checkbox", "id": "show_availability", "label": "Mostrar disponibilidad", "default": true },
+    { "type": "checkbox", "id": "enable_dynamic_checkout", "label": "Botón de pago dinámico", "default": true },
+    { "type": "checkbox", "id": "show_badges", "label": "Mostrar badges de confianza", "default": true },
+    { "type": "checkbox", "id": "open_description", "label": "Descripción abierta por defecto", "default": true },
+    { "type": "textarea", "id": "shipping_text", "label": "Texto de envíos", "default": "Envíos nacionales. Costos calculados al finalizar la compra." },
+    { "type": "textarea", "id": "warranty_text", "label": "Texto de garantía", "default": "Garantía 30 días contra defectos de fabricación." },
+    { "type": "checkbox", "id": "show_related", "label": "Mostrar relacionados (primera colección)", "default": true },
+    { "type": "checkbox", "id": "enable_sticky_atc", "label": "Barra fija de \"Agregar al carrito\"", "default": true }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "soltex-product" }]
+}
+{% endschema %}
