@@ -14,7 +14,8 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_max_width": 160,
+          "logo": "shopify://shop_images/LOGO_GUATE.png",
+          "logo_max_width": 60,
           "menu": "main-menu",
           "sticky_header": true,
           "bg_color": "#0d1b2a",
@@ -49,12 +50,12 @@
           "menu_3_title": "Compañía",
           "menu_3": "",
           "show_contact": true,
-          "contact_title": "Contacto",
-          "address_line_1": "",
-          "address_line_2": "",
-          "phone_text": "",
+          "contact_title": "Ubicación",
+          "address_line_1": "Av. Mariano Lopez Ortiz #326 Norte.",
+          "address_line_2": "Torreón, Coahuila. 27000",
+          "phone_text": "+528715246072",
           "phone_url": "",
-          "email_text": "",
+          "email_text": "info@sewingsolution.com.mx",
           "email_url": "",
           "hours_text": "",
           "legal_menu": "",
@@ -105,6 +106,27 @@
           "value_columns": 3,
           "title": "Quiénes somos",
           "subtitle": "Experiencia textil para la industria moderna."
+        }
+      },
+      "soltex-main-collection": {
+        "type": "soltex-main-collection",
+        "settings": {
+          "title": "Catálogo de productos",
+          "show_counts": true,
+          "per_page": 12
+        }
+      },
+      "soltex-contact": {
+        "type": "soltex-contact",
+        "settings": {
+          "tone": "light",
+          "background_color": "#f8fafc",
+          "text_color": "#0d1b2a",
+          "primary_color": "#0d1b2a",
+          "container_max": 1100,
+          "title": "Contáctanos",
+          "subtitle": "Estamos listos para ayudarte.",
+          "header_align": "center"
         }
       }
     },
