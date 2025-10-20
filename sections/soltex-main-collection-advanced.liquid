@@ -184,13 +184,15 @@
 
                 <div class="actions">
                   <button class="btn qv" type="button" data-qv>Vista rápida</button>
-                  <form action="{{ routes.cart_add_url }}" method="post">
-                    <input type="hidden" name="id" value="{{ first_avail.id }}">
-                    <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>Agregar</button>
-                  </form>
+                  {%- comment -%} Comprar directo a checkout sin usar /cart {%- endcomment -%}
+                  <button class="btn primary" type="button"
+                          data-buy
+                          data-variant-id="{{ first_avail.id }}"
+                          {% unless first_avail.available %}disabled{% endunless %}>
+                    Comprar
+                  </button>
                 </div>
 
-                {%- comment -%} JSON embebido para Quick View (sin fetch externo) {%- endcomment -%}
                 <script type="application/json" class="qv-json">{{ product | json }}</script>
               </div>
             {% endfor %}
@@ -225,13 +227,13 @@
       <p class="price"></p>
       <p class="avail"></p>
 
-      <form class="qv-form" action="{{ routes.cart_add_url }}" method="post">
+      <form class="qv-form" action="#" method="post">
         <div class="qty">
           <label for="qv-qty-{{ section.id }}">Cantidad</label>
           <input id="qv-qty-{{ section.id }}" type="number" name="quantity" min="1" value="1">
         </div>
         <input type="hidden" name="id" value="">
-        <button class="addtocart" type="submit">Agregar al carrito</button>
+        <button class="addtocart" type="submit">Comprar ahora</button>
       </form>
 
       <p style="margin-top:10px">
@@ -243,10 +245,10 @@
 
 <script>
 (function(){
+  const sectionEl = document.getElementById('shopify-section-{{ section.id }}') || document;
   const modal = document.getElementById('qv-{{ section.id }}');
   if(!modal) return;
 
-  const sectionEl = document.getElementById('shopify-section-{{ section.id }}') || document;
   const imgEl = modal.querySelector('.media img');
   const titleEl = modal.querySelector('h3');
   const priceEl = modal.querySelector('.price');
@@ -258,32 +260,11 @@
   const gotoLink = modal.querySelector('.goto');
   const closeBtn = modal.querySelector('.close');
 
-  // mini toast
-  function toast(msg, ok){
-    let t = document.getElementById('qv-toast');
-    if(!t){
-      t = document.createElement('div');
-      t.id = 'qv-toast';
-      t.style.position='fixed'; t.style.right='16px'; t.style.bottom='16px';
-      t.style.padding='10px 14px'; t.style.borderRadius='10px';
-      t.style.color='#fff'; t.style.zIndex='10000'; t.style.fontWeight='700';
-      document.body.appendChild(t);
-    }
-    t.style.background = ok ? '#16a34a' : '#ef4444';
-    t.textContent = msg;
-    t.style.opacity='1';
-    setTimeout(()=>{ t.style.transition='opacity .3s'; t.style.opacity='0'; }, 1500);
-  }
-
   const fmt = (m)=>Shopify.formatMoney(m, {{ shop.money_format | json }});
   const openModal=()=>modal.classList.add('open');
   const closeModal=()=>modal.classList.remove('open');
 
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
-
-  // Abrir Quick View desde las cards
+  // Abrir Quick View
   sectionEl.addEventListener('click', e=>{
     const btn=e.target.closest('[data-qv]');
     if(!btn) return;
@@ -319,65 +300,28 @@
     openModal();
   });
 
-  async function updateCartCount(){
-    try{
-      const r = await fetch('/cart.js', { credentials:'same-origin' });
-      if(!r.ok) return;
-      const cart = await r.json();
-      const count = cart.item_count || 0;
-      document.querySelectorAll('.cart-count-bubble,[data-cart-count]').forEach(el=>{
-        el.textContent = count;
-        el.setAttribute('data-cart-count', count);
-      });
-    }catch{}
-  }
+  // Cerrar modal
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  closeBtn.addEventListener('click', closeModal);
 
-  // ADD TO CART por AJAX (sin redirección)
-  formEl.addEventListener('submit', async e=>{
+  // Comprar (tarjeta): directo a checkout
+  sectionEl.addEventListener('click', e=>{
+    const buy=e.target.closest('[data-buy]');
+    if(!buy) return;
+    const vid=buy.getAttribute('data-variant-id');
+    const qty=1;
+    if(!vid) return;
+    window.location.href = `/cart/${vid}:${qty}/checkout`;
+  });
+
+  // Comprar (Quick View): directo a checkout
+  formEl.addEventListener('submit', e=>{
     e.preventDefault();
-
-    const id = variantInput.value;
-    const qty = qtyInput.value || 1;
-    if(!id){ toast('Variante no disponible', false); return; }
-
-    addBtn.disabled = true;
-    const prev = addBtn.textContent;
-    addBtn.textContent = 'Agregando…';
-
-    try{
-      const fd = new FormData();
-      fd.append('id', id);
-      fd.append('quantity', qty);
-
-      const res = await fetch('{{ routes.cart_add_url }}.js', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'Accept': 'application/json' },
-        body: fd
-      });
-
-      if(!res.ok){
-        const txt = await res.text();
-        console.warn('cart/add error', res.status, txt);
-        addBtn.disabled = false;
-        addBtn.textContent = prev;
-        toast('No se pudo agregar (ID/stock)', false);
-        return;
-      }
-
-      await res.json();
-      await updateCartCount();
-
-      addBtn.textContent = 'Agregado ✓';
-      toast('Agregado al carrito', true);
-      setTimeout(()=>{ addBtn.textContent = prev; addBtn.disabled = false; closeModal(); }, 800);
-
-    }catch(err){
-      console.warn('fetch error', err);
-      addBtn.disabled = false;
-      addBtn.textContent = prev;
-      toast('Error de red', false);
-    }
+    const vid=variantInput.value;
+    const qty=qtyInput.value || 1;
+    if(!vid) return;
+    window.location.href = `/cart/${vid}:${qty}/checkout`;
   });
 })();
 </script>
