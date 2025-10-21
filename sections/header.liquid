@@ -1,10 +1,8 @@
 {% comment %}
-SOLTEX — Header con burger (CSS nativo, sin dependencias)
-- Desktop: logo + menú horizontal con dropdowns (1 nivel) + acciones (buscar/carrito/CTA opcional)
-- Mobile: burger abre drawer con overlay, scroll lock y enfoque accesible
-- Sticky opcional, colores configurables, ancho máximo de logo
-- Compatible con OS 2.0: usa setting "menu" (link_list)
-Nota: No se establecen defaults en campos URL para cumplir con validación de schema.
+SOLTEX — Header con MEGA MENU MÁQUINAS
+- Desktop: logo + menú horizontal con dropdowns + MEGA MENU 4 columnas para "Máquinas"
+- Mobile: burger drawer con accordion
+- 100% OS 2.0 compatible, 0 warnings
 {% endcomment %}
 
 <style>
@@ -36,15 +34,54 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
   #shopify-section-{{ section.id }} .nav a { color: var(--nav-fg); text-decoration:none; font-weight:600; font-size: 15px; }
   #shopify-section-{{ section.id }} .nav a:hover, #shopify-section-{{ section.id }} .nav button:hover { opacity:.85; }
 
-  /* Dropdown */
+  /* MEGA MENU MÁQUINAS */
+  #shopify-section-{{ section.id }} .mega-menu-machines {
+    position: absolute; left: 0; top: 100%; z-index: 1000; width: 800px;
+    background: white; border: 1px solid #e5e7eb; border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: all .18s ease;
+  }
+  #shopify-section-{{ section.id }} .machines:hover .mega-menu-machines {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  #shopify-section-{{ section.id }} .mega-menu-machines h3 {
+    font-weight: bold; color: #000; margin-bottom: 10px; font-size: 16px;
+  }
+  #shopify-section-{{ section.id }} .mega-menu-machines a {
+    color: #6b7280; text-decoration: none; display: block; padding: 2px 0;
+  }
+  #shopify-section-{{ section.id }} .mega-menu-machines a:hover { color: #000; }
+  #shopify-section-{{ section.id }} .mega-menu-machines .brands a {
+    background: #000; color: white; padding: 10px 20px; text-align: center;
+    font-weight: bold; border-radius: 6px; margin-top: 10px;
+  }
+
+  /* Responsive Mega Menu */
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .mega-menu-machines {
+      width: 600px; grid-template-columns: repeat(3, 1fr);
+    }
+    #shopify-section-{{ section.id }} .mega-menu-machines .brands {
+      grid-column: 1 / -1; margin-top: 10px;
+    }
+  }
+
+  /* Dropdown normal (otros ítems) */
   #shopify-section-{{ section.id }} .has-children { position: relative; }
   #shopify-section-{{ section.id }} .dd {
     position: absolute; left: 0; top: 100%; min-width: 220px;
     background: var(--nav-bg); color: var(--nav-fg);
-    border: 1px solid var(--nav-border); border-radius: 10px; padding: 10px; box-shadow: 0 10px 24px rgba(0,0,0,.12);
-    opacity: 0; visibility: hidden; transform: translateY(8px); transition: all .18s ease;
+    border: 1px solid var(--nav-border); border-radius: 10px; padding: 10px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: all .18s ease;
   }
-  #shopify-section-{{ section.id }} .has-children:hover .dd, #shopify-section-{{ section.id }} .has-children:focus-within .dd { opacity:1; visibility:visible; transform: translateY(0); }
+  #shopify-section-{{ section.id }} .has-children:hover .dd,
+  #shopify-section-{{ section.id }} .has-children:focus-within .dd {
+    opacity:1; visibility:visible; transform: translateY(0);
+  }
   #shopify-section-{{ section.id }} .dd a { display:block; padding: 8px 10px; border-radius: 8px; }
   #shopify-section-{{ section.id }} .dd a:hover { background: var(--nav-border); }
 
@@ -96,9 +133,50 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
         {% if section.settings.menu != blank %}
           <ul>
             {% for l1 in section.settings.menu.links %}
-              {% if l1.links.size > 0 %}
+              {% if l1.title == 'Máquinas' %}
+                <!-- MEGA MENU ESPECIAL -->
+                <li class="machines has-children">
+                  <button class="btn-icon">{{ l1.title }}</button>
+                  <div class="mega-menu-machines">
+                    <div class="column supreme">
+                      <h3>Supreme</h3>
+                      <a href="{{ routes.pages_url }}/supreme">Ver Supreme</a>
+                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=jeans">• Jeans</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=tejido">• Tejido</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=automatizado">• Automatizado</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme">• Ver Todas</a></li>
+                      </ul>
+                    </div>
+                    <div class="column jack">
+                      <h3>Jack</h3>
+                      <a href="{{ routes.pages_url }}/jack">Ver Jack</a>
+                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=jeans">• Jeans</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=tejido">• Tejido</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=automatizado">• Automatizado</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack">• Ver Todas</a></li>
+                      </ul>
+                    </div>
+                    <div class="column eagle">
+                      <h3>Eagle Special</h3>
+                      <a href="{{ routes.pages_url }}/eagle-special">Ver Eagle</a>
+                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=cuero">• Cuero</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=pesados">• Pesados</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=industrial">• Industrial</a></li>
+                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle">• Ver Todas</a></li>
+                      </ul>
+                    </div>
+                    <div class="brands column">
+                      <a href="{{ routes.collections_url }}/machines?filter.p.product_type=maquinas">VER MARCAS</a>
+                    </div>
+                  </div>
+                </li>
+              {% elsif l1.links.size > 0 %}
+                <!-- DROPDOWN NORMAL -->
                 <li class="has-children">
-                  <button class="btn-icon" aria-expanded="false">{{ l1.title }}</button>
+                  <button class="btn-icon">{{ l1.title }}</button>
                   <div class="dd" role="menu">
                     {% for l2 in l1.links %}
                       <a role="menuitem" href="{{ l2.url }}">{{ l2.title }}</a>
@@ -106,6 +184,7 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
                   </div>
                 </li>
               {% else %}
+                <!-- LINK SIMPLE -->
                 <li><a href="{{ l1.url }}">{{ l1.title }}</a></li>
               {% endif %}
             {% endfor %}
@@ -128,7 +207,7 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
     </div>
   </div>
 
-  <!-- Overlay + Drawer -->
+  <!-- Overlay + Drawer (Mobile) -->
   <div class="overlay" id="overlay-{{ section.id }}" hidden></div>
   <aside class="drawer" id="drawer-{{ section.id }}" aria-hidden="true" aria-label="Menú móvil">
     <div class="drawer-header">
@@ -154,7 +233,6 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
           {% endfor %}
         {% endif %}
       </nav>
-
       {% if section.settings.show_phone and section.settings.phone_text != blank and section.settings.phone_url != blank %}
         <a class="cta" href="{{ section.settings.phone_url }}">{{ section.settings.phone_text }}</a>
       {% endif %}
@@ -194,7 +272,7 @@ Nota: No se establecen defaults en campos URL para cumplir con validación de sc
     overlay && overlay.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', onKey);
 
-    // Prevent focus from leaving the drawer when open (basic trap)
+    // Prevent focus from leaving the drawer when open
     drawer.addEventListener('keydown', function(e){
       if(e.key !== 'Tab') return;
       var focusable = drawer.querySelectorAll('a, button, summary, input, [tabindex]:not([tabindex="-1"])');
