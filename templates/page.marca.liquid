@@ -42,21 +42,53 @@
     <div class="collection page-width" id="Collection">
       <h2 style="text-align: center; margin-bottom: 40px;">Productos {{ page.title }}</h2>
       {% paginate collections['machines'].products by 24 %}
-        <div class="grid grid--4-col-desktop grid--2-col-tablet-down">
+        <ul class="grid product-grid grid--4-col-desktop grid--2-col-tablet-down">
           {% for product in collections['machines'].products %}
             {% if product.metafields.custom.marca == marca %}
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: 'adapt',
-                show_secondary_image: true,
-                show_vendor: false,
-                show_rating: false
-              %}
+              <li class="grid__item">
+                <div class="card-wrapper product-card">
+                  <div class="card card--standard">
+                    <div class="card__inner">
+                      {% if product.featured_media %}
+                        <div class="card__media">
+                          <img src="{{ product.featured_media | image_url: width: 400 }}"
+                               alt="{{ product.featured_media.alt | escape }}"
+                               width="400" height="400"
+                               loading="lazy">
+                        </div>
+                      {% endif %}
+                      <div class="card__content">
+                        <h3 class="card__heading">
+                          <a href="{{ product.url }}">{{ product.title }}</a>
+                        </h3>
+                        <div class="card-information">
+                          <span class="price">{{ product.price | money }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
             {% endif %}
           {% endfor %}
-        </div>
+        </ul>
+        
         {% if paginate.pages > 1 %}
-          {% render 'pagination', paginate: paginate, anchor: '' %}
+          <nav class="pagination">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}" class="pagination__link">← Anterior</a>
+            {% endif %}
+            {% for part in paginate.parts %}
+              {% if part.is_link %}
+                <a href="{{ part.url }}" class="pagination__link">{{ part.title }}</a>
+              {% else %}
+                <span class="pagination__text">{{ part.title }}</span>
+              {% endif %}
+            {% endfor %}
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}" class="pagination__link">Siguiente →</a>
+            {% endif %}
+          </nav>
         {% endif %}
       {% endpaginate %}
     </div>
@@ -68,4 +100,14 @@
   color: #000; 
   border-color: #000; 
 }
+.product-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+.card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.card__media img { width: 100%; height: 200px; object-fit: cover; }
+.card__content { padding: 15px; }
+.card__heading a { color: #000; text-decoration: none; font-weight: 600; }
+.price { color: #6b7280; font-weight: 500; }
+.pagination { text-align: center; margin-top: 40px; }
+.pagination__link { margin: 0 5px; padding: 8px 12px; border: 1px solid #e5e7eb; text-decoration: none; color: #6b7280; }
+.pagination__link:hover { border-color: #000; color: #000; }
+.pagination__text { margin: 0 5px; }
 </style>
