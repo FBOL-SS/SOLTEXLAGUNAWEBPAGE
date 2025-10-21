@@ -1,0 +1,64 @@
+{% comment %} Mega Menu for Machines {% endcomment %}
+<div class="mega-menu-machines" style="display: none; position: absolute; top: 100%; left: 0; z-index: 1000; width: 800px; background: white; border: 1px solid #e5e7eb; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; grid-template-columns: repeat(4, 1fr); gap: 20px;" data-mega-menu>
+  <div class="column supreme">
+    <h3 style="font-weight: bold; color: #000; margin-bottom: 10px;">Supreme</h3>
+    <a href="/pages/supreme" style="display: block; margin-bottom: 10px; color: #6b7280; text-decoration: none;">/pages/supreme</a>
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="/collections/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=jeans" style="color: #6b7280; text-decoration: none;">• Jeans</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=tejido" style="color: #6b7280; text-decoration: none;">• Tejido</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=automatizado" style="color: #6b7280; text-decoration: none;">• Automatizado</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=supreme" style="color: #6b7280; text-decoration: none;">• Ver Todas</a></li>
+    </ul>
+  </div>
+  <div class="column jack">
+    <h3 style="font-weight: bold; color: #000; margin-bottom: 10px;">Jack</h3>
+    <a href="/pages/jack" style="display: block; margin-bottom: 10px; color: #6b7280; text-decoration: none;">/pages/jack</a>
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="/collections/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=jeans" style="color: #6b7280; text-decoration: none;">• Jeans</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=tejido" style="color: #6b7280; text-decoration: none;">• Tejido</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=automatizado" style="color: #6b7280; text-decoration: none;">• Automatizado</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=jack" style="color: #6b7280; text-decoration: none;">• Ver Todas</a></li>
+    </ul>
+  </div>
+  <div class="column eagle">
+    <h3 style="font-weight: bold; color: #000; margin-bottom: 10px;">Eagle Special</h3>
+    <a href="/pages/eagle-special" style="display: block; margin-bottom: 10px; color: #6b7280; text-decoration: none;">/pages/eagle</a>
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=cuero" style="color: #6b7280; text-decoration: none;">• Cuero</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=pesados" style="color: #6b7280; text-decoration: none;">• Pesados</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=industrial" style="color: #6b7280; text-decoration: none;">• Industrial</a></li>
+      <li><a href="/collections/machines?filter.p.m.custom.marca=eagle" style="color: #6b7280; text-decoration: none;">• Ver Todas</a></li>
+    </ul>
+  </div>
+  <div class="column brands">
+    <a href="/collections/machines?filter.p.product_type=maquinas" style="display: block; background: #000; color: white; padding: 10px 20px; text-align: center; text-decoration: none; font-weight: bold;">VER MARCAS</a>
+  </div>
+</div>
+
+<style>
+  .mega-menu-machines a:hover { color: #000; }
+  @media (max-width: 1024px) {
+    .mega-menu-machines { width: 600px; grid-template-columns: repeat(3, 1fr); }
+    .column.brands { grid-column: span 3; }
+  }
+  @media (max-width: 768px) {
+    .mega-menu-machines { display: block; } /* Accordion style handled via JS */
+  }
+</style>
+
+<script>
+  // Basic hover/click logic (expand for mobile accordion if needed)
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuItem = document.querySelector('[data-menu-item="machines"]');
+    const megaMenu = document.querySelector('.mega-menu-machines');
+    menuItem.addEventListener('mouseenter', () => megaMenu.style.display = 'grid');
+    menuItem.addEventListener('mouseleave', () => megaMenu.style.display = 'none');
+    // For mobile: toggle on click
+    if (window.innerWidth <= 768) {
+      menuItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        megaMenu.style.display = megaMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+  });
+</script>
