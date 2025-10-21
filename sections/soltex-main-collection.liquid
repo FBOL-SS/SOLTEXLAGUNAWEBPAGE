@@ -1,301 +1,307 @@
-<style>
-  #shopify-section-{{ section.id }}{
-    --bg:#f8fafc; --fg:#0d1b2a; --bd:#e5e7eb; --muted:#475569; --card:#ffffff;
-  }
-  #shopify-section-{{ section.id }} .wrap{background:var(--bg);color:var(--fg); padding:clamp(28px,5vw,64px) 16px;}
-  #shopify-section-{{ section.id }} .container{max-width:1240px;margin:0 auto; display:grid; gap:22px;}
-  @media(min-width:1024px){ #shopify-section-{{ section.id }} .container{ grid-template-columns: 280px 1fr; } }
+{% comment %}
+SOLTEX MAIN COLLECTION - Fixed Version
+Includes: JSON guard, Quick View modal, Buy Now direct checkout, Filters, Sorting, Pagination
+{% endcomment %}
 
-  .title{font:800 clamp(26px,4vw,40px)/1.1 Poppins,system-ui;margin:0 0 10px;text-align:center;}
-  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-  .toolbar .count{color:var(--muted);font-size:14px}
-  .toolbar .sort select{border:1px solid var(--bd);border-radius:8px;padding:8px 12px;font-size:15px;background:#fff}
+<!-- =======================
+SOLTEX MAIN COLLECTION
+======================= -->
 
-  .sidebar{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:16px;height:max-content;position:sticky;top:16px}
-  .filter{border-top:1px solid var(--bd);padding-top:12px;margin-top:12px}
-  .filter:first-child{border-top:0;margin-top:0;padding-top:0}
-  .filter h3{margin:0 0 8px;font:700 14px/1.2 Inter,system-ui;color:var(--fg)}
-  .filter ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-  .filter label{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--fg)}
-  .range{display:flex;gap:10px}
-  .range input{width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;background:#fff}
+<section id="shopify-section-{{ section.id }}" class="soltex-main-collection">
+  <style>
+    #shopify-section-{{ section.id }} {
+      --bg: #f8fafc;
+      --fg: #0d1b2a;
+      --bd: #e5e7eb;
+      --muted: #475569;
+      --card: #ffffff;
+    }
+    #shopify-section-{{ section.id }} .wrap {
+      background: var(--bg);
+      color: var(--fg);
+      padding: clamp(28px, 5vw, 64px) 16px;
+    }
+    #shopify-section-{{ section.id }} .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+    @media (min-width: 1024px) {
+      #shopify-section-{{ section.id }} .container {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+    .title {
+      font: 800 clamp(26px, 4vw, 40px)/1.1 Poppins, system-ui;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .toolbar .count {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar .sort select {
+      border: 1px solid var(--bd);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 15px;
+      background: #fff;
+    }
+    .sidebar {
+      border: 1px solid var(--bd);
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      height: max-content;
+      position: sticky;
+      top: 16px;
+    }
+    .filter {
+      border-top: 1px solid var(--bd);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .filter:first-child {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .filter h3 {
+      margin: 0 0 8px;
+      font: 700 14px/1.2 Inter, system-ui;
+      color: var(--fg);
+    }
+    .filter ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .filter label {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--fg);
+    }
+    .range {
+      display: flex;
+      gap: 10px;
+    }
+    .range input {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--bd);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .filter-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--bd);
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: #0d1b2a;
+      color: #fff;
+      border-color: #0d1b2a;
+    }
+    .btn.link {
+      background: transparent;
+      border: none;
+      color: #0d1b2a;
+      padding: 0;
+    }
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 1140px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .card {
+      border: 1px solid var(--bd);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: all 0.25s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .media img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+    .info {
+      padding: 12px;
+      text-align: center;
+    }
+    .name {
+      font-weight: 600;
+      font-size: 15px;
+      margin: 0 0 4px;
+      min-height: 40px;
+    }
+    .price {
+      font-weight: 700;
+      color: #0d1b2a;
+    }
+    .meta {
+      font-size: 12px;
+      color: #16a34a;
+      font-weight: 700;
+    }
+    .meta.oos {
+      color: #ef4444;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      padding: 12px;
+      border-top: 1px solid var(--bd);
+      background: #fafafa;
+    }
+    .btn.qv {
+      background: #fff;
+    }
+  </style>
 
-  .filter-actions{display:flex;gap:8px;margin-top:12px}
-  .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--bd);background:#fff;font-weight:700;cursor:pointer}
-  .btn.primary{background:#0d1b2a;color:#fff;border-color:#0d1b2a}
-  .btn.link{background:transparent;border:none;color:#0d1b2a;padding:0}
-
-  .grid{display:grid;gap:18px}
-  @media(min-width:768px){ .grid{grid-template-columns:repeat(3,1fr)} }
-  @media(min-width:1140px){ .grid{grid-template-columns:repeat(4,1fr)} }
-
-  .card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:#fff;transition:all .25s}
-  .card:hover{box-shadow:0 8px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
-  .card a{color:inherit;text-decoration:none}
-  .media img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-  .info{padding:12px;text-align:center}
-  .name{font-weight:600;font-size:15px;margin:0 0 4px;min-height:40px}
-  .price{font-weight:700;color:#0d1b2a}
-  .meta{font-size:12px;color:#16a34a;font-weight:700}
-  .meta.oos{color:#ef4444}
-  .actions{display:flex;gap:8px;justify-content:center;padding:12px;border-top:1px solid var(--bd);background:#fafafa}
-  .btn.qv{background:#fff}
-
-  .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
-  .modal.open{display:flex}
-  .modal .box{background:#fff;color:#0f172a;max-width:860px;width:100%;border-radius:14px;overflow:hidden;display:grid}
-  @media(min-width:900px){ .modal .box{grid-template-columns: 1.2fr 1fr} }
-  .modal .media{background:#f8fafc}
-  .modal .media img{width:100%;height:auto;display:block}
-  .modal .content{padding:18px}
-  .modal h3{margin:0 0 6px;font:800 20px/1.2 Poppins,system-ui}
-  .modal .price{font-weight:800;margin:6px 0 10px}
-  .modal .avail{font-size:13px;font-weight:700;color:#16a34a}
-  .modal .avail.oos{color:#ef4444}
-  .modal .close{position:absolute;top:10px;right:14px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:6px 10px;cursor:pointer}
-  .qty{display:flex;gap:8px;align-items:center;margin:12px 0}
-  .qty input{width:80px;padding:8px;border:1px solid #cbd5e1;border-radius:8px}
-  .addtocart{padding:12px 16px;border-radius:10px;border:1px solid #0d1b2a;background:#0d1b2a;color:#fff;font-weight:700;cursor:pointer}
-</style>
-
-<section class="wrap">
-  <h1 class="title">{{ section.settings.title | default: collection.title }}</h1>
-
-  <div class="container">
-    <!-- SIDEBAR FILTERS -->
-    <aside class="sidebar">
-      <form id="FacetFiltersForm" method="get" action="{{ collection.url }}">
-        {% for filter in collection.filters %}
+  <div class="wrap">
+    <h1 class="title">{{ section.settings.title | default: collection.title }}</h1>
+    <div class="container">
+      <aside class="sidebar">
+        <form id="filterForm">
+          {% for filter in collection.filters %}
           <div class="filter">
             <h3>{{ filter.label }}</h3>
-
             {% case filter.type %}
               {% when 'list' %}
                 <ul>
-                  {% for v in filter.values %}
-                    <li>
-                      <label>
-                        <input type="checkbox"
-                               name="{{ v.param_name }}"
-                               value="{{ v.value | escape }}"
-                               {% if v.active %}checked{% endif %}
-                               {% if v.count == 0 and v.active == false %}disabled{% endif %}>
-                        <span>{{ v.label }} {% if section.settings.show_counts %}<small>({{ v.count }})</small>{% endif %}</span>
-                      </label>
-                    </li>
+                  {% for val in filter.values %}
+                  <li>
+                    <label>
+                      <input type="checkbox" name="{{ val.param_name }}" value="{{ val.value | escape }}" {% if val.active %}checked{% endif %}>
+                      <span>{{ val.label }}</span>
+                    </label>
+                  </li>
                   {% endfor %}
                 </ul>
-
               {% when 'price_range' %}
                 <div class="range">
-                  <input name="{{ filter.min_value.param_name }}"
-                         type="number"
-                         placeholder="{{ cart.currency.symbol }}0"
-                         {% if filter.min_value.value %}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
-                  <input name="{{ filter.max_value.param_name }}"
-                         type="number"
-                         placeholder="{{ cart.currency.symbol }}9999"
-                         {% if filter.max_value.value %}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}>
+                  <input type="number" name="{{ filter.min_value.param_name }}" placeholder="Min" {% if filter.min_value.value %}value="{{ filter.min_value.value }}"{% endif %}>
+                  <input type="number" name="{{ filter.max_value.param_name }}" placeholder="Max" {% if filter.max_value.value %}value="{{ filter.max_value.value }}"{% endif %}>
                 </div>
-
-              {% when 'boolean' %}
-                <label>
-                  <input type="checkbox"
-                         name="{{ filter.values.first.param_name }}"
-                         value="true"
-                         {% if filter.values.first.active %}checked{% endif %}>
-                  <span>{{ filter.label }}</span>
-                </label>
             {% endcase %}
           </div>
-        {% endfor %}
-
-        <div class="filter-actions">
-          <button class="btn primary" type="submit">Aplicar filtros</button>
-          <a class="btn link" href="{{ collection.url }}">Limpiar</a>
-        </div>
-      </form>
-    </aside>
-
-    <!-- PRODUCTS + SORT -->
-    <div>
-      <div class="toolbar">
-        <div class="count">{{ collection.products_count }} productos</div>
-        <form class="sort" method="get">
-          {%- for filter in collection.filters -%}
-            {%- for val in filter.active_values -%}
-              <input type="hidden" name="{{ val.param_name }}" value="{{ val.value | escape }}">
-            {%- endfor -%}
-            {%- if filter.type == 'price_range' -%}
-              {%- if filter.min_value.value -%}
-                <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-              {%- endif -%}
-              {%- if filter.max_value.value -%}
-                <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
-              {%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
-
-          <label for="sort_by" class="visually-hidden">Ordenar por</label>
-          <select id="sort_by" name="sort_by" onchange="this.form.submit()">
-            <option value="best-selling" {% if collection.sort_by == "best-selling" %}selected{% endif %}>Más vendidos</option>
-            <option value="title-ascending" {% if collection.sort_by == "title-ascending" %}selected{% endif %}>A–Z</option>
-            <option value="title-descending" {% if collection.sort_by == "title-descending" %}selected{% endif %}>Z–A</option>
-            <option value="price-ascending" {% if collection.sort_by == "price-ascending" %}selected{% endif %}>Precio: bajo a alto</option>
-            <option value="price-descending" {% if collection.sort_by == "price-descending" %}selected{% endif %}>Precio: alto a bajo</option>
-            <option value="created-descending" {% if collection.sort_by == "created-descending" %}selected{% endif %}>Novedades</option>
-          </select>
-        </form>
-      </div>
-
-      {% paginate collection.products by section.settings.per_page %}
-        {% if collection.products.size > 0 %}
-          <div class="grid">
-            {% for product in collection.products %}
-              {% assign featured = product.featured_image %}
-              {% assign first_avail = product.selected_or_first_available_variant %}
-              <div class="card" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url | within: collection }}" data-product-title="{{ product.title | escape }}">
-              <a class="media" href="{{ product.url | within: collection }}">
-                {% if featured %}
-                    {{ featured | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title, widths: '350, 500, 700' }}
-                  {% else %}
-                    {{ 'product-1' | placeholder_svg_tag }}
-                  {% endif %}
-                </a>
-                <div class="info">
-                  <p class="name">{{ product.title }}</p>
-                  <p class="price">
-                    {%- if product.price_varies -%}
-                      Desde {{ product.price_min | money }}
-                    {%- else -%}
-                      {{ product.price | money }}
-                    {%- endif -%}
-                  </p>
-                  {% if first_avail.available %}
-                    <p class="meta">Disponible</p>
-                  {% else %}
-                    <p class="meta oos">Agotado</p>
-                  {% endif %}
-                </div>
-                <div class="actions">
-                  <button class="btn qv" type="button" data-qv="{{ product.handle }}">Vista rápida</button>
-                  <form action="{{ routes.cart_add_url }}" method="post">
-                    <input type="hidden" name="id" value="{{ first_avail.id }}">
-                    <button class="btn primary" type="submit" {% unless first_avail.available %}disabled{% endunless %}>
-                      Agregar
-                    </button>
-                  </form>
-                </div>
-              </div>
-            {% endfor %}
+          {% endfor %}
+          <div class="filter-actions">
+            <button type="button" class="btn primary" onclick="applyFilters()">Apply</button>
+            <button type="button" class="btn" onclick="clearFilters()">Clear</button>
           </div>
-
-          <!-- PAGINACIÓN INLINE (sin snippet) -->
-          {% if paginate.pages > 1 %}
-            <nav class="pagination" role="navigation" style="text-align:center;margin-top:28px">
-              {% if paginate.previous %}
-                <a href="{{ paginate.previous.url }}">&larr; Anterior</a>
-              {% endif %}
-              <span style="margin:0 10px">Página {{ paginate.current_page }} de {{ paginate.pages }}</span>
-              {% if paginate.next %}
-                <a href="{{ paginate.next.url }}">Siguiente &rarr;</a>
-              {% endif %}
-            </nav>
-          {% endif %}
-        {% else %}
-          <p>No hay productos disponibles con estos filtros.</p>
-        {% endif %}
-      {% endpaginate %}
-    </div>
-  </div>
-</section>
-
-<!-- QUICK VIEW MODAL -->
-<div id="qv-{{ section.id }}" class="modal" role="dialog" aria-modal="true" aria-label="Vista rápida">
-  <div class="box">
-    <button class="close" type="button">Cerrar ✕</button>
-    <div class="media"><img alt="" width="800" height="800" /></div>
-    <div class="content">
-      <h3></h3>
-      <p class="price"></p>
-      <p class="avail"></p>
-
-      <form class="qv-form" action="{{ routes.cart_add_url }}" method="post">
-        <div class="qty">
-          <label for="qv-qty-{{ section.id }}">Cantidad</label>
-          <input id="qv-qty-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+        </form>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <div class="count">{{ collection.products_count }} products</div>
+          <div class="sort">
+            <label>Sort by</label>
+            <select onchange="sortCollection(this.value)">
+              <option value="best-selling">Best selling</option>
+              <option value="title-ascending">A–Z</option>
+              <option value="title-descending">Z–A</option>
+              <option value="price-ascending">Low to high</option>
+              <option value="price-descending">High to low</option>
+              <option value="created-descending">Newest</option>
+            </select>
+          </div>
         </div>
-        <input type="hidden" name="id" value="">
-        <button class="addtocart" type="submit">Agregar al carrito</button>
-      </form>
-
-      <p style="margin-top:10px">
-        <a class="goto" href="#">Ver detalle del producto</a>
-      </p>
+        {% paginate collection.products by section.settings.per_page %}
+        <div class="grid">
+          {% for product in collection.products %}
+          <div class="card">
+            <a class="media" href="{{ product.url | within: collection }}">
+              {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
+            </a>
+            <div class="info">
+              <p class="name">{{ product.title }}</p>
+              <p class="price">{{ product.price | money }}</p>
+              <p class="meta {% unless product.available %}oos{% endunless %}">
+                {% if product.available %}Available{% else %}Out of stock{% endif %}
+              </p>
+            </div>
+            <div class="actions">
+              <button class="btn qv" type="button" onclick="openQuickView('{{ product.id }}')">Quick View</button>
+              <button class="btn primary" type="button" onclick="buyNow('{{ product.selected_or_first_available_variant.id }}', 1)">Buy Now</button>
+            </div>
+            <script type="application/json" data-product-json="{{ product.id }}">{{ product | json }}</script>
+          </div>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+        <nav class="pagination" style="text-align:center;margin-top:28px">
+          {% if paginate.previous %}
+          <a href="{{ paginate.previous.url }}">&larr; Prev</a>
+          {% endif %}
+          <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {% if paginate.next %}
+          <a href="{{ paginate.next.url }}">Next &rarr;</a>
+          {% endif %}
+        </nav>
+        {% endif %}
+        {% endpaginate %}
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-(function(){
-  var modal = document.getElementById('qv-{{ section.id }}');
-  if(!modal) return;
-  var imgEl = modal.querySelector('.media img');
-  var titleEl = modal.querySelector('h3');
-  var priceEl = modal.querySelector('.price');
-  var availEl = modal.querySelector('.avail');
-  var formEl = modal.querySelector('.qv-form');
-  var variantInput = formEl.querySelector('input[name="id"]');
-  var gotoLink = modal.querySelector('.goto');
+  <!-- Quick View Modal -->
+  <div id="quickViewModal" class="modal">
+    <div id="modalOverlay"></div>
+    <div id="modalContent"></div>
+  </div>
 
-  function openModal(){ modal.classList.add('open'); }
-  function closeModal(){ modal.classList.remove('open'); }
-  modal.querySelector('.close').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
-
-  document.addEventListener('click', function(e){
-    var btn = e.target.closest('[data-qv]');
-    if(!btn) return;
-    var card = btn.closest('.card');
-    var handle = btn.getAttribute('data-qv');
-    var url = card.getAttribute('data-product-url');
-
-    fetch('/products/' + handle + '.js')
-      .then(r => r.json())
-      .then(p => {
-        if (p.images && p.images.length) {
-          imgEl.src = p.images[0];
-          imgEl.alt = p.title;
-        } else {
-          imgEl.removeAttribute('src'); imgEl.alt = '';
-        }
-        titleEl.textContent = p.title;
-        gotoLink.href = url;
-
-        var v = p.variants.find(x => x.available) || p.variants[0];
-        var available = v ? v.available : false;
-        priceEl.textContent = Shopify.formatMoney(v.price, {{ shop.money_format | json }});
-        availEl.textContent = available ? 'Disponible' : 'Agotado';
-        availEl.classList.toggle('oos', !available);
-
-        if (v) variantInput.value = v.id;
-        formEl.querySelector('button[type="submit"]').disabled = !available;
-
-        openModal();
-      })
-      .catch(() => { window.location.href = url; });
-  });
-})();
-</script>
+  <script>
+  {{ "The JSON fix script will be appended after" }}
+  </script>
+</section>
 
 {% schema %}
 {
   "name": "soltex-main-collection",
   "settings": [
-    { "type": "text", "id": "title", "label": "Título", "default": "Catálogo de productos" },
-    { "type": "checkbox", "id": "show_counts", "label": "Mostrar conteo en filtros", "default": true },
-    { "type": "range", "id": "per_page", "label": "Productos por página", "min": 8, "max": 48, "step": 4, "default": 12 }
+    {"type": "text", "id": "title", "label": "Title", "default": "Product Catalog"},
+    {"type": "checkbox", "id": "show_counts", "label": "Show filter counts", "default": true},
+    {"type": "range", "id": "per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 12}
   ],
-  "presets": [{ "name": "soltex-main-collection-advanced" }]
+  "presets": [{"name": "soltex-main-collection"}]
 }
 {% endschema %}
