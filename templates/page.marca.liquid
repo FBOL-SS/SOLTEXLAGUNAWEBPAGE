@@ -1,39 +1,70 @@
-{% comment %} Custom template for brand pages {% endcomment %}
+{% comment %} Brand Page Template - 100% CLEAN {% endcomment %}
 <div class="page-marca">
-  <section class="hero">
-    <img src="{{ page.metafields.custom.logo | img_url: 'master' }}" alt="{{ page.title }} Logo" style="max-width: 200px;">
-    <h1>{{ page.title }}</h1>
+  {% liquid
+    assign marca = page.handle | replace: '-', ''
+    assign collection_url = routes.collections_url | append: '/machines?'
+    assign filter_param = 'filter.p.m.custom.marca=' | append: marca
+  %}
+  
+  <section class="hero" style="text-align: center; padding: 40px 20px;">
+    {% if page.metafields.custom.logo %}
+      <img src="{{ page.metafields.custom.logo | image_url: width: 200 }}" 
+           alt="{{ page.title }} Logo" 
+           width="200" 
+           height="100" 
+           loading="lazy">
+    {% endif %}
+    <h1 style="font-size: 2.5rem; margin: 20px 0;">{{ page.title }}</h1>
   </section>
-  <section class="history" style="max-width: 300px; margin: 20px auto;">
+  
+  <section class="history" style="max-width: 800px; margin: 0 auto 40px; padding: 0 20px;">
     {{ page.content }}
   </section>
-  <section class="filters">
-    <h2>Filtros por Uso</h2>
-    {% assign marca = page.handle %}
-    <ul>
+  
+  <section class="filters" style="padding: 0 20px; margin-bottom: 40px;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Filtros por Uso</h2>
+    <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
       {% if marca == 'supreme' or marca == 'jack' %}
-        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=jeans">Jeans</a></li>
-        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=tejido">Tejido</a></li>
-        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=automatizado">Automatizado</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=jeans" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Jeans</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=tejido" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Tejido</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=automatizado" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Automatizado</a></li>
       {% elsif marca == 'eagle-special' %}
-        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=cuero">Cuero</a></li>
-        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=pesados">Pesados</a></li>
-        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=industrial">Industrial</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=cuero" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Cuero</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=pesados" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Pesados</a></li>
+        <li><a href="{{ collection_url }}{{ filter_param }}&filter.p.m.custom.uso=industrial" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Industrial</a></li>
       {% endif %}
+      <li><a href="{{ collection_url }}{{ filter_param }}" style="color: #6b7280; text-decoration: none; padding: 8px 16px; border: 1px solid #e5e7eb; border-radius: 4px;">Ver Todas</a></li>
     </ul>
   </section>
+  
   <section class="products">
-    <h2>Productos</h2>
-    {% assign filter = '?filter.p.m.custom.marca=' | append: marca %}
-    {% section 'soltex-main-collection' %} <!-- Assuming this section handles the grid with filter param -->
-    <!-- If soltex-main-collection doesn't auto-filter, add: -->
-    <!-- {% include 'collection-grid' with collection: collections['machines'], filter: filter %} -->
+    <div class="collection page-width" id="Collection">
+      <h2 style="text-align: center; margin-bottom: 40px;">Productos {{ page.title }}</h2>
+      {% paginate collections['machines'].products by 24 %}
+        <div class="grid grid--4-col-desktop grid--2-col-tablet-down">
+          {% for product in collections['machines'].products %}
+            {% if product.metafields.custom.marca == marca %}
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'adapt',
+                show_secondary_image: true,
+                show_vendor: false,
+                show_rating: false
+              %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {% endif %}
+      {% endpaginate %}
+    </div>
   </section>
 </div>
 
 <style>
-  .page-marca .hero { text-align: center; }
-  .page-marca .filters ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
-  .page-marca .filters a { color: #6b7280; text-decoration: none; }
-  .page-marca .filters a:hover { color: #000; }
+.page-marca .filters a:hover { 
+  color: #000; 
+  border-color: #000; 
+}
 </style>
