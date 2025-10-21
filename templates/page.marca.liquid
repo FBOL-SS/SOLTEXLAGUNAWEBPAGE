@@ -1,0 +1,39 @@
+{% comment %} Custom template for brand pages {% endcomment %}
+<div class="page-marca">
+  <section class="hero">
+    <img src="{{ page.metafields.custom.logo | img_url: 'master' }}" alt="{{ page.title }} Logo" style="max-width: 200px;">
+    <h1>{{ page.title }}</h1>
+  </section>
+  <section class="history" style="max-width: 300px; margin: 20px auto;">
+    {{ page.content }}
+  </section>
+  <section class="filters">
+    <h2>Filtros por Uso</h2>
+    {% assign marca = page.handle %}
+    <ul>
+      {% if marca == 'supreme' or marca == 'jack' %}
+        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=jeans">Jeans</a></li>
+        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=tejido">Tejido</a></li>
+        <li><a href="/collections/machines?filter.p.m.custom.marca={{ marca }}&filter.p.m.custom.uso=automatizado">Automatizado</a></li>
+      {% elsif marca == 'eagle-special' %}
+        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=cuero">Cuero</a></li>
+        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=pesados">Pesados</a></li>
+        <li><a href="/collections/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=industrial">Industrial</a></li>
+      {% endif %}
+    </ul>
+  </section>
+  <section class="products">
+    <h2>Productos</h2>
+    {% assign filter = '?filter.p.m.custom.marca=' | append: marca %}
+    {% section 'soltex-main-collection' %} <!-- Assuming this section handles the grid with filter param -->
+    <!-- If soltex-main-collection doesn't auto-filter, add: -->
+    <!-- {% include 'collection-grid' with collection: collections['machines'], filter: filter %} -->
+  </section>
+</div>
+
+<style>
+  .page-marca .hero { text-align: center; }
+  .page-marca .filters ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
+  .page-marca .filters a { color: #6b7280; text-decoration: none; }
+  .page-marca .filters a:hover { color: #000; }
+</style>
