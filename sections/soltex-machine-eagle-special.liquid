@@ -1,0 +1,833 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
+
+<style>
+  .shopdev .hero-banner {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .shopdev .hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shopdev .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shopdev .hero-content {
+    text-align: center;
+    padding: 0 24px;
+    max-width: 800px;
+  }
+
+  .shopdev .brand-history {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .shopdev .brand-history-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .shopdev .brand-history-text {
+    flex: 1;
+  }
+
+  .shopdev .brand-history-image {
+    flex: 1;
+  }
+
+  .shopdev .brand-history-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .shopdev .products-carousel {
+    padding: 80px 24px;
+    background-color: #f9fafb;
+  }
+
+  .shopdev .products-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .shopdev .product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .shopdev .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .shopdev .product-card-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .shopdev .product-card-content {
+    padding: 20px;
+  }
+
+  .shopdev .swiper-button-next,
+  .shopdev .swiper-button-prev {
+    color: #1f2937;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .shopdev .swiper-button-next:after,
+  .shopdev .swiper-button-prev:after {
+    font-size: 18px;
+  }
+
+  .shopdev .industries-grid {
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .shopdev .industries-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .shopdev .industry-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .industry-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+
+  .shopdev .industry-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #3b82f6;
+  }
+
+  .shopdev .categories-mosaic {
+    padding: 80px 24px;
+    background-color: #f9fafb;
+  }
+
+  .shopdev .categories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .shopdev .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .shopdev .category-card {
+    position: relative;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .shopdev .category-card:hover {
+    transform: scale(1.02);
+  }
+
+  .shopdev .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shopdev .category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: white;
+  }
+
+  @media (min-width: 640px) {
+    .shopdev .industries-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shopdev .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .shopdev .hero-banner {
+      height: 700px;
+    }
+
+    .shopdev .brand-history-content {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .shopdev .industries-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .shopdev .industries-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .shopdev .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<div class="w-full">
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    {%- if section.settings.hero_image != blank -%}
+      {{ section.settings.hero_image | image_url: width: 1920 | image_tag: 
+        loading: 'eager',
+        sizes: '100vw'
+      }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full bg-gray-200' }}
+    {%- endif -%}
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        {% if section.settings.hero_subtitle != blank %}
+          <p class="text-white text-base md:text-lg uppercase tracking-wider mb-4">
+            {{ section.settings.hero_subtitle }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.hero_title != blank %}
+          <h1 class="text-white text-4xl md:text-6xl font-bold mb-6">
+            {{ section.settings.hero_title }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.hero_button_text != blank and section.settings.hero_button_link != blank %}
+          <a href="{{ section.settings.hero_button_link }}" 
+             class="inline-block px-8 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold">
+            {{ section.settings.hero_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand History -->
+  <div class="brand-history">
+    <div class="text-center">
+      {% if section.settings.history_title != blank %}
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {{ section.settings.history_title }}
+        </h2>
+      {% endif %}
+    </div>
+
+    <div class="brand-history-content">
+      <div class="brand-history-text">
+        {% if section.settings.history_text != blank %}
+          <div class="prose prose-lg max-w-none">
+            {{ section.settings.history_text }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="brand-history-image">
+        {%- if section.settings.history_image != blank -%}
+          {{ section.settings.history_image | image_url: width: 800 | image_tag: 
+            loading: 'lazy',
+            sizes: '(min-width: 768px) 50vw, 100vw'
+          }}
+        {%- else -%}
+          {{ 'collection-2' | placeholder_svg_tag: 'w-full h-full bg-gray-200 rounded-lg' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Carousel -->
+  <div class="products-carousel">
+    <div class="products-carousel-container">
+      <div class="text-center mb-12">
+        {% if section.settings.products_title != blank %}
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {{ section.settings.products_title }}
+          </h2>
+        {% endif %}
+        {% if section.settings.products_subtitle != blank %}
+          <p class="text-gray-600 text-lg">
+            {{ section.settings.products_subtitle }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if section.blocks.size > 0 %}
+        <div class="swiper products-swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'product' %}
+                {% assign product = block.settings.product %}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="product-card">
+                    {% if product != blank %}
+                      <a href="{{ product.url }}">
+                        {% if product.featured_image %}
+                          {{ product.featured_image | image_url: width: 600 | image_tag: 
+                            class: 'product-card-image',
+                            loading: 'lazy'
+                          }}
+                        {% else %}
+                          {{ 'product-1' | placeholder_svg_tag: 'product-card-image bg-gray-200' }}
+                        {% endif %}
+                      </a>
+
+                      <div class="product-card-content">
+                        <h3 class="text-xl font-semibold mb-2">
+                          <a href="{{ product.url }}" class="hover:text-blue-600 transition-colors">
+                            {{ product.title }}
+                          </a>
+                        </h3>
+
+                        <p class="text-2xl font-bold text-gray-900 mb-4">
+                          {{ product.price | money }}
+                        </p>
+
+                        <a href="{{ product.url }}" 
+                           class="inline-block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                          Ver Más
+                        </a>
+                      </div>
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag: 'product-card-image bg-gray-200' }}
+                      <div class="product-card-content">
+                        <h3 class="text-xl font-semibold mb-2">Producto de Ejemplo</h3>
+                        <p class="text-2xl font-bold text-gray-900 mb-4">$0.00</p>
+                        <button class="inline-block w-full text-center px-6 py-3 bg-gray-300 text-gray-600 rounded-md cursor-not-allowed">
+                          Seleccionar Producto
+                        </button>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      {% else %}
+        <div class="text-center py-12 bg-white rounded-lg">
+          <p class="text-gray-500">Agrega productos destacados para comenzar</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Industries Grid -->
+  <div class="industries-grid">
+    <div class="text-center">
+      {% if section.settings.industries_title != blank %}
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          {{ section.settings.industries_title }}
+        </h2>
+      {% endif %}
+      {% if section.settings.industries_subtitle != blank %}
+        <p class="text-gray-600 text-lg">
+          {{ section.settings.industries_subtitle }}
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="industries-container">
+      {% for block in section.blocks %}
+        {% if block.type == 'industry' %}
+          <div class="industry-card" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <i class="ph {{ block.settings.icon }} industry-icon"></i>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="text-xl font-bold mb-3">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <p class="text-gray-600">
+                {{ block.settings.description }}
+              </p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Categories Mosaic -->
+  <div class="categories-mosaic">
+    <div class="categories-container">
+      <div class="text-center">
+        {% if section.settings.categories_title != blank %}
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            {{ section.settings.categories_title }}
+          </h2>
+        {% endif %}
+        {% if section.settings.categories_subtitle != blank %}
+          <p class="text-gray-600 text-lg">
+            {{ section.settings.categories_subtitle }}
+          </p>
+        {% endif %}
+      </div>
+
+      <div class="categories-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'category' %}
+            <a href="{{ block.settings.link }}" class="category-card" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: 
+                  loading: 'lazy'
+                }}
+              {%- else -%}
+                {{ 'collection-3' | placeholder_svg_tag: 'w-full h-full bg-gray-300' }}
+              {%- endif -%}
+
+              <div class="category-overlay">
+                {% if block.settings.title != blank %}
+                  <h3 class="text-2xl font-bold mb-2">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <p class="text-sm opacity-90">
+                    {{ block.settings.description }}
+                  </p>
+                {% endif %}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const productsSwiper = new Swiper('.products-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 24,
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Máquinas Coser Soltex",
+  "class": "shopdev",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagen de Fondo"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Subtítulo",
+      "default": "CALIDAD INDUSTRIAL"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Título Principal",
+      "default": "Máquinas de Coser Soltex"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Texto del Botón",
+      "default": "Ver Catálogo"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Enlace del Botón"
+    },
+    {
+      "type": "header",
+      "content": "Historia de la Marca"
+    },
+    {
+      "type": "text",
+      "id": "history_title",
+      "label": "Título",
+      "default": "Nuestra Historia"
+    },
+    {
+      "type": "richtext",
+      "id": "history_text",
+      "label": "Texto",
+      "default": "<p>Soltex es líder en la fabricación de máquinas de coser industriales de alta calidad. Con más de 30 años de experiencia, ofrecemos soluciones innovadoras para la industria textil, garantizando durabilidad, precisión y eficiencia en cada puntada.</p><p>Nuestro compromiso con la excelencia nos ha posicionado como la marca preferida por profesionales en todo el mundo.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "history_image",
+      "label": "Imagen"
+    },
+    {
+      "type": "header",
+      "content": "Productos Destacados"
+    },
+    {
+      "type": "text",
+      "id": "products_title",
+      "label": "Título",
+      "default": "Productos Destacados"
+    },
+    {
+      "type": "text",
+      "id": "products_subtitle",
+      "label": "Subtítulo",
+      "default": "Descubre nuestras máquinas más populares"
+    },
+    {
+      "type": "header",
+      "content": "Industrias Aplicables"
+    },
+    {
+      "type": "text",
+      "id": "industries_title",
+      "label": "Título",
+      "default": "Industrias que Servimos"
+    },
+    {
+      "type": "text",
+      "id": "industries_subtitle",
+      "label": "Subtítulo",
+      "default": "Soluciones especializadas para cada sector"
+    },
+    {
+      "type": "header",
+      "content": "Categorías de Productos"
+    },
+    {
+      "type": "text",
+      "id": "categories_title",
+      "label": "Título",
+      "default": "Nuestras Marcas"
+    },
+    {
+      "type": "text",
+      "id": "categories_subtitle",
+      "label": "Subtítulo",
+      "default": "Explora nuestra línea completa de productos"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Producto",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Seleccionar Producto"
+        }
+      ]
+    },
+    {
+      "type": "industry",
+      "name": "Industria",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Ícono (Phosphor Icons)",
+          "info": "Ejemplo: ph-factory, ph-t-shirt, ph-scissors",
+          "default": "ph-factory"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Confección"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descripción",
+          "default": "Máquinas especializadas para talleres de confección y producción en serie"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "name": "Categoría",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Jack"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Descripción",
+          "default": "Máquinas de coser industriales de alta velocidad"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Máquinas Coser Soltex",
+      "settings": {
+        "hero_image": "shopify://shop_images/sewing-machine-in-use.jpg",
+        "hero_subtitle": "CALIDAD INDUSTRIAL",
+        "hero_title": "Máquinas de Coser Soltex",
+        "hero_button_text": "Ver Catálogo Completo",
+        "hero_button_link": "/collections/all",
+        "history_title": "Nuestra Historia",
+        "history_text": "<p>Soltex es líder en la fabricación de máquinas de coser industriales de alta calidad. Con más de 30 años de experiencia, ofrecemos soluciones innovadoras para la industria textil, garantizando durabilidad, precisión y eficiencia en cada puntada.</p><p>Nuestro compromiso con la excelencia nos ha posicionado como la marca preferida por profesionales en todo el mundo. Trabajamos con las mejores marcas internacionales como Jack, Nextsew y Supreme para ofrecer tecnología de punta.</p>",
+        "history_image": "shopify://shop_images/customer-support-staff-ready-for-work.jpg",
+        "products_title": "Productos Destacados",
+        "products_subtitle": "Descubre nuestras máquinas más populares y eficientes",
+        "industries_title": "Industrias que Servimos",
+        "industries_subtitle": "Soluciones especializadas para cada sector textil",
+        "categories_title": "Nuestras Marcas",
+        "categories_subtitle": "Explora nuestra línea completa de productos industriales"
+      },
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product": "crankshaft-position-ckp"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "oil-pressure-sensor"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "water-temperature-sensor-wts"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "throttle-position-sensor-tps"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-t-shirt",
+            "title": "Confección",
+            "description": "Máquinas especializadas para talleres de confección y producción en serie de prendas"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-scissors",
+            "title": "Sastrería",
+            "description": "Equipos de precisión para trabajos de sastrería y alta costura personalizada"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-couch",
+            "title": "Tapicería",
+            "description": "Máquinas robustas para trabajos de tapicería en muebles y automotriz"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-bag",
+            "title": "Marroquinería",
+            "description": "Soluciones para la fabricación de bolsos, carteras y artículos de cuero"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-sneaker",
+            "title": "Calzado",
+            "description": "Equipos especializados para la industria del calzado y manufactura de zapatos"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-factory",
+            "title": "Textil Industrial",
+            "description": "Maquinaria de alta capacidad para producción textil a gran escala"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-bed",
+            "title": "Hogar",
+            "description": "Máquinas para fabricación de cortinas, sábanas y productos para el hogar"
+          }
+        },
+        {
+          "type": "industry",
+          "settings": {
+            "icon": "ph-car",
+            "title": "Automotriz",
+            "description": "Equipos para tapicería automotriz y fabricación de interiores de vehículos"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/vintage-sewing-tools.jpg",
+            "title": "Jack",
+            "description": "Máquinas de coser industriales de alta velocidad y precisión",
+            "link": "/collections/jack"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/black-fabric-in-sewing-machine.jpg",
+            "title": "Nextsew",
+            "description": "Tecnología avanzada para costura industrial profesional",
+            "link": "/collections/nextsew"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/sewing-machine-in-use.jpg",
+            "title": "Supreme",
+            "description": "Equipos premium para trabajos de alta exigencia",
+            "link": "/collections/supreme"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/sewing-machine-in-use.jpg",
+            "title": "Overlock",
+            "description": "Máquinas overlock para acabados profesionales",
+            "link": "/collections/overlock"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/warehouse-roads.jpg",
+            "title": "Recta Industrial",
+            "description": "Máquinas rectas para costura básica industrial",
+            "link": "/collections/recta"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/coffee-machine-pour-close-up.jpg",
+            "title": "Collarín",
+            "description": "Máquinas especializadas para cuellos y detalles",
+            "link": "/collections/collarin"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
