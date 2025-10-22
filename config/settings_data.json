@@ -289,24 +289,27 @@
           "category_hKRetK": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/AMH2.png",
               "title": "RECTAS",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "description": "Para costuras rectas en materiales ligeros y medianos; base de toda línea de confección.",
               "link": ""
             }
           },
           "category_C6Xg3k": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/034a7acbe350a24659e4c5a6764e0ebe.png",
+              "title": "SOBREHILADORAS",
+              "description": "Cose y corta el borde del tejido simultáneamente; ideal para acabados limpios y elásticos.",
               "link": ""
             }
           },
           "category_T7XECy": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/26b6607aca971fb2290802ec9ca1b0a4.png",
+              "title": "RECUBRIDORAS",
+              "description": "Usada para dobladillos, ribetes y prendas elásticas; genera puntadas decorativas y resistentes.",
               "link": ""
             }
           },
