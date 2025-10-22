@@ -101,7 +101,7 @@
     color: var(--soltex-navy);
   }
 
-  /* 🔥 GRID RESPONSIVE */
+  /* 🔥 GRID */
   #shopify-section-{{ section.id }} .machines-grid {
     max-width: 1400px;
     margin: 0 auto;
@@ -143,49 +143,42 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 
-  /* 🔥 IMÁGENES PEQUEÑAS Y PERFECTAS */
+  /* 🔥 SUPREME PERFECTA - FONDO BLANCO */
   #shopify-section-{{ section.id }} .machine-card-image-wrapper {
     position: relative;
     width: 100%;
-    height: 160px;
+    height: 120px; /* 🔥 MÁS PEQUEÑA */
+    background-color: #ffffff !important; /* 🔥 FONDO BLANCO */
     overflow: hidden;
-    background-color: var(--soltex-gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  /* 🔥 LOGO CENTRADO Y EXACTO */
   #shopify-section-{{ section.id }} .machine-card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center;
+    max-width: 280px !important; /* 🔥 ANCHO MÁXIMO */
+    max-height: 100px !important; /* 🔥 ALTO MÁXIMO */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important; /* 🔥 MANTIENE PROPORCIÓN */
+    object-position: center !important;
     user-select: none;
     pointer-events: none;
   }
 
-  /* 🔥 LOGO PEQUEÑO */
+  /* 🔥 LOGO ESQUINA (OPCIONAL) */
   #shopify-section-{{ section.id }} .machine-card-logo {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    max-width: 80px;
-    max-height: 40px;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 6px 8px;
-    border-radius: 4px;
-    z-index: 2;
-    user-select: none;
-    pointer-events: none;
+    display: none; /* 🔥 OCULTO - YA NO NECESARIO */
   }
 
   #shopify-section-{{ section.id }} .machine-card-badges {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    right: 8px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     z-index: 2;
   }
 
@@ -304,7 +297,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
-  /* 🔥 RESPONSIVE */
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} .machines-grid {
       grid-template-columns: 1fr;
@@ -313,7 +305,12 @@
     }
 
     #shopify-section-{{ section.id }} .machine-card-image-wrapper {
-      height: 140px;
+      height: 100px; /* 🔥 MÁS PEQUEÑA MÓVIL */
+    }
+
+    #shopify-section-{{ section.id }} .machine-card-image {
+      max-width: 240px !important; /* 🔥 MÁS PEQUEÑO MÓVIL */
+      max-height: 80px !important;
     }
 
     #shopify-section-{{ section.id }} .hero-title {
@@ -385,25 +382,15 @@
           {%- endif -%}
           
           <article class="machine-card">
-            <!-- 🔥 HTML CORREGIDO - SIN ERRORES -->
             <div class="machine-card-image-wrapper">
               {%- if block.settings.brand_image != blank -%}
-                {{ block.settings.brand_image | image_url: width: 400 | image_tag: 
+                {{ block.settings.brand_image | image_url: width: 300 | image_tag: 
                   loading: 'lazy',
                   class: 'machine-card-image',
-                  alt: block.settings.brand_name,
-                  sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw'
+                  alt: block.settings.brand_name
                 }}
               {%- else -%}
                 {{ 'product-1' | placeholder_svg_tag: 'machine-card-image' }}
-              {%- endif -%}
-              
-              {%- if block.settings.brand_logo != blank -%}
-                {{ block.settings.brand_logo | image_url: width: 120 | image_tag: 
-                  loading: 'lazy',
-                  class: 'machine-card-logo',
-                  alt: block.settings.brand_name | append: ' logo'
-                }}
               {%- endif -%}
               
               <div class="machine-card-badges">
@@ -690,7 +677,6 @@
           "settings": {
             "brand_name": "Supreme",
             "brand_url": "/pages/supreme",
-            "brand_logo": "shopify://shop_images/contact-us-lettering.jpg",
             "brand_image": "shopify://shop_images/black-fabric-in-sewing-machine.jpg",
             "brand_description": "Máquinas de coser industriales de alta velocidad con tecnología japonesa. Ideales para producción en serie con acabados profesionales.",
             "feature_1": "Velocidad de hasta 5,500 puntadas por minuto",
@@ -699,54 +685,6 @@
             "badge_1": "Más Vendida",
             "badge_2": "Garantía 2 Años",
             "cta_text": "Ver Modelos Supreme"
-          }
-        },
-        {
-          "type": "machine_brand",
-          "settings": {
-            "brand_name": "Jack",
-            "brand_url": "/pages/jack",
-            "brand_logo": "shopify://shop_images/smiling-jack-o-lantern-in-woman-s-lap.jpg",
-            "brand_image": "shopify://shop_images/sewing-supplies-flatlay.jpg",
-            "brand_description": "Máquinas overlock y recubridoras de última generación. Perfectas para talleres de confección que buscan versatilidad y durabilidad.",
-            "feature_1": "Tecnología de corte automático de hilo",
-            "feature_2": "Panel de control digital intuitivo",
-            "feature_3": "Compatible con múltiples tipos de tela",
-            "badge_1": "Innovación",
-            "badge_2": "",
-            "cta_text": "Explorar Jack"
-          }
-        },
-        {
-          "type": "machine_brand",
-          "settings": {
-            "brand_name": "Eagle Special",
-            "brand_url": "/pages/eagle-special",
-            "brand_logo": "shopify://shop_images/pinecones-on-blue.jpg",
-            "brand_image": "shopify://shop_images/vintage-sewing-tools.jpg",
-            "brand_description": "Máquinas especializadas para ojales, botones y bordado industrial. La elección de profesionales para trabajos de alta precisión.",
-            "feature_1": "Precisión milimétrica en cada puntada",
-            "feature_2": "Diseño ergonómico para operación prolongada",
-            "feature_3": "Mantenimiento simplificado",
-            "badge_1": "Especializada",
-            "badge_2": "Pro",
-            "cta_text": "Descubrir Eagle Special"
-          }
-        },
-        {
-          "type": "machine_brand",
-          "settings": {
-            "brand_name": "NEXTSEW",
-            "brand_url": "/pages/nextsew",
-            "brand_logo": "shopify://shop_images/sewing-supplies-flatlay.jpg",
-            "brand_image": "shopify://shop_images/sewing-machine-in-use.jpg",
-            "brand_description": "Máquinas de coser de nueva generación con tecnología inteligente. Soluciones innovadoras para la industria textil moderna.",
-            "feature_1": "Control digital avanzado con pantalla táctil",
-            "feature_2": "Conectividad IoT para monitoreo remoto",
-            "feature_3": "Eficiencia energética superior",
-            "badge_1": "Nueva Generación",
-            "badge_2": "Tecnología Smart",
-            "cta_text": "Ver NEXTSEW"
           }
         }
       ]
