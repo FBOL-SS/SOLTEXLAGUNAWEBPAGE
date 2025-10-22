@@ -136,7 +136,7 @@
           "machine_brand_begFcb": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "SUPREME",
+              "brand_name": "SUPREME INTELLIGENT TECHNOLOGY",
               "brand_url": "shopify://pages/supreme",
               "brand_image": "shopify://shop_images/SUPREMENINGBO.png",
               "brand_description": "Tercer fabricante más grande del mundo en maquinaria de coser industrial. Desarrolla soluciones automáticas y robóticas para maximizar la eficiencia en la confección, el calzado, la industria automotriz y la producción de mezclilla.",
@@ -151,15 +151,16 @@
           "machine_brand_JiDHjA": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
+              "brand_name": "JACK TECHNOLOGY",
+              "brand_url": "shopify://pages/jack",
+              "brand_image": "shopify://shop_images/JACKLOGO.png",
+              "brand_description": "JACK es líder global en maquinaria de coser industrial y automatización textil. Con presencia en más de 160 países, ofrece soluciones integrales de costura, corte inteligente y control digital de producción, impulsando la eficiencia de fabricantes en sectores de confección, calzado, cuero y mobiliario.",
+              "feature_1": "Soluciones completas de costura, corte, transporte y acabado.",
+              "feature_2": "Integración de software industrial: APS, MES, WMS y PDM.",
+              "feature_3": "Tecnología propia y control total de manufactura.",
+              "badge_1": "NO.1 EN EL MUNDO",
               "badge_2": "",
-              "cta_text": ""
+              "cta_text": "CONOCER MÁS"
             }
           },
           "machine_brand_NCGWFr": {
@@ -198,6 +199,7 @@
           "machine_brand_NjAtVf"
         ],
         "settings": {
+          "hero_image": "shopify://shop_images/AdobeStock_416560892.jpg",
           "hero_overlay_opacity": 0.5,
           "hero_title": "Máquinas Industriales de Alta Precisión",
           "hero_subtitle": "Tecnología de vanguardia para la industria textil. Descubre nuestras marcas líderes en maquinaria de confección profesional.",
