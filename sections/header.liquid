@@ -1,424 +1,266 @@
+{% comment %}
+  SOLTEX Industrial Header (solo barra superior, sin hero)
+  - Usa menús existentes de Shopify (link_list)
+  - Sticky con position: sticky (no corta la sección siguiente)
+  - Dropdowns (desktop) y drawer (mobile)
+  - CTA opcional, Search/Cart opcionales
+{% endcomment %}
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  .shopdev * {
-    font-family: 'Poppins', sans-serif;
-  }
+  .shopdev * { font-family: 'Poppins', sans-serif; }
 
   .shopdev .header-nav {
-    transition: all 0.3s ease;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .shopdev .nav-link {
-    position: relative;
-    transition: color 0.3s ease;
+  /* Sticky SIN posición fixed para no tapar el contenido */
+  .shopdev .header-nav.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
 
+  .shopdev .nav-link { position: relative; transition: color 0.2s ease; }
   .shopdev .nav-link::after {
     content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
+    position: absolute; left: 0; bottom: -4px;
+    width: 0; height: 2px;
     background-color: {{ section.settings.accent_color }};
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
   }
+  .shopdev .nav-link:hover::after { width: 100%; }
 
-  .shopdev .nav-link:hover::after {
-    width: 100%;
-  }
-
-  .shopdev .cta-button {
-    transition: all 0.3s ease;
-  }
-
-  .shopdev .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .shopdev .mobile-menu {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-
-  .shopdev .mobile-menu.active {
-    transform: translateX(0);
-  }
-
-  .shopdev .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: {{ section.settings.text_color }};
-    margin: 5px 0;
-    transition: all 0.3s ease;
-  }
-
-  .shopdev .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-  }
-
-  .shopdev .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .shopdev .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-
-  .shopdev .header-nav.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .shopdev .dropdown {
-    position: relative;
-  }
-
-  .shopdev .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-    background-color: {{ section.settings.bg_color }};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 100;
-  }
-
-  .shopdev .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .shopdev .dropdown-item {
-    display: block;
-    padding: 12px 20px;
-    color: {{ section.settings.text_color }};
-    transition: background-color 0.2s ease;
-  }
-
-  .shopdev .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .shopdev .nested-dropdown {
-    position: relative;
-  }
-
-  .shopdev .nested-dropdown-menu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 200px;
-    background-color: {{ section.settings.bg_color }};
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-  }
-
-  .shopdev .nested-dropdown:hover .nested-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-  }
+  .shopdev .cta-button { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .shopdev .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
   .shopdev .icon-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-    position: relative;
+    display:flex; align-items:center; justify-content:center;
+    width:40px; height:40px; border-radius:50%; position:relative;
+    transition: background-color 0.15s ease;
   }
-
-  .shopdev .icon-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
+  .shopdev .icon-button:hover { background-color: rgba(255,255,255,0.1); }
   .shopdev .cart-count {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    background-color: {{ section.settings.accent_color }};
-    color: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 10px;
-    min-width: 18px;
-    text-align: center;
+    position:absolute; top:-4px; right:-4px; background: {{ section.settings.accent_color }};
+    color:#fff; font-size:11px; font-weight:600; padding:2px 6px; border-radius:10px; min-width:18px; text-align:center;
   }
 
-  .shopdev .mobile-dropdown-toggle {
-    cursor: pointer;
+  .shopdev .dropdown { position: relative; }
+  .shopdev .dropdown-menu {
+    position:absolute; top:100%; left:0; min-width:220px;
+    background-color: {{ section.settings.bg_color }};
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    opacity:0; visibility:hidden; transform: translateY(6px);
+    transition: all 0.18s ease; z-index:100;
   }
+  .shopdev .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform: translateY(0); }
 
-  .shopdev .mobile-dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+  .shopdev .dropdown-item { display:block; padding:12px 16px; color: {{ section.settings.text_color }}; }
+  .shopdev .dropdown-item:hover { background: rgba(255,255,255,0.08); }
+
+  .shopdev .nested-dropdown { position: relative; }
+  .shopdev .nested-dropdown-menu {
+    position:absolute; top:0; left:100%; min-width:220px;
+    background-color: {{ section.settings.bg_color }};
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    opacity:0; visibility:hidden; transform: translateX(6px);
+    transition: all 0.18s ease;
   }
+  .shopdev .nested-dropdown:hover .nested-dropdown-menu { opacity:1; visibility:visible; transform: translateX(0); }
 
-  .shopdev .mobile-dropdown-content.active {
-    max-height: 1000px;
+  /* Mobile */
+  .shopdev .hamburger span {
+    display:block; width:24px; height:3px; background-color: {{ section.settings.text_color }};
+    margin:5px 0; transition: all 0.2s ease;
   }
+  .shopdev .mobile-menu {
+    position: fixed; inset:0; z-index: 1200;
+    transform: translateX(-100%); transition: transform 0.25s ease;
+    background-color: {{ section.settings.bg_color }};
+  }
+  .shopdev .mobile-menu.active { transform: translateX(0); }
+  .shopdev .mobile-dropdown-content { max-height:0; overflow:hidden; transition:max-height 0.25s ease; }
+  .shopdev .mobile-dropdown-content.active { max-height: 1000px; }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .shopdev .dropdown-menu,
     .shopdev .nested-dropdown-menu {
-      position: static;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      box-shadow: none;
-      background-color: transparent;
-      padding-left: 16px;
+      position: static; opacity:1; visibility:visible; transform:none; box-shadow:none; background:transparent; padding-left: 12px;
     }
   }
 </style>
 
-<div class="w-full">
-  <!-- Header Navigation -->
-  <header class="header-nav w-full py-4 px-6 md:px-12 {% if section.settings.sticky_header %}sticky{% endif %}" style="background-color: {{ section.settings.bg_color }};" id="mainHeader">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+<div class="w-full shopdev">
+  <header id="mainHeader" class="header-nav {% if section.settings.sticky_header %}sticky{% endif %} w-full py-4 px-6 md:px-12" style="background-color: {{ section.settings.bg_color }};" role="banner">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-6">
       <!-- Logo -->
-      <div class="flex items-center flex-shrink-0">
+      <div class="flex items-center shrink-0">
         {% if section.settings.logo != blank %}
-          <a href="/" class="block">
-            {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag: 
+          <a href="{{ routes.root_url }}" class="block" aria-label="{{ shop.name }}">
+            {{ section.settings.logo | image_url: width: section.settings.logo_width | image_tag:
               class: 'w-auto',
-              style: 'height: auto; max-width: ' | append: section.settings.logo_width | append: 'px;',
+              style: 'height:auto; max-width:' | append: section.settings.logo_width | append: 'px;',
               alt: section.settings.logo_text
             }}
           </a>
         {% else %}
-          <a href="/" class="text-2xl md:text-3xl font-bold" style="color: {{ section.settings.text_color }};">
+          <a href="{{ routes.root_url }}" class="text-2xl md:text-3xl font-bold" style="color: {{ section.settings.text_color }};">
             {{ section.settings.logo_text }}
           </a>
         {% endif %}
       </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center justify-center space-x-6 flex-1">
+      <!-- Desktop Navigation (uses selected menu) -->
+      <nav class="hidden lg:flex items-center justify-center gap-6 flex-1" aria-label="Main">
         {% if section.settings.main_menu != blank %}
-          {% for link in linklists[section.settings.main_menu].links %}
+          {% assign menu = section.settings.main_menu | linklist %}
+          {% for link in menu.links %}
             {% if link.links != blank %}
               <div class="dropdown">
-                <a href="{{ link.url }}" 
-                   class="nav-link text-base font-medium flex items-center gap-1" 
-                   style="color: {{ section.settings.text_color }};">
-                  {{ link.title }}
-                  <i class="ph ph-caret-down" style="font-size: 14px;"></i>
+                <a href="{{ link.url }}" class="nav-link text-base font-medium flex items-center gap-1" style="color: {{ section.settings.text_color }};">
+                  {{ link.title }} <i class="ph ph-caret-down" style="font-size:14px;"></i>
                 </a>
                 <div class="dropdown-menu">
                   {% for child_link in link.links %}
                     {% if child_link.links != blank %}
                       <div class="nested-dropdown">
                         <a href="{{ child_link.url }}" class="dropdown-item flex items-center justify-between">
-                          {{ child_link.title }}
-                          <i class="ph ph-caret-right" style="font-size: 14px;"></i>
+                          {{ child_link.title }} <i class="ph ph-caret-right" style="font-size:14px;"></i>
                         </a>
                         <div class="nested-dropdown-menu">
                           {% for nested_link in child_link.links %}
-                            <a href="{{ nested_link.url }}" class="dropdown-item">
-                              {{ nested_link.title }}
-                            </a>
+                            <a href="{{ nested_link.url }}" class="dropdown-item">{{ nested_link.title }}</a>
                           {% endfor %}
                         </div>
                       </div>
                     {% else %}
-                      <a href="{{ child_link.url }}" class="dropdown-item">
-                        {{ child_link.title }}
-                      </a>
+                      <a href="{{ child_link.url }}" class="dropdown-item">{{ child_link.title }}</a>
                     {% endif %}
                   {% endfor %}
                 </div>
               </div>
             {% else %}
-              <a href="{{ link.url }}" 
-                 class="nav-link text-base font-medium" 
-                 style="color: {{ section.settings.text_color }};">
-                {{ link.title }}
-              </a>
+              <a href="{{ link.url }}" class="nav-link text-base font-medium" style="color: {{ section.settings.text_color }};">{{ link.title }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}
       </nav>
 
-      <!-- Right Side: CTA + Icons -->
-      <div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+      <!-- Right side -->
+      <div class="hidden lg:flex items-center gap-3 shrink-0">
         {% if section.settings.cta_text != blank %}
-          <a href="{{ section.settings.cta_link }}" 
-             class="cta-button inline-block px-6 py-3 rounded-md font-semibold whitespace-nowrap"
+          <a href="{{ section.settings.cta_link }}" class="cta-button inline-block px-5 py-3 rounded-md font-semibold whitespace-nowrap"
              style="background-color: {{ section.settings.accent_color }}; color: {{ section.settings.cta_text_color }};">
             {{ section.settings.cta_text }}
           </a>
         {% endif %}
-
         {% if section.settings.enable_search %}
-          <a href="/search" class="icon-button" style="color: {{ section.settings.text_color }};">
-            <i class="ph ph-magnifying-glass" style="font-size: 20px;"></i>
+          <a href="{{ routes.search_url }}" class="icon-button" style="color: {{ section.settings.text_color }};" aria-label="Buscar">
+            <i class="ph ph-magnifying-glass" style="font-size:20px;"></i>
           </a>
         {% endif %}
-
         {% if section.settings.enable_cart %}
-          <a href="/cart" class="icon-button" style="color: {{ section.settings.text_color }};">
-            <i class="ph ph-shopping-cart" style="font-size: 20px;"></i>
-            {% if cart.item_count > 0 %}
-              <span class="cart-count">{{ cart.item_count }}</span>
-            {% endif %}
+          <a href="{{ routes.cart_url }}" class="icon-button" style="color: {{ section.settings.text_color }};" aria-label="Carrito">
+            <i class="ph ph-shopping-cart" style="font-size:20px;"></i>
+            {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}
           </a>
         {% endif %}
       </div>
 
-      <!-- Mobile Menu Button + Icons -->
+      <!-- Mobile toggles -->
       <div class="flex lg:hidden items-center gap-3">
         {% if section.settings.enable_search %}
-          <a href="/search" class="icon-button" style="color: {{ section.settings.text_color }};">
-            <i class="ph ph-magnifying-glass" style="font-size: 20px;"></i>
+          <a href="{{ routes.search_url }}" class="icon-button" style="color: {{ section.settings.text_color }};" aria-label="Buscar">
+            <i class="ph ph-magnifying-glass" style="font-size:20px;"></i>
           </a>
         {% endif %}
-
         {% if section.settings.enable_cart %}
-          <a href="/cart" class="icon-button" style="color: {{ section.settings.text_color }};">
-            <i class="ph ph-shopping-cart" style="font-size: 20px;"></i>
-            {% if cart.item_count > 0 %}
-              <span class="cart-count">{{ cart.item_count }}</span>
-            {% endif %}
+          <a href="{{ routes.cart_url }}" class="icon-button" style="color: {{ section.settings.text_color }};" aria-label="Carrito">
+            <i class="ph ph-shopping-cart" style="font-size:20px;"></i>
+            {% if cart.item_count > 0 %}<span class="cart-count">{{ cart.item_count }}</span>{% endif %}
           </a>
         {% endif %}
-
-        <button class="hamburger flex flex-col justify-center items-center w-10 h-10" id="mobileMenuBtn">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger flex flex-col justify-center items-center w-10 h-10" id="mobileMenuBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu fixed top-0 left-0 w-full h-full z-50 lg:hidden overflow-y-auto" style="background-color: {{ section.settings.bg_color }};" id="mobileMenu">
+  <!-- Mobile Drawer (uses the same selected menus) -->
+  <div class="mobile-menu lg:hidden" id="mobileMenu" aria-hidden="true">
     <div class="flex flex-col h-full">
-      <div class="flex items-center justify-between p-6 border-b" style="border-color: rgba(255, 255, 255, 0.1);">
+      <div class="flex items-center justify-between p-6" style="border-bottom: 1px solid rgba(255,255,255,0.12);">
         {% if section.settings.logo != blank %}
-          <a href="/" class="block">
-            {{ section.settings.logo | image_url: width: 150 | image_tag: 
-              class: 'w-auto',
-              style: 'height: auto; max-width: 150px;',
-              alt: section.settings.logo_text
-            }}
+          <a href="{{ routes.root_url }}">
+            {{ section.settings.logo | image_url: width: 150 | image_tag: class: 'w-auto', style: 'height:auto; max-width:150px;', alt: section.settings.logo_text }}
           </a>
         {% else %}
-          <a href="/" class="text-2xl font-bold" style="color: {{ section.settings.text_color }};">
-            {{ section.settings.logo_text }}
-          </a>
+          <a href="{{ routes.root_url }}" class="text-2xl font-bold" style="color: {{ section.settings.text_color }};">{{ section.settings.logo_text }}</a>
         {% endif %}
-        <button class="hamburger active flex flex-col justify-center items-center w-10 h-10" id="closeMobileMenu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger flex flex-col justify-center items-center w-10 h-10" id="closeMobileMenu" aria-label="Cerrar menú">
+          <span></span><span></span><span></span>
         </button>
       </div>
-      
-      <nav class="flex flex-col px-6 py-8">
+
+      <nav class="flex-1 overflow-y-auto px-6 py-6">
         {% if section.settings.main_menu != blank %}
-          {% for link in linklists[section.settings.main_menu].links %}
+          {% assign mobile_menu = section.settings.main_menu | linklist %}
+          {% for link in mobile_menu.links %}
             {% if link.links != blank %}
-              <div class="mb-4">
-                <div class="mobile-dropdown-toggle flex items-center justify-between py-3 text-lg font-medium" 
-                     style="color: {{ section.settings.text_color }};"
-                     data-dropdown="mobile-dropdown-{{ forloop.index }}">
-                  <span>{{ link.title }}</span>
-                  <i class="ph ph-caret-down" style="font-size: 16px;"></i>
+              <div class="mb-3">
+                <div class="mobile-dropdown-toggle flex items-center justify-between py-3 text-lg font-medium"
+                    style="color: {{ section.settings.text_color }};" data-dropdown="mob-{{ forloop.index }}">
+                  <span>{{ link.title }}</span><i class="ph ph-caret-down" style="font-size:16px;"></i>
                 </div>
-                <div class="mobile-dropdown-content" id="mobile-dropdown-{{ forloop.index }}">
+                <div id="mob-{{ forloop.index }}" class="mobile-dropdown-content">
                   <div class="flex flex-col space-y-2 mt-2">
-                    <a href="{{ link.url }}" 
-                       class="py-2 text-base" 
-                       style="color: {{ section.settings.text_color }}; opacity: 0.8;">
-                      Ver todo
-                    </a>
+                    <a href="{{ link.url }}" class="py-2 text-base" style="color: {{ section.settings.text_color }}; opacity: .85;">Ver todo</a>
                     {% for child_link in link.links %}
                       {% if child_link.links != blank %}
                         <div>
-                          <div class="mobile-dropdown-toggle flex items-center justify-between py-2 text-base" 
-                               style="color: {{ section.settings.text_color }}; opacity: 0.8;"
-                               data-dropdown="mobile-nested-{{ forloop.parentloop.index }}-{{ forloop.index }}">
-                            <span>{{ child_link.title }}</span>
-                            <i class="ph ph-caret-down" style="font-size: 14px;"></i>
+                          <div class="mobile-dropdown-toggle flex items-center justify-between py-2 text-base"
+                              style="color: {{ section.settings.text_color }}; opacity:.85;" data-dropdown="mob-{{ forloop.parentloop.index }}-{{ forloop.index }}">
+                            <span>{{ child_link.title }}</span><i class="ph ph-caret-down" style="font-size:14px;"></i>
                           </div>
-                          <div class="mobile-dropdown-content" id="mobile-nested-{{ forloop.parentloop.index }}-{{ forloop.index }}">
+                          <div id="mob-{{ forloop.parentloop.index }}-{{ forloop.index }}" class="mobile-dropdown-content">
                             <div class="flex flex-col space-y-2 mt-2">
-                              <a href="{{ child_link.url }}" 
-                                 class="py-2 text-sm" 
-                                 style="color: {{ section.settings.text_color }}; opacity: 0.7;">
-                                Ver todo
-                              </a>
+                              <a href="{{ child_link.url }}" class="py-2 text-sm" style="color: {{ section.settings.text_color }}; opacity:.75;">Ver todo</a>
                               {% for nested_link in child_link.links %}
-                                <a href="{{ nested_link.url }}" 
-                                   class="py-2 text-sm" 
-                                   style="color: {{ section.settings.text_color }}; opacity: 0.7;">
-                                  {{ nested_link.title }}
-                                </a>
+                                <a href="{{ nested_link.url }}" class="py-2 text-sm" style="color: {{ section.settings.text_color }}; opacity:.75;">{{ nested_link.title }}</a>
                               {% endfor %}
                             </div>
                           </div>
                         </div>
                       {% else %}
-                        <a href="{{ child_link.url }}" 
-                           class="py-2 text-base" 
-                           style="color: {{ section.settings.text_color }}; opacity: 0.8;">
-                          {{ child_link.title }}
-                        </a>
+                        <a href="{{ child_link.url }}" class="py-2 text-base" style="color: {{ section.settings.text_color }}; opacity:.85;">{{ child_link.title }}</a>
                       {% endif %}
                     {% endfor %}
                   </div>
                 </div>
               </div>
             {% else %}
-              <a href="{{ link.url }}" 
-                 class="py-3 text-lg font-medium" 
-                 style="color: {{ section.settings.text_color }};">
-                {{ link.title }}
-              </a>
+              <a href="{{ link.url }}" class="py-3 text-lg font-medium" style="color: {{ section.settings.text_color }};">{{ link.title }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}
 
         {% if section.settings.secondary_menu != blank %}
-          <div class="border-t mt-4 pt-4" style="border-color: rgba(255, 255, 255, 0.1);">
-            {% for link in linklists[section.settings.secondary_menu].links %}
-              <a href="{{ link.url }}" 
-                 class="py-3 text-base block" 
-                 style="color: {{ section.settings.text_color }}; opacity: 0.8;">
-                {{ link.title }}
-              </a>
+          {% assign second_menu = section.settings.secondary_menu | linklist %}
+          <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.12);">
+            {% for link in second_menu.links %}
+              <a href="{{ link.url }}" class="py-2 block text-base" style="color: {{ section.settings.text_color }}; opacity:.85;">{{ link.title }}</a>
             {% endfor %}
           </div>
         {% endif %}
-        
+
         {% if section.settings.cta_text != blank %}
-          <a href="{{ section.settings.cta_link }}" 
-             class="inline-block px-6 py-3 rounded-md font-semibold text-center mt-6"
+          <a href="{{ section.settings.cta_link }}" class="inline-block px-6 py-3 rounded-md font-semibold text-center mt-6"
              style="background-color: {{ section.settings.accent_color }}; color: {{ section.settings.cta_text_color }};">
             {{ section.settings.cta_text }}
           </a>
@@ -434,67 +276,32 @@
     const closeMobileMenu = document.getElementById('closeMobileMenu');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.classList.add('active');
-        mobileMenuBtn.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    }
+    const openMenu = () => {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    };
 
-    if (closeMobileMenu && mobileMenu) {
-      closeMobileMenu.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMenu);
+    if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMenu);
 
-    // Close mobile menu when clicking on a link (except dropdown toggles)
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
+    // Cerrar al hacer click en un enlace
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-    // Mobile dropdown toggles
-    const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
+    // Toggles anidados en mobile
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(t => {
+      t.addEventListener('click', function(e){
         e.preventDefault();
-        const dropdownId = this.getAttribute('data-dropdown');
-        const dropdownContent = document.getElementById(dropdownId);
+        const id = this.getAttribute('data-dropdown');
+        const content = document.getElementById(id);
+        if (content) content.classList.toggle('active');
         const icon = this.querySelector('i');
-        
-        if (dropdownContent) {
-          dropdownContent.classList.toggle('active');
-          if (icon) {
-            icon.style.transform = dropdownContent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-          }
-        }
+        if (icon) icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
       });
     });
-
-    // Sticky header functionality
-    {% if section.settings.sticky_header %}
-      const header = document.getElementById('mainHeader');
-      let lastScrollTop = 0;
-      
-      window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-          header.style.transform = 'translateY(0)';
-        } else {
-          header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-      });
-    {% endif %}
   });
 </script>
 
@@ -504,117 +311,30 @@
   "class": "shopdev",
   "tag": "section",
   "settings": [
-    {
-      "type": "header",
-      "content": "Logo Settings"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo Image"
-    },
-    {
-      "type": "text",
-      "id": "logo_text",
-      "label": "Logo Text",
-      "default": "SOLTEX"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "min": 80,
-      "max": 300,
-      "step": 10,
-      "unit": "px",
-      "label": "Logo Width",
-      "default": 150
-    },
-    {
-      "type": "header",
-      "content": "Navigation"
-    },
-    {
-      "type": "link_list",
-      "id": "main_menu",
-      "label": "Main Menu",
-      "info": "Select the menu to display in the header"
-    },
-    {
-      "type": "link_list",
-      "id": "secondary_menu",
-      "label": "Secondary Menu (Optional)",
-      "info": "Additional menu shown in mobile drawer"
-    },
-    {
-      "type": "header",
-      "content": "Header Features"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_search",
-      "label": "Enable Search Icon",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cart",
-      "label": "Enable Cart Icon",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "sticky_header",
-      "label": "Enable Sticky Header",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#0D1B2A"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent Color",
-      "default": "#0066CC"
-    },
-    {
-      "type": "header",
-      "content": "Call-to-Action Button"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "CTA Button Text",
-      "default": "Cotizar ahora"
-    },
-    {
-      "type": "url",
-      "id": "cta_link",
-      "label": "CTA Button Link"
-    },
-    {
-      "type": "color",
-      "id": "cta_text_color",
-      "label": "CTA Text Color",
-      "default": "#FFFFFF"
-    }
+    { "type": "header", "content": "Logo" },
+    { "type": "image_picker", "id": "logo", "label": "Logo Image" },
+    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "SOLTEX" },
+    { "type": "range", "id": "logo_width", "min": 80, "max": 300, "step": 10, "unit": "px", "label": "Logo Width", "default": 150 },
+
+    { "type": "header", "content": "Navigation" },
+    { "type": "link_list", "id": "main_menu", "label": "Main Menu", "info": "Select the menu to display in the header" },
+    { "type": "link_list", "id": "secondary_menu", "label": "Secondary Menu (mobile drawer - optional)" },
+
+    { "type": "header", "content": "Features" },
+    { "type": "checkbox", "id": "enable_search", "label": "Enable Search Icon", "default": true },
+    { "type": "checkbox", "id": "enable_cart", "label": "Enable Cart Icon", "default": true },
+    { "type": "checkbox", "id": "sticky_header", "label": "Enable Sticky Header", "default": true },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#0D1B2A" },
+    { "type": "color", "id": "text_color", "label": "Text Color", "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Accent Color (CTA & underline)", "default": "#0066CC" },
+
+    { "type": "header", "content": "CTA" },
+    { "type": "text", "id": "cta_text", "label": "CTA Button Text", "default": "Cotizar ahora" },
+    { "type": "url", "id": "cta_link", "label": "CTA Button Link" },
+    { "type": "color", "id": "cta_text_color", "label": "CTA Text Color", "default": "#FFFFFF" }
   ],
-  "presets": [
-    {
-      "name": "SOLTEX Industrial Header"
-    }
-  ]
+  "presets": [{ "name": "SOLTEX Industrial Header" }]
 }
 {% endschema %}
