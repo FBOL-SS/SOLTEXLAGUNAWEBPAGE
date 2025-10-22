@@ -551,6 +551,107 @@
           "categories_title": "Nuestras Lineas",
           "categories_subtitle": "Explora nuestra línea completa de productos"
         }
+      },
+      "soltex-machine-eagle-special": {
+        "type": "soltex-machine-eagle-special",
+        "settings": {
+          "hero_subtitle": "CALIDAD INDUSTRIAL",
+          "hero_title": "Máquinas de Coser Soltex",
+          "hero_button_text": "Ver Catálogo",
+          "hero_button_link": "",
+          "history_title": "Nuestra Historia",
+          "history_text": "<p>Soltex es líder en la fabricación de máquinas de coser industriales de alta calidad. Con más de 30 años de experiencia, ofrecemos soluciones innovadoras para la industria textil, garantizando durabilidad, precisión y eficiencia en cada puntada.</p><p>Nuestro compromiso con la excelencia nos ha posicionado como la marca preferida por profesionales en todo el mundo.</p>",
+          "products_title": "Productos Destacados",
+          "products_subtitle": "Descubre nuestras máquinas más populares",
+          "industries_title": "Industrias que Servimos",
+          "industries_subtitle": "Soluciones especializadas para cada sector",
+          "categories_title": "Nuestras Marcas",
+          "categories_subtitle": "Explora nuestra línea completa de productos"
+        }
+      },
+      "soltex-machine-nextsew": {
+        "type": "soltex-machine-nextsew",
+        "blocks": {
+          "category_JCtMTg": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_bwFVaQ": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_4XJPid": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "industry_L6gqB9": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_dYKyMy": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_AYVzXE": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "product_nDiRfF": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          }
+        },
+        "block_order": [
+          "category_JCtMTg",
+          "category_bwFVaQ",
+          "category_4XJPid",
+          "industry_L6gqB9",
+          "industry_dYKyMy",
+          "industry_AYVzXE",
+          "product_nDiRfF"
+        ],
+        "settings": {
+          "hero_image": "shopify://shop_images/s3.jpg",
+          "hero_subtitle": "",
+          "hero_title": "NEXTSEW",
+          "hero_button_text": "Ver Catálogo",
+          "hero_button_link": "",
+          "history_title": "Nuestra Historia",
+          "history_text": "<p><strong>NEXTSEW</strong> representa la <strong>nueva generación de fabricantes de maquinaria de coser inteligente en China</strong>, ofreciendo <strong>soluciones personalizadas</strong> de alta tecnología para clientes en más de <strong>20 países y regiones</strong>.</p><p>La marca combina <strong>desarrollo propio</strong> con <strong>tecnología compartida de SUPREME</strong>, fabricando máquinas automáticas y equipos especializados con enfoque en <strong>innovación, precisión y personalización</strong>.</p><p>Colabora con el instituto europeo <strong>INTER MACH AUTOMATION</strong> dentro del grupo <strong>RUI Technology</strong>, impulsando avances en costura científica, automatización y diseño de maquinaria inteligente para marcas globales como <strong>ZARA, Nike, Adidas y Heilan</strong>.</p>",
+          "history_image": "shopify://shop_images/s1.jpg",
+          "products_title": "Productos Destacados",
+          "products_subtitle": "Descubre nuestras máquinas más populares",
+          "industries_title": "Industrias que Servimos",
+          "industries_subtitle": "Soluciones especializadas para cada sector",
+          "categories_title": "Nuestras Marcas",
+          "categories_subtitle": "Explora nuestra línea completa de productos"
+        }
       }
     },
     "content_for_index": []
