@@ -257,33 +257,33 @@
           "industry_QCpmbD": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-t-shirt",
+              "title": "Tejido de punto",
+              "description": "Máquinas diseñadas para materiales elásticos o de punto, como camisetas, ropa deportiva y prendas interiores."
             }
           },
           "industry_7Ngb3R": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-pants",
+              "title": "Mezclilla",
+              "description": "Equipos con mayor penetración de aguja y torque de motor, ideales para costuras gruesas en mezclilla, lona o gabardina."
             }
           },
           "industry_fkrhJY": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-cow",
+              "title": "Marroquinería",
+              "description": "Máquinas reforzadas para materiales pesados o rígidos como cuero, vinil, tapicería o piel sintética."
             }
           },
           "industry_xYM4QT": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
+              "icon": "ph-seat",
               "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "description": "Modelos de alta potencia y estructura reforzada, aptos para múltiples capas de materiales gruesos o técnicos."
             }
           },
           "category_hKRetK": {
