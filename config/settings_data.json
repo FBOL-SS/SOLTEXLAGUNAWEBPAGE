@@ -212,6 +212,160 @@
           "support_cta_text": "Contacta Asesor",
           "support_cta_link": "shopify://pages/contact"
         }
+      },
+      "soltex-product": {
+        "type": "soltex-product",
+        "settings": {
+          "product": "",
+          "show_vendor": true,
+          "show_sku": true,
+          "show_quantity_selector": true,
+          "show_dynamic_checkout": true,
+          "show_buy_now": true,
+          "show_shipment_info": true,
+          "shipment_text": "Free shipping on orders over $50. Estimated delivery: 3-5 business days.",
+          "show_warranty_info": true,
+          "warranty_text": "All products come with a 1-year manufacturer warranty covering defects in materials and workmanship.",
+          "show_returns_info": true,
+          "returns_text": "30-day return policy. Items must be unused and in original packaging. Return shipping costs may apply.",
+          "show_confidence_badges": true,
+          "disable_image_zoom": false,
+          "show_related_products": true
+        }
+      },
+      "soltex-machine-jack": {
+        "type": "soltex-machine-jack",
+        "blocks": {
+          "product_hjiXdF": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_HjUgxh": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_CdMfTY": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "industry_QCpmbD": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_7Ngb3R": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_fkrhJY": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_xYM4QT": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "category_hKRetK": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_C6Xg3k": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_T7XECy": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_PrLNrp": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_CVWrC9": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_UAXyXt": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "product_hjiXdF",
+          "product_HjUgxh",
+          "product_CdMfTY",
+          "industry_QCpmbD",
+          "industry_7Ngb3R",
+          "industry_fkrhJY",
+          "industry_xYM4QT",
+          "category_hKRetK",
+          "category_C6Xg3k",
+          "category_T7XECy",
+          "category_PrLNrp",
+          "category_CVWrC9",
+          "category_UAXyXt"
+        ],
+        "settings": {
+          "hero_image": "shopify://shop_images/jack2_000.jpg",
+          "hero_subtitle": "NO.1 EN VENTAS MUNDIALES",
+          "hero_title": "JACK TECHNOLOGY",
+          "hero_button_text": "Ver Catálogo",
+          "hero_button_link": "",
+          "history_title": "Nuestra Historia",
+          "history_text": "<p><strong>Jack Technology Co., Ltd. (código bursátil: 603337)</strong> es una empresa global con el <strong>mayor volumen de producción y ventas</strong> y la <strong>mayor solidez integral</strong> dentro de la industria mundial del <strong>equipamiento de costura</strong>.</p><p>Asimismo, es una corporación internacional que <strong>integra soluciones completas</strong> que abarcan <strong>almacenamiento de materiales auxiliares, corte inteligente, sistemas de transporte colgante, costura, clasificación y acabado</strong>.</p><p>Jack es además un <strong>proveedor integral de soluciones de software y hardware</strong>, integrando sistemas como <strong>APS (Advanced Planning and Scheduling), MES (Manufacturing Execution System), WMS (Warehouse Management System), PDM (Product Data Management)</strong>, entre otros.</p><p>Los productos de Jack están presentes en <strong>más de 160 países y regiones alrededor del mundo</strong>, brindando servicio a múltiples sectores como la <strong>confección, calzado, marroquinería, mobiliario, cuero, automotriz y aeronáutico</strong>.</p><h5></h5>",
+          "history_image": "shopify://shop_images/About_NewBuilding.jpg",
+          "products_title": "Productos Destacados",
+          "products_subtitle": "Descubre nuestras máquinas más populares",
+          "industries_title": "Industrias que Servimos",
+          "industries_subtitle": "Soluciones especializadas para cada sector",
+          "categories_title": "Nuestras Marcas",
+          "categories_subtitle": "Explora nuestra línea completa de productos"
+        }
       }
     },
     "content_for_index": []
