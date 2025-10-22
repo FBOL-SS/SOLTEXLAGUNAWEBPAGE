@@ -286,7 +286,7 @@
           "industry_GDU49X": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
+              "icon": "ph-pant",
               "title": "Mezclilla",
               "description": "Diseñadas para denim y telas gruesas con alta resistencia de costura."
             }
