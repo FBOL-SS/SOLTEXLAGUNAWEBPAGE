@@ -393,7 +393,7 @@
           "category_fAqc74": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "RECTAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -401,7 +401,7 @@
           "category_4AXryy": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "SOBREHILADORAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -409,7 +409,7 @@
           "category_ADLY8c": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "RECUBRIDORAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -417,7 +417,7 @@
           "category_nDzV7n": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "ESPECIALES",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -425,7 +425,7 @@
           "category_dLWzKJ": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "AUTOMATIZACION",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -433,7 +433,7 @@
           "category_HNJbnQ": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "PATRONERAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -538,7 +538,7 @@
           "products_subtitle": "Descubre nuestras máquinas más populares",
           "industries_title": "Industrias que Servimos",
           "industries_subtitle": "Soluciones especializadas para cada sector",
-          "categories_title": "Nuestras Marcas",
+          "categories_title": "Nuestras Lineas",
           "categories_subtitle": "Explora nuestra línea completa de productos"
         }
       }
