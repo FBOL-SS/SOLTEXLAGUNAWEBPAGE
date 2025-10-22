@@ -1,0 +1,157 @@
+{%- comment -%} TEMPLATE SOLTEX - VENTILADOR CENTRÍFUGO {%- endcomment -%}
+<div class="soltex-product-template">
+  
+  <!-- HEADER -->
+  <div class="soltex-header">
+    <h1 class="soltex-title">{{ product.title }}</h1>
+    <div class="soltex-modelo">{{ product.vendor }} - {{ product.type }}</div>
+  </div>
+
+  <!-- IMAGEN PRINCIPAL -->
+  <div class="soltex-image">
+    <img src="{{ product.featured_image | img_url: '600x' }}" 
+         alt="{{ product.title }}" 
+         loading="lazy">
+    <p class="image-caption">Turbina centrífuga {{ product.vendor }} - 97 x 33 mm</p>
+  </div>
+
+  <!-- ESPECIFICACIONES -->
+  <div class="soltex-specs">
+    
+    <!-- INFORMACIÓN GENERAL -->
+    <div class="spec-section">
+      <h2>📋 INFORMACIÓN GENERAL</h2>
+      <div class="spec-grid">
+        <div><strong>Producto:</strong> {{ product.title }}</div>
+        <div><strong>Modelo:</strong> {{ product.handle | upcase }}</div>
+        <div><strong>Dimensiones:</strong> 97 x 95 x 33 mm</div>
+        <div><strong>Peso:</strong> 180 g</div>
+        <div><strong>Uso:</strong> Máquinas de coser {{ product.vendor }}</div>
+        <div><strong>Garantía:</strong> 12 meses Soltex</div>
+      </div>
+    </div>
+
+    <!-- ELÉCTRICAS -->
+    <div class="spec-section">
+      <h2>⚡ ESPECIFICACIONES ELÉCTRICAS</h2>
+      <div class="spec-table">
+        <div><strong>Voltaje</strong><span>12 V DC</span></div>
+        <div><strong>Corriente</strong><span>6.2 A</span></div>
+        <div><strong>Potencia</strong><span>74.4 W</span></div>
+        <div><strong>Motor</strong><span>Brushless DC</span></div>
+        <div><strong>Control</strong><span>PWM Variable</span></div>
+        <div><strong>IP</strong><span>IP68</span></div>
+      </div>
+    </div>
+
+    <!-- RENDIMIENTO -->
+    <div class="spec-section">
+      <h2>💨 RENDIMIENTO</h2>
+      <div class="spec-table">
+        <div><strong>Velocidad</strong><span>8200 RPM</span></div>
+        <div><strong>Flujo Aire</strong><span>65.3 CFM</span></div>
+        <div><strong>Presión</strong><span>7-10 inH₂O</span></div>
+        <div><strong>Ruido</strong><span>45-55 dB(A)</span></div>
+        <div><strong>Vida Útil</strong><span>50,000 horas</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARACTERÍSTICAS -->
+  <div class="soltex-features">
+    <h2>✨ CARACTERÍSTICAS {{ product.vendor | upcase }}</h2>
+    <ul>
+      <li>🔧 <strong>Alta Presión:</strong> Para filtros y conductos</li>
+      <li>💧 <strong>IP68:</strong> Impermeable y anti-polvo</li>
+      <li>⚡ <strong>PWM:</strong> Velocidad ajustable</li>
+      <li>🔥 <strong>UL94V-0:</strong> Retardante de llamas</li>
+      <li>🌀 <strong>Turbo:</strong> Diseño centrífugo eficiente</li>
+      <li>🏭 <strong>Industrial:</strong> Compatible {{ product.vendor }}</li>
+    </ul>
+  </div>
+
+  <!-- PRECIO Y BOTÓN COMPRAR -->
+  <div class="soltex-price-cta">
+    <div class="price">{{ product.price | money }}</div>
+    <button type="submit" class="add-to-cart">🛒 AGREGAR AL CARRITO</button>
+  </div>
+
+</div>
+
+<style>
+.soltex-product-template { 
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  font-family: 'Roboto', sans-serif; 
+}
+.soltex-header { text-align: center; margin-bottom: 30px; }
+.soltex-title { color: #1e3a8a; font-size: 28px; margin: 0; }
+.soltex-modelo { color: #666; font-size: 16px; margin-top: 5px; }
+.soltex-image img { 
+  width: 100%; 
+  max-width: 400px; 
+  height: auto; 
+  border: 2px solid #1e3a8a; 
+  border-radius: 8px; 
+  display: block; 
+  margin: 0 auto 10px; 
+}
+.image-caption { 
+  text-align: center; 
+  color: #666; 
+  font-size: 14px; 
+  font-style: italic; 
+}
+.spec-section { margin-bottom: 25px; }
+.spec-section h2 { 
+  color: #1e3a8a; 
+  font-size: 18px; 
+  border-left: 4px solid #3b82f6; 
+  padding-left: 10px; 
+  margin-bottom: 15px; 
+}
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.spec-grid div { padding: 5px 0; }
+.spec-table { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px; 
+  background: #f9fafb; 
+  padding: 15px; 
+  border-radius: 8px; 
+}
+.spec-table div { padding: 8px; }
+.spec-table strong { color: #1e3a8a; }
+.soltex-features { 
+  background: #f0f9ff; 
+  padding: 20px; 
+  border-radius: 8px; 
+  border-left: 4px solid #3b82f6; 
+  margin: 20px 0; 
+}
+.soltex-features ul { margin: 0; padding-left: 20px; }
+.soltex-features li { margin: 8px 0; }
+.soltex-price-cta { 
+  text-align: center; 
+  padding: 20px; 
+  background: #1e3a8a; 
+  color: white; 
+  border-radius: 8px; 
+}
+.soltex-price-cta .price { 
+  font-size: 32px; 
+  font-weight: bold; 
+  margin-bottom: 15px; 
+}
+.add-to-cart { 
+  background: #3b82f6; 
+  color: white; 
+  border: none; 
+  padding: 15px 30px; 
+  font-size: 18px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+</style>
