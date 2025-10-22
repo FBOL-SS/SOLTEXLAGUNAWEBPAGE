@@ -236,6 +236,18 @@
       "soltex-machine-jack": {
         "type": "soltex-machine-jack",
         "blocks": {
+          "product_bqxiGL": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_g7bDdr": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
           "product_hjiXdF": {
             "type": "product",
             "settings": {
@@ -342,6 +354,8 @@
           }
         },
         "block_order": [
+          "product_bqxiGL",
+          "product_g7bDdr",
           "product_hjiXdF",
           "product_HjUgxh",
           "product_CdMfTY",
