@@ -166,9 +166,10 @@
           "machine_brand_NCGWFr": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
+              "brand_name": "EAGLE SPECIAL",
+              "brand_url": "shopify://pages/eagle-special",
+              "brand_image": "shopify://shop_images/EAGLESPECIAL.png",
+              "brand_description": "Fabricante especializado en máquinas de coser industriales de alta estabilidad y precisión, con más de 20 años de experiencia. Certificada con CE e ISO9002, ofrece soluciones confiables para las industrias de confección, marroquinería, hogar y automotriz.",
               "feature_1": "",
               "feature_2": "",
               "feature_3": "",
