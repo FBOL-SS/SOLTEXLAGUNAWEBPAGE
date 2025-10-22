@@ -22,6 +22,46 @@
     },
     "featured-categories": {
       "type": "featured-categories",
+      "blocks": {
+        "category_4WDiGz": {
+          "type": "category",
+          "settings": {
+            "category_name": "Category Name",
+            "category_description": "Brief description of this category",
+            "category_url": ""
+          }
+        },
+        "category_yC9p86": {
+          "type": "category",
+          "settings": {
+            "category_name": "Category Name",
+            "category_description": "Brief description of this category",
+            "category_url": ""
+          }
+        },
+        "category_6WiwbJ": {
+          "type": "category",
+          "settings": {
+            "category_name": "Category Name",
+            "category_description": "Brief description of this category",
+            "category_url": ""
+          }
+        },
+        "category_MeGnQ3": {
+          "type": "category",
+          "settings": {
+            "category_name": "Category Name",
+            "category_description": "Brief description of this category",
+            "category_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_4WDiGz",
+        "category_yC9p86",
+        "category_6WiwbJ",
+        "category_MeGnQ3"
+      ],
       "settings": {
         "section_title": "Categorías destacadas",
         "section_subtitle": "Explore our comprehensive range of industrial machinery and parts"
