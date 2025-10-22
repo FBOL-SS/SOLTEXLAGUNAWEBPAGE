@@ -316,24 +316,27 @@
           "category_PrLNrp": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/70dc166f09f0fc5686faf1a93bcb41f6.jpg",
+              "title": "ESPECIALES",
+              "description": "Diseños específicos para operaciones técnicas: ojales, botones, presillas o costuras automáticas.",
               "link": ""
             }
           },
           "category_CVWrC9": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/80c6edb0123ad350df12b1e9498afa3e.png",
+              "title": "PESADAS",
+              "description": "Estructura reforzada para materiales gruesos como mezclilla, lona, cuero o tapicería.",
               "link": ""
             }
           },
           "category_UAXyXt": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/20241101153210.jpg",
+              "title": "REFACCIONES",
+              "description": "Componentes originales: agujas, looper, cuchillas, placas, motores y repuestos.",
               "link": ""
             }
           }
