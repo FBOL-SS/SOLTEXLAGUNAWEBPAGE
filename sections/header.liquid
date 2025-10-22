@@ -1,315 +1,448 @@
-{% comment %}
-SOLTEX — Header con MEGA MENU MÁQUINAS
-- Desktop: logo + menú horizontal con dropdowns + MEGA MENU 4 columnas para "Máquinas"
-- Mobile: burger drawer con accordion
-- 100% OS 2.0 compatible, 0 warnings
-{% endcomment %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  #shopify-section-{{ section.id }} {
-    --nav-bg: {{ section.settings.bg_color }};
-    --nav-fg: {{ section.settings.text_color }};
-    --nav-fg-dim: color-mix(in srgb, {{ section.settings.text_color }} 80%, transparent);
-    --nav-border: color-mix(in srgb, {{ section.settings.text_color }} 12%, transparent);
+  .shopdev * {
+    font-family: 'Poppins', sans-serif;
   }
 
-  #shopify-section-{{ section.id }} .hdr { position: relative; z-index: 50; }
-  #shopify-section-{{ section.id }} .hdr.is-sticky { position: sticky; top: 0; }
-  #shopify-section-{{ section.id }} .hdr-bar {
-    background: var(--nav-bg);
-    color: var(--nav-fg);
-    border-bottom: 1px solid var(--nav-border);
-  }
-  #shopify-section-{{ section.id }} .hdr-inner { max-width: min(1200px, 92vw); margin: 0 auto; display:flex; align-items:center; gap: 14px; padding: 10px 12px; }
-
-  /* Logo */
-  #shopify-section-{{ section.id }} .logo { display:flex; align-items:center; gap: 10px; min-width: 0; }
-  #shopify-section-{{ section.id }} .logo-img { display:block; height: auto; width: auto; max-width: {{ section.settings.logo_max_width }}px; }
-  #shopify-section-{{ section.id }} .logo-text { font-weight: 800; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-
-  /* Desktop nav */
-  #shopify-section-{{ section.id }} .nav { display:none; margin-left: auto; }
-  @media (min-width: 992px){ #shopify-section-{{ section.id }} .nav { display:block; } }
-  #shopify-section-{{ section.id }} .nav ul { display:flex; gap: 18px; align-items:center; }
-  #shopify-section-{{ section.id }} .nav a { color: var(--nav-fg); text-decoration:none; font-weight:600; font-size: 15px; }
-  #shopify-section-{{ section.id }} .nav a:hover, #shopify-section-{{ section.id }} .nav button:hover { opacity:.85; }
-
-  /* MEGA MENU MÁQUINAS */
-  #shopify-section-{{ section.id }} .mega-menu-machines {
-    position: absolute; left: 0; top: 100%; z-index: 1000; width: 800px;
-    background: white; border: 1px solid #e5e7eb; border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    opacity: 0; visibility: hidden; transform: translateY(8px);
-    transition: all .18s ease;
-  }
-  #shopify-section-{{ section.id }} .machines:hover .mega-menu-machines {
-    opacity: 1; visibility: visible; transform: translateY(0);
-  }
-  #shopify-section-{{ section.id }} .mega-menu-machines h3 {
-    font-weight: bold; color: #000; margin-bottom: 10px; font-size: 16px;
-  }
-  #shopify-section-{{ section.id }} .mega-menu-machines a {
-    color: #6b7280; text-decoration: none; display: block; padding: 2px 0;
-  }
-  #shopify-section-{{ section.id }} .mega-menu-machines a:hover { color: #000; }
-  #shopify-section-{{ section.id }} .mega-menu-machines .brands a {
-    background: #000; color: white; padding: 10px 20px; text-align: center;
-    font-weight: bold; border-radius: 6px; margin-top: 10px;
+  .shopdev .header-nav {
+    transition: all 0.3s ease;
   }
 
-  /* Responsive Mega Menu */
-  @media (max-width: 1024px) {
-    #shopify-section-{{ section.id }} .mega-menu-machines {
-      width: 600px; grid-template-columns: repeat(3, 1fr);
+  .shopdev .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .shopdev .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: {{ section.settings.accent_color }};
+    transition: width 0.3s ease;
+  }
+
+  .shopdev .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .shopdev .cta-button {
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .shopdev .hero-overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  .shopdev .hero-image {
+    filter: blur(2px);
+  }
+
+  .shopdev .mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .shopdev .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .shopdev .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: {{ section.settings.text_color }};
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .shopdev .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .shopdev .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  @media (max-width: 768px) {
+    .shopdev .hero-content h1 {
+      font-size: 28px;
     }
-    #shopify-section-{{ section.id }} .mega-menu-machines .brands {
-      grid-column: 1 / -1; margin-top: 10px;
-    }
   }
-
-  /* Dropdown normal (otros ítems) */
-  #shopify-section-{{ section.id }} .has-children { position: relative; }
-  #shopify-section-{{ section.id }} .dd {
-    position: absolute; left: 0; top: 100%; min-width: 220px;
-    background: var(--nav-bg); color: var(--nav-fg);
-    border: 1px solid var(--nav-border); border-radius: 10px; padding: 10px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.12);
-    opacity: 0; visibility: hidden; transform: translateY(8px);
-    transition: all .18s ease;
-  }
-  #shopify-section-{{ section.id }} .has-children:hover .dd,
-  #shopify-section-{{ section.id }} .has-children:focus-within .dd {
-    opacity:1; visibility:visible; transform: translateY(0);
-  }
-  #shopify-section-{{ section.id }} .dd a { display:block; padding: 8px 10px; border-radius: 8px; }
-  #shopify-section-{{ section.id }} .dd a:hover { background: var(--nav-border); }
-
-  /* Actions */
-  #shopify-section-{{ section.id }} .actions { margin-left:auto; display:flex; align-items:center; gap: 10px; }
-  #shopify-section-{{ section.id }} .btn-icon { appearance:none; border:1px solid var(--nav-border); background: transparent; color: var(--nav-fg); padding:8px 10px; border-radius: 8px; cursor:pointer; }
-  #shopify-section-{{ section.id }} .btn-icon:hover { background: var(--nav-border); }
-  #shopify-section-{{ section.id }} .cta { text-decoration:none; padding:10px 14px; border-radius:10px; border:1px solid var(--nav-border); font-weight:700; color: var(--nav-fg); }
-  #shopify-section-{{ section.id }} .cta:hover { background: var(--nav-border); }
-
-  /* Burger (mobile) */
-  #shopify-section-{{ section.id }} .burger { appearance:none; border:1px solid var(--nav-border); background: transparent; color: var(--nav-fg); padding:10px 12px; border-radius: 8px; display:inline-flex; align-items:center; gap:8px; }
-  @media (min-width: 992px){ #shopify-section-{{ section.id }} .burger { display:none; } }
-
-  /* Drawer */
-  #shopify-section-{{ section.id }} .overlay { position: fixed; inset:0; background: rgba(0,0,0,.45); opacity:0; visibility:hidden; transition: opacity .2s ease; z-index:49; }
-  #shopify-section-{{ section.id }} .drawer { position: fixed; inset:0 auto 0 0; width: 86%; max-width: 360px; background: var(--nav-bg); color: var(--nav-fg); transform: translateX(-100%); transition: transform .25s ease; z-index:50; display:flex; flex-direction:column; }
-  #shopify-section-{{ section.id }} .drawer-header { display:flex; align-items:center; justify-content:space-between; padding: 14px 14px; border-bottom: 1px solid var(--nav-border); }
-  #shopify-section-{{ section.id }} .drawer-body { padding: 10px 14px 18px; overflow:auto; }
-  #shopify-section-{{ section.id }} .drawer nav a, #shopify-section-{{ section.id }} .drawer nav button { display:block; width:100%; text-align:left; padding: 12px 10px; border-radius: 8px; text-decoration:none; color: var(--nav-fg); background: transparent; border: none; font-weight:600; }
-  #shopify-section-{{ section.id }} .drawer nav a:hover, #shopify-section-{{ section.id }} .drawer nav button:hover { background: var(--nav-border); }
-  #shopify-section-{{ section.id }} .drawer .sub { padding-left: 12px; border-left: 1px dashed var(--nav-border); margin-left: 6px; }
-  #shopify-section-{{ section.id }} .drawer .close { appearance:none; border:1px solid var(--nav-border); background: transparent; color: var(--nav-fg); padding:8px 10px; border-radius:8px; }
-  #shopify-section-{{ section.id }} .drawer .cta { margin: 10px 10px 0; }
-
-  #shopify-section-{{ section.id }}.is-open .overlay { opacity:1; visibility:visible; }
-  #shopify-section-{{ section.id }}.is-open .drawer { transform: translateX(0); }
 </style>
 
-<header class="hdr {% if section.settings.sticky_header %}is-sticky{% endif %}" role="banner">
-  <div class="hdr-bar">
-    <div class="hdr-inner">
-      <!-- Burger (mobile) -->
-      <button class="burger" id="burger-{{ section.id }}" aria-label="Abrir menú" aria-controls="drawer-{{ section.id }}" aria-expanded="false">
-        ☰ <span class="sr-only">Menú</span>
-      </button>
-
+<div class="w-full">
+  <!-- Header Navigation -->
+  <header class="header-nav w-full py-4 px-6 md:px-12" style="background-color: {{ section.settings.header_bg_color }};">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Logo -->
-      <a class="logo" href="{{ routes.root_url }}" aria-label="Inicio">
+      <div class="flex items-center">
         {% if section.settings.logo != blank %}
-          {{ section.settings.logo | image_url: width: 360 | image_tag: class: 'logo-img', alt: shop.name | escape }}
+          <a href="/" class="block">
+            {{ section.settings.logo | image_url: width: 200 | image_tag: 
+              class: 'h-12 md:h-16 w-auto',
+              alt: section.settings.logo_text
+            }}
+          </a>
         {% else %}
-          <span class="logo-text">{{ shop.name }}</span>
+          <a href="/" class="text-2xl md:text-3xl font-bold" style="color: {{ section.settings.text_color }};">
+            {{ section.settings.logo_text }}
+          </a>
         {% endif %}
-      </a>
+      </div>
 
-      <!-- Desktop navigation -->
-      <nav class="nav" aria-label="Navegación principal">
-        {% if section.settings.menu != blank %}
-          <ul>
-            {% for l1 in section.settings.menu.links %}
-              {% if l1.title == 'Máquinas' %}
-                <!-- MEGA MENU ESPECIAL -->
-                <li class="machines has-children">
-                  <button class="btn-icon">{{ l1.title }}</button>
-                  <div class="mega-menu-machines">
-                    <div class="column supreme">
-                      <h3>Supreme</h3>
-                      <a href="{{ routes.pages_url }}/supreme">Ver Supreme</a>
-                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=jeans">• Jeans</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=tejido">• Tejido</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme&filter.p.m.custom.uso=automatizado">• Automatizado</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=supreme">• Ver Todas</a></li>
-                      </ul>
-                    </div>
-                    <div class="column jack">
-                      <h3>Jack</h3>
-                      <a href="{{ routes.pages_url }}/jack">Ver Jack</a>
-                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=jeans">• Jeans</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=tejido">• Tejido</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack&filter.p.m.custom.uso=automatizado">• Automatizado</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=jack">• Ver Todas</a></li>
-                      </ul>
-                    </div>
-                    <div class="column eagle">
-                      <h3>Eagle Special</h3>
-                      <a href="{{ routes.pages_url }}/eagle-special">Ver Eagle</a>
-                      <ul style="list-style: none; padding: 0; margin: 10px 0 0 0;">
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=cuero">• Cuero</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=pesados">• Pesados</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle&filter.p.m.custom.uso=industrial">• Industrial</a></li>
-                        <li><a href="{{ routes.collections_url }}/machines?filter.p.m.custom.marca=eagle">• Ver Todas</a></li>
-                      </ul>
-                    </div>
-                    <div class="brands column">
-                      <a href="{{ routes.collections_url }}/machines?filter.p.product_type=maquinas">VER MARCAS</a>
-                    </div>
-                  </div>
-                </li>
-              {% elsif l1.links.size > 0 %}
-                <!-- DROPDOWN NORMAL -->
-                <li class="has-children">
-                  <button class="btn-icon">{{ l1.title }}</button>
-                  <div class="dd" role="menu">
-                    {% for l2 in l1.links %}
-                      <a role="menuitem" href="{{ l2.url }}">{{ l2.title }}</a>
-                    {% endfor %}
-                  </div>
-                </li>
-              {% else %}
-                <!-- LINK SIMPLE -->
-                <li><a href="{{ l1.url }}">{{ l1.title }}</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %}
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        {% for block in section.blocks %}
+          {% if block.type == 'nav_link' %}
+            <a href="{{ block.settings.link }}" 
+               class="nav-link text-base font-medium" 
+               style="color: {{ section.settings.text_color }};"
+               {{ block.shopify_attributes }}>
+              {{ block.settings.label }}
+            </a>
+          {% endif %}
+        {% endfor %}
       </nav>
 
-      <!-- Actions -->
-      <div class="actions">
-        {% if section.settings.show_phone and section.settings.phone_text != blank and section.settings.phone_url != blank %}
-          <a class="cta" href="{{ section.settings.phone_url }}">{{ section.settings.phone_text }}</a>
+      <!-- CTA Button Desktop -->
+      <div class="hidden md:block">
+        {% if section.settings.cta_text != blank %}
+          <a href="{{ section.settings.cta_link }}" 
+             class="cta-button inline-block px-6 py-3 rounded-md font-semibold"
+             style="background-color: {{ section.settings.accent_color }}; color: {{ section.settings.cta_text_color }};">
+            {{ section.settings.cta_text }}
+          </a>
         {% endif %}
-        {% if section.settings.show_search %}
-          <a class="btn-icon" href="{{ routes.search_url }}" aria-label="Buscar">🔎</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="hamburger md:hidden flex flex-col justify-center items-center w-10 h-10" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu fixed top-0 left-0 w-full h-full z-50 md:hidden" style="background-color: {{ section.settings.header_bg_color }};" id="mobileMenu">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between p-6">
+        {% if section.settings.logo != blank %}
+          <a href="/" class="block">
+            {{ section.settings.logo | image_url: width: 150 | image_tag: 
+              class: 'h-10 w-auto',
+              alt: section.settings.logo_text
+            }}
+          </a>
+        {% else %}
+          <a href="/" class="text-2xl font-bold" style="color: {{ section.settings.text_color }};">
+            {{ section.settings.logo_text }}
+          </a>
         {% endif %}
-        {% if section.settings.show_cart %}
-          <a class="btn-icon" href="{{ routes.cart_url }}" aria-label="Carrito">🛒</a>
+        <button class="hamburger active flex flex-col justify-center items-center w-10 h-10" id="closeMobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      <nav class="flex flex-col space-y-6 px-6 py-8">
+        {% for block in section.blocks %}
+          {% if block.type == 'nav_link' %}
+            <a href="{{ block.settings.link }}" 
+               class="text-lg font-medium" 
+               style="color: {{ section.settings.text_color }};">
+              {{ block.settings.label }}
+            </a>
+          {% endif %}
+        {% endfor %}
+        
+        {% if section.settings.cta_text != blank %}
+          <a href="{{ section.settings.cta_link }}" 
+             class="inline-block px-6 py-3 rounded-md font-semibold text-center mt-4"
+             style="background-color: {{ section.settings.accent_color }}; color: {{ section.settings.cta_text_color }};">
+            {{ section.settings.cta_text }}
+          </a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+    <!-- Background Image with Blur -->
+    <div class="absolute inset-0">
+      {% if section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 1920 | image_tag: 
+          class: 'hero-image w-full h-full object-cover',
+          loading: 'eager',
+          sizes: '100vw'
+        }}
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'hero-image w-full h-full object-cover bg-gray-300' }}
+      {% endif %}
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content absolute inset-0 flex items-center justify-center px-6 md:px-12">
+      <div class="max-w-4xl text-center">
+        {% if section.settings.hero_headline != blank %}
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" 
+              style="color: {{ section.settings.hero_text_color }};">
+            {{ section.settings.hero_headline }}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.hero_subheadline != blank %}
+          <p class="text-lg md:text-xl mb-8 font-light" 
+             style="color: {{ section.settings.hero_text_color }};">
+            {{ section.settings.hero_subheadline }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.hero_button_text != blank %}
+          <a href="{{ section.settings.hero_button_link }}" 
+             class="cta-button inline-block px-8 py-4 rounded-md font-semibold text-lg"
+             style="background-color: {{ section.settings.accent_color }}; color: {{ section.settings.cta_text_color }};">
+            {{ section.settings.hero_button_text }}
+          </a>
         {% endif %}
       </div>
     </div>
   </div>
-
-  <!-- Overlay + Drawer (Mobile) -->
-  <div class="overlay" id="overlay-{{ section.id }}" hidden></div>
-  <aside class="drawer" id="drawer-{{ section.id }}" aria-hidden="true" aria-label="Menú móvil">
-    <div class="drawer-header">
-      <span>{{ section.settings.mobile_title | default: 'Menú' }}</span>
-      <button class="close" id="close-{{ section.id }}" aria-label="Cerrar menú">✕</button>
-    </div>
-    <div class="drawer-body">
-      <nav aria-label="Navegación móvil">
-        {% if section.settings.menu != blank %}
-          {% for l1 in section.settings.menu.links %}
-            {% if l1.links.size > 0 %}
-              <details>
-                <summary><span>{{ l1.title }}</span></summary>
-                <div class="sub">
-                  {% for l2 in l1.links %}
-                    <a href="{{ l2.url }}">{{ l2.title }}</a>
-                  {% endfor %}
-                </div>
-              </details>
-            {% else %}
-              <a href="{{ l1.url }}">{{ l1.title }}</a>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      </nav>
-      {% if section.settings.show_phone and section.settings.phone_text != blank and section.settings.phone_url != blank %}
-        <a class="cta" href="{{ section.settings.phone_url }}">{{ section.settings.phone_text }}</a>
-      {% endif %}
-    </div>
-  </aside>
-</header>
+</div>
 
 <script>
-  (function(){
-    var root = document.getElementById('shopify-section-{{ section.id }}');
-    if(!root) return;
-    var burger = root.querySelector('#burger-{{ section.id }}');
-    var drawer = root.querySelector('#drawer-{{ section.id }}');
-    var overlay = root.querySelector('#overlay-{{ section.id }}');
-    var closeBtn = root.querySelector('#close-{{ section.id }}');
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    function openDrawer(){
-      root.classList.add('is-open');
-      drawer.setAttribute('aria-hidden', 'false');
-      burger.setAttribute('aria-expanded', 'true');
-      overlay.hidden = false;
-      document.documentElement.style.overflow = 'hidden';
-      drawer.focus({preventScroll:true});
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
     }
-    function closeDrawer(){
-      root.classList.remove('is-open');
-      drawer.setAttribute('aria-hidden', 'true');
-      burger.setAttribute('aria-expanded', 'false');
-      overlay.hidden = true;
-      document.documentElement.style.overflow = '';
-      burger.focus({preventScroll:true});
+
+    if (closeMobileMenu && mobileMenu) {
+      closeMobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = '';
+      });
     }
-    function onKey(e){ if(e.key === 'Escape'){ closeDrawer(); } }
 
-    burger && burger.addEventListener('click', openDrawer);
-    closeBtn && closeBtn.addEventListener('click', closeDrawer);
-    overlay && overlay.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', onKey);
-
-    // Prevent focus from leaving the drawer when open
-    drawer.addEventListener('keydown', function(e){
-      if(e.key !== 'Tab') return;
-      var focusable = drawer.querySelectorAll('a, button, summary, input, [tabindex]:not([tabindex="-1"])');
-      focusable = Array.prototype.slice.call(focusable).filter(function(el){ return !el.disabled && el.offsetParent !== null; });
-      if(!focusable.length) return;
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = '';
+      });
     });
-  })();
+  });
 </script>
 
 {% schema %}
 {
-  "name": "soltex-header",
+  "name": "SOLTEX Industrial Header",
+  "class": "shopdev",
+  "tag": "section",
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo" },
-    { "type": "range", "id": "logo_max_width", "label": "Ancho máx. del logo (px)", "min": 60, "max": 320, "step": 10, "default": 160 },
-
-    { "type": "link_list", "id": "menu", "label": "Menú principal" },
-
-    { "type": "checkbox", "id": "sticky_header", "label": "Header fijo (sticky)", "default": true },
-
-    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#0d1b2a" },
-    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#ffffff" },
-
-    { "type": "checkbox", "id": "show_search", "label": "Mostrar botón de búsqueda", "default": true },
-    { "type": "checkbox", "id": "show_cart", "label": "Mostrar botón de carrito", "default": true },
-
-    { "type": "header", "content": "CTA / Teléfono" },
-    { "type": "checkbox", "id": "show_phone", "label": "Mostrar CTA/teléfono", "default": false },
-    { "type": "text", "id": "phone_text", "label": "Texto del CTA (ej. WhatsApp)", "default": "Contáctanos" },
-    { "type": "url", "id": "phone_url", "label": "URL del CTA" },
-
-    { "type": "text", "id": "mobile_title", "label": "Título en móvil", "default": "Menú" }
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "SOLTEX"
+    },
+    {
+      "type": "header",
+      "content": "Header Colors"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Blue)",
+      "default": "#0066CC"
+    },
+    {
+      "type": "header",
+      "content": "Call-to-Action Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Solicitar Cotización"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "CTA Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_headline",
+      "label": "Hero Headline",
+      "default": "Líderes en maquinaria, refacciones y automatización textil en México y Centroamérica"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subheadline",
+      "label": "Hero Subheadline"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Hero Button Text",
+      "default": "Conocer Más"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Hero Button Link"
+    },
+    {
+      "type": "color",
+      "id": "hero_text_color",
+      "label": "Hero Text Color",
+      "default": "#FFFFFF"
+    }
   ],
-  "presets": [ { "name": "soltex-header" } ]
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link Label",
+          "default": "Inicio"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SOLTEX Industrial Header",
+      "settings": {
+        "logo_text": "SOLTEX",
+        "header_bg_color": "#FFFFFF",
+        "text_color": "#1a1a1a",
+        "accent_color": "#0066CC",
+        "cta_text": "Solicitar Cotización",
+        "cta_link": "/pages/contact",
+        "cta_text_color": "#FFFFFF",
+        "hero_image": "shopify://shop_images/sewing-machine-in-use.jpg",
+        "hero_headline": "Líderes en maquinaria, refacciones y automatización textil en México y Centroamérica",
+        "hero_subheadline": "Soluciones industriales de vanguardia para optimizar su producción textil con tecnología de última generación",
+        "hero_button_text": "Conocer Más",
+        "hero_button_link": "/collections/frontpage",
+        "hero_text_color": "#FFFFFF"
+      },
+      "blocks": [
+        {
+          "type": "nav_link",
+          "settings": {
+            "label": "Inicio",
+            "link": "/"
+          }
+        },
+        {
+          "type": "nav_link",
+          "settings": {
+            "label": "Maquinaria",
+            "link": "/collections/frontpage"
+          }
+        },
+        {
+          "type": "nav_link",
+          "settings": {
+            "label": "Refacciones",
+            "link": "/products/crankshaft-position-ckp"
+          }
+        },
+        {
+          "type": "nav_link",
+          "settings": {
+            "label": "Automatización",
+            "link": "/products/throttle-position-sensor-tps"
+          }
+        },
+        {
+          "type": "nav_link",
+          "settings": {
+            "label": "Contacto",
+            "link": "/pages/contact"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
