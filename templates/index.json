@@ -12,6 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
+        "background_image": "shopify://shop_images/AdobeStock_282830762.jpg",
         "overlay_opacity": 75,
         "headline": "Soluciones textiles para la industria moderna",
         "subheadline": "Distribuimos maquinaria, refacciones y automatización textil en México y Centroamérica.",
