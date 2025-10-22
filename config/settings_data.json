@@ -215,6 +215,18 @@
       "soltex-machine-subpage": {
         "type": "soltex-machine-subpage",
         "blocks": {
+          "product_E7pEgW": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_mT7cQR": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
           "category_wz8JyK": {
             "type": "category",
             "settings": {
@@ -267,15 +279,15 @@
             "type": "industry",
             "settings": {
               "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "title": "Tejido de Punto",
+              "description": "Para materiales elásticos y prendas ligeras (camisetas, ropa deportiva)."
             }
           },
           "industry_GDU49X": {
             "type": "industry",
             "settings": {
               "icon": "ph-factory",
-              "title": "Confección",
+              "title": "Mezclilla",
               "description": "Máquinas especializadas para talleres de confección y producción en serie"
             }
           },
@@ -283,7 +295,7 @@
             "type": "industry",
             "settings": {
               "icon": "ph-factory",
-              "title": "Confección",
+              "title": "Piel/Cuero",
               "description": "Máquinas especializadas para talleres de confección y producción en serie"
             }
           },
@@ -291,12 +303,14 @@
             "type": "industry",
             "settings": {
               "icon": "ph-factory",
-              "title": "Confección",
+              "title": "Pesado",
               "description": "Máquinas especializadas para talleres de confección y producción en serie"
             }
           }
         },
         "block_order": [
+          "product_E7pEgW",
+          "product_mT7cQR",
           "category_wz8JyK",
           "category_pQLFwg",
           "category_Q7pjJj",
