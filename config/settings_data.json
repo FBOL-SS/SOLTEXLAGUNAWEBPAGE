@@ -168,12 +168,12 @@
             "settings": {
               "brand_name": "EAGLE SPECIAL",
               "brand_url": "shopify://pages/eagle-special",
-              "brand_image": "shopify://shop_images/EAGLESPECIAL.png",
+              "brand_image": "shopify://shop_images/EAGLESPECIAL_fb2d3a46-3b79-4b10-844d-a10624519f62.png",
               "brand_description": "Fabricante especializado en máquinas de coser industriales de alta estabilidad y precisión, con más de 20 años de experiencia. Certificada con CE e ISO9002, ofrece soluciones confiables para las industrias de confección, marroquinería, hogar y automotriz.",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
+              "feature_1": "Equipos de cosido industrial construidos para alta estabilidad y costo-competencia.",
+              "feature_2": "Certificación internacional CE + sistema de calidad ISO9002 para asegurar procesos integrados desde materia prima hasta el producto final.",
+              "feature_3": "Servicio global con presencia en Sudeste Asiático, Europa, América y África acompañando al cliente con soporte técnico local.",
+              "badge_1": "Desarrollo propio y adaptaciones a medida",
               "badge_2": "",
               "cta_text": ""
             }
