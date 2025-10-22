@@ -26,33 +26,33 @@
         "category_4WDiGz": {
           "type": "category",
           "settings": {
-            "category_name": "Category Name",
+            "category_name": "REFACCIONES",
             "category_description": "Brief description of this category",
-            "category_url": ""
+            "category_url": "shopify://collections/all"
           }
         },
         "category_yC9p86": {
           "type": "category",
           "settings": {
-            "category_name": "Category Name",
+            "category_name": "MAQUINAS DE COSER",
             "category_description": "Brief description of this category",
-            "category_url": ""
+            "category_url": "shopify://pages/maquinas"
           }
         },
         "category_6WiwbJ": {
           "type": "category",
           "settings": {
-            "category_name": "Category Name",
+            "category_name": "ACCESORIOS",
             "category_description": "Brief description of this category",
-            "category_url": ""
+            "category_url": "shopify://collections/all"
           }
         },
         "category_MeGnQ3": {
           "type": "category",
           "settings": {
-            "category_name": "Category Name",
+            "category_name": "SERVICIO TÉCNICO",
             "category_description": "Brief description of this category",
-            "category_url": ""
+            "category_url": "shopify://pages/contact"
           }
         }
       },
