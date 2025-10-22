@@ -101,12 +101,13 @@
     color: var(--soltex-navy);
   }
 
+  /* 🎯 GRID RESPONSIVE CORREGIDO */
   #shopify-section-{{ section.id }} .machines-grid {
     max-width: 1400px;
     margin: 0 auto;
     padding: 80px 24px;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 32px;
   }
 
@@ -142,19 +143,13 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 
+  /* 🎯 IMAGENES CORREGIDAS - ALTURA FIJA */
   #shopify-section-{{ section.id }} .machine-card-image-wrapper {
     position: relative;
     width: 100%;
+    height: 200px; /* 🎯 ALTURA FIJA UNIFORME */
     overflow: hidden;
     background-color: var(--soltex-gray-light);
-  }
-
-  #shopify-section-{{ section.id }} .machine-card-image-wrapper.aspect-16-9 {
-    padding-bottom: 56.25%;
-  }
-
-  #shopify-section-{{ section.id }} .machine-card-image-wrapper.aspect-1-1 {
-    padding-bottom: 100%;
   }
 
   #shopify-section-{{ section.id }} .machine-card-image {
@@ -163,7 +158,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 🎯 NO SE ESTIRAN */
+    object-position: center; /* 🎯 SIEMPRE CENTRADAS */
     user-select: none;
     pointer-events: none;
   }
@@ -309,32 +305,14 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
-  #shopify-section-{{ section.id }} .support-cta:focus {
-    outline: 2px solid var(--soltex-navy);
-    outline-offset: 4px;
-  }
-
-  @media (min-width: 768px) {
-    #shopify-section-{{ section.id }} .machines-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    #shopify-section-{{ section.id }} .hero-title {
-      font-size: 64px;
-    }
-
-    #shopify-section-{{ section.id }} .hero-subtitle {
-      font-size: 24px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .machines-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
+  /* 🎯 RESPONSIVE */
   @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .machines-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 40px 20px;
+    }
+
     #shopify-section-{{ section.id }} .hero-title {
       font-size: 36px;
     }
@@ -347,13 +325,19 @@
       padding: 40px 20px;
     }
 
-    #shopify-section-{{ section.id }} .machines-grid {
-      padding: 40px 20px;
-    }
-
     #shopify-section-{{ section.id }} .machine-card-logo {
       max-width: 100px;
       max-height: 50px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .hero-title {
+      font-size: 64px;
+    }
+
+    #shopify-section-{{ section.id }} .hero-subtitle {
+      font-size: 24px;
     }
   }
 </style>
@@ -413,7 +397,8 @@
           {%- endif -%}
           
           <article class="machine-card">
-            <div class="machine-card-image-wrapper aspect-{{ section.settings.image_aspect_ratio }}">
+            <!-- 🎯 HTML CORREGIDO - SIN ASPECT RATIO -->
+            <div class="machine-card-image-wrapper">
               {%- if block.settings.brand_image != blank -%}
                 {{ block.settings.brand_image | image_url: width: 800 | image_tag: 
                   loading: 'lazy',
@@ -595,26 +580,6 @@
     },
     {
       "type": "header",
-      "content": "Machine Cards Settings"
-    },
-    {
-      "type": "select",
-      "id": "image_aspect_ratio",
-      "label": "Image Aspect Ratio",
-      "options": [
-        {
-          "value": "16-9",
-          "label": "16:9 (Landscape)"
-        },
-        {
-          "value": "1-1",
-          "label": "1:1 (Square)"
-        }
-      ],
-      "default": "16-9"
-    },
-    {
-      "type": "header",
       "content": "Support Block"
     },
     {
@@ -725,7 +690,6 @@
         "hero_cta_primary_link": "/collections/all",
         "hero_cta_secondary_text": "Solicitar Cotización",
         "hero_cta_secondary_link": "/pages/contact",
-        "image_aspect_ratio": "16-9",
         "show_support_block": true,
         "support_bg_color": "#f4f4f4",
         "support_title": "¿Necesitas Asesoría Especializada?",
