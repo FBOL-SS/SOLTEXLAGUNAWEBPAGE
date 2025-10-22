@@ -26,6 +26,7 @@
         "category_4WDiGz": {
           "type": "category",
           "settings": {
+            "category_image": "shopify://shop_images/bobbin-case-linear-icon-thin-line-illustration-sewing-machine-part-contour-symbol-isolated-outline-drawing-vector.jpg",
             "category_name": "REFACCIONES",
             "category_description": "Brief description of this category",
             "category_url": "shopify://collections/all"
@@ -34,6 +35,7 @@
         "category_yC9p86": {
           "type": "category",
           "settings": {
+            "category_image": "shopify://shop_images/sewing-machine-icon.png",
             "category_name": "MAQUINAS DE COSER",
             "category_description": "Brief description of this category",
             "category_url": "shopify://pages/maquinas"
@@ -42,6 +44,7 @@
         "category_6WiwbJ": {
           "type": "category",
           "settings": {
+            "category_image": "shopify://shop_images/tailor-scissor-icon.png",
             "category_name": "ACCESORIOS",
             "category_description": "Brief description of this category",
             "category_url": "shopify://collections/all"
@@ -50,6 +53,7 @@
         "category_MeGnQ3": {
           "type": "category",
           "settings": {
+            "category_image": "shopify://shop_images/black-wrench-icon.png",
             "category_name": "SERVICIO TÉCNICO",
             "category_description": "Brief description of this category",
             "category_url": "shopify://pages/contact"
