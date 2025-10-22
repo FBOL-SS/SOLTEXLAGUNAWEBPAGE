@@ -227,6 +227,15 @@
               "product": ""
             }
           },
+          "category_3YbF4A": {
+            "type": "category",
+            "settings": {
+              "image": "shopify://shop_images/20241101153210.jpg",
+              "title": "REFACCIONES",
+              "description": "Componentes originales: agujas, looper, cuchillas, placas, motores y repuestos.",
+              "link": ""
+            }
+          },
           "category_wz8JyK": {
             "type": "category",
             "settings": {
@@ -308,6 +317,7 @@
         "block_order": [
           "product_E7pEgW",
           "product_mT7cQR",
+          "category_3YbF4A",
           "category_wz8JyK",
           "category_pQLFwg",
           "category_Q7pjJj",
