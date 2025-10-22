@@ -259,7 +259,7 @@
             "settings": {
               "icon": "ph-t-shirt",
               "title": "Tejido de punto",
-              "description": "Máquinas diseñadas para materiales elásticos o de punto, como camisetas, ropa deportiva y prendas interiores."
+              "description": "Para materiales elásticos y prendas ligeras (camisetas, ropa deportiva)."
             }
           },
           "industry_7Ngb3R": {
@@ -267,7 +267,7 @@
             "settings": {
               "icon": "ph-pants",
               "title": "Mezclilla",
-              "description": "Equipos con mayor penetración de aguja y torque de motor, ideales para costuras gruesas en mezclilla, lona o gabardina."
+              "description": "Diseñadas para denim y telas gruesas con alta resistencia de costura."
             }
           },
           "industry_fkrhJY": {
@@ -275,7 +275,7 @@
             "settings": {
               "icon": "ph-cow",
               "title": "Marroquinería",
-              "description": "Máquinas reforzadas para materiales pesados o rígidos como cuero, vinil, tapicería o piel sintética."
+              "description": "Para cuero, vinil y materiales rígidos; con sistema de triple arrastre."
             }
           },
           "industry_xYM4QT": {
@@ -283,13 +283,13 @@
             "settings": {
               "icon": "ph-seat",
               "title": "Confección",
-              "description": "Modelos de alta potencia y estructura reforzada, aptos para múltiples capas de materiales gruesos o técnicos."
+              "description": "Máquinas de alta potencia para múltiples capas o materiales técnicos."
             }
           },
           "category_hKRetK": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "title": "RECTAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -363,7 +363,7 @@
           "products_subtitle": "Descubre nuestras máquinas más populares",
           "industries_title": "Industrias que Servimos",
           "industries_subtitle": "Soluciones especializadas para cada sector",
-          "categories_title": "Nuestras Marcas",
+          "categories_title": "Nuestras Lineas",
           "categories_subtitle": "Explora nuestra línea completa de productos"
         }
       }
