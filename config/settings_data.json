@@ -389,6 +389,142 @@
       },
       "soltex-machine-supreme": {
         "type": "soltex-machine-supreme",
+        "blocks": {
+          "category_fAqc74": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_4AXryy": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_ADLY8c": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_nDzV7n": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_dLWzKJ": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_HNJbnQ": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "industry_RJkV86": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_HUH6xA": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_cjqAip": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_UTDnDX": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "product_FLbw7m": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_f8GFUr": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_nH6KWn": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_WFPcgP": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_dri3cn": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          },
+          "product_NbyhPg": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          }
+        },
+        "block_order": [
+          "category_fAqc74",
+          "category_4AXryy",
+          "category_ADLY8c",
+          "category_nDzV7n",
+          "category_dLWzKJ",
+          "category_HNJbnQ",
+          "industry_RJkV86",
+          "industry_HUH6xA",
+          "industry_cjqAip",
+          "industry_UTDnDX",
+          "product_FLbw7m",
+          "product_f8GFUr",
+          "product_nH6KWn",
+          "product_WFPcgP",
+          "product_dri3cn",
+          "product_NbyhPg"
+        ],
         "settings": {
           "hero_image": "shopify://shop_images/1609746619982751.jpg",
           "hero_subtitle": "MAKE SEWING EASY",
