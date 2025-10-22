@@ -386,6 +386,25 @@
           "categories_title": "Nuestras Lineas",
           "categories_subtitle": "Explora nuestra línea completa de productos"
         }
+      },
+      "soltex-machine-supreme": {
+        "type": "soltex-machine-supreme",
+        "settings": {
+          "hero_image": "shopify://shop_images/1609746619982751.jpg",
+          "hero_subtitle": "MAKE SEWING EASY",
+          "hero_title": "SUPREME INTELLIGENT TECHNOLOGY",
+          "hero_button_text": "Ver Catálogo",
+          "hero_button_link": "shopify://collections",
+          "history_title": "Nuestra Historia",
+          "history_text": "<p>Fundada en <strong>2006</strong> en <strong>Ningbo, China</strong>, <strong>SUPREME</strong> es actualmente el <strong>tercer fabricante de maquinaria de coser industrial más grande del mundo</strong>, reconocido por su innovación tecnológica y calidad.</p><p>La compañía desarrolla y produce <strong>máquinas de coser automáticas y soluciones de automatización</strong> con tecnología robótica integrada, enfocadas en <strong>maximizar la productividad y reducir costos</strong> en la confección industrial.</p><p>Cuenta con más de <strong>185 patentes</strong>, un <strong>centro avanzado de I+D</strong>, y presencia en más de <strong>30 países</strong>, con clientes globales como <strong>Levi’s, Nike, Adidas y New Balance</strong>.</p><p>SUPREME continúa impulsando la <strong>automatización inteligente</strong> en la industria textil mundial, combinando ingeniería, software y precisión mecánica de clase internacional.</p>",
+          "history_image": "shopify://shop_images/a429d779d191200c86353686b9e997a6.jpg",
+          "products_title": "Productos Destacados",
+          "products_subtitle": "Descubre nuestras máquinas más populares",
+          "industries_title": "Industrias que Servimos",
+          "industries_subtitle": "Soluciones especializadas para cada sector",
+          "categories_title": "Nuestras Marcas",
+          "categories_subtitle": "Explora nuestra línea completa de productos"
+        }
       }
     },
     "content_for_index": []
