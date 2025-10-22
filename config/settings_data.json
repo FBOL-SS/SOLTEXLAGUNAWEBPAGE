@@ -214,14 +214,109 @@
       },
       "soltex-machine-subpage": {
         "type": "soltex-machine-subpage",
+        "blocks": {
+          "category_wz8JyK": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_pQLFwg": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_Q7pjJj": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_KkFaK4": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_4gUDeQ": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_dGbkag": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "industry_cdrPqV": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_GDU49X": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_kcihzp": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_iJE6ri": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          }
+        },
+        "block_order": [
+          "category_wz8JyK",
+          "category_pQLFwg",
+          "category_Q7pjJj",
+          "category_KkFaK4",
+          "category_4gUDeQ",
+          "category_dGbkag",
+          "industry_cdrPqV",
+          "industry_GDU49X",
+          "industry_kcihzp",
+          "industry_iJE6ri"
+        ],
         "settings": {
-          "hero_image": "shopify://shop_images/H7.jpg",
+          "hero_image": "shopify://shop_images/jack2_000.jpg",
           "hero_subtitle": "WORLD NO. 1 IN SALES",
           "hero_title": "JACK SEWING MACHINE",
           "hero_button_text": "Ver Catálogo",
           "hero_button_link": "",
           "history_title": "Sobre Nosotros",
-          "history_text": "<p>Jack Technology Co., Ltd. (stock code: 603337) is a global enterprise with the largest production and sales volume and the strongest comprehensive strength in the global sewing equipment industry. It is also a global company that integrates auxiliary material warehousing, intelligent cutting, hanging, sewing, sorting, and finishing. Jack is an integrating APS, MES, WMS, PDM and other software and hardware total solution provider. Jack products benefit more than 160 countries and regions in global and serve many fields such as garment, shoe, luggage, furniture, leather, auto, and aviation.</p>",
+          "history_text": "<p><strong>Jack Technology Co., Ltd. (código bursátil: 603337)</strong> es una empresa global con el <strong>mayor volumen de producción y ventas</strong> y la <strong>mayor solidez integral</strong> dentro de la industria mundial del <strong>equipamiento de costura</strong>.</p><p>Asimismo, es una corporación internacional que <strong>integra soluciones completas</strong> que abarcan <strong>almacenamiento de materiales auxiliares, corte inteligente, sistemas de transporte colgante, costura, clasificación y acabado</strong>.</p><p>Jack es además un <strong>proveedor integral de soluciones de software y hardware</strong>, integrando sistemas como <strong>APS (Advanced Planning and Scheduling), MES (Manufacturing Execution System), WMS (Warehouse Management System), PDM (Product Data Management)</strong>, entre otros.</p><p>Los productos de Jack están presentes en <strong>más de 160 países y regiones alrededor del mundo</strong>, brindando servicio a múltiples sectores como la <strong>confección, calzado, marroquinería, mobiliario, cuero, automotriz y aeronáutico</strong>.</p>",
+          "history_image": "shopify://shop_images/About_NewBuilding.jpg",
           "products_title": "Productos Destacados",
           "products_subtitle": "Descubre nuestras máquinas más populares",
           "industries_title": "Industrias que Servimos",
