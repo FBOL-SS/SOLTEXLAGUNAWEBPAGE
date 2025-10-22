@@ -441,33 +441,33 @@
           "industry_RJkV86": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
+              "icon": "ph-t-shirt",
               "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "description": "Automatización para prendas, camisetas, uniformes y ropa técnica."
             }
           },
           "industry_HUH6xA": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-sneaker",
+              "title": "Calzado",
+              "description": "Máquinas especializadas en costura de piel, suelas y componentes de zapatería."
             }
           },
           "industry_cjqAip": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-car",
+              "title": "Automotriz",
+              "description": "Soluciones de costura de precisión para interiores, asientos y bolsas de aire."
             }
           },
           "industry_UTDnDX": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-pants",
+              "title": "Jeans",
+              "description": "Equipos automatizados para jeans, bolsillos, presillas y costuras reforzadas."
             }
           },
           "product_FLbw7m": {
