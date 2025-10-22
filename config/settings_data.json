@@ -110,11 +110,7 @@
       },
       "soltex-main-collection": {
         "type": "soltex-main-collection",
-        "settings": {
-          "title": "Catálogo de productos",
-          "show_counts": true,
-          "per_page": 12
-        }
+        "settings": {}
       },
       "soltex-contact": {
         "type": "soltex-contact",
@@ -127,6 +123,89 @@
           "title": "Contáctanos",
           "subtitle": "Estamos listos para ayudarte.",
           "header_align": "center"
+        }
+      },
+      "soltex-machines-hub": {
+        "type": "soltex-machines-hub",
+        "blocks": {
+          "machine_brand_begFcb": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_JiDHjA": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_NCGWFr": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_NjAtVf": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "machine_brand_begFcb",
+          "machine_brand_JiDHjA",
+          "machine_brand_NCGWFr",
+          "machine_brand_NjAtVf"
+        ],
+        "settings": {
+          "hero_overlay_opacity": 0.5,
+          "hero_title": "Máquinas Industriales de Alta Precisión",
+          "hero_subtitle": "Tecnología de vanguardia para la industria textil. Descubre nuestras marcas líderes en maquinaria de confección profesional.",
+          "hero_cta_primary_text": "Ver Catálogo Completo",
+          "hero_cta_primary_link": "shopify://collections/all",
+          "hero_cta_secondary_text": "Solicitar Cotización",
+          "hero_cta_secondary_link": "shopify://pages/contact",
+          "image_aspect_ratio": "16-9",
+          "show_support_block": true,
+          "support_bg_color": "#f4f4f4",
+          "support_title": "¿Necesitas Asesoría Especializada?",
+          "support_description": "Nuestro equipo de expertos está listo para ayudarte a encontrar la máquina perfecta para tu negocio. Ofrecemos soporte técnico, capacitación y servicio post-venta.",
+          "support_cta_text": "Contacta Asesor",
+          "support_cta_link": "shopify://pages/contact"
         }
       }
     },
