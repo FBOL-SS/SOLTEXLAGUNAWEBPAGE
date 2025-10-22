@@ -110,7 +110,11 @@
       },
       "soltex-main-collection": {
         "type": "soltex-main-collection",
-        "settings": {}
+        "settings": {
+          "show_collection_title": true,
+          "show_product_counts": true,
+          "products_per_page": 12
+        }
       },
       "soltex-contact": {
         "type": "soltex-contact",
@@ -206,6 +210,24 @@
           "support_description": "Nuestro equipo de expertos está listo para ayudarte a encontrar la máquina perfecta para tu negocio. Ofrecemos soporte técnico, capacitación y servicio post-venta.",
           "support_cta_text": "Contacta Asesor",
           "support_cta_link": "shopify://pages/contact"
+        }
+      },
+      "soltex-machine-subpage": {
+        "type": "soltex-machine-subpage",
+        "settings": {
+          "hero_image": "shopify://shop_images/jack2_000.jpg",
+          "hero_subtitle": "WORLD NO. 1 IN SALES",
+          "hero_title": "JACK SEWING MACHINE",
+          "hero_button_text": "Ver Catálogo",
+          "hero_button_link": "",
+          "history_title": "Sobre Nosotros",
+          "history_text": "<p>Jack Technology Co., Ltd. (stock code: 603337) is a global enterprise with the largest production and sales volume and the strongest comprehensive strength in the global sewing equipment industry. It is also a global company that integrates auxiliary material warehousing, intelligent cutting, hanging, sewing, sorting, and finishing. Jack is an integrating APS, MES, WMS, PDM and other software and hardware total solution provider. Jack products benefit more than 160 countries and regions in global and serve many fields such as garment, shoe, luggage, furniture, leather, auto, and aviation.</p>",
+          "products_title": "Productos Destacados",
+          "products_subtitle": "Descubre nuestras máquinas más populares",
+          "industries_title": "Industrias que Servimos",
+          "industries_subtitle": "Soluciones especializadas para cada sector",
+          "categories_title": "Nuestras Marcas",
+          "categories_subtitle": "Explora nuestra línea completa de productos"
         }
       }
     },
