@@ -181,15 +181,16 @@
           "machine_brand_NjAtVf": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
+              "brand_name": "NEXTSEW",
+              "brand_url": "shopify://pages/nextsew",
+              "brand_image": "shopify://shop_images/nextsew.png",
+              "brand_description": "NEXTSEW es la fábrica más joven de maquinaria de coser industrial en Ningbo, China, destacada por combinar desarrollo propio con tecnología compartida de SUPREME, impulsada por la visión técnica de su CEO.\nLa empresa fabrica equipos de alta precisión y también produce modelos co-desarrollados con SUPREME, integrando innovación, estabilidad y excelente relación costo-rendimiento.",
+              "feature_1": "Ingeniería híbrida: máquinas diseñadas internamente con tecnología SUPREME.",
+              "feature_2": "Flexibilidad OEM: fabricación adaptable según requerimientos del cliente.",
+              "feature_3": "Enfoque joven e innovador: visión técnica del CEO centrada en automatización y precisión.",
+              "badge_1": "Fábrica más joven de Ningbo",
               "badge_2": "",
-              "cta_text": ""
+              "cta_text": "CONOCER MÁS"
             }
           }
         },
