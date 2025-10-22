@@ -147,7 +147,7 @@
   #shopify-section-{{ section.id }} .machine-card-image-wrapper {
     position: relative;
     width: 100%;
-    height: 160px; /* 🔥 MÁS PEQUEÑA: 160px */
+    height: 160px;
     overflow: hidden;
     background-color: var(--soltex-gray-light);
   }
@@ -158,20 +158,19 @@
     left: 0;
     width: 100%;
     height: 100%;
-    max-width: 100%; /* 🔥 LÍMITE DE ANCHO */
     object-fit: cover; 
     object-position: center;
     user-select: none;
     pointer-events: none;
   }
 
-  /* 🔥 LOGO MÁS PEQUEÑO */
+  /* 🔥 LOGO PEQUEÑO */
   #shopify-section-{{ section.id }} .machine-card-logo {
     position: absolute;
     top: 12px;
     left: 12px;
-    max-width: 80px; /* 🔥 MÁS PEQUEÑO */
-    max-height: 40px; /* 🔥 MÁS PEQUEÑO */
+    max-width: 80px;
+    max-height: 40px;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 6px 8px;
     border-radius: 4px;
@@ -202,21 +201,21 @@
   }
 
   #shopify-section-{{ section.id }} .machine-card-content {
-    padding: 20px; /* 🔥 MENOS PADDING */
+    padding: 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
 
   #shopify-section-{{ section.id }} .machine-card-title {
-    font-size: 20px; /* 🔥 MÁS PEQUEÑO */
+    font-size: 20px;
     font-weight: 700;
     color: var(--soltex-navy);
     margin-bottom: 8px;
   }
 
   #shopify-section-{{ section.id }} .machine-card-description {
-    font-size: 14px; /* 🔥 MÁS PEQUEÑO */
+    font-size: 14px;
     color: #666;
     line-height: 1.5;
     margin-bottom: 16px;
@@ -233,26 +232,26 @@
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 8px;
-    font-size: 12px; /* 🔥 MÁS PEQUEÑO */
+    font-size: 12px;
     color: #444;
     line-height: 1.4;
   }
 
   #shopify-section-{{ section.id }} .machine-card-feature i {
     color: var(--soltex-navy);
-    font-size: 16px; /* 🔥 MÁS PEQUEÑO */
+    font-size: 16px;
     flex-shrink: 0;
     margin-top: 1px;
   }
 
   #shopify-section-{{ section.id }} .machine-card-cta {
     display: inline-block;
-    padding: 10px 20px; /* 🔥 MÁS PEQUEÑO */
+    padding: 10px 20px;
     background-color: var(--soltex-navy);
     color: var(--soltex-white);
     text-decoration: none;
     border-radius: 4px;
-    font-size: 14px; /* 🔥 MÁS PEQUEÑO */
+    font-size: 14px;
     font-weight: 600;
     transition: all 0.3s ease;
     text-align: center;
@@ -305,7 +304,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
-  /* 🔥 RESPONSIVE MÓVIL */
+  /* 🔥 RESPONSIVE */
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} .machines-grid {
       grid-template-columns: 1fr;
@@ -314,7 +313,7 @@
     }
 
     #shopify-section-{{ section.id }} .machine-card-image-wrapper {
-      height: 140px; /* 🔥 AÚN MÁS PEQUEÑA EN MÓVIL */
+      height: 140px;
     }
 
     #shopify-section-{{ section.id }} .hero-title {
@@ -386,27 +385,24 @@
           {%- endif -%}
           
           <article class="machine-card">
-            <!-- 🔥 HTML OPTIMIZADO -->
+            <!-- 🔥 HTML CORREGIDO - SIN ERRORES -->
             <div class="machine-card-image-wrapper">
               {%- if block.settings.brand_image != blank -%}
                 {{ block.settings.brand_image | image_url: width: 400 | image_tag: 
                   loading: 'lazy',
                   class: 'machine-card-image',
                   alt: block.settings.brand_name,
-                  width: '400',
-                  height: '160'
+                  sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw'
                 }}
               {%- else -%}
-                {{ 'product-1' | placeholder_svg_tag: 'machine-card-image', 'width: 400, height: 160' }}
+                {{ 'product-1' | placeholder_svg_tag: 'machine-card-image' }}
               {%- endif -%}
               
               {%- if block.settings.brand_logo != blank -%}
                 {{ block.settings.brand_logo | image_url: width: 120 | image_tag: 
                   loading: 'lazy',
                   class: 'machine-card-logo',
-                  alt: block.settings.brand_name | append: ' logo',
-                  width: '80',
-                  height: '40'
+                  alt: block.settings.brand_name | append: ' logo'
                 }}
               {%- endif -%}
               
