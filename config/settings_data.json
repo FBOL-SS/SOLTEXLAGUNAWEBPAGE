@@ -278,7 +278,7 @@
           "industry_cdrPqV": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
+              "icon": "ph-t-shirt",
               "title": "Tejido de Punto",
               "description": "Para materiales elásticos y prendas ligeras (camisetas, ropa deportiva)."
             }
