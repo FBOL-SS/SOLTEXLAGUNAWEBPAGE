@@ -1,156 +1,602 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  #shopify-section-{{ section.id }}{
-    --bg: {{ section.settings.background_color }};
-    --fg: {{ section.settings.text_color }};
-    --muted: color-mix(in srgb, {{ section.settings.text_color }} 80%, transparent);
-    --card: {% if section.settings.tone == 'light' %}#ffffff{% else %}rgba(255,255,255,.06){% endif %};
-    --bd: {% if section.settings.tone == 'light' %}#e5e7eb{% else %}rgba(255,255,255,.18){% endif %};
-    --shadow: {% if section.settings.tone == 'light' %}0 10px 24px rgba(15,23,42,.08){% else %}0 10px 24px rgba(0,0,0,.16){% endif %};
-    --primary: {{ section.settings.primary_color }};
+  .shopdev .contact-section {
+    font-family: 'Lora', Georgia, serif;
+    background: #0D1B2A;
+    position: relative;
+    overflow: hidden;
   }
 
-  #shopify-section-{{ section.id }} .ct-wrap{background:var(--bg);color:var(--fg); position:relative;}
-  #shopify-section-{{ section.id }} .inner{max-width: {{ section.settings.container_max }}px; margin:0 auto; padding: clamp(32px,6vw,80px) 16px;}
-
-  #shopify-section-{{ section.id }} .title{
-    font: 800 clamp(26px,4vw,40px)/1.15 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    margin:0 0 8px; text-align: {{ section.settings.header_align }};
+  .shopdev .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(13, 27, 42, 0.9) 0%, 
+      rgba(30, 50, 80, 0.8) 25%, 
+      rgba(13, 27, 42, 0.9) 50%, 
+      rgba(40, 60, 90, 0.8) 75%, 
+      rgba(13, 27, 42, 0.9) 100%);
+    background-size: 400% 400%;
+    animation: smokyGradient 15s ease infinite;
+    pointer-events: none;
   }
-  #shopify-section-{{ section.id }} .subtitle{
-    font: 400 clamp(15px,2.2vw,18px)/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    margin:0 0 26px; color: var(--muted); text-align: {{ section.settings.header_align }};
+
+  @keyframes smokyGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .grid{display:grid; gap:18px;}
-  @media(min-width:992px){
-    .cols-2{grid-template-columns: 1fr 1fr;}
-    .cols-3{grid-template-columns: 2fr 1fr;}
+  .shopdev .contact-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
   }
 
-  .card{background:var(--card); border:1px solid var(--bd); border-radius:12px; box-shadow:var(--shadow); padding:18px;}
-
-  .form-grid{display:grid; gap:14px;}
-  @media(min-width:768px){ .form-grid.two{grid-template-columns: 1fr 1fr;} }
-
-  .label{font-size:13px; font-weight:600; margin-bottom:6px; display:block;}
-  .input, .textarea{
-    width:100%; background:#fff; color:#0f172a; border:1px solid #cbd5e1; border-radius:10px;
-    padding:12px 14px; font-size:16px;
+  .shopdev .contact-content {
+    position: relative;
+    z-index: 1;
   }
-  {% if section.settings.tone == 'dark' %}
-  .input, .textarea{ background:rgba(255,255,255,.9); }
-  {% endif %}
-  .textarea{min-height:130px; resize:vertical;}
-  .btn{
-    display:inline-block; padding:12px 18px; border-radius:10px; border:1px solid var(--bd);
-    background: var(--primary); color:#fff; font-weight:700; cursor:pointer;
+
+  .shopdev .glass-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 32px;
   }
-  .msg{padding:12px 14px; border-radius:10px; margin-bottom:12px; font-size:14px;}
-  .msg.ok{background:#ecfdf5; border:1px solid #10b981; color:#065f46;}
-  .msg.err{background:#fef2f2; border:1px solid #ef4444; color:#991b1b;}
-  .info-list{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
-  .info-list a{color:var(--fg); text-decoration:none;}
-  .info-list a:hover{text-decoration:underline;}
-  .map-wrap{border-radius:12px; overflow:hidden; border:1px solid var(--bd); box-shadow:var(--shadow);}
+
+  .shopdev .contact-form input,
+  .shopdev .contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .contact-form input::placeholder,
+  .shopdev .contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .shopdev .contact-form input:focus,
+  .shopdev .contact-form textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .shopdev .contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .shopdev .submit-btn {
+    width: 100%;
+    padding: 14px 32px;
+    background: #ffffff;
+    color: #0D1B2A;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .submit-btn:hover {
+    background: #0D1B2A;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+
+  .shopdev .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #0D1B2A;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .whatsapp-btn:hover {
+    background: #0D1B2A;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+
+  .shopdev .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 24px;
+  }
+
+  .shopdev .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .shopdev .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .shopdev .info-item i {
+    font-size: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .shopdev .faq-section {
+    margin-top: 48px;
+  }
+
+  .shopdev .faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .shopdev .faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .shopdev .faq-question:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .shopdev .faq-question i {
+    transition: transform 0.3s ease;
+  }
+
+  .shopdev .faq-question.active i {
+    transform: rotate(180deg);
+  }
+
+  .shopdev .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .shopdev .faq-answer.active {
+    max-height: 500px;
+  }
+
+  .shopdev .faq-answer-content {
+    padding: 0 24px 20px 24px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+  }
+
+  .shopdev .success-message {
+    padding: 16px;
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    border-radius: 12px;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .shopdev .glass-box {
+      padding: 24px;
+    }
+
+    .shopdev .contact-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
 </style>
 
-<section class="ct-wrap" aria-label="Contáctanos">
-  <div class="inner">
-    {% if section.settings.title != blank %}<h1 class="title">{{ section.settings.title | escape }}</h1>{% endif %}
-    {% if section.settings.subtitle != blank %}<p class="subtitle">{{ section.settings.subtitle }}</p>{% endif %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 
-    <div class="grid cols-3">
-      <!-- FORM -->
-      <div class="card">
-        {% form 'contact', id: 'contact-form-'.concat(section.id), class: 'contact-form' %}
-          <input type="hidden" name="contact[tags]" value="contact_form,soltex">
+<div class="w-full contact-section">
+  <div class="contact-content py-16 px-6 md:px-12 max-w-7xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center mb-12">
+      {% if section.settings.title != blank %}
+        <h2 class="contact-heading text-4xl md:text-5xl text-white mb-4">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <div class="text-lg text-white/80 max-w-2xl mx-auto">
+          {{ section.settings.subtitle }}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Main Grid -->
+    <div class="contact-grid grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      
+      <!-- Left Column - Contact Form -->
+      <div class="glass-box">
+        {% form 'contact' %}
           {% if form.posted_successfully? %}
-            <div class="msg ok">{{ section.settings.success_message }}</div>
+            <div class="success-message">
+              <p>{{ section.settings.success_message }}</p>
+            </div>
           {% endif %}
+
           {% if form.errors %}
-            <div class="msg err">{{ section.settings.error_message }}</div>
+            <div class="mb-6 p-4 bg-red-500/20 border border-red-500/40 rounded-lg">
+              <p class="text-white">{{ form.errors | default_errors }}</p>
+            </div>
           {% endif %}
 
-          <div class="form-grid two">
-            <div>
-              <label class="label" for="ct-name-{{ section.id }}">Nombre</label>
-              <input class="input" id="ct-name-{{ section.id }}" type="text" name="contact[name]" placeholder="Tu nombre" required>
+          <div class="contact-form">
+            <div class="mb-6">
+              <label for="contact-name">Nombre *</label>
+              <input 
+                type="text" 
+                id="contact-name" 
+                name="contact[name]" 
+                placeholder="Tu nombre completo"
+                required
+              >
             </div>
-            <div>
-              <label class="label" for="ct-email-{{ section.id }}">Email</label>
-              <input class="input" id="ct-email-{{ section.id }}" type="email" name="contact[email]" placeholder="tu@email.com" required>
+
+            <div class="mb-6">
+              <label for="contact-email">Correo Electrónico *</label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                name="contact[email]" 
+                placeholder="tu@email.com"
+                required
+              >
             </div>
-          </div>
 
-          <div style="margin-top:10px">
-            <label class="label" for="ct-phone-{{ section.id }}">Teléfono</label>
-            <input class="input" id="ct-phone-{{ section.id }}" type="tel" name="contact[phone]" placeholder="+52 ...">
-          </div>
+            <div class="mb-6">
+              <label for="contact-message">Mensaje *</label>
+              <textarea 
+                id="contact-message" 
+                name="contact[body]" 
+                rows="5" 
+                placeholder="Escribe tu mensaje aquí..."
+                required
+              ></textarea>
+            </div>
 
-          <div style="margin-top:10px">
-            <label class="label" for="ct-message-{{ section.id }}">Mensaje</label>
-            <textarea class="textarea" id="ct-message-{{ section.id }}" name="contact[body]" placeholder="Cuéntanos qué necesitas…" required></textarea>
-          </div>
-
-          <div style="margin-top:12px">
-            <button class="btn" type="submit" id="ct-submit-{{ section.id }}">Enviar mensaje</button>
+            <button type="submit" class="submit-btn">
+              Enviar Mensaje
+            </button>
           </div>
         {% endform %}
       </div>
 
-      <!-- INFO -->
-      <aside class="card">
-        <h3 style="margin:0 0 8px; font:800 16px/1.2 Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">Información de contacto</h3>
-        <ul class="info-list">
-          <li>📍 Av. Mariano López Ortiz Norte 326</li>
-          <li>Torreón, Coahuila. C.P. 27023</li>
-          <li><a href="mailto:info@soltexlaguna.com">info@soltexlaguna.com</a></li>
-          <li><a href="https://wa.me/528710000000">WhatsApp</a></li>
-          <li>Lunes a Viernes: 9:00 a 18:00</li>
-        </ul>
-      </aside>
+      <!-- Right Column - Map & Info -->
+      <div>
+        <div class="glass-box mb-6">
+          {% if section.settings.map_url != blank %}
+            <div class="map-container">
+              <iframe 
+                src="{{ section.settings.map_url }}" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          {% endif %}
+
+          {% if section.settings.address != blank %}
+            <div class="info-item">
+              <i class="ph ph-map-pin"></i>
+              <div>
+                <strong>Dirección</strong><br>
+                {{ section.settings.address }}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if section.settings.phone != blank %}
+            <div class="info-item">
+              <i class="ph ph-phone"></i>
+              <div>
+                <strong>Teléfono</strong><br>
+                <a href="tel:{{ section.settings.phone }}" class="text-white hover:underline">
+                  {{ section.settings.phone }}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if section.settings.email != blank %}
+            <div class="info-item">
+              <i class="ph ph-envelope"></i>
+              <div>
+                <strong>Email</strong><br>
+                <a href="mailto:{{ section.settings.email }}" class="text-white hover:underline">
+                  {{ section.settings.email }}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if section.settings.business_hours != blank %}
+            <div class="info-item">
+              <i class="ph ph-clock"></i>
+              <div>
+                <strong>Horario</strong><br>
+                <div class="text-white/80">{{ section.settings.business_hours }}</div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.whatsapp_link != blank %}
+          <a href="{{ section.settings.whatsapp_link }}" target="_blank" class="whatsapp-btn w-full justify-center">
+            <i class="ph ph-whatsapp-logo" style="font-size: 20px;"></i>
+            Escríbenos por WhatsApp
+          </a>
+        {% endif %}
+      </div>
     </div>
 
-    <!-- MAPA -->
-    <div style="margin-top:24px" class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.547217197708!2d-103.42070422547722!3d25.54038197749298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fd9c87c03f5d5%3A0x31e0e9c15474d06c!2sAv.%20Mariano%20L%C3%B3pez%20Ortiz%20Nte%20326%2C%20Centro%2C%2027023%20Torre%C3%B3n%2C%20Coah.!5e0!3m2!1ses-419!2smx!4v1729460000000!5m2!1ses-419!2smx"
-        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
+    <!-- FAQ Section -->
+    {% if section.settings.show_faq and section.blocks.size > 0 %}
+      <div class="faq-section">
+        <h3 class="contact-heading text-3xl text-white text-center mb-8">
+          Preguntas Frecuentes
+        </h3>
+        
+        <div class="max-w-3xl mx-auto">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq' %}
+              <div class="faq-item" {{ block.shopify_attributes }}>
+                <button class="faq-question" data-faq-toggle>
+                  <span>{{ block.settings.question }}</span>
+                  <i class="ph ph-caret-down"></i>
+                </button>
+                <div class="faq-answer">
+                  <div class="faq-answer-content">
+                    {{ block.settings.answer }}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
   </div>
-</section>
+</div>
 
 <script>
-  (function(){
-    var root = document.getElementById('shopify-section-{{ section.id }}');
-    if(!root) return;
-    var form = root.querySelector('form.contact-form');
-    var btn  = root.querySelector('#ct-submit-{{ section.id }}');
-    if(!form) return;
-    form.addEventListener('submit', function(){
-      if(btn){ btn.disabled = true; btn.textContent = 'Enviando…'; }
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqToggles = document.querySelectorAll('[data-faq-toggle]');
+    
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
+        
+        // Close all other FAQs
+        faqToggles.forEach(otherToggle => {
+          if (otherToggle !== this) {
+            otherToggle.classList.remove('active');
+            otherToggle.nextElementSibling.classList.remove('active');
+          }
+        });
+        
+        // Toggle current FAQ
+        if (isActive) {
+          this.classList.remove('active');
+          answer.classList.remove('active');
+        } else {
+          this.classList.add('active');
+          answer.classList.add('active');
+        }
+      });
     });
-  })();
+  });
 </script>
 
 {% schema %}
 {
-  "name": "soltex-contact",
+  "name": "contact-advanced",
+  "class": "shopdev",
+  "tag": "section",
   "settings": [
-    { "type": "select", "id": "tone", "label": "Tono", "options": [
-      { "value": "light", "label": "Claro" }, { "value": "dark", "label": "Oscuro" }
-    ], "default": "light" },
-    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#f8fafc" },
-    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#0d1b2a" },
-    { "type": "color", "id": "primary_color", "label": "Color primario (botón)", "default": "#0d1b2a" },
-    { "type": "range", "id": "container_max", "label": "Ancho máximo (px)", "min": 900, "max": 1400, "step": 50, "default": 1100 },
-    { "type": "text", "id": "title", "label": "Título", "default": "Contáctanos" },
-    { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Estamos listos para ayudarte." },
-    { "type": "select", "id": "header_align", "label": "Alineación título", "options": [
-      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }
-    ], "default": "center" }
+    {
+      "type": "header",
+      "content": "Encabezado"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Contáctanos"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "<p>Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Formulario"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Mensaje de éxito",
+      "default": "¡Gracias por contactarnos! Hemos recibido tu mensaje y te responderemos pronto."
+    },
+    {
+      "type": "header",
+      "content": "Mapa e Información"
+    },
+    {
+      "type": "text",
+      "id": "map_url",
+      "label": "URL del mapa (Google Maps embed)",
+      "info": "Pega la URL de inserción de Google Maps"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Dirección",
+      "default": "Calle Principal 123, Ciudad, País"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Teléfono",
+      "default": "+52 123 456 7890"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Correo electrónico",
+      "default": "contacto@soltex.com"
+    },
+    {
+      "type": "richtext",
+      "id": "business_hours",
+      "label": "Horario de atención",
+      "default": "<p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 10:00 AM - 2:00 PM</p>"
+    },
+    {
+      "type": "header",
+      "content": "WhatsApp"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_link",
+      "label": "Enlace de WhatsApp",
+      "info": "Ejemplo: https://wa.me/521234567890"
+    },
+    {
+      "type": "header",
+      "content": "Preguntas Frecuentes"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_faq",
+      "label": "Mostrar sección de FAQ",
+      "default": true
+    }
   ],
-  "presets": [{ "name": "soltex-contact" }]
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Pregunta FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pregunta",
+          "default": "¿Cuál es el tiempo de respuesta?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Respuesta",
+          "default": "<p>Normalmente respondemos en un plazo de 24 a 48 horas hábiles.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "contact-advanced",
+      "settings": {
+        "title": "Contáctanos",
+        "subtitle": "<p>¿Necesitas ayuda con sensores automotrices? Nuestro equipo de expertos está listo para asistirte con cualquier consulta técnica o comercial.</p>",
+        "success_message": "¡Gracias por contactarnos! Hemos recibido tu mensaje y uno de nuestros especialistas te responderá pronto.",
+        "map_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.8!2d-99.1332!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzU3LjQiTiA5OcKwMDcnNTkuNSJX!5e0!3m2!1sen!2smx!4v1234567890",
+        "address": "Av. Industrial 456, Parque Tecnológico\nCiudad de México, 01234\nMéxico",
+        "phone": "+52 55 1234 5678",
+        "email": "ventas@soltex.com.mx",
+        "business_hours": "<p><strong>Lunes a Viernes:</strong> 9:00 AM - 7:00 PM<br><strong>Sábados:</strong> 9:00 AM - 2:00 PM<br><strong>Domingos:</strong> Cerrado</p>",
+        "whatsapp_link": "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20información%20sobre%20sensores%20automotrices",
+        "show_faq": true
+      },
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuál es el tiempo de entrega?",
+            "answer": "<p>Los pedidos en stock se envían en 24-48 horas. Para sensores especiales o pedidos grandes, el tiempo de entrega es de 5-7 días hábiles.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Ofrecen garantía en los sensores?",
+            "answer": "<p>Sí, todos nuestros sensores automotrices cuentan con garantía de 12 meses contra defectos de fabricación. Consulta nuestros términos y condiciones para más detalles.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Hacen envíos a toda la República?",
+            "answer": "<p>Sí, realizamos envíos a toda la República Mexicana a través de paqueterías certificadas. Los costos de envío se calculan según el destino y peso del pedido.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Puedo comprar al mayoreo?",
+            "answer": "<p>Por supuesto. Ofrecemos precios especiales para compras al mayoreo y distribuidores. Contáctanos directamente para obtener una cotización personalizada.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cómo sé qué sensor necesito para mi vehículo?",
+            "answer": "<p>Nuestro equipo técnico puede ayudarte a identificar el sensor correcto. Solo necesitamos la marca, modelo y año de tu vehículo. También puedes consultar nuestro catálogo en línea.</p>"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
