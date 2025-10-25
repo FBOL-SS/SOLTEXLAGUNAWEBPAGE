@@ -1,209 +1,335 @@
-{% comment %}
-SOLTEX — Footer (CSS nativo, sin dependencias)
-- 2–4 columnas configurables: Menús, Contacto, Sobre la marca, Social
-- Barra inferior con derechos, menú legal y métodos de pago opcionales
-- Sin defaults en campos URL (cumple validación de schema)
-- Estilos encapsulados por #shopify-section-{{ section.id }}
-{% endcomment %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 
 <style>
-  #shopify-section-{{ section.id }} {
-    --ft-bg: {{ section.settings.bg_color }};
-    --ft-fg: {{ section.settings.text_color }};
-    --ft-dim: color-mix(in srgb, {{ section.settings.text_color }} 80%, transparent);
-    --ft-border: color-mix(in srgb, {{ section.settings.text_color }} 12%, transparent);
+  .shopdev .footer-link {
+    transition: color 0.3s ease;
   }
-
-  #shopify-section-{{ section.id }} .ft { background: var(--ft-bg); color: var(--ft-fg); }
-  #shopify-section-{{ section.id }} .ft-inner { max-width: min(1200px, 92vw); margin: 0 auto; padding: 36px 12px; }
-
-  #shopify-section-{{ section.id }} .ft-top { display:grid; gap: 22px; grid-template-columns: 1fr; border-bottom: 1px solid var(--ft-border); padding-bottom: 24px; }
-  @media (min-width: 800px){ #shopify-section-{{ section.id }} .ft-top { grid-template-columns: repeat({{ section.settings.desktop_columns }}, minmax(0,1fr)); } }
-
-  #shopify-section-{{ section.id }} .ft-col h3 { font-weight: 800; font-size: 15px; margin: 0 0 10px; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-  #shopify-section-{{ section.id }} .ft-col p, #shopify-section-{{ section.id }} .ft-col li, #shopify-section-{{ section.id }} .ft-col a { font-size: 14px; line-height: 1.6; }
-  #shopify-section-{{ section.id }} .ft-col a { color: var(--ft-fg); text-decoration: none; }
-  #shopify-section-{{ section.id }} .ft-col a:hover { opacity: .85; }
-  #shopify-section-{{ section.id }} .muted { color: var(--ft-dim); }
-
-  /* Logo/About */
-  #shopify-section-{{ section.id }} .brand { display:flex; gap: 12px; align-items:center; margin-bottom: 10px; }
-  #shopify-section-{{ section.id }} .brand img { max-width: {{ section.settings.logo_max_width }}px; height:auto; width:auto; display:block; }
-
-  /* Menus */
-  #shopify-section-{{ section.id }} .menu ul { list-style:none; padding:0; margin:0; display:grid; gap: 8px; }
-
-  /* Contact */
-  #shopify-section-{{ section.id }} .contact ul { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
-
-  /* Social */
-  #shopify-section-{{ section.id }} .social { display:flex; gap:10px; flex-wrap:wrap; }
-  #shopify-section-{{ section.id }} .social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; border:1px solid var(--ft-border); }
-  #shopify-section-{{ section.id }} .social a:hover { background: var(--ft-border); }
-  #shopify-section-{{ section.id }} .social svg { width:18px; height:18px; fill: currentColor; }
-
-  /* Bottom bar */
-  #shopify-section-{{ section.id }} .ft-bottom { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding: 14px 0; }
-  #shopify-section-{{ section.id }} .legal { display:flex; gap:12px; flex-wrap:wrap; }
-  #shopify-section-{{ section.id }} .payments { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
-  #shopify-section-{{ section.id }} .payments svg { width:34px; height:auto; }
-
-  /* Back to top */
-  #shopify-section-{{ section.id }} .backtop { margin-left:auto; font-size: 14px; text-decoration:none; border:1px solid var(--ft-border); padding:6px 10px; border-radius:8px; }
-  #shopify-section-{{ section.id }} .backtop:hover { background: var(--ft-border); }
+  
+  .shopdev .footer-link:hover {
+    color: #E5E7EB;
+  }
+  
+  .shopdev .social-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .shopdev .social-icon:hover {
+    transform: translateY(-2px);
+    color: #E5E7EB;
+  }
+  
+  @media (max-width: 768px) {
+    .shopdev .footer-columns {
+      text-align: center;
+    }
+  }
 </style>
 
-<footer class="ft" role="contentinfo">
-  <div class="ft-inner">
-    <div class="ft-top">
-      {% if section.settings.show_brand %}
-        <div class="ft-col">
-          {% if section.settings.logo != blank %}
-            <div class="brand">
-              {{ section.settings.logo | image_url: width: 320 | image_tag: alt: shop.name | escape }}
-            </div>
-          {% endif %}
-          {% if section.settings.about_text != blank %}
-            <p class="muted">{{ section.settings.about_text }}</p>
-          {% endif %}
-          {% if section.settings.show_social %}
-            <div class="social" aria-label="Redes sociales">
-              {% if section.settings.facebook_url != blank %}
-                <a href="{{ section.settings.facebook_url }}" aria-label="Facebook">{% render 'icon-facebook' %}</a>
-              {% endif %}
-              {% if section.settings.instagram_url != blank %}
-                <a href="{{ section.settings.instagram_url }}" aria-label="Instagram">{% render 'icon-instagram' %}</a>
-              {% endif %}
-              {% if section.settings.linkedin_url != blank %}
-                <a href="{{ section.settings.linkedin_url }}" aria-label="LinkedIn">{% render 'icon-linkedin' %}</a>
-              {% endif %}
-              {% if section.settings.youtube_url != blank %}
-                <a href="{{ section.settings.youtube_url }}" aria-label="YouTube">{% render 'icon-youtube' %}</a>
-              {% endif %}
-              {% if section.settings.whatsapp_url != blank %}
-                <a href="{{ section.settings.whatsapp_url }}" aria-label="WhatsApp">{% render 'icon-whatsapp' %}</a>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      {% if section.settings.menu_1 != blank %}
-        <div class="ft-col menu">
-          {% if section.settings.menu_1_title != blank %}<h3>{{ section.settings.menu_1_title }}</h3>{% endif %}
-          <ul>
-            {% for link in section.settings.menu_1.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-
-      {% if section.settings.menu_2 != blank %}
-        <div class="ft-col menu">
-          {% if section.settings.menu_2_title != blank %}<h3>{{ section.settings.menu_2_title }}</h3>{% endif %}
-          <ul>
-            {% for link in section.settings.menu_2.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-
-      {% if section.settings.menu_3 != blank %}
-        <div class="ft-col menu">
-          {% if section.settings.menu_3_title != blank %}<h3>{{ section.settings.menu_3_title }}</h3>{% endif %}
-          <ul>
-            {% for link in section.settings.menu_3.links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-
-      {% if section.settings.show_contact %}
-        <div class="ft-col contact">
-          {% if section.settings.contact_title != blank %}<h3>{{ section.settings.contact_title }}</h3>{% endif %}
-          <ul>
-            {% if section.settings.address_line_1 != blank %}<li class="muted">{{ section.settings.address_line_1 }}</li>{% endif %}
-            {% if section.settings.address_line_2 != blank %}<li class="muted">{{ section.settings.address_line_2 }}</li>{% endif %}
-            {% if section.settings.phone_text != blank and section.settings.phone_url != blank %}<li><a href="{{ section.settings.phone_url }}">{{ section.settings.phone_text }}</a></li>{% endif %}
-            {% if section.settings.email_text != blank and section.settings.email_url != blank %}<li><a href="{{ section.settings.email_url }}">{{ section.settings.email_text }}</a></li>{% endif %}
-            {% if section.settings.hours_text != blank %}<li class="muted">{{ section.settings.hours_text }}</li>{% endif %}
-          </ul>
-        </div>
-      {% endif %}
-    </div>
-
-    <div class="ft-bottom">
-      <div class="copyright muted">© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_text }}</div>
-
-      <div class="legal">
-        {% if section.settings.legal_menu != blank %}
-          {% for link in section.settings.legal_menu.links %}
-            <a class="muted" href="{{ link.url }}">{{ link.title }}</a>
-          {% endfor %}
+<footer class="w-full" style="background-color: #0D1B2A; color: #FFFFFF;">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-8 py-10 md:py-16">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 footer-columns">
+      
+      <!-- Brand Column -->
+      <div class="flex flex-col items-center md:items-start">
+        {% if section.settings.logo != blank %}
+          <div class="mb-4">
+            {{ section.settings.logo | image_url: width: 200 | image_tag: 
+              class: 'h-auto max-w-[150px]',
+              alt: shop.name,
+              loading: 'lazy'
+            }}
+          </div>
+        {% else %}
+          <h3 class="text-xl font-bold mb-4">{{ shop.name }}</h3>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+          <p class="text-sm leading-relaxed opacity-90 max-w-[280px]">
+            {{ section.settings.description }}
+          </p>
         {% endif %}
       </div>
-
-      {% if section.settings.show_payments %}
-        <div class="payments" aria-label="Métodos de pago aceptados">
-          {% for type in shop.enabled_payment_types %}
-            {{ type | payment_type_svg_tag }}
-          {% endfor %}
+      
+      <!-- Quick Links Column -->
+      <div class="flex flex-col items-center md:items-start">
+        {% if section.settings.quick_links_title != blank %}
+          <h4 class="text-base font-semibold mb-4 uppercase tracking-wide">
+            {{ section.settings.quick_links_title }}
+          </h4>
+        {% endif %}
+        
+        {% if section.settings.quick_links != blank %}
+          <nav>
+            <ul class="space-y-3">
+              {% for link in linklists[section.settings.quick_links].links %}
+                <li>
+                  <a href="{{ link.url }}" class="footer-link text-sm">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      </div>
+      
+      <!-- Contact Column -->
+      <div class="flex flex-col items-center md:items-start">
+        {% if section.settings.contact_title != blank %}
+          <h4 class="text-base font-semibold mb-4 uppercase tracking-wide">
+            {{ section.settings.contact_title }}
+          </h4>
+        {% endif %}
+        
+        <div class="space-y-3 text-sm">
+          {% if section.settings.address != blank %}
+            <div class="flex items-start justify-center md:justify-start gap-2">
+              <i class="ph ph-map-pin text-lg mt-0.5"></i>
+              <p class="opacity-90 leading-relaxed">{{ section.settings.address }}</p>
+            </div>
+          {% endif %}
+          
+          {% if section.settings.phone != blank %}
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <i class="ph ph-phone text-lg"></i>
+              <a href="tel:{{ section.settings.phone | replace: ' ', '' }}" class="footer-link opacity-90">
+                {{ section.settings.phone }}
+              </a>
+            </div>
+          {% endif %}
+          
+          {% if section.settings.email != blank %}
+            <div class="flex items-center justify-center md:justify-start gap-2">
+              <i class="ph ph-envelope text-lg"></i>
+              <a href="mailto:{{ section.settings.email }}" class="footer-link opacity-90">
+                {{ section.settings.email }}
+              </a>
+            </div>
+          {% endif %}
         </div>
-      {% endif %}
-
-      {% if section.settings.show_back_to_top %}
-        <a href="#top" class="backtop" aria-label="Volver arriba">↑ Arriba</a>
-      {% endif %}
+      </div>
+      
+      <!-- Social Media Column -->
+      <div class="flex flex-col items-center md:items-start">
+        {% if section.settings.social_title != blank %}
+          <h4 class="text-base font-semibold mb-4 uppercase tracking-wide">
+            {{ section.settings.social_title }}
+          </h4>
+        {% endif %}
+        
+        <div class="flex gap-4">
+          {% if section.settings.facebook_url != blank %}
+            <a href="{{ section.settings.facebook_url }}" 
+               class="social-icon" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Facebook">
+              <i class="ph ph-facebook-logo text-2xl"></i>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.instagram_url != blank %}
+            <a href="{{ section.settings.instagram_url }}" 
+               class="social-icon" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+              <i class="ph ph-instagram-logo text-2xl"></i>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.linkedin_url != blank %}
+            <a href="{{ section.settings.linkedin_url }}" 
+               class="social-icon" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="LinkedIn">
+              <i class="ph ph-linkedin-logo text-2xl"></i>
+            </a>
+          {% endif %}
+          
+          {% if section.settings.whatsapp_url != blank %}
+            <a href="{{ section.settings.whatsapp_url }}" 
+               class="social-icon" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="WhatsApp">
+              <i class="ph ph-whatsapp-logo text-2xl"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Bottom Copyright Bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        
+        <!-- Copyright Text -->
+        <div class="text-center md:text-left opacity-80">
+          <p>
+            &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. 
+            {% if section.settings.copyright_text != blank %}
+              {{ section.settings.copyright_text }}
+            {% else %}
+              All rights reserved.
+            {% endif %}
+          </p>
+        </div>
+        
+        <!-- Legal Links -->
+        {% if section.settings.legal_links != blank %}
+          <nav>
+            <ul class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+              {% for link in linklists[section.settings.legal_links].links %}
+                <li>
+                  <a href="{{ link.url }}" class="footer-link opacity-80">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+        
+      </div>
     </div>
   </div>
 </footer>
 
 {% schema %}
 {
-  "name": "soltex-footer",
+  "name": "Professional Footer",
+  "class": "shopdev",
+  "tag": "section",
   "settings": [
-    { "type": "color", "id": "bg_color", "label": "Color de fondo", "default": "#0d1b2a" },
-    { "type": "color", "id": "text_color", "label": "Color de texto", "default": "#ffffff" },
-    { "type": "range", "id": "desktop_columns", "label": "Columnas en desktop", "min": 2, "max": 4, "step": 1, "default": 4 },
-
-    { "type": "checkbox", "id": "show_brand", "label": "Mostrar bloque de marca", "default": true },
-    { "type": "image_picker", "id": "logo", "label": "Logo" },
-    { "type": "range", "id": "logo_max_width", "label": "Ancho máx. del logo (px)", "min": 60, "max": 300, "step": 10, "default": 160 },
-    { "type": "textarea", "id": "about_text", "label": "Descripción breve", "default": "Industrial sewing solutions for manufacturers across Mexico and Central America." },
-
-    { "type": "checkbox", "id": "show_social", "label": "Mostrar redes sociales", "default": true },
-    { "type": "url", "id": "facebook_url", "label": "Facebook" },
-    { "type": "url", "id": "instagram_url", "label": "Instagram" },
-    { "type": "url", "id": "linkedin_url", "label": "LinkedIn" },
-    { "type": "url", "id": "youtube_url", "label": "YouTube" },
-    { "type": "url", "id": "whatsapp_url", "label": "WhatsApp" },
-
-    { "type": "text", "id": "menu_1_title", "label": "Título menú 1", "default": "Productos" },
-    { "type": "link_list", "id": "menu_1", "label": "Menú 1" },
-    { "type": "text", "id": "menu_2_title", "label": "Título menú 2", "default": "Soporte" },
-    { "type": "link_list", "id": "menu_2", "label": "Menú 2" },
-    { "type": "text", "id": "menu_3_title", "label": "Título menú 3", "default": "Compañía" },
-    { "type": "link_list", "id": "menu_3", "label": "Menú 3" },
-
-    { "type": "checkbox", "id": "show_contact", "label": "Mostrar contacto", "default": true },
-    { "type": "text", "id": "contact_title", "label": "Título de contacto", "default": "Contacto" },
-    { "type": "text", "id": "address_line_1", "label": "Dirección línea 1" },
-    { "type": "text", "id": "address_line_2", "label": "Dirección línea 2" },
-    { "type": "text", "id": "phone_text", "label": "Teléfono/WhatsApp (texto)" },
-    { "type": "url", "id": "phone_url", "label": "Teléfono/WhatsApp (URL)" },
-    { "type": "text", "id": "email_text", "label": "Email (texto)" },
-    { "type": "url", "id": "email_url", "label": "Email (mailto:)" },
-    { "type": "text", "id": "hours_text", "label": "Horario" },
-
-    { "type": "link_list", "id": "legal_menu", "label": "Menú legal" },
-    { "type": "text", "id": "copyright_text", "label": "Texto derechos", "default": "Todos los derechos reservados." },
-
-    { "type": "checkbox", "id": "show_payments", "label": "Mostrar métodos de pago", "default": true },
-    { "type": "checkbox", "id": "show_back_to_top", "label": "Mostrar botón Arriba", "default": true }
+    {
+      "type": "header",
+      "content": "Brand Identity"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Brand Description",
+      "default": "Leading provider of premium automotive sensors and industrial technology solutions."
+    },
+    {
+      "type": "header",
+      "content": "Quick Links"
+    },
+    {
+      "type": "text",
+      "id": "quick_links_title",
+      "label": "Quick Links Title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links",
+      "label": "Quick Links Menu"
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "1234 Industrial Parkway, Suite 500, Tech City, TC 12345"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+1 (555) 123-4567"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address",
+      "default": "info@soltex.com"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social Media Title",
+      "default": "Follow Us"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn URL"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp URL"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Additional Copyright Text",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "link_list",
+      "id": "legal_links",
+      "label": "Legal Links Menu"
+    }
   ],
-  "presets": [ { "name": "soltex-footer" } ]
+  "presets": [
+    {
+      "name": "Professional Footer",
+      "settings": {
+        "logo": "shopify://shop_images/latte-with-leaf-design.jpg",
+        "description": "SOLTEX is a leading provider of premium automotive sensors and industrial technology solutions. We deliver precision-engineered components for optimal performance and reliability.",
+        "quick_links_title": "Quick Links",
+        "contact_title": "Contact Us",
+        "address": "2847 Industrial Boulevard, Manufacturing District, Detroit, MI 48201",
+        "phone": "+1 (313) 555-0198",
+        "email": "support@soltex.com",
+        "social_title": "Connect With Us",
+        "facebook_url": "https://facebook.com/soltex",
+        "instagram_url": "https://instagram.com/soltex",
+        "linkedin_url": "https://linkedin.com/company/soltex",
+        "whatsapp_url": "https://wa.me/13135550198",
+        "copyright_text": "All rights reserved."
+      }
+    }
+  ]
 }
 {% endschema %}

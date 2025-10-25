@@ -26,7 +26,7 @@
         "category_4WDiGz": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/bobbin-case-linear-icon-thin-line-illustration-sewing-machine-part-contour-symbol-isolated-outline-drawing-vector.jpg",
+            "category_image": "shopify://shop_images/clothing-button.png",
             "category_name": "REFACCIONES",
             "category_description": "Repuestos originales y genéricos para mantener tu maquinaria en óptimo rendimiento.",
             "category_url": "shopify://collections/all"
@@ -35,7 +35,7 @@
         "category_yC9p86": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/sewing-machine-icon.png",
+            "category_image": "shopify://shop_images/sewing-machine_2.png",
             "category_name": "MAQUINAS DE COSER",
             "category_description": "Componentes y complementos para mejorar la funcionalidad y eficiencia de tus equipos.",
             "category_url": "shopify://pages/maquinas"
@@ -44,7 +44,7 @@
         "category_6WiwbJ": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/tailor-scissor-icon.png",
+            "category_image": "shopify://shop_images/scissors.png",
             "category_name": "ACCESORIOS",
             "category_description": "Equipos industriales de costura, automatización y corte para todo tipo de producción textil.",
             "category_url": "shopify://collections/all"
@@ -53,7 +53,7 @@
         "category_MeGnQ3": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/black-wrench-icon.png",
+            "category_image": "shopify://shop_images/pattern.png",
             "category_name": "SERVICIO TÉCNICO",
             "category_description": "Asistencia especializada, mantenimiento preventivo y reparación de maquinaria textil.",
             "category_url": "shopify://pages/contact"
