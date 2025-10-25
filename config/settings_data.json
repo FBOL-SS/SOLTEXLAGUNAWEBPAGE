@@ -104,14 +104,16 @@
       "soltex-contact": {
         "type": "soltex-contact",
         "settings": {
-          "tone": "light",
-          "background_color": "#f8fafc",
-          "text_color": "#0d1b2a",
-          "primary_color": "#0d1b2a",
-          "container_max": 1100,
           "title": "Contáctanos",
-          "subtitle": "Estamos listos para ayudarte.",
-          "header_align": "center"
+          "subtitle": "<p>Estamos listos para ayudarte.</p>",
+          "success_message": "¡Gracias por contactarnos! Hemos recibido tu mensaje y te responderemos pronto.",
+          "map_url": "",
+          "address": "Av. Mariano Lopez Ortiz 326 Nte. Tercero de Cobian Centro. Torreón, Coahuila. 27000",
+          "phone": "+52 871 524 6072",
+          "email": "info@sewingsolution.com,mx",
+          "business_hours": "<p>Lunes a Viernes: 8:30 AM - 5:00 PM<br/>Sábados: 9:30 AM - 1:00 PM</p>",
+          "whatsapp_link": "",
+          "show_faq": true
         }
       },
       "soltex-machines-hub": {
