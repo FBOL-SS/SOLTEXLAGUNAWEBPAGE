@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "background_image": "shopify://shop_images/AdobeStock_282830762.jpg",
+        "background_image": "shopify://shop_images/IMAGEMACHINE.jpg",
         "overlay_opacity": 75,
         "headline": "SOLUCIONES TEXTILES LAGUNA",
         "subheadline": "Conectamos a la industria textil de México y Centroamérica con soluciones avanzadas en maquinaria, refacciones y automatización.\nEn SOLTEX impulsamos la transformación tecnológica del sector, integrando innovación, rendimiento y servicio técnico en un solo lugar.",
@@ -26,7 +26,6 @@
         "category_4WDiGz": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/clothing-button.png",
             "category_name": "REFACCIONES",
             "category_description": "Repuestos originales y genéricos para mantener tu maquinaria en óptimo rendimiento.",
             "category_url": "shopify://collections/all"
@@ -35,7 +34,6 @@
         "category_yC9p86": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/sewing-machine_2.png",
             "category_name": "MAQUINAS DE COSER",
             "category_description": "Componentes y complementos para mejorar la funcionalidad y eficiencia de tus equipos.",
             "category_url": "shopify://pages/maquinas"
@@ -44,7 +42,6 @@
         "category_6WiwbJ": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/scissors.png",
             "category_name": "ACCESORIOS",
             "category_description": "Equipos industriales de costura, automatización y corte para todo tipo de producción textil.",
             "category_url": "shopify://collections/all"
@@ -53,7 +50,6 @@
         "category_MeGnQ3": {
           "type": "category",
           "settings": {
-            "category_image": "shopify://shop_images/pattern.png",
             "category_name": "SERVICIO TÉCNICO",
             "category_description": "Asistencia especializada, mantenimiento preventivo y reparación de maquinaria textil.",
             "category_url": "shopify://pages/contact"
