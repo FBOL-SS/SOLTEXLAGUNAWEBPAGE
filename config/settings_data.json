@@ -124,7 +124,6 @@
             "settings": {
               "brand_name": "SUPREME INTELLIGENT TECHNOLOGY",
               "brand_url": "shopify://pages/supreme",
-              "brand_image": "shopify://shop_images/SUPREMENINGBO.png",
               "brand_description": "Tercer fabricante más grande del mundo en maquinaria de coser industrial. Desarrolla soluciones automáticas y robóticas para maximizar la eficiencia en la confección, el calzado, la industria automotriz y la producción de mezclilla.",
               "feature_1": "Automatización inteligente con integración robótica colaborativa.",
               "feature_2": "Más de 185 patentes en innovación tecnológica.",
@@ -139,7 +138,6 @@
             "settings": {
               "brand_name": "JACK TECHNOLOGY",
               "brand_url": "shopify://pages/jack",
-              "brand_image": "shopify://shop_images/JACKLOGO.jpg",
               "brand_description": "JACK es líder global en maquinaria de coser industrial y automatización textil. Con presencia en más de 160 países, ofrece soluciones integrales de costura, corte inteligente y control digital de producción, impulsando la eficiencia de fabricantes en sectores de confección, calzado, cuero y mobiliario.",
               "feature_1": "Soluciones completas de costura, corte, transporte y acabado.",
               "feature_2": "Integración de software industrial: APS, MES, WMS y PDM.",
@@ -154,7 +152,6 @@
             "settings": {
               "brand_name": "EAGLE SPECIAL",
               "brand_url": "shopify://pages/eagle-special",
-              "brand_image": "shopify://shop_images/1382801635_15a07a3e-794f-4c73-b9c8-da4d498fcd07.png",
               "brand_description": "Fabricante especializado en máquinas de coser industriales de alta estabilidad y precisión, con más de 20 años de experiencia. Certificada con CE e ISO9002, ofrece soluciones confiables para las industrias de confección, marroquinería, hogar y automotriz.",
               "feature_1": "Equipos de cosido industrial construidos para alta estabilidad y costo-competencia.",
               "feature_2": "Certificación internacional CE + sistema de calidad ISO9002 para asegurar procesos integrados desde materia prima hasta el producto final.",
@@ -169,7 +166,6 @@
             "settings": {
               "brand_name": "NEXTSEW",
               "brand_url": "shopify://pages/nextsew",
-              "brand_image": "shopify://shop_images/nextsew.png",
               "brand_description": "NEXTSEW es la fábrica más joven de maquinaria de coser industrial en Ningbo, China, destacada por combinar desarrollo propio con tecnología compartida de SUPREME, impulsada por la visión técnica de su CEO.\nLa empresa fabrica equipos de alta precisión y también produce modelos co-desarrollados con SUPREME, integrando innovación, estabilidad y excelente relación costo-rendimiento.",
               "feature_1": "Ingeniería híbrida: máquinas diseñadas internamente con tecnología SUPREME.",
               "feature_2": "Flexibilidad OEM: fabricación adaptable según requerimientos del cliente.",
@@ -187,7 +183,7 @@
           "machine_brand_NjAtVf"
         ],
         "settings": {
-          "hero_image": "shopify://shop_images/AdobeStock_416560892.jpg",
+          "hero_image": "shopify://shop_images/IMAGEMACHINE.jpg",
           "hero_overlay_opacity": 0.5,
           "hero_title": "Máquinas Industriales de Alta Precisión",
           "hero_subtitle": "Tecnología de vanguardia para la industria textil. Descubre nuestras marcas líderes en maquinaria de confección profesional.",
