@@ -65,17 +65,16 @@
     box-shadow: 0 8px 24px rgba(13, 27, 42, 0.15);
   }
 
-  /* ARREGLADO: contenedor de imagen */
+  /* CAMBIO: IMAGEN MÁS PEQUEÑA */
   .shopdev .category-image-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 100%;
+    padding-bottom: 80%; /* ANTES: 100% → AHORA: 80% */
     overflow: hidden;
     background-color: #f4f4f4;
-    contain: paint; /* Evita desbordes y mejora render */
+    contain: paint;
   }
 
-  /* ARREGLADO: imagen perfecta */
   .shopdev .category-image {
     position: absolute;
     top: 0;
@@ -85,8 +84,6 @@
     object-fit: cover;
     transition: transform 0.5s ease;
     display: block;
-    max-width: 100%;
-    max-height: 100%;
   }
 
   .shopdev .category-card:hover .category-image {
@@ -162,9 +159,15 @@
     .shopdev .category-content {
       padding: 16px;
     }
+
+    /* MÓVIL: aún más pequeño si quieres */
+    .shopdev .category-image-wrapper {
+      padding-bottom: 70%;
+    }
   }
 </style>
 
+<!-- EL RESTO DEL HTML Y SCHEMA ES IGUAL -->
 <div class="w-full">
   <div class="featured-categories-section">
     {% if section.settings.section_title != blank or section.settings.section_subtitle != blank %}
