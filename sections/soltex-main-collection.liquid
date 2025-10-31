@@ -170,9 +170,11 @@
     color: var(--color-text-light);
   }
 
-  /* TOOLBAR */
+  /* TOOLBAR CON BUSCADOR */
   .shopdev .toolbar {
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
@@ -183,6 +185,39 @@
   .shopdev .product-count {
     font-size: 14px;
     color: var(--color-text-light);
+  }
+
+  .shopdev .search-container {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .shopdev .search-container input {
+    width: 100%;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .shopdev .search-container .ph-magnifying-glass {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    pointer-events: none;
+  }
+
+  .shopdev .search-container .clear-search {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    cursor: pointer;
+    display: none;
   }
 
   .shopdev .sort-dropdown {
@@ -209,7 +244,7 @@
     background-position: right 12px center;
   }
 
-  /* ✅ MOSAICOS IGUALES */
+  /* PRODUCT GRID */
   .shopdev .product-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -229,7 +264,6 @@
     }
   }
 
-  /* ✅ CARDS COMPLETAS CLICKABLES */
   .shopdev .product-card {
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -670,10 +704,33 @@
     font-size: 24px;
     color: var(--color-text);
   }
+
+  /* NO RESULTS */
+  .shopdev .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-text-light);
+  }
 </style>
 
 <div class="w-full collection-main">
-  {% paginate collection.products by section.settings.products_per_page %}
+  {% comment %} === BUSCADOR: FILTRAR PRODUCTOS === {% endcomment %}
+  {% assign search_terms = search.terms | escape | downcase %}
+  {% assign filtered_products = collection.products %}
+
+  {% if search_terms != blank %}
+    {% assign temp_products = blank %}
+    {% for product in collection.products %}
+      {% assign title_match = product.title | downcase | strip | remove: '  ' | split: search_terms | size %}
+      {% assign desc_match = product.description | downcase | strip_html | strip | remove: '  ' | split: search_terms | size %}
+      {% if title_match > 1 or desc_match > 1 %}
+        {% assign temp_products = temp_products | push: product %}
+      {% endif %}
+    {% endfor %}
+    {% assign filtered_products = temp_products %}
+  {% endif %}
+
+  {% paginate filtered_products by section.settings.products_per_page %}
     
     {% if section.settings.show_collection_title and collection.title %}
       <div class="px-4 md:px-8 py-8">
@@ -688,7 +745,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
       
-      <!-- ✅ FILTROS COMPLETOS - SIDEBAR -->
+      <!-- FILTROS -->
       <aside class="filter-sidebar" id="filterSidebar">
         <div class="filter-sidebar-header">
           <h2 class="text-lg font-semibold">Filters</h2>
@@ -777,12 +834,12 @@
       <!-- MAIN CONTENT -->
       <main class="px-4 md:px-8 py-6">
         
-        <!-- ✅ MOBILE FILTER TOGGLE -->
+        <!-- MOBILE FILTER TOGGLE -->
         <button class="mobile-filter-toggle" onclick="toggleMobileFilters()">
           <i class="ph ph-funnel"></i> Filters & Sort
         </button>
 
-        <!-- ✅ ACTIVE FILTERS -->
+        <!-- ACTIVE FILTERS -->
         {% if collection.filters.size > 0 %}
           {% assign active_filters_count = 0 %}
           {% for filter in collection.filters %}
@@ -831,12 +888,25 @@
           {% endif %}
         {% endif %}
 
-        <!-- ✅ TOOLBAR -->
+        <!-- TOOLBAR CON BUSCADOR -->
         <div class="toolbar">
           <div class="product-count">
             {{ paginate.items }} PRODUCTOS
           </div>
-          
+
+          <!-- BUSCADOR -->
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar productos..."
+              value="{{ search.terms | escape }}"
+              oninput="debouncedSearch()"
+            />
+            <i class="ph ph-magnifying-glass"></i>
+            <i class="ph ph-x clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
+          </div>
+
           <div class="sort-dropdown">
             <label for="sortBy">Sort by:</label>
             <select id="sortBy" onchange="sortCollection(this.value)">
@@ -852,85 +922,96 @@
           </div>
         </div>
 
-        <!-- ✅ PRODUCT GRID CON CARDS CLICKABLES -->
+        <!-- PRODUCT GRID -->
         <div class="product-grid">
-          {% for product in collection.products %}
-            <a href="{{ product.url }}" class="product-card" style="text-decoration: none; color: inherit;">
-              <div class="product-image-wrapper">
-                {% if product.featured_image %}
-                  {{ product.featured_image | image_url: width: 600 | image_tag: 
-                    loading: 'lazy',
-                    alt: product.title
-                  }}
-                {% else %}
-                  {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
-                {% endif %}
-
-                {% unless product.available %}
-                  <span class="product-badge sold-out">Sold Out</span>
-                {% else %}
-                  {% if product.compare_at_price > product.price %}
-                    <span class="product-badge">Sale</span>
+          {% if filtered_products.size == 0 %}
+            <div class="no-results">
+              <p class="text-lg">
+                No se encontraron productos para "<strong>{{ search.terms | escape }}</strong>"
+              </p>
+              <button class="mt-4 filter-btn filter-btn-primary" onclick="clearSearch()">
+                Limpiar búsqueda
+              </button>
+            </div>
+          {% else %}
+            {% for product in filtered_products %}
+              <a href="{{ product.url }}" class="product-card" style="text-decoration: none; color: inherit;">
+                <div class="product-image-wrapper">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 600 | image_tag: 
+                      loading: 'lazy',
+                      alt: product.title
+                    }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
                   {% endif %}
-                {% endunless %}
 
-                <button class="quick-view-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">
-                  Quick View
-                </button>
-              </div>
+                  {% unless product.available %}
+                    <span class="product-badge sold-out">Sold Out</span>
+                  {% else %}
+                    {% if product.compare_at_price > product.price %}
+                      <span class="product-badge">Sale</span>
+                    {% endif %}
+                  {% endunless %}
 
-              <div class="product-info">
-                <h3 class="product-title">{{ product.title }}</h3>
-                
-                <div class="product-price">
-                  {% if product.compare_at_price > product.price %}
-                    <span class="compare-price">{{ product.compare_at_price | money }}</span>
-                  {% endif %}
-                  <span>{{ product.price | money }}</span>
+                  <button class="quick-view-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">
+                    Quick View
+                  </button>
                 </div>
 
-                {% if product.available %}
-                  <div class="product-actions">
-                    <button class="product-btn product-btn-primary" onclick="event.preventDefault(); buyNow({{ product.selected_or_first_available_variant.id }}, 1)">
-                      Buy Now
-                    </button>
-                    <button class="product-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">
-                      <i class="ph ph-eye"></i>
-                    </button>
+                <div class="product-info">
+                  <h3 class="product-title">{{ product.title }}</h3>
+                  
+                  <div class="product-price">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="compare-price">{{ product.compare_at_price | money }}</span>
+                    {% endif %}
+                    <span>{{ product.price | money }}</span>
                   </div>
-                {% endif %}
-              </div>
 
-              <script type="application/json" data-product-json="{{ product.id }}">
-                {
-                  "id": {{ product.id | json }},
-                  "title": {{ product.title | json }},
-                  "description": {{ product.description | strip_html | truncate: 200 | json }},
-                  "price": {{ product.price | json }},
-                  "compare_at_price": {{ product.compare_at_price | json }},
-                  "available": {{ product.available | json }},
-                  "images": [
-                    {% for image in product.images limit: 5 %}
-                      {{ image | image_url: width: 800 | json }}{% unless forloop.last %},{% endunless %}
-                    {% endfor %}
-                  ],
-                  "variants": [
-                    {% for variant in product.variants %}
-                      {
-                        "id": {{ variant.id | json }},
-                        "title": {{ variant.title | json }},
-                        "price": {{ variant.price | json }},
-                        "available": {{ variant.available | json }}
-                      }{% unless forloop.last %},{% endunless %}
-                    {% endfor %}
-                  ]
-                }
-              </script>
-            </a>
-          {% endfor %}
+                  {% if product.available %}
+                    <div class="product-actions">
+                      <button class="product-btn product-btn-primary" onclick="event.preventDefault(); buyNow({{ product.selected_or_first_available_variant.id }}, 1)">
+                        Buy Now
+                      </button>
+                      <button class="product-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">
+                        <i class="ph ph-eye"></i>
+                      </button>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <script type="application/json" data-product-json="{{ product.id }}">
+                  {
+                    "id": {{ product.id | json }},
+                    "title": {{ product.title | json }},
+                    "description": {{ product.description | strip_html | truncate: 200 | json }},
+                    "price": {{ product.price | json }},
+                    "compare_at_price": {{ product.compare_at_price | json }},
+                    "available": {{ product.available | json }},
+                    "images": [
+                      {% for image in product.images limit: 5 %}
+                        {{ image | image_url: width: 800 | json }}{% unless forloop.last %},{% endunless %}
+                      {% endfor %}
+                    ],
+                    "variants": [
+                      {% for variant in product.variants %}
+                        {
+                          "id": {{ variant.id | json }},
+                          "title": {{ variant.title | json }},
+                          "price": {{ variant.price | json }},
+                          "available": {{ variant.available | json }}
+                        }{% unless forloop.last %},{% endunless %}
+                      {% endfor %}
+                    ]
+                  }
+                </script>
+              </a>
+            {% endfor %}
+          {% endif %}
         </div>
 
-        <!-- ✅ PAGINATION -->
+        <!-- PAGINATION -->
         {% if paginate.pages > 1 %}
           <div class="pagination">
             {% if paginate.previous %}
@@ -965,7 +1046,7 @@
   {% endpaginate %}
 </div>
 
-<!-- ✅ MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeQuickView()"></div>
 <div class="quick-view-modal" id="quickViewModal">
   <button class="modal-close" onclick="closeQuickView()">
@@ -977,9 +1058,44 @@
   </div>
 </div>
 
-<!-- ✅ JAVASCRIPT COMPLETO CON FILTROS -->
+<!-- JAVASCRIPT -->
 <script>
-  // ✅ FILTROS - FUNCIONES COMPLETAS
+  // BUSCADOR
+  let searchTimeout;
+  function debouncedSearch() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(performSearch, 500);
+  }
+
+  function performSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    const params = new URLSearchParams(window.location.search);
+    params.delete('page');
+
+    if (query) {
+      params.set('q', query);
+    } else {
+      params.delete('q');
+    }
+
+    window.location.search = params.toString();
+  }
+
+  function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('clearSearchBtn').style.display = 'none';
+    const params = new URLSearchParams(window.location.search);
+    params.delete('q');
+    window.location.search = params.toString();
+  }
+
+  // Mostrar/ocultar botón limpiar
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const btn = document.getElementById('clearSearchBtn');
+    btn.style.display = this.value ? 'block' : 'none';
+  });
+
+  // FILTROS
   function toggleMobileFilters() {
     const sidebar = document.getElementById('filterSidebar');
     sidebar.classList.toggle('active');
@@ -991,90 +1107,62 @@
     const formData = new FormData(form);
     const params = new URLSearchParams(window.location.search);
     
-    // Clear existing filter params
     const keysToDelete = [];
     for (const key of params.keys()) {
-      if (key.startsWith('filter.')) {
-        keysToDelete.push(key);
-      }
+      if (key.startsWith('filter.')) keysToDelete.push(key);
     }
     keysToDelete.forEach(key => params.delete(key));
     
-    // Add new filter params
     for (const [key, value] of formData.entries()) {
-      if (value) {
-        params.append(key, value);
-      }
+      if (value) params.append(key, value);
     }
     
-    // Preserve sort order
-    const sortBy = params.get('sort_by');
-    
-    // Navigate to filtered URL
     window.location.search = params.toString();
   }
 
   function clearFilters() {
     const params = new URLSearchParams(window.location.search);
     const sortBy = params.get('sort_by');
-    
-    // Keep only sort_by parameter
+    const q = params.get('q');
     const newParams = new URLSearchParams();
-    if (sortBy) {
-      newParams.set('sort_by', sortBy);
-    }
-    
+    if (sortBy) newParams.set('sort_by', sortBy);
+    if (q) newParams.set('q', q);
     window.location.search = newParams.toString();
   }
 
   function removeFilter(paramName, value) {
     const params = new URLSearchParams(window.location.search);
-    
     if (value) {
-      // Remove specific value
       const values = params.getAll(paramName);
       params.delete(paramName);
-      values.forEach(v => {
-        if (v !== value) {
-          params.append(paramName, v);
-        }
-      });
+      values.forEach(v => { if (v !== value) params.append(paramName, v); });
     } else {
-      // Remove price range (value is the max param name)
       params.delete(paramName);
       params.delete(value);
     }
-    
     window.location.search = params.toString();
   }
 
-  // ✅ SORT
   function sortCollection(sortBy) {
     const params = new URLSearchParams(window.location.search);
     params.set('sort_by', sortBy);
     window.location.search = params.toString();
   }
 
-  // ✅ BUY NOW
   function buyNow(variantId, quantity) {
     window.location.href = `/cart/${variantId}:${quantity}?checkout=true`;
   }
 
-  // ✅ QUICK VIEW
+  // QUICK VIEW
   function openQuickView(productId) {
-    const productData = JSON.parse(
-      document.querySelector(`[data-product-json="${productId}"]`).textContent
-    );
-    
+    const productData = JSON.parse(document.querySelector(`[data-product-json="${productId}"]`).textContent);
     const modal = document.getElementById('quickViewModal');
     const overlay = document.getElementById('modalOverlay');
     const content = document.getElementById('modalContent');
     
     let html = '<div class="modal-images">';
-    
     if (productData.images.length > 0) {
       html += `<img src="${productData.images[0]}" alt="${productData.title}" class="modal-main-image" id="mainImage">`;
-      
       if (productData.images.length > 1) {
         html += '<div class="modal-thumbnails">';
         productData.images.forEach((img, index) => {
@@ -1083,49 +1171,30 @@
         html += '</div>';
       }
     }
-    
     html += '</div><div class="modal-details">';
     html += `<h2>${productData.title}</h2>`;
-    
     html += '<div class="modal-price">';
     if (productData.compare_at_price && productData.compare_at_price > productData.price) {
       html += `<span class="compare-price">${formatMoney(productData.compare_at_price)}</span>`;
     }
-    html += `<span>${formatMoney(productData.price)}</span>`;
-    html += '</div>';
-    
-    if (productData.description) {
-      html += `<div class="modal-description">${productData.description}</div>`;
-    }
+    html += `<span>${formatMoney(productData.price)}</span></div>`;
+    if (productData.description) html += `<div class="modal-description">${productData.description}</div>`;
     
     if (productData.variants.length > 1) {
-      html += '<div class="variant-selector">';
-      html += '<label for="variantSelect">Select Option:</label>';
-      html += '<select id="variantSelect" onchange="updateVariantPrice()">';
+      html += '<div class="variant-selector"><label for="variantSelect">Select Option:</label><select id="variantSelect" onchange="updateVariantPrice()">';
       productData.variants.forEach(variant => {
-        html += `<option value="${variant.id}" data-price="${variant.price}" ${!variant.available ? 'disabled' : ''}>
-          ${variant.title} ${!variant.available ? '- Sold Out' : ''}
-        </option>`;
+        html += `<option value="${variant.id}" data-price="${variant.price}" ${!variant.available ? 'disabled' : ''}>${variant.title} ${!variant.available ? '- Sold Out' : ''}</option>`;
       });
       html += '</select></div>';
     }
     
-    html += '<div class="quantity-selector">';
-    html += '<label>Quantity:</label>';
-    html += '<div class="quantity-input">';
-    html += '<button type="button" onclick="updateQuantity(-1)">-</button>';
-    html += '<input type="number" id="quantityInput" value="1" min="1" max="10" readonly>';
-    html += '<button type="button" onclick="updateQuantity(1)">+</button>';
-    html += '</div></div>';
+    html += '<div class="quantity-selector"><label>Quantity:</label><div class="quantity-input"><button type="button" onclick="updateQuantity(-1)">-</button><input type="number" id="quantityInput" value="1" min="1" max="10" readonly><button type="button" onclick="updateQuantity(1)">+</button></div></div>';
     
     if (productData.available) {
-      html += '<div class="modal-actions">';
-      html += `<button class="product-btn product-btn-primary" style="flex: 2;" onclick="buyNowFromModal()">Buy Now</button>`;
-      html += '</div>';
+      html += `<div class="modal-actions"><button class="product-btn product-btn-primary" style="flex: 2;" onclick="buyNowFromModal()">Buy Now</button></div>`;
     } else {
       html += '<p style="color: #ef4444; font-weight: 500;">This product is currently sold out</p>';
     }
-    
     html += '</div>';
     
     content.innerHTML = html;
@@ -1151,66 +1220,37 @@
   function updateQuantity(change) {
     const input = document.getElementById('quantityInput');
     const newValue = parseInt(input.value) + change;
-    if (newValue >= 1 && newValue <= 10) {
-      input.value = newValue;
-    }
-  }
-
-  function updateVariantPrice() {
-    const select = document.getElementById('variantSelect');
-    const selectedOption = select.options[select.selectedIndex];
-    const price = selectedOption.dataset.price;
+    if (newValue >= 1 && newValue <= 10) input.value = newValue;
   }
 
   function buyNowFromModal() {
     const variantSelect = document.getElementById('variantSelect');
-    const variantId = variantSelect ? variantSelect.value : variantSelect;
+    const variantId = variantSelect ? variantSelect.value : null;
     const quantity = document.getElementById('quantityInput').value;
-    
-    if (!variantSelect) {
-      const productData = JSON.parse(
-        document.querySelector('[data-product-json]').textContent
-      );
-      const firstAvailable = productData.variants.find(v => v.available);
-      if (firstAvailable) {
-        buyNow(firstAvailable.id, quantity);
-      }
-    } else {
-      buyNow(variantId, quantity);
-    }
+    if (variantId) buyNow(variantId, quantity);
   }
 
   function formatMoney(cents) {
     return '$' + (cents / 100).toFixed(2);
   }
 
-  // ✅ PREVENIR PROPAGACIÓN EN BOTONES
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.product-btn, .quick-view-btn')) {
-      e.preventDefault();
-      return false;
-    }
+  // EVENTOS GLOBALES
+  document.addEventListener('click', e => {
+    if (e.target.closest('.product-btn, .quick-view-btn')) e.preventDefault();
   });
 
-  // ✅ ESCAPE KEY
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeQuickView();
       const sidebar = document.getElementById('filterSidebar');
-      if (sidebar.classList.contains('active')) {
-        toggleMobileFilters();
-      }
+      if (sidebar.classList.contains('active')) toggleMobileFilters();
     }
   });
 
-  // ✅ CLOSE MOBILE FILTERS OUTSIDE CLICK
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', e => {
     const sidebar = document.getElementById('filterSidebar');
     const toggle = document.querySelector('.mobile-filter-toggle');
-    
-    if (sidebar.classList.contains('active') && 
-        !sidebar.contains(e.target) && 
-        !toggle.contains(e.target)) {
+    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
       toggleMobileFilters();
     }
   });
