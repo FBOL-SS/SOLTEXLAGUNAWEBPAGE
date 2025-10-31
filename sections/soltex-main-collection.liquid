@@ -210,7 +210,6 @@
         `).join('');
       }
 
-      // Actualizar paginación
       updatePagination(data.pagination || { pages: 1 });
 
     } catch (e) {
@@ -260,7 +259,6 @@
       });
     }
 
-    // Si hay búsqueda en la URL, cargar productos
     if (window.location.search.includes('q=')) {
       loadProducts();
     }
@@ -283,12 +281,10 @@
     const formData = new FormData(form);
     const params = new URLSearchParams(window.location.search);
 
-    // Limpiar filtros anteriores
     for (const key of params.keys()) {
       if (key.startsWith('filter.')) params.delete(key);
     }
 
-    // Añadir nuevos
     for (const [key, value] of formData.entries()) {
       if (value) params.append(key, value);
     }
@@ -347,7 +343,9 @@
       html += `<span class="compare-price">${Shopify.formatMoney(product.compare_at_price)}</span>`;
     }
     html += `<span>${Shopify.formatMoney(product.price)}</span></div>`;
-    if (product.description) html += `<div class="modal-description">${product.description.replace(/<[^>]*>/g, '').substring(0, 200)}...</div>`;
+    if (product.description) {
+      html += `<div class="modal-description">${product.description.replace(/<[^>]*>/g, '').substring(0, 200)}...</div>`;
+    }
     if (product.variants.length > 1) {
       html += '<div class="variant-selector"><label>Opción:</label><select id="variantSelect">';
       product.variants.forEach(v => {
@@ -395,8 +393,17 @@
     if (variantId) buyNow(variantId, qty);
   }
 
-  // === CERRAR MODAL CON ESC ===
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuickView(); });
+  document.addEventListener('keydown', e => { 
+    if (e.key === 'Escape') closeQuickView(); 
+  });
+
+  function toggleMobileFilters() {
+    const sidebar = document.getElementById('filterSidebar');
+    if (sidebar) {
+      sidebar.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    }
+  }
 </script>
 
 {% schema %}
