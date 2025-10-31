@@ -384,6 +384,7 @@
           "category_fAqc74": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/s7.png",
               "title": "RECTAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -401,6 +402,7 @@
           "category_ADLY8c": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/sp799.png",
               "title": "RECUBRIDORAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -409,6 +411,7 @@
           "category_nDzV7n": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/unnamed.png",
               "title": "ESPECIALES",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -417,6 +420,7 @@
           "category_dLWzKJ": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/254.png",
               "title": "AUTOMATIZACION",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -425,6 +429,7 @@
           "category_HNJbnQ": {
             "type": "category",
             "settings": {
+              "image": "shopify://shop_images/1310_b5332cc0-5149-4479-bf59-d3a405061bcd.png",
               "title": "PATRONERAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -518,6 +523,7 @@
           "product_NbyhPg"
         ],
         "settings": {
+          "hero_image": "shopify://shop_images/supreme.jpg",
           "hero_subtitle": "MAKE SEWING EASY",
           "hero_title": "SUPREME INTELLIGENT TECHNOLOGY",
           "hero_button_text": "Ver Catálogo",
