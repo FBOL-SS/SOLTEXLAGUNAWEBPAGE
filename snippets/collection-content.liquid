@@ -70,7 +70,7 @@
     <div class="toolbar">
       <div class="product-count">{{ paginate.items }} PRODUCTOS</div>
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Buscar productos..." value="{{ search.terms | escape }}" oninput="debouncedSearch()" autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." value="{{ search_terms | escape }}" oninput="debouncedSearch()" autocomplete="off">
         <i class="ph ph-magnifying-glass"></i>
         <i class="ph ph-x clear-search" id="clearSearchBtn" onclick="clearSearch()"></i>
       </div>
@@ -91,7 +91,7 @@
 
     {% if show_no_results %}
       <div class="no-results">
-        <p class="text-lg">No se encontraron productos para "<strong>{{ search.terms | escape }}</strong>"</p>
+        <p class="text-lg">No se encontraron productos para "<strong>{{ search_terms | escape }}</strong>"</p>
         <button class="mt-4 filter-btn filter-btn-primary" onclick="clearSearch()">Limpiar búsqueda</button>
       </div>
     {% else %}
