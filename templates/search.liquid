@@ -1,13 +1,29 @@
-{
-  "sections": {
-    "main": {
-      "type": "soltex-main-collection",
-      "settings": {
-        "show_collection_title": false,
-        "show_product_counts": true,
-        "products_per_page": 12
-      }
+{% layout none %}
+{{ content_for_header }}
+
+<div id="search-results"></div>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('/search.json?' + window.location.search.slice(1));
+    const data = await response.json();
+    
+    const container = document.getElementById('search-results');
+    
+    if (data.results.length === 0) {
+      container.innerHTML = `
+        <div style="text-align:center;padding:40px;font-size:18px;">
+          No se encontraron productos para "<strong>${new URLSearchParams(window.location.search).get('q')}</strong>"
+        </div>
+      `;
+      return;
     }
-  },
-  "order": ["main"]
-}
+
+    // Renderiza con tu sección
+    const sectionResponse = await fetch('/search.json?' + window.location.search.slice(1));
+    const sectionData = await sectionResponse.json();
+    
+    // Usa el HTML de la sección principal
+    container.innerHTML = sectionData.sections.main;
+  });
+</script>
