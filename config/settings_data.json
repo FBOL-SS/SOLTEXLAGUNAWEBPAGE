@@ -124,6 +124,7 @@
             "settings": {
               "brand_name": "SUPREME INTELLIGENT TECHNOLOGY",
               "brand_url": "shopify://pages/supreme",
+              "brand_image": "shopify://shop_images/SUPREMENINGBO.png",
               "brand_description": "Tercer fabricante más grande del mundo en maquinaria de coser industrial. Desarrolla soluciones automáticas y robóticas para maximizar la eficiencia en la confección, el calzado, la industria automotriz y la producción de mezclilla.",
               "feature_1": "Automatización inteligente con integración robótica colaborativa.",
               "feature_2": "Más de 185 patentes en innovación tecnológica.",
@@ -138,6 +139,8 @@
             "settings": {
               "brand_name": "JACK TECHNOLOGY",
               "brand_url": "shopify://pages/jack",
+              "brand_logo": "shopify://shop_images/JACKLOGO.jpg",
+              "brand_image": "shopify://shop_images/JACKLOGO.jpg",
               "brand_description": "JACK es líder global en maquinaria de coser industrial y automatización textil. Con presencia en más de 160 países, ofrece soluciones integrales de costura, corte inteligente y control digital de producción, impulsando la eficiencia de fabricantes en sectores de confección, calzado, cuero y mobiliario.",
               "feature_1": "Soluciones completas de costura, corte, transporte y acabado.",
               "feature_2": "Integración de software industrial: APS, MES, WMS y PDM.",
@@ -152,6 +155,7 @@
             "settings": {
               "brand_name": "EAGLE SPECIAL",
               "brand_url": "shopify://pages/eagle-special",
+              "brand_image": "shopify://shop_images/1382801635_1.png",
               "brand_description": "Fabricante especializado en máquinas de coser industriales de alta estabilidad y precisión, con más de 20 años de experiencia. Certificada con CE e ISO9002, ofrece soluciones confiables para las industrias de confección, marroquinería, hogar y automotriz.",
               "feature_1": "Equipos de cosido industrial construidos para alta estabilidad y costo-competencia.",
               "feature_2": "Certificación internacional CE + sistema de calidad ISO9002 para asegurar procesos integrados desde materia prima hasta el producto final.",
@@ -166,6 +170,7 @@
             "settings": {
               "brand_name": "NEXTSEW",
               "brand_url": "shopify://pages/nextsew",
+              "brand_image": "shopify://shop_images/nextsew.png",
               "brand_description": "NEXTSEW es la fábrica más joven de maquinaria de coser industrial en Ningbo, China, destacada por combinar desarrollo propio con tecnología compartida de SUPREME, impulsada por la visión técnica de su CEO.\nLa empresa fabrica equipos de alta precisión y también produce modelos co-desarrollados con SUPREME, integrando innovación, estabilidad y excelente relación costo-rendimiento.",
               "feature_1": "Ingeniería híbrida: máquinas diseñadas internamente con tecnología SUPREME.",
               "feature_2": "Flexibilidad OEM: fabricación adaptable según requerimientos del cliente.",
@@ -379,7 +384,6 @@
           "category_fAqc74": {
             "type": "category",
             "settings": {
-              "image": "shopify://shop_images/h5.jpg",
               "title": "RECTAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -397,7 +401,6 @@
           "category_ADLY8c": {
             "type": "category",
             "settings": {
-              "image": "shopify://shop_images/sp799.png",
               "title": "RECUBRIDORAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -406,7 +409,6 @@
           "category_nDzV7n": {
             "type": "category",
             "settings": {
-              "image": "shopify://shop_images/sp1790.png",
               "title": "ESPECIALES",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -415,7 +417,6 @@
           "category_dLWzKJ": {
             "type": "category",
             "settings": {
-              "image": "shopify://shop_images/sp254.png",
               "title": "AUTOMATIZACION",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -424,7 +425,6 @@
           "category_HNJbnQ": {
             "type": "category",
             "settings": {
-              "image": "shopify://shop_images/3020as.png",
               "title": "PATRONERAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
@@ -518,14 +518,12 @@
           "product_NbyhPg"
         ],
         "settings": {
-          "hero_image": "shopify://shop_images/1609746619982751.jpg",
           "hero_subtitle": "MAKE SEWING EASY",
           "hero_title": "SUPREME INTELLIGENT TECHNOLOGY",
           "hero_button_text": "Ver Catálogo",
           "hero_button_link": "shopify://collections",
           "history_title": "Nuestra Historia",
           "history_text": "<p>Fundada en <strong>2006</strong> en <strong>Ningbo, China</strong>, <strong>SUPREME</strong> es actualmente el <strong>tercer fabricante de maquinaria de coser industrial más grande del mundo</strong>, reconocido por su innovación tecnológica y calidad.</p><p>La compañía desarrolla y produce <strong>máquinas de coser automáticas y soluciones de automatización</strong> con tecnología robótica integrada, enfocadas en <strong>maximizar la productividad y reducir costos</strong> en la confección industrial.</p><p>Cuenta con más de <strong>185 patentes</strong>, un <strong>centro avanzado de I+D</strong>, y presencia en más de <strong>30 países</strong>, con clientes globales como <strong>Levi’s, Nike, Adidas y New Balance</strong>.</p><p>SUPREME continúa impulsando la <strong>automatización inteligente</strong> en la industria textil mundial, combinando ingeniería, software y precisión mecánica de clase internacional.</p>",
-          "history_image": "shopify://shop_images/a429d779d191200c86353686b9e997a6.jpg",
           "products_title": "Productos Destacados",
           "products_subtitle": "Descubre nuestras máquinas más populares",
           "industries_title": "Industrias que Servimos",
