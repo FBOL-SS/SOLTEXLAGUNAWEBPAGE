@@ -40,14 +40,14 @@
                 {% when 'price_range' %}
                   <div class="price-range-inputs">
                     <div class="price-input-wrapper">
-                      <label for="filter-price-min">Min</label>
-                      <input type="number" id="filter-price-min" name="{{ filter.min_value.param_name }}"
+                      <label>Min</label>
+                      <input type="number" name="{{ filter.min_value.param_name }}"
                              value="{{ filter.min_value.value | default: filter.range_min | divided_by: 100.0 }}"
                              min="{{ filter.range_min | divided_by: 100.0 }}" max="{{ filter.range_max | divided_by: 100.0 }}" step="1">
                     </div>
                     <div class="price-input-wrapper">
-                      <label for="filter-price-max">Max</label>
-                      <input type="number" id="filter-price-max" name="{{ filter.max_value.param_name }}"
+                      <label>Max</label>
+                      <input type="number" name="{{ filter.max_value.param_name }}"
                              value="{{ filter.max_value.value | default: filter.range_max | divided_by: 100.0 }}"
                              min="{{ filter.range_min | divided_by: 100.0 }}" max="{{ filter.range_max | divided_by: 100.0 }}" step="1">
                     </div>
@@ -75,8 +75,8 @@
         <i class="ph ph-x clear-search" id="clearSearchBtn" onclick="clearSearch()" style="display: {% if request.params.q %}block{% else %}none{% endif %};"></i>
       </div>
       <div class="sort-dropdown">
-        <label for="sortBy">Ordenar por:</label>
-        <select id="sortBy" onchange="sortCollection(this.value)">
+        <label>Ordenar por:</label>
+        <select onchange="sortCollection(this.value)">
           <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Destacados</option>
           <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Más vendidos</option>
           <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A-Z</option>
