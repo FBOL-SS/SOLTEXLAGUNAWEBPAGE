@@ -1,29 +1,19 @@
-{% layout none %}
-{{ content_for_header }}
+{% comment %}
+  Plantilla de búsqueda que usa tu sección soltex-main-collection
+{% endcomment %}
 
-<div id="search-results"></div>
+<!DOCTYPE html>
+<html lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ content_for_header }}
+</head>
+<body>
+  <main class="page-width">
+    {% section 'soltex-main-collection' %}
+  </main>
 
-<script type="module">
-  document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('/search.json?' + window.location.search.slice(1));
-    const data = await response.json();
-    
-    const container = document.getElementById('search-results');
-    
-    if (data.results.length === 0) {
-      container.innerHTML = `
-        <div style="text-align:center;padding:40px;font-size:18px;">
-          No se encontraron productos para "<strong>${new URLSearchParams(window.location.search).get('q')}</strong>"
-        </div>
-      `;
-      return;
-    }
-
-    // Renderiza con tu sección
-    const sectionResponse = await fetch('/search.json?' + window.location.search.slice(1));
-    const sectionData = await sectionResponse.json();
-    
-    // Usa el HTML de la sección principal
-    container.innerHTML = sectionData.sections.main;
-  });
-</script>
+  {{ content_for_footer }}
+</body>
+</html>
