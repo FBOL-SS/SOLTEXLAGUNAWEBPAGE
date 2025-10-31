@@ -7,7 +7,6 @@
     --color-text-light: #6b7280;
     --color-primary: #000000;
     --color-bg-hover: #f9fafb;
-    --color-disabled: #d1d5db;
   }
 
   .shopdev .collection-main * { box-sizing: border-box; }
@@ -42,14 +41,14 @@
   .shopdev .sort-dropdown label { font-size: 14px; color: var(--color-text); }
   .shopdev .sort-dropdown select { padding: 8px 32px 8px 12px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; background: white; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
 
-  .shopdev .product-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; align-items: start; }
+  .shopdev .product-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; }
   @media (min-width: 640px) { .shopdev .product-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1024px) { .shopdev .product-grid { grid-template-columns: repeat(3, 1fr); } }
 
   .shopdev .product-card { border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; background: white; height: 100%; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; color: inherit; }
   .shopdev .product-card:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); transform: translateY(-2px); }
-  .shopdev .product-image-wrapper { position: relative; height: 240px; overflow: hidden; background: #f9fafb; flex-shrink: 0; }
-  .shopdev .product-image-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shopdev .product-image-wrapper { position: relative; height: 240px; overflow: hidden; background: #f9fafb; }
+  .shopdev .product-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
   .shopdev .product-badge { position: absolute; top: 12px; left: 12px; padding: 4px 12px; background: var(--color-primary); color: white; font-size: 12px; font-weight: 600; border-radius: 4px; text-transform: uppercase; z-index: 2; }
   .shopdev .product-badge.sold-out { background: #ef4444; }
   .shopdev .quick-view-btn { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); padding: 8px 20px; background: white; border: 1px solid var(--color-border); border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; opacity: 0; transition: all 0.3s; z-index: 2; }
@@ -64,8 +63,8 @@
   .shopdev .product-btn-primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
   .shopdev .product-btn-primary:hover { opacity: 0.9; }
 
-  .shopdev .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--color-border); }
-  .shopdev .pagination a, .shopdev .pagination span { padding: 8px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; color: var(--color-text); text-decoration: none; transition: all 0.2s; }
+  .shopdev .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+  .shopdev .pagination a, .shopdev .pagination span { padding: 8px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; color: var(--color-text); text-decoration: none; }
   .shopdev .pagination a:hover { background: var(--color-bg-hover); }
   .shopdev .pagination .current { background: var(--color-primary); color: white; border-color: var(--color-primary); }
 
@@ -127,23 +126,15 @@
 <script>
   let searchTimeout;
 
-  // === BÚSQUEDA DEBOUNCED ===
   function debouncedSearch() {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(performSearch, 400);
   }
 
-  // === REALIZAR BÚSQUEDA ===
   function performSearch() {
     const query = document.getElementById('searchInput').value.trim();
     const params = new URLSearchParams(window.location.search);
-    
-    if (query) {
-      params.set('q', query);
-    } else {
-      params.delete('q');
-    }
-
+    if (query) params.set('q', query); else params.delete('q');
     window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     loadProducts();
   }
@@ -154,7 +145,6 @@
     performSearch();
   }
 
-  // === CARGAR PRODUCTOS CON AJAX ===
   async function loadProducts() {
     const params = new URLSearchParams(window.location.search);
     const url = `${window.location.pathname}.json?${params.toString()}`;
@@ -172,31 +162,23 @@
       if (data.products.length === 0) {
         grid.innerHTML = '';
         count.textContent = '0 PRODUCTOS';
-        noResults.innerHTML = `
-          <p class="text-lg">No se encontraron productos para "<strong>${params.get('q') || ''}</strong>"</p>
-          <button class="mt-4 filter-btn filter-btn-primary" onclick="clearSearch()">Limpiar</button>
-        `;
+        noResults.innerHTML = `<p class="text-lg">No se encontraron productos para "<strong>${params.get('q') || ''}</strong>"</p><button class="mt-4 filter-btn filter-btn-primary" onclick="clearSearch()">Limpiar</button>`;
         noResults.style.display = 'block';
       } else {
         count.textContent = `${data.products.length} PRODUCTOS`;
         noResults.style.display = 'none';
 
         grid.innerHTML = data.products.map(p => `
-          <a href="${p.url}" class="product-card">
+          <a href="${p.url}" class="product-card" data-product-id="${p.id}">
             <div class="product-image-wrapper">
-              ${p.featured_image ? 
-                `<img src="${p.featured_image.src}" loading="lazy" alt="${p.title}">` :
-                `<svg class="w-full h-full" viewBox="0 0 200 200"><rect width="200" height="200" fill="#f3f4f6"/><text x="100" y="100" font-size="14" text-anchor="middle" dy=".3em" fill="#9ca3af">Sin imagen</text></svg>`
-              }
-              ${!p.available ? '<span class="product-badge sold-out">Agotado</span>' : 
-                (p.compare_at_price > p.price ? '<span class="product-badge">Oferta</span>' : '')}
+              ${p.featured_image ? `<img src="${p.featured_image.src}" loading="lazy" alt="${p.title}">` : `<svg class="w-full h-full" viewBox="0 0 200 200"><rect width="200" height="200" fill="#f3f4f6"/><text x="100" y="100" font-size="14" text-anchor="middle" dy=".3em" fill="#9ca3af">Sin imagen</text></svg>`}
+              ${!p.available ? '<span class="product-badge sold-out">Agotado</span>' : (p.compare_at_price > p.price ? '<span class="product-badge">Oferta</span>' : '')}
               <button class="quick-view-btn" onclick="event.preventDefault(); openQuickView(${p.id})">Vista rápida</button>
             </div>
             <div class="product-info">
               <h3 class="product-title">${p.title}</h3>
               <div class="product-price">
-                ${p.compare_at_price > p.price ? 
-                  `<span class="compare-price">${Shopify.formatMoney(p.compare_at_price)}</span>` : ''}
+                ${p.compare_at_price > p.price ? `<span class="compare-price">${Shopify.formatMoney(p.compare_at_price)}</span>` : ''}
                 <span>${Shopify.formatMoney(p.price)}</span>
               </div>
               ${p.available ? `
@@ -205,7 +187,7 @@
                   <button class="product-btn" onclick="event.preventDefault(); openQuickView(${p.id})">Ver</button>
                 </div>` : ''}
             </div>
-            <script type="application/json" data-product-json="${p.id}">${JSON.stringify(p)}</script>
+            <script type="application/json" class="product-json-data" data-product-id="${p.id}">${JSON.stringify(p)}</script>
           </a>
         `).join('');
       }
@@ -213,58 +195,32 @@
       updatePagination(data.pagination || { pages: 1 });
 
     } catch (e) {
-      console.error('Error cargando productos:', e);
+      console.error('Error:', e);
     }
   }
 
-  // === ACTUALIZAR PAGINACIÓN ===
   function updatePagination(pag) {
     const container = document.querySelector('.pagination');
-    if (!container) return;
-
-    if (pag.pages <= 1) {
-      container.style.display = 'none';
-      return;
-    }
-
+    if (!container || pag.pages <= 1) { if (container) container.style.display = 'none'; return; }
     let html = '';
-    if (pag.previous) {
-      html += `<a href="${pag.previous.url}">Anterior</a>`;
-    }
-
+    if (pag.previous) html += `<a href="${pag.previous.url}">Anterior</a>`;
     pag.parts.forEach(part => {
-      if (part.is_link) {
-        html += `<a href="${part.url}">${part.title}</a>`;
-      } else {
-        html += `<span class="${part.title == pag.current_page ? 'current' : ''}">${part.title}</span>`;
-      }
+      html += part.is_link ? `<a href="${part.url}">${part.title}</a>` : `<span class="${part.title == pag.current_page ? 'current' : ''}">${part.title}</span>`;
     });
-
-    if (pag.next) {
-      html += `<a href="${pag.next.url}">Siguiente</a>`;
-    }
-
+    if (pag.next) html += `<a href="${pag.next.url}">Siguiente</a>`;
     container.innerHTML = html;
     container.style.display = 'flex';
   }
 
-  // === INICIALIZAR AL CARGAR PÁGINA ===
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
-    
     if (input && clearBtn) {
-      input.addEventListener('input', () => {
-        clearBtn.style.display = input.value ? 'block' : 'none';
-      });
+      input.addEventListener('input', () => { clearBtn.style.display = input.value ? 'block' : 'none'; });
     }
-
-    if (window.location.search.includes('q=')) {
-      loadProducts();
-    }
+    if (window.location.search.includes('q=')) loadProducts();
   });
 
-  // === INTERCEPTAR CLICS EN PAGINACIÓN ===
   document.addEventListener('click', e => {
     if (e.target.matches('.pagination a')) {
       e.preventDefault();
@@ -274,29 +230,20 @@
     }
   });
 
-  // === FILTROS (AJAX) ===
   function applyFilters() {
     const form = document.getElementById('filterForm');
     if (!form) return;
     const formData = new FormData(form);
     const params = new URLSearchParams(window.location.search);
-
-    for (const key of params.keys()) {
-      if (key.startsWith('filter.')) params.delete(key);
-    }
-
-    for (const [key, value] of formData.entries()) {
-      if (value) params.append(key, value);
-    }
-
+    for (const key of params.keys()) if (key.startsWith('filter.')) params.delete(key);
+    for (const [key, value] of formData.entries()) if (value) params.append(key, value);
     window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     loadProducts();
   }
 
   function clearFilters() {
     const params = new URLSearchParams(window.location.search);
-    const q = params.get('q');
-    const sortBy = params.get('sort_by');
+    const q = params.get('q'), sortBy = params.get('sort_by');
     const newParams = new URLSearchParams();
     if (q) newParams.set('q', q);
     if (sortBy) newParams.set('sort_by', sortBy);
@@ -304,7 +251,6 @@
     loadProducts();
   }
 
-  // === ORDENAR ===
   function sortCollection(sortBy) {
     const params = new URLSearchParams(window.location.search);
     params.set('sort_by', sortBy);
@@ -312,21 +258,20 @@
     loadProducts();
   }
 
-  // === COMPRAR AHORA ===
   function buyNow(variantId, quantity) {
     window.location.href = `/cart/add?id=${variantId}&quantity=${quantity}`;
   }
 
-  // === QUICK VIEW ===
   function openQuickView(productId) {
-    const dataEl = document.querySelector(`[data-product-json="${productId}"]`);
-    if (!dataEl) return;
-    const product = JSON.parse(dataEl.textContent);
+    const script = document.querySelector(`.product-json-data[data-product-id="${productId}"]`);
+    if (!script) return;
+    const product = JSON.parse(script.textContent);
     const modal = document.getElementById('quickViewModal');
     const overlay = document.getElementById('modalOverlay');
     const content = document.getElementById('modalContent');
+
     let html = '<div class="modal-images">';
-    if (product.images.length > 0) {
+    if (product.images?.length > 0) {
       html += `<img src="${product.images[0].src}" class="modal-main-image" id="mainImage">`;
       if (product.images.length > 1) {
         html += '<div class="modal-thumbnails">';
@@ -339,13 +284,9 @@
     html += '</div><div class="modal-details">';
     html += `<h2>${product.title}</h2>`;
     html += '<div class="modal-price">';
-    if (product.compare_at_price && product.compare_at_price > product.price) {
-      html += `<span class="compare-price">${Shopify.formatMoney(product.compare_at_price)}</span>`;
-    }
+    if (product.compare_at_price > product.price) html += `<span class="compare-price">${Shopify.formatMoney(product.compare_at_price)}</span>`;
     html += `<span>${Shopify.formatMoney(product.price)}</span></div>`;
-    if (product.description) {
-      html += `<div class="modal-description">${product.description.replace(/<[^>]*>/g, '').substring(0, 200)}...</div>`;
-    }
+    if (product.description) html += `<div class="modal-description">${product.description.replace(/<[^>]*>/g, '').substring(0, 200)}...</div>`;
     if (product.variants.length > 1) {
       html += '<div class="variant-selector"><label>Opción:</label><select id="variantSelect">';
       product.variants.forEach(v => {
@@ -354,12 +295,9 @@
       html += '</select></div>';
     }
     html += '<div class="quantity-selector"><label>Cantidad:</label><div class="quantity-input"><button type="button" onclick="updateQuantity(-1)">-</button><input type="number" id="quantityInput" value="1" min="1" max="10" readonly><button type="button" onclick="updateQuantity(1)">+</button></div></div>';
-    if (product.available) {
-      html += `<div class="modal-actions"><button class="product-btn product-btn-primary" style="flex:2;" onclick="buyNowFromModal()">Comprar ahora</button></div>`;
-    } else {
-      html += '<p style="color:#ef4444;">Producto agotado</p>';
-    }
+    html += product.available ? `<div class="modal-actions"><button class="product-btn product-btn-primary" style="flex:2;" onclick="buyNowFromModal()">Comprar ahora</button></div>` : '<p style="color:#ef4444;">Producto agotado</p>';
     html += '</div>';
+
     content.innerHTML = html;
     modal.classList.add('active');
     overlay.classList.add('active');
@@ -393,9 +331,7 @@
     if (variantId) buyNow(variantId, qty);
   }
 
-  document.addEventListener('keydown', e => { 
-    if (e.key === 'Escape') closeQuickView(); 
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuickView(); });
 
   function toggleMobileFilters() {
     const sidebar = document.getElementById('filterSidebar');
@@ -409,11 +345,8 @@
 {% schema %}
 {
   "name": "soltex-main-collection",
-  "class": "shopdev",
-  "tag": "section",
   "settings": [
-    { "type": "checkbox", "id": "show_collection_title", "label": "Mostrar título de colección", "default": true },
-    { "type": "checkbox", "id": "show_product_counts", "label": "Mostrar conteo de productos", "default": true },
+    { "type": "checkbox", "id": "show_collection_title", "label": "Mostrar título", "default": true },
     { "type": "range", "id": "products_per_page", "min": 8, "max": 48, "step": 4, "label": "Productos por página", "default": 12 }
   ],
   "presets": [{ "name": "soltex-main-collection" }]
