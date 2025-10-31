@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 
 <style>
-  /* === TODOS LOS ESTILOS (IGUAL QUE ANTES) === */
   .shopdev .collection-main {
     --color-border: #e5e7eb;
     --color-text: #1f2937;
@@ -32,10 +31,6 @@
   .shopdev .filter-btn:hover { background: var(--color-bg-hover); }
   .shopdev .filter-btn-primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
   .shopdev .filter-btn-primary:hover { opacity: 0.9; }
-
-  .shopdev .active-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .shopdev .active-filter-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--color-bg-hover); border: 1px solid var(--color-border); border-radius: 20px; font-size: 13px; color: var(--color-text); }
-  .shopdev .active-filter-tag button { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; color: var(--color-text-light); }
 
   .shopdev .toolbar { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--color-border); margin-bottom: 24px; }
   .shopdev .product-count { font-size: 14px; color: var(--color-text-light); }
@@ -74,12 +69,10 @@
   .shopdev .pagination a:hover { background: var(--color-bg-hover); }
   .shopdev .pagination .current { background: var(--color-primary); color: white; border-color: var(--color-primary); }
 
-  .shopdev .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 9998; animation: fadeIn 0.2s; }
+  .shopdev .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 9998; }
   .shopdev .modal-overlay.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .shopdev .quick-view-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 900px; max-height: 90vh; background: white; border-radius: 8px; z-index: 9999; overflow-y: auto; animation: slideUp 0.3s; }
+  .shopdev .quick-view-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 900px; max-height: 90vh; background: white; border-radius: 8px; z-index: 9999; overflow-y: auto; }
   .shopdev .quick-view-modal.active { display: block; }
-  @keyframes slideUp { from { opacity: 0; transform: translate(-50%, -45%); } to { opacity: 1; transform: translate(-50%, -50%); } }
   .shopdev .modal-close { position: absolute; top: 16px; right: 16px; background: white; border: 1px solid var(--color-border); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
   .shopdev .modal-content { display: grid; grid-template-columns: 1fr; gap: 32px; padding: 48px 24px 24px; }
   @media (min-width: 768px) { .shopdev .modal-content { grid-template-columns: 1fr 1fr; padding: 48px; } }
@@ -114,12 +107,9 @@
 
 <div class="w-full collection-main shopdev">
 
-  {% comment %} === BUSCADOR + PAGINACIÓN CORREGIDA === {% endcomment %}
-
   {% if search.performed %}
     {% paginate search.results by section.settings.products_per_page %}
       {% assign current_products = search.results %}
-      {% assign is_search = true %}
       {% assign show_no_results = false %}
       {% if search.results_count == 0 %}
         {% assign show_no_results = true %}
@@ -128,26 +118,25 @@
       {% render 'collection-content',
          current_products: current_products,
          show_no_results: show_no_results,
-         is_search: is_search,
-         collection: collection,
          paginate: paginate,
-         section: section
+         section: section,
+         collection: collection,
+         search_terms: search.terms
       %}
     {% endpaginate %}
 
   {% else %}
     {% paginate collection.products by section.settings.products_per_page %}
       {% assign current_products = collection.products %}
-      {% assign is_search = false %}
       {% assign show_no_results = false %}
 
       {% render 'collection-content',
          current_products: current_products,
          show_no_results: show_no_results,
-         is_search: is_search,
-         collection: collection,
          paginate: paginate,
-         section: section
+         section: section,
+         collection: collection,
+         search_terms: ''
       %}
     {% endpaginate %}
   {% endif %}
@@ -163,7 +152,6 @@
 
 <script>
   let searchTimeout;
-  const collectionUrl = {{ collection.url | json }};
 
   function debouncedSearch() {
     clearTimeout(searchTimeout);
@@ -172,31 +160,49 @@
 
   function performSearch() {
     const query = document.getElementById('searchInput').value.trim();
-    const base = {{ is_search | json }} ? '/search' : collectionUrl;
+    if (!query) return;
+
     const params = new URLSearchParams();
-    if (query) params.set('q', query);
+    params.set('q', query);
     params.set('type', 'product');
-    window.location = `${base}?${params.toString()}`;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    for (const [key, value] of urlParams.entries()) {
+      if (key.startsWith('filter.') || key === 'sort_by') {
+        params.set(key, value);
+      }
+    }
+
+    window.location = `/search?${params.toString()}`;
   }
 
   function clearSearch() {
     document.getElementById('searchInput').value = '';
     document.getElementById('clearSearchBtn').style.display = 'none';
-    window.location = collectionUrl;
+    window.location = window.location.pathname + window.location.search.replace(/&?q=[^&]*/, '').replace('?q=', '?');
   }
 
-  document.getElementById('searchInput')?.addEventListener('input', function() {
-    document.getElementById('clearSearchBtn').style.display = this.value ? 'block' : 'none';
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (searchInput && clearBtn) {
+      searchInput.addEventListener('input', function() {
+        clearBtn.style.display = this.value ? 'block' : 'none';
+      });
+    }
   });
 
   function toggleMobileFilters() {
     const sidebar = document.getElementById('filterSidebar');
-    sidebar.classList.toggle('active');
-    document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    if (sidebar) {
+      sidebar.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    }
   }
 
   function applyFilters() {
     const form = document.getElementById('filterForm');
+    if (!form) return;
     const formData = new FormData(form);
     const params = new URLSearchParams(window.location.search);
     for (const key of params.keys()) {
@@ -218,19 +224,6 @@
     window.location.search = newParams.toString();
   }
 
-  function removeFilter(paramName, value) {
-    const params = new URLSearchParams(window.location.search);
-    if (value) {
-      const values = params.getAll(paramName);
-      params.delete(paramName);
-      values.forEach(v => { if (v !== value) params.append， paramName, v); });
-    } else {
-      params.delete(paramName);
-      params.delete(value);
-    }
-    window.location.search = params.toString();
-  }
-
   function sortCollection(sortBy) {
     const params = new URLSearchParams(window.location.search);
     params.set('sort_by', sortBy);
@@ -238,7 +231,7 @@
   }
 
   function buyNow(variantId, quantity) {
-    window.location.href = `/cart/${variantId}:${quantity}`;
+    window.location.href = `/cart/add?id=${variantId}&quantity=${quantity}`;
   }
 
   function openQuickView(productId) {
@@ -288,8 +281,10 @@
   }
 
   function closeQuickView() {
-    document.getElementById('quickViewModal').classList.remove('active');
-    document.getElementById('modalOverlay').classList.remove('active');
+    const modal = document.getElementById('quickViewModal');
+    const overlay = document.getElementById('modalOverlay');
+    if (modal) modal.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
