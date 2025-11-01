@@ -1,0 +1,23 @@
+{% if paginate.pages > 1 %}
+  <nav class="flex items-center justify-center gap-2" aria-label="Pagination">
+    {% if paginate.previous %}
+      <a href="{{ paginate.previous.url }}" class="px-4 py-2 border rounded hover:bg-gray-50">Anterior</a>
+    {% else %}
+      <span class="px-4 py-2 border rounded text-gray-400 cursor-not-allowed">Anterior</span>
+    {% endif %}
+
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <a href="{{ part.url }}" class="px-4 py-2 border rounded hover:bg-gray-50">{{ part.title }}</a>
+      {% else %}
+        <span class="px-4 py-2 border border-black bg-black text-white rounded">{{ part.title }}</span>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginate.next %}
+      <a href="{{ paginate.next.url }}" class="px-4 py-2 border rounded hover:bg-gray-50">Siguiente</a>
+    {% else %}
+      <span class="px-4 py-2 border rounded text-gray-400 cursor-not-allowed">Siguiente</span>
+    {% endif %}
+  </nav>
+{% endif %}
