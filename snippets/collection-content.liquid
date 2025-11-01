@@ -82,11 +82,12 @@
           >
           <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-        </button>
+          </button>
         </form>
       </div>
+
       <div class="sort-dropdown">
         <label>Ordenar por:</label>
         <select onchange="location = this.value;">
@@ -110,30 +111,53 @@
             {% if product.featured_image %}
               {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
             {% else %}
-              {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
+              <div class="placeholder-image w-full h-full bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-500 text-sm">Sin imagen</span>
+              </div>
             {% endif %}
-            {% unless product.available %}<span class="product-badge sold-out">Agotado</span>{% else %}
-              {% if product.compare_at_price > product.price %}<span class="product-badge">Oferta</span>{% endif %}
+            
+            {% unless product.available %}
+              <span class="product-badge sold-out">Agotado</span>
+            {% else %}
+              {% if product.compare_at_price > product.price %}
+                <span class="product-badge">Oferta</span>
+              {% endif %}
             {% endunless %}
+            
+            <button class="quick-view-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">
+              Vista rápida
+            </button>
           </div>
+
           <div class="product-info">
             <h3 class="product-title">{{ product.title }}</h3>
+            
             <div class="product-price">
               {% if product.compare_at_price > product.price %}
                 <span class="compare-price">{{ product.compare_at_price | money }}</span>
               {% endif %}
               <span>{{ product.price | money }}</span>
             </div>
+
             {% if product.available %}
               <div class="product-actions">
-                <form action="/cart/add" method="post" enctype="multipart/form-data">
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <form action="/cart/add" method="post" enctype="multipart/form-data" class="flex-1">
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
                   <button type="submit" class="product-btn product-btn-primary">Comprar</button>
                 </form>
                 <a href="{{ product.url }}" class="product-btn">Ver</a>
               </div>
+            {% else %}
+              <div class="product-actions">
+                <button class="product-btn" disabled>Agotado</button>
+                <a href="{{ product.url }}" class="product-btn">Ver</a>
+              </div>
             {% endif %}
           </div>
+
+          <script type="application/json" class="product-json-data" data-product-id="{{ product.id }}">
+            {{ product | json }}
+          </script>
         </a>
       {% endfor %}
     </div>
