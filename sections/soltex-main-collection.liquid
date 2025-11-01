@@ -359,10 +359,11 @@
       <main class="flex-1 min-w-0">
         
         <!-- Toolbar -->
+
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-border)]">
           <div class="text-sm text-[var(--color-text-light)]">
-            {% if collection.products_count > 0 %}
-              Showing {{ collection.products.size }} of {{ collection.products_count }} products
+            {% if collection.products.size > 0 %}
+              Showing {{ collection.products.size }} products
             {% else %}
               No products found
             {% endif %}
@@ -391,6 +392,7 @@
         {% if collection.products.size > 0 %}
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {% for product in collection.products %}
+
               <div class="product-card bg-white rounded-lg border border-[var(--color-border)] overflow-hidden">
                 <div class="relative overflow-hidden aspect-square">
                   {% if product.featured_image %}
