@@ -1,0 +1,84 @@
+{% layout 'theme' %}
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center mb-8">Resultados de búsqueda</h1>
+
+  <!-- BUSCADOR -->
+  <form action="/search" method="get" class="max-w-xl mx-auto mb-8">
+    <div class="relative">
+      <input 
+        type="text" 
+        name="q" 
+        value="{{ search.terms | escape }}" 
+        placeholder="Buscar productos..." 
+        class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+        autocomplete="off"
+      >
+      <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2">
+        Search Icon
+      </button>
+    </div>
+  </form>
+
+  <!-- RESULTADOS -->
+  {% if search.performed %}
+    {% if search.results_count == 0 %}
+      <div class="text-center py-12">
+        <p class="text-lg text-gray-600">No se encontraron productos para "<strong>{{ search.terms }}</strong>"</p>
+        <a href="/collections/all" class="mt-4 inline-block px-6 py-2 bg-black text-white rounded hover:bg-gray-800">Ver todos los productos</a>
+      </div>
+    {% else %}
+      <div class="text-center mb-6">
+        <p class="text-sm text-gray-600">{{ search.results_count }} producto{{ search.results_count | pluralize: '', 's' }} encontrado{{ search.results_count | pluralize: '', 's' }}</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% assign product = item %}
+            <a href="{{ product.url }}" class="group block">
+              <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="aspect-square relative overflow-hidden bg-gray-100">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'w-full h-full object-cover group-hover:scale-105 transition-transform' }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
+                  {% endif %}
+                  {% unless product.available %}
+                    <span class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">Agotado</span>
+                  {% else %}
+                    {% if product.compare_at_price > product.price %}
+                      <span class="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">Oferta</span>
+                    {% endif %}
+                  {% endunless %}
+                </div>
+                <div class="p-4">
+                  <h3 class="font-medium text-gray-900 line-clamp-2 group-hover:text-black">{{ product.title }}</h3>
+                  <div class="mt-2 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      {% if product.compare_at_price > product.price %}
+                        <span class="text-sm text-gray-500 line-through">{{ product.compare_at_price | money }}</span>
+                      {% endif %}
+                      <span class="font-bold text-black">{{ product.price | money }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- PAGINACIÓN -->
+      {% if paginate.pages > 1 %}
+        <div class="mt-12 flex justify-center">
+          {% render 'pagination', paginate: paginate %}
+        </div>
+      {% endif %}
+    {% endif %}
+  {% else %}
+    <div class="text-center py-12">
+      <p class="text-lg text-gray-600">Escribe algo para buscar...</p>
+    </div>
+  {% endif %}
+</div>
