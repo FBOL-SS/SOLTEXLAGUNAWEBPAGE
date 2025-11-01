@@ -1,37 +1,152 @@
-<!-- ... mismo código de antes ... -->
+{% if section.settings.show_collection_title and collection.title %}
+  <div class="px-4 md:px-8 py-8">
+    <h1 class="text-3xl md:text-4xl font-bold text-center">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <div class="text-center mt-4 text-gray-600 max-w-2xl mx-auto">{{ collection.description }}</div>
+    {% endif %}
+  </div>
+{% endif %}
 
-<div class="product-grid">
-  {% for product in current_products %}
-    <a href="{{ product.url }}" class="product-card" data-product-id="{{ product.id }}">
-      <div class="product-image-wrapper">
-        {% if product.featured_image %}
-          {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
-        {% else %}
-          {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
-        {% endif %}
-        {% unless product.available %}<span class="product-badge sold-out">Agotado</span>{% else %}
-          {% if product.compare_at_price > product.price %}<span class="product-badge">Oferta</span>{% endif %}
-        {% endunless %}
-        <button class="quick-view-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">Vista rápida</button>
-      </div>
-      <div class="product-info">
-        <h3 class="product-title">{{ product.title }}</h3>
-        <div class="product-price">
-          {% if product.compare_at_price > product.price %}
-            <span class="compare-price">{{ product.compare_at_price | money }}</span>
-          {% endif %}
-          <span>{{ product.price | money }}</span>
-        </div>
-        {% if product.available %}
-          <div class="product-actions">
-            <button class="product-btn product-btn-primary" onclick="event.preventDefault(); buyNow({{ product.selected_or_first_available_variant.id }}, 1)">Comprar</button>
-            <button class="product-btn" onclick="event.preventDefault(); openQuickView({{ product.id }})">Ver</button>
+<div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
+  <aside class="filter-sidebar" id="filterSidebar">
+    <div class="filter-sidebar-header">
+      <h2 class="text-lg font-semibold">Filtros</h2>
+      <button class="filter-sidebar-close" onclick="toggleMobileFilters()">X</button>
+    </div>
+    {% if collection.filters.size > 0 %}
+      <form action="{{ collection.url }}" method="get" id="filterForm" class="filter-form">
+        {% for filter in collection.filters %}
+          <div class="filter-group">
+            <div class="filter-group-header">
+              <h3>{{ filter.label }}</h3>
+              <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="filter-group-content">
+              {% case filter.type %}
+                {% when 'list' %}
+                  {% for value in filter.values %}
+                    <div class="filter-option {% unless value.active or value.count > 0 %}disabled{% endunless %}">
+                      <input type="checkbox" id="filter-{{ filter.param_name }}-{{ forloop.index }}"
+                             name="{{ value.param_name }}" value="{{ value.value }}"
+                             {% if value.active %}checked{% endif %}>
+                      <label for="filter-{{ filter.param_name }}-{{ forloop.index }}">
+                        <span>{{ value.label }}</span>
+                        {% if section.settings.show_product_counts %}
+                          <span class="filter-count">({{ value.count }})</span>
+                        {% endif %}
+                      </label>
+                    </div>
+                  {% endfor %}
+                {% when 'price_range' %}
+                  <div class="price-range-inputs">
+                    <div class="price-input-wrapper">
+                      <label>Min</label>
+                      <input type="number" name="{{ filter.min_value.param_name }}"
+                             value="{{ filter.min_value.value | default: filter.range_min | divided_by: 100.0 }}"
+                             min="{{ filter.range_min | divided_by: 100.0 }}" max="{{ filter.range_max | divided_by: 100.0 }}" step="1">
+                    </div>
+                    <div class="price-input-wrapper">
+                      <label>Max</label>
+                      <input type="number" name="{{ filter.max_value.param_name }}"
+                             value="{{ filter.max_value.value | default: filter.range_max | divided_by: 100.0 }}"
+                             min="{{ filter.range_min | divided_by: 100.0 }}" max="{{ filter.range_max | divided_by: 100.0 }}" step="1">
+                    </div>
+                  </div>
+              {% endcase %}
+            </div>
           </div>
-        {% endif %}
-      </div>
-      <script type="application/json" class="product-json-data" data-product-id="{{ product.id }}">{{ product | json }}</script>
-    </a>
-  {% endfor %}
-</div>
+        {% endfor %}
+        <div class="filter-actions" style="padding: 20px;">
+          <button type="submit" class="filter-btn filter-btn-primary">Aplicar</button>
+          <a href="{{ collection.url }}" class="filter-btn">Limpiar</a>
+        </div>
+      </form>
+    {% endif %}
+  </aside>
 
-<!-- ... resto igual ... -->
+  <main class="px-4 md:px-8 py-6">
+    <button class="mobile-filter-toggle" onclick="toggleMobileFilters()">Filtros y Orden</button>
+
+    <div class="toolbar">
+      <div class="product-count">{{ paginate.items }} PRODUCTOS</div>
+
+      <!-- BUSCADOR QUE REDIRIGE A /search -->
+      <div class="search-container">
+        <form action="/search" method="get">
+          <input 
+            type="text" 
+            name="q" 
+            placeholder="Buscar en esta colección..." 
+            class="w-full px-4 py-2 pr-10 border rounded"
+            autocomplete="off"
+          >
+          <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+            Search Icon
+          </button>
+        </form>
+      </div>
+
+      <div class="sort-dropdown">
+        <label>Ordenar por:</label>
+        <select onchange="location = this.value;">
+          {% assign sort_url = collection.url | append: '?sort_by=' %}
+          <option value="{{ sort_url }}manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Destacados</option>
+          <option value="{{ sort_url }}best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Más vendidos</option>
+          <option value="{{ sort_url }}title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A-Z</option>
+          <option value="{{ sort_url }}title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Z-A</option>
+          <option value="{{ sort_url }}price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Precio: Bajo a Alto</option>
+          <option value="{{ sort_url }}price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Precio: Alto a Bajo</option>
+          <option value="{{ sort_url }}created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Más nuevos</option>
+          <option value="{{ sort_url }}created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>Más antiguos</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product-grid">
+      {% for product in current_products %}
+        <a href="{{ product.url }}" class="product-card">
+          <div class="product-image-wrapper">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'w-full h-full' }}
+            {% endif %}
+            {% unless product.available %}<span class="product-badge sold-out">Agotado</span>{% else %}
+              {% if product.compare_at_price > product.price %}<span class="product-badge">Oferta</span>{% endif %}
+            {% endunless %}
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">{{ product.title }}</h3>
+            <div class="product-price">
+              {% if product.compare_at_price > product.price %}
+                <span class="compare-price">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+              <span>{{ product.price | money }}</span>
+            </div>
+            {% if product.available %}
+              <div class="product-actions">
+                <form action="/cart/add" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <button type="submit" class="product-btn product-btn-primary">Comprar</button>
+                </form>
+                <a href="{{ product.url }}" class="product-btn">Ver</a>
+              </div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {% if paginate.previous %}<a href="{{ paginate.previous.url }}">Anterior</a>{% endif %}
+        {% for part in paginate.parts %}
+          {% if part.is_link %}<a href="{{ part.url }}">{{ part.title }}</a>{% else %}
+            <span class="{% if part.title == paginate.current_page %}current{% endif %}">{{ part.title }}</span>
+          {% endif %}
+        {% endfor %}
+        {% if paginate.next %}<a href="{{ paginate.next.url }}">Siguiente</a>{% endif %}
+      </div>
+    {% endif %}
+  </main>
+</div>
