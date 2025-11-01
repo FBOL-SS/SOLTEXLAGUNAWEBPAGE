@@ -1,239 +1,804 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 
 <style>
-  .shopdev .collection-main {
-    --color-border: #e5e7eb;
+  .shopdev {
+    --color-primary: #2563eb;
     --color-text: #1f2937;
     --color-text-light: #6b7280;
-    --color-primary: #000000;
-    --color-bg-hover: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-bg-light: #f9fafb;
+    --color-success: #10b981;
+    --color-error: #ef4444;
   }
 
-  .shopdev .collection-main * { box-sizing: border-box; }
+  .shopdev .filter-sidebar {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
 
-  .shopdev .filter-sidebar { border-right: 1px solid var(--color-border); height: 100%; overflow-y: auto; }
-  .shopdev .filter-group { border-bottom: 1px solid var(--color-border); padding: 20px; }
-  .shopdev .filter-group-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
-  .shopdev .filter-group-header h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text); margin: 0; }
-  .shopdev .filter-group-content { margin-top: 16px; }
-  .shopdev .filter-option { display: flex; align-items: center; padding: 8px 0; cursor: pointer; }
-  .shopdev .filter-option input[type="checkbox"] { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; }
-  .shopdev .filter-option label { flex: 1; cursor: pointer; font-size: 14px; color: var(--color-text); display: flex; justify-content: space-between; align-items: center; }
-  .shopdev .filter-option.disabled { opacity: 0.4; pointer-events: none; }
-  .shopdev .filter-count { color: var(--color-text-light); font-size: 13px; }
-  .shopdev .price-range-inputs { display: flex; gap: 12px; margin-top: 12px; }
-  .shopdev .price-input-wrapper { flex: 1; }
-  .shopdev .price-input-wrapper label { display: block; font-size: 12px; color: var(--color-text-light); margin-bottom: 4px; }
-  .shopdev .price-input-wrapper input { width: 100%; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; }
-  .shopdev .filter-actions { display: flex; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border); }
-  .shopdev .filter-btn { flex: 1; padding: 10px 16px; border: 1px solid var(--color-border); background: white; cursor: pointer; font-size: 14px; font-weight: 500; border-radius: 4px; transition: all 0.2s; }
-  .shopdev .filter-btn:hover { background: var(--color-bg-hover); }
-  .shopdev .filter-btn-primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
-  .shopdev .filter-btn-primary:hover { opacity: 0.9; }
+  .shopdev .filter-sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
 
-  .shopdev .toolbar { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--color-border); margin-bottom: 24px; }
-  .shopdev .product-count { font-size: 14px; color: var(--color-text-light); }
-  .shopdev .search-container { position: relative; max-width: 300px; width: 100%; }
-  .shopdev .search-container input { width: 100%; padding: 8px 36px 8px 12px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; }
-  .shopdev .search-container .ph-magnifying-glass { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--color-text-light); pointer-events: none; }
-  .shopdev .sort-dropdown { display: flex; align-items: center; gap: 12px; }
-  .shopdev .sort-dropdown label { font-size: 14px; color: var(--color-text); }
-  .shopdev .sort-dropdown select { padding: 8px 32px 8px 12px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; background: white; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+  .shopdev .filter-sidebar::-webkit-scrollbar-track {
+    background: var(--color-bg-light);
+  }
 
-  .shopdev .product-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 24px; }
-  @media (min-width: 640px) { .shopdev .product-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1024px) { .shopdev .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  .shopdev .filter-sidebar::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
 
-  .shopdev .product-card { border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; background: white; height: 100%; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; color: inherit; }
-  .shopdev .product-card:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); transform: translateY(-2px); }
-  .shopdev .product-image-wrapper { position: relative; height: 240px; overflow: hidden; background: #f9fafb; }
-  .shopdev .product-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-  .shopdev .product-badge { position: absolute; top: 12px; left: 12px; padding: 4px 12px; background: var(--color-primary); color: white; font-size: 12px; font-weight: 600; border-radius: 4px; text-transform: uppercase; z-index: 2; }
-  .shopdev .product-badge.sold-out { background: #ef4444; }
-  .shopdev .quick-view-btn { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); padding: 8px 20px; background: white; border: 1px solid var(--color-border); border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; opacity: 0; transition: all 0.3s; z-index: 2; }
-  .shopdev .product-card:hover .quick-view-btn { opacity: 1; }
-  .shopdev .product-info { padding: 16px; flex-grow: 1; display: flex; flex-direction: column; }
-  .shopdev .product-title { font-size: 16px; font-weight: 500; color: var(--color-text); margin: 0 0 8px 0; line-height: 1.4; }
-  .shopdev .product-price { font-size: 16px; font-weight: 600; color: var(--color-text); margin-bottom: auto; }
-  .shopdev .product-price .compare-price { text-decoration: line-through; color: var(--color-text-light); margin-right: 8px; font-weight: 400; }
-  .shopdev .product-actions { display: flex; gap: 8px; margin-top: 12px; }
-  .shopdev .product-btn { flex: 1; padding: 10px 16px; border: 1px solid var(--color-border); background: white; cursor: pointer; font-size: 14px; font-weight: 500; border-radius: 4px; transition: all 0.2s; }
-  .shopdev .product-btn:hover { background: var(--color-bg-hover); }
-  .shopdev .product-btn-primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
-  .shopdev .product-btn-primary:hover { opacity: 0.9; }
+  .shopdev .product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-  .shopdev .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--color-border); }
-  .shopdev .pagination a, .shopdev .pagination span { padding: 8px 14px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; color: var(--color-text); text-decoration: none; }
-  .shopdev .pagination a:hover { background: var(--color-bg-hover); }
-  .shopdev .pagination .current { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+  .shopdev .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
 
-  .shopdev .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 9998; }
-  .shopdev .modal-overlay.active { display: block; }
-  .shopdev .quick-view-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 900px; max-height: 90vh; background: white; border-radius: 8px; z-index: 9999; overflow-y: auto; }
-  .shopdev .quick-view-modal.active { display: block; }
-  .shopdev .modal-close { position: absolute; top: 16px; right: 16px; background: white; border: 1px solid var(--color-border); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
-  .shopdev .modal-content { display: grid; grid-template-columns: 1fr; gap: 32px; padding: 48px 24px 24px; }
-  @media (min-width: 768px) { .shopdev .modal-content { grid-template-columns: 1fr 1fr; padding: 48px; } }
-  .shopdev .modal-images { display: flex; flex-direction: column; gap: 12px; }
-  .shopdev .modal-main-image { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
-  .shopdev .modal-thumbnails { display: flex; gap: 8px; overflow-x: auto; }
-  .shopdev .modal-thumbnail { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
-  .shopdev .modal-thumbnail:hover, .shopdev .modal-thumbnail.active { border-color: var(--color-primary); }
-  .shopdev .modal-details h2 { font-size: 24px; font-weight: 600; margin: 0 0 12px 0; color: var(--color-text); }
-  .shopdev .modal-price { font-size: 20px; font-weight: 600; margin-bottom: 16px; color: var(--color-text); }
-  .shopdev .modal-description { font-size: 14px; line-height: 1.6; color: var(--color-text-light); margin-bottom: 24px; }
-  .shopdev .variant-selector { margin-bottom: 20px; }
-  .shopdev .variant-selector label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: var(--color-text); }
-  .shopdev .variant-selector select { width: 100%; padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; background: white; cursor: pointer; }
-  .shopdev .quantity-selector { margin-bottom: 20px; }
-  .shopdev .quantity-selector label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; color: var(--color-text); }
-  .shopdev .quantity-input { display: flex; align-items: center; border: 1px solid var(--color-border); border-radius: 4px; width: fit-content; }
-  .shopdev .quantity-input button { width: 36px; height: 36px; border: none; background: none; cursor: pointer; font-size: 18px; color: var(--color-text); }
-  .shopdev .quantity-input input { width: 60px; height: 36px; border: none; text-align: center; font-size: 14px; }
-  .shopdev .modal-actions { display: flex; gap: 12px; }
+  .shopdev .product-card img {
+    transition: transform 0.5s ease;
+  }
 
-  .shopdev .mobile-filter-toggle { display: block; width: 100%; padding: 12px 16px; background: white; border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; margin-bottom: 20px; }
-  @media (min-width: 1024px) { .shopdev .mobile-filter-toggle { display: none; } }
-  .shopdev .filter-sidebar { display: none; }
-  .shopdev .filter-sidebar.active { display: block; position: fixed; top: 0; left: 0; width: 100%; max-width: 320px; height: 100vh; background: white; z-index: 9999; box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); }
-  @media (min-width: 1024px) { .shopdev .filter-sidebar { display: block; position: static; width: auto; max-width: none; height: auto; box-shadow: none; } }
-  .shopdev .filter-sidebar-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--color-border); }
-  @media (min-width: 1024px) { .shopdev .filter-sidebar-header { display: none; } }
-  .shopdev .filter-sidebar-close { background: none; border: none; cursor: pointer; font-size: 24px; color: var(--color-text); }
+  .shopdev .product-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .shopdev .quick-view-btn {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .shopdev .product-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .shopdev .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .shopdev .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .shopdev .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: white;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .shopdev .modal-content.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+  }
+
+  .shopdev .filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  .shopdev .filter-tag:hover {
+    background: #fee2e2;
+    border-color: var(--color-error);
+  }
+
+  .shopdev .mobile-filter-toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .shopdev .mobile-filter-toggle {
+      display: block;
+    }
+
+    .shopdev .filter-sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      max-width: 320px;
+      height: 100vh;
+      background: white;
+      z-index: 9997;
+      transition: left 0.3s ease;
+      max-height: 100vh;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .shopdev .filter-sidebar.active {
+      left: 0;
+    }
+
+    .shopdev .filter-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9996;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .shopdev .filter-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .shopdev .thumbnail-image {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .shopdev .thumbnail-image.active,
+  .shopdev .thumbnail-image:hover {
+    opacity: 1;
+    border-color: var(--color-primary);
+  }
+
+  .shopdev .quantity-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .shopdev .quantity-btn:hover {
+    background: var(--color-bg-light);
+    border-color: var(--color-primary);
+  }
+
+  .shopdev .quantity-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 </style>
 
-<div class="w-full collection-main shopdev">
-  {% paginate collection.products by section.settings.products_per_page %}
-    {% assign current_products = collection.products %}
-    {% render 'collection-content',
-       current_products: current_products,
-       paginate: paginate,
-       section: section,
-       collection: collection
-    %}
-  {% endpaginate %}
+<div class="w-full px-4 py-8 md:px-6 lg:px-8">
+  <div class="max-w-[1400px] mx-auto">
+    
+    <!-- Collection Header -->
+    {% if section.settings.show_title %}
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-2">
+          {{ collection.title }}
+        </h1>
+        {% if collection.description != blank %}
+          <div class="text-[var(--color-text-light)] max-w-3xl">
+            {{ collection.description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Mobile Filter Toggle -->
+    <button 
+      class="mobile-filter-toggle w-full md:hidden mb-4 px-4 py-3 bg-[var(--color-primary)] text-white rounded-lg flex items-center justify-center gap-2"
+      onclick="toggleMobileFilters()"
+    >
+      <i class="ph ph-funnel"></i>
+      <span>Filters & Sort</span>
+    </button>
+
+    <!-- Filter Backdrop (Mobile) -->
+    <div class="filter-backdrop" onclick="toggleMobileFilters()"></div>
+
+    <div class="flex flex-col md:flex-row gap-8">
+      
+      <!-- Sidebar Filters -->
+      <aside class="filter-sidebar w-full md:w-64 flex-shrink-0">
+        <div class="bg-white rounded-lg border border-[var(--color-border)] p-6">
+          
+          <!-- Mobile Close Button -->
+          <div class="flex items-center justify-between mb-6 md:hidden">
+            <h3 class="text-lg font-semibold">Filters</h3>
+            <button onclick="toggleMobileFilters()" class="p-2">
+              <i class="ph ph-x text-xl"></i>
+            </button>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="mb-6">
+            <form action="/search" method="get" class="relative">
+              <input 
+                type="search" 
+                name="q" 
+                placeholder="Search products..."
+                class="w-full px-4 py-2 pr-10 border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary)]"
+              >
+              <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2">
+                <i class="ph ph-magnifying-glass text-[var(--color-text-light)]"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Active Filters -->
+          {% if collection.filters.size > 0 %}
+            {% assign active_filters = 0 %}
+            {% for filter in collection.filters %}
+              {% if filter.active_values.size > 0 %}
+                {% assign active_filters = active_filters | plus: filter.active_values.size %}
+              {% endif %}
+            {% endfor %}
+
+            {% if active_filters > 0 %}
+              <div class="mb-6 pb-6 border-b border-[var(--color-border)]">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-semibold text-sm">Active Filters</h4>
+                  <a href="{{ collection.url }}" class="text-xs text-[var(--color-primary)] hover:underline">
+                    Clear All
+                  </a>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  {% for filter in collection.filters %}
+                    {% for value in filter.active_values %}
+                      <a href="{{ value.url_to_remove }}" class="filter-tag">
+                        <span>{{ value.label }}</span>
+                        <i class="ph ph-x text-xs"></i>
+                      </a>
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+
+          <!-- Filter Groups -->
+          {% for filter in collection.filters %}
+            <div class="mb-6 pb-6 border-b border-[var(--color-border)] last:border-b-0">
+              <h4 class="font-semibold mb-3 text-sm uppercase tracking-wide">
+                {{ filter.label }}
+              </h4>
+
+              {% case filter.type %}
+                {% when 'list' %}
+                  <div class="space-y-2">
+                    {% for value in filter.values %}
+                      <label class="flex items-center gap-2 cursor-pointer group">
+                        <input 
+                          type="checkbox" 
+                          name="{{ value.param_name }}" 
+                          value="{{ value.value }}"
+                          {% if value.active %}checked{% endif %}
+                          onchange="location.href='{{ value.url_to_add }}'"
+                          class="w-4 h-4 text-[var(--color-primary)] border-[var(--color-border)] rounded focus:ring-[var(--color-primary)]"
+                        >
+                        <span class="text-sm text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
+                          {{ value.label }}
+                          {% if section.settings.show_counts %}
+                            <span class="text-[var(--color-text-light)]">({{ value.count }})</span>
+                          {% endif %}
+                        </span>
+                      </label>
+                    {% endfor %}
+                  </div>
+
+                {% when 'price_range' %}
+                  <form action="{{ collection.url }}" method="get">
+                    <div class="space-y-3">
+                      <div>
+                        <label class="text-xs text-[var(--color-text-light)] mb-1 block">Min Price</label>
+                        <input 
+                          type="number" 
+                          name="{{ filter.min_value.param_name }}"
+                          value="{{ filter.min_value.value | default: filter.range_min | divided_by: 100.0 }}"
+                          min="{{ filter.range_min | divided_by: 100.0 }}"
+                          max="{{ filter.range_max | divided_by: 100.0 }}"
+                          step="1"
+                          class="w-full px-3 py-2 border border-[var(--color-border)] rounded focus:outline-none focus:border-[var(--color-primary)]"
+                        >
+                      </div>
+                      <div>
+                        <label class="text-xs text-[var(--color-text-light)] mb-1 block">Max Price</label>
+                        <input 
+                          type="number" 
+                          name="{{ filter.max_value.param_name }}"
+                          value="{{ filter.max_value.value | default: filter.range_max | divided_by: 100.0 }}"
+                          min="{{ filter.range_min | divided_by: 100.0 }}"
+                          max="{{ filter.range_max | divided_by: 100.0 }}"
+                          step="1"
+                          class="w-full px-3 py-2 border border-[var(--color-border)] rounded focus:outline-none focus:border-[var(--color-primary)]"
+                        >
+                      </div>
+                      <button 
+                        type="submit"
+                        class="w-full px-4 py-2 bg-[var(--color-primary)] text-white rounded hover:opacity-90 transition-opacity"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </form>
+              {% endcase %}
+            </div>
+          {% endfor %}
+
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 min-w-0">
+        
+        <!-- Toolbar -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-border)]">
+          <div class="text-sm text-[var(--color-text-light)]">
+            {% if collection.products_count > 0 %}
+              Showing {{ collection.products.size }} of {{ collection.products_count }} products
+            {% else %}
+              No products found
+            {% endif %}
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label for="sort-by" class="text-sm text-[var(--color-text-light)]">Sort by:</label>
+            <select 
+              id="sort-by" 
+              onchange="location.href=this.value"
+              class="px-3 py-2 border border-[var(--color-border)] rounded focus:outline-none focus:border-[var(--color-primary)]"
+            >
+              {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+              <option value="{{ collection.url }}?sort_by=manual" {% if sort_by == 'manual' %}selected{% endif %}>Featured</option>
+              <option value="{{ collection.url }}?sort_by=best-selling" {% if sort_by == 'best-selling' %}selected{% endif %}>Best Selling</option>
+              <option value="{{ collection.url }}?sort_by=title-ascending" {% if sort_by == 'title-ascending' %}selected{% endif %}>A-Z</option>
+              <option value="{{ collection.url }}?sort_by=title-descending" {% if sort_by == 'title-descending' %}selected{% endif %}>Z-A</option>
+              <option value="{{ collection.url }}?sort_by=price-ascending" {% if sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+              <option value="{{ collection.url }}?sort_by=price-descending" {% if sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+              <option value="{{ collection.url }}?sort_by=created-descending" {% if sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        {% if collection.products.size > 0 %}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {% for product in collection.products %}
+              <div class="product-card bg-white rounded-lg border border-[var(--color-border)] overflow-hidden">
+                <div class="relative overflow-hidden aspect-square">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 600 | image_tag: 
+                      loading: 'lazy',
+                      class: 'w-full h-full object-cover',
+                      alt: product.featured_image.alt | default: product.title
+                    }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full bg-gray-100' }}
+                  {% endif %}
+
+                  <!-- Badges -->
+                  <div class="absolute top-3 left-3 flex flex-col gap-2">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="px-3 py-1 bg-[var(--color-error)] text-white text-xs font-semibold rounded-full">
+                        Sale
+                      </span>
+                    {% endif %}
+                    {% unless product.available %}
+                      <span class="px-3 py-1 bg-gray-800 text-white text-xs font-semibold rounded-full">
+                        Sold Out
+                      </span>
+                    {% endunless %}
+                  </div>
+
+                  <!-- Quick View Button -->
+                  <button 
+                    class="quick-view-btn absolute bottom-3 left-1/2 -translate-x-1/2 px-4 py-2 bg-white text-[var(--color-text)] rounded-lg shadow-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                    onclick="openQuickView('{{ product.handle }}')"
+                  >
+                    Quick View
+                  </button>
+                </div>
+
+                <div class="p-4">
+                  <h3 class="font-semibold text-[var(--color-text)] mb-2 line-clamp-2">
+                    <a href="{{ product.url }}" class="hover:text-[var(--color-primary)] transition-colors">
+                      {{ product.title }}
+                    </a>
+                  </h3>
+
+                  <div class="flex items-center gap-2 mb-4">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="text-lg font-bold text-[var(--color-error)]">
+                        {{ product.price | money }}
+                      </span>
+                      <span class="text-sm text-[var(--color-text-light)] line-through">
+                        {{ product.compare_at_price | money }}
+                      </span>
+                    {% else %}
+                      <span class="text-lg font-bold text-[var(--color-text)]">
+                        {{ product.price | money }}
+                      </span>
+                    {% endif %}
+                  </div>
+
+                  <div class="flex gap-2">
+                    {% if product.available %}
+                      <form action="/cart/add" method="post" class="flex-1">
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        <button 
+                          type="submit"
+                          class="w-full px-4 py-2 bg-[var(--color-primary)] text-white rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                        >
+                          <i class="ph ph-shopping-cart"></i>
+                          <span>Buy</span>
+                        </button>
+                      </form>
+                    {% endif %}
+                    <a 
+                      href="{{ product.url }}"
+                      class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors flex items-center justify-center"
+                    >
+                      <i class="ph ph-eye"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <!-- Pagination -->
+          {% if paginate.pages > 1 %}
+            <div class="flex items-center justify-center gap-2">
+              {% if paginate.previous %}
+                <a 
+                  href="{{ paginate.previous.url }}"
+                  class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  <i class="ph ph-caret-left"></i>
+                </a>
+              {% else %}
+                <span class="px-4 py-2 border border-[var(--color-border)] rounded opacity-50 cursor-not-allowed">
+                  <i class="ph ph-caret-left"></i>
+                </span>
+              {% endif %}
+
+              {% for part in paginate.parts %}
+                {% if part.is_link %}
+                  <a 
+                    href="{{ part.url }}"
+                    class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+                  >
+                    {{ part.title }}
+                  </a>
+                {% else %}
+                  {% if part.title == paginate.current_page %}
+                    <span class="px-4 py-2 bg-[var(--color-primary)] text-white rounded">
+                      {{ part.title }}
+                    </span>
+                  {% else %}
+                    <span class="px-4 py-2">{{ part.title }}</span>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              {% if paginate.next %}
+                <a 
+                  href="{{ paginate.next.url }}"
+                  class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  <i class="ph ph-caret-right"></i>
+                </a>
+              {% else %}
+                <span class="px-4 py-2 border border-[var(--color-border)] rounded opacity-50 cursor-not-allowed">
+                  <i class="ph ph-caret-right"></i>
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+
+        {% else %}
+          <div class="text-center py-16">
+            <i class="ph ph-package text-6xl text-[var(--color-text-light)] mb-4"></i>
+            <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2">No products found</h3>
+            <p class="text-[var(--color-text-light)] mb-6">Try adjusting your filters or search terms</p>
+            <a href="{{ collection.url }}" class="inline-block px-6 py-3 bg-[var(--color-primary)] text-white rounded hover:opacity-90 transition-opacity">
+              Clear Filters
+            </a>
+          </div>
+        {% endif %}
+
+      </main>
+    </div>
+  </div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeQuickView()"></div>
-<div class="quick-view-modal" id="quickViewModal">
-  <button class="modal-close" onclick="closeQuickView()">X</button>
-  <div class="modal-content" id="modalContent"></div>
+<!-- Quick View Modal -->
+<div class="modal-overlay" id="quickViewOverlay" onclick="closeQuickView()"></div>
+<div class="modal-content" id="quickViewModal">
+  <div class="p-6" id="quickViewContent">
+    <div class="flex items-center justify-center py-12">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-primary)]"></div>
+    </div>
+  </div>
 </div>
 
 <script>
   function toggleMobileFilters() {
-    const sidebar = document.getElementById('filterSidebar');
-    if (sidebar) {
-      sidebar.classList.toggle('active');
-      document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
-    }
+    const sidebar = document.querySelector('.filter-sidebar');
+    const backdrop = document.querySelector('.filter-backdrop');
+    sidebar.classList.toggle('active');
+    backdrop.classList.toggle('active');
   }
 
-  function openQuickView(productId) {
-    const script = document.querySelector(`.product-json-data[data-product-id="${productId}"]`);
-    if (!script) {
-      alert('Producto no encontrado');
-      return;
-    }
-    
-    const product = JSON.parse(script.textContent);
+  function openQuickView(handle) {
+    const overlay = document.getElementById('quickViewOverlay');
     const modal = document.getElementById('quickViewModal');
-    const overlay = document.getElementById('modalOverlay');
-    const content = document.getElementById('modalContent');
-    
-    let html = '<div class="modal-images">';
-    
-    if (product.images && product.images.length > 0) {
-      html += `<img src="${product.images[0].src}" class="modal-main-image" id="mainImage" alt="${product.title}">`;
-      if (product.images.length > 1) {
-        html += '<div class="modal-thumbnails">';
-        product.images.slice(0, 5).forEach((img, i) => {
-          html += `<img src="${img.src}" class="modal-thumbnail ${i === 0 ? 'active' : ''}" onclick="changeMainImage('${img.src}', this)" alt="${product.title}">`;
-        });
-        html += '</div>';
-      }
-    } else {
-      html += '<div class="modal-main-image placeholder-image bg-gray-200 flex items-center justify-center"><span class="text-gray-500">Sin imagen</span></div>';
-    }
-    
-    html += '</div><div class="modal-details">';
-    html += `<h2>${product.title}</h2>`;
-    
-    html += '<div class="modal-price">';
-    if (product.compare_at_price && product.compare_at_price > product.price) {
-      html += `<span class="compare-price">${Shopify.formatMoney(product.compare_at_price)}</span>`;
-    }
-    html += `<span>${Shopify.formatMoney(product.price)}</span></div>`;
-    
-    if (product.description) {
-      html += `<div class="modal-description">${product.description.replace(/<[^>]*>/g, '').substring(0, 200)}...</div>`;
-    }
-    
-    if (product.variants && product.variants.length > 1) {
-      html += '<div class="variant-selector"><label>Opción:</label><select id="variantSelect">';
-      product.variants.forEach(v => {
-        html += `<option value="${v.id}" ${!v.available ? 'disabled' : ''}>${v.title} ${!v.available ? '(Agotado)' : ''}</option>`;
-      });
-      html += '</select></div>';
-    }
-    
-    html += '<div class="quantity-selector"><label>Cantidad:</label><div class="quantity-input"><button type="button" onclick="updateQuantity(-1)">-</button><input type="number" id="quantityInput" value="1" min="1" max="10" readonly><button type="button" onclick="updateQuantity(1)">+</button></div></div>';
-    
-    if (product.available) {
-      html += '<div class="modal-actions">';
-      html += '<form action="/cart/add" method="post" class="flex-1">';
-      html += '<input type="hidden" name="id" id="variantInput">';
-      html += '<button type="submit" class="product-btn product-btn-primary flex-1">Comprar ahora</button>';
-      html += '</form>';
-      html += '<a href="' + product.url + '" class="product-btn">Ver completo</a>';
-      html += '</div>';
-    } else {
-      html += '<p class="text-red-600 font-medium">Producto agotado</p>';
-    }
-    
-    html += '</div>';
-    
-    content.innerHTML = html;
-    modal.classList.add('active');
+    const content = document.getElementById('quickViewContent');
+
     overlay.classList.add('active');
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
-    const select = document.getElementById('variantSelect');
-    const variantInput = document.getElementById('variantInput');
-    if (select && variantInput) {
-      select.onchange = function() {
-        variantInput.value = this.value;
-      };
-      select.value = product.selected_or_first_available_variant.id;
-      variantInput.value = product.selected_or_first_available_variant.id;
+
+    fetch(`/products/${handle}?view=quick`)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const productData = doc.querySelector('.product-json');
+        
+        if (productData) {
+          const product = JSON.parse(productData.textContent);
+          renderQuickView(product);
+        } else {
+          fetch(`/products/${handle}.js`)
+            .then(response => response.json())
+            .then(product => renderQuickView(product));
+        }
+      })
+      .catch(error => {
+        content.innerHTML = '<div class="text-center py-12 text-[var(--color-error)]">Error loading product</div>';
+      });
+  }
+
+  function renderQuickView(product) {
+    const content = document.getElementById('quickViewContent');
+    const firstVariant = product.variants[0];
+    const hasMultipleVariants = product.variants.length > 1;
+
+    let variantOptions = '';
+    if (hasMultipleVariants) {
+      variantOptions = `
+        <div class="mb-4">
+          <label class="block text-sm font-semibold mb-2">Variant</label>
+          <select 
+            id="variant-select" 
+            class="w-full px-3 py-2 border border-[var(--color-border)] rounded focus:outline-none focus:border-[var(--color-primary)]"
+            onchange="updateQuickViewVariant()"
+          >
+            ${product.variants.map(v => `
+              <option value="${v.id}" ${!v.available ? 'disabled' : ''}>
+                ${v.title} - ${formatMoney(v.price)} ${!v.available ? '(Sold Out)' : ''}
+              </option>
+            `).join('')}
+          </select>
+        </div>
+      `;
     }
+
+    let thumbnails = '';
+    if (product.images && product.images.length > 1) {
+      thumbnails = `
+        <div class="flex gap-2 overflow-x-auto pb-2">
+          ${product.images.map((img, idx) => `
+            <img 
+              src="${img}" 
+              alt="${product.title}"
+              class="thumbnail-image w-20 h-20 object-cover rounded cursor-pointer ${idx === 0 ? 'active' : ''}"
+              onclick="changeQuickViewImage('${img}')"
+            >
+          `).join('')}
+        </div>
+      `;
+    }
+
+    content.innerHTML = `
+      <button 
+        onclick="closeQuickView()" 
+        class="absolute top-4 right-4 p-2 hover:bg-[var(--color-bg-light)] rounded-full transition-colors"
+      >
+        <i class="ph ph-x text-2xl"></i>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <div class="mb-4">
+            <img 
+              id="quick-view-main-image"
+              src="${product.featured_image || product.images[0]}" 
+              alt="${product.title}"
+              class="w-full rounded-lg"
+            >
+          </div>
+          ${thumbnails}
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold text-[var(--color-text)] mb-2">${product.title}</h2>
+          
+          <div class="flex items-center gap-2 mb-4">
+            ${product.compare_at_price && product.compare_at_price > product.price ? `
+              <span class="text-2xl font-bold text-[var(--color-error)]">${formatMoney(product.price)}</span>
+              <span class="text-lg text-[var(--color-text-light)] line-through">${formatMoney(product.compare_at_price)}</span>
+            ` : `
+              <span class="text-2xl font-bold text-[var(--color-text)]">${formatMoney(product.price)}</span>
+            `}
+          </div>
+
+          ${product.description ? `
+            <div class="text-[var(--color-text-light)] mb-6 prose prose-sm">
+              ${product.description}
+            </div>
+          ` : ''}
+
+          <form id="quick-view-form" class="space-y-4">
+            ${variantOptions}
+
+            <div>
+              <label class="block text-sm font-semibold mb-2">Quantity</label>
+              <div class="flex items-center gap-2">
+                <button 
+                  type="button"
+                  onclick="updateQuantity(-1)"
+                  class="quantity-btn rounded"
+                >
+                  <i class="ph ph-minus"></i>
+                </button>
+                <input 
+                  type="number" 
+                  id="quantity-input"
+                  value="1" 
+                  min="1"
+                  class="w-20 px-3 py-2 border border-[var(--color-border)] rounded text-center focus:outline-none focus:border-[var(--color-primary)]"
+                >
+                <button 
+                  type="button"
+                  onclick="updateQuantity(1)"
+                  class="quantity-btn rounded"
+                >
+                  <i class="ph ph-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            ${firstVariant.available ? `
+              <button 
+                type="button"
+                onclick="addToCartFromQuickView()"
+                class="w-full px-6 py-3 bg-[var(--color-primary)] text-white rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              >
+                <i class="ph ph-shopping-cart"></i>
+                <span>Add to Cart</span>
+              </button>
+            ` : `
+              <button 
+                disabled
+                class="w-full px-6 py-3 bg-gray-400 text-white rounded cursor-not-allowed"
+              >
+                Sold Out
+              </button>
+            `}
+
+            <a 
+              href="${product.url}"
+              class="block w-full px-6 py-3 border border-[var(--color-border)] rounded text-center hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              View Full Details
+            </a>
+          </form>
+        </div>
+      </div>
+    `;
   }
 
-  function closeQuickView() {
-    const modal = document.getElementById('quickViewModal');
-    const overlay = document.getElementById('modalOverlay');
-    if (modal) modal.classList.remove('active');
-    if (overlay) overlay.classList.remove('active');
-    document.body.style.overflow = '';
+  function changeQuickViewImage(src) {
+    const mainImage = document.getElementById('quick-view-main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail-image');
+    
+    mainImage.src = src;
+    
+    thumbnails.forEach(thumb => {
+      if (thumb.src === src) {
+        thumb.classList.add('active');
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
   }
 
-  function changeMainImage(src, el) {
-    const mainImage = document.getElementById('mainImage');
-    if (mainImage) mainImage.src = src;
-    document.querySelectorAll('.modal-thumbnail').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
+  function updateQuickViewVariant() {
+    // Variant update logic would go here
   }
 
   function updateQuantity(change) {
-    const input = document.getElementById('quantityInput');
-    if (input) {
-      let val = parseInt(input.value) + change;
-      if (val >= 1 && val <= 10) input.value = val;
-    }
+    const input = document.getElementById('quantity-input');
+    const currentValue = parseInt(input.value) || 1;
+    const newValue = Math.max(1, currentValue + change);
+    input.value = newValue;
   }
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuickView(); });
+  function addToCartFromQuickView() {
+    const variantSelect = document.getElementById('variant-select');
+    const quantityInput = document.getElementById('quantity-input');
+    
+    const variantId = variantSelect ? variantSelect.value : document.querySelector('[data-variant-id]').dataset.variantId;
+    const quantity = parseInt(quantityInput.value) || 1;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: quantity
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      closeQuickView();
+      window.location.href = '/cart';
+    })
+    .catch(error => {
+      alert('Error adding to cart. Please try again.');
+    });
+  }
+
+  function closeQuickView() {
+    const overlay = document.getElementById('quickViewOverlay');
+    const modal = document.getElementById('quickViewModal');
+    
+    overlay.classList.remove('active');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function formatMoney(cents) {
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  // Close modal on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeQuickView();
+    }
+  });
 </script>
 
 {% schema %}
@@ -242,10 +807,37 @@
   "class": "shopdev",
   "tag": "section",
   "settings": [
-    { "type": "checkbox", "id": "show_collection_title", "label": "Mostrar título de colección", "default": true },
-    { "type": "checkbox", "id": "show_product_counts", "label": "Mostrar conteo de productos", "default": true },
-    { "type": "range", "id": "products_per_page", "min": 8, "max": 48, "step": 4, "label": "Productos por página", "default": 12 }
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show collection title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_counts",
+      "label": "Show product counts in filters",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 12,
+      "max": 48,
+      "step": 6,
+      "label": "Products per page",
+      "default": 24
+    }
   ],
-  "presets": [{ "name": "soltex-main-collection" }]
+  "presets": [
+    {
+      "name": "soltex-main-collection",
+      "settings": {
+        "show_title": true,
+        "show_counts": true,
+        "products_per_page": 24
+      }
+    }
+  ]
 }
 {% endschema %}
