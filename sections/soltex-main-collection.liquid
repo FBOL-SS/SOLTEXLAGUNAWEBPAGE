@@ -473,56 +473,6 @@
             {% endfor %}
           </div>
 
-          <!-- Pagination -->
-          {% if paginate.pages > 1 %}
-            <div class="flex items-center justify-center gap-2">
-              {% if paginate.previous %}
-                <a 
-                  href="{{ paginate.previous.url }}"
-                  class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  <i class="ph ph-caret-left"></i>
-                </a>
-              {% else %}
-                <span class="px-4 py-2 border border-[var(--color-border)] rounded opacity-50 cursor-not-allowed">
-                  <i class="ph ph-caret-left"></i>
-                </span>
-              {% endif %}
-
-              {% for part in paginate.parts %}
-                {% if part.is_link %}
-                  <a 
-                    href="{{ part.url }}"
-                    class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
-                  >
-                    {{ part.title }}
-                  </a>
-                {% else %}
-                  {% if part.title == paginate.current_page %}
-                    <span class="px-4 py-2 bg-[var(--color-primary)] text-white rounded">
-                      {{ part.title }}
-                    </span>
-                  {% else %}
-                    <span class="px-4 py-2">{{ part.title }}</span>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-
-              {% if paginate.next %}
-                <a 
-                  href="{{ paginate.next.url }}"
-                  class="px-4 py-2 border border-[var(--color-border)] rounded hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
-                >
-                  <i class="ph ph-caret-right"></i>
-                </a>
-              {% else %}
-                <span class="px-4 py-2 border border-[var(--color-border)] rounded opacity-50 cursor-not-allowed">
-                  <i class="ph ph-caret-right"></i>
-                </span>
-              {% endif %}
-            </div>
-          {% endif %}
-
         {% else %}
           <div class="text-center py-16">
             <i class="ph ph-package text-6xl text-[var(--color-text-light)] mb-4"></i>
@@ -823,10 +773,10 @@
       "type": "range",
       "id": "products_per_page",
       "min": 12,
-      "max": 48,
-      "step": 6,
+      "max": 100,
+      "step": 4,
       "label": "Products per page",
-      "default": 24
+      "default": 96
     }
   ],
   "presets": [
