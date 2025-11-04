@@ -134,6 +134,44 @@
   }
 </style>
 
+{% comment %} Pre-render product data from collection {% endcomment %}
+<script id="products-data" type="application/json">
+{
+  "products": [
+    {% if section.settings.collection != blank %}
+      {% assign target_collection = collections[section.settings.collection] %}
+    {% else %}
+      {% assign target_collection = collections.all %}
+    {% endif %}
+    
+    {% for product in target_collection.products limit: 250 %}
+      {
+        "id": {{ product.id | json }},
+        "handle": {{ product.handle | json }},
+        "title": {{ product.title | json }},
+        "vendor": {{ product.vendor | json }},
+        "type": {{ product.type | json }},
+        "price": {{ product.price | json }},
+        "compareAtPrice": {% if product.compare_at_price > product.price %}{{ product.compare_at_price | json }}{% else %}null{% endif %},
+        "available": {{ product.available | json }},
+        "image": {% if product.featured_image %}{{ product.featured_image | image_url: width: 800 | json }}{% else %}null{% endif %},
+        "url": {{ product.url | json }},
+        "variants": [
+          {% for variant in product.variants %}
+            {
+              "id": {{ variant.id | json }},
+              "title": {{ variant.title | json }},
+              "price": {{ variant.price | json }},
+              "available": {{ variant.available | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
 <div class="w-full soltex-market-grid" style="background-color: #FFFFFF;">
   <div class="max-w-[1400px] mx-auto px-4 py-8 md:py-12">
     
@@ -358,30 +396,18 @@ class SoltexMarketGrid {
     this.loadFiltersFromURL();
   }
 
-  async loadProducts() {
+  loadProducts() {
     this.isLoading = true;
     this.showLoading();
 
     try {
-      const url = `/collections/${this.collection}?view=json&limit=250`;
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        // Fallback: load products using section rendering
-        await this.loadProductsViaSection();
-        return;
-      }
-
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      
-      // Extract products from the page
-      this.allProducts = this.extractProductsFromHTML(doc);
-      
-      // If we need more products, load additional pages
-      if (this.allProducts.length >= 250) {
-        await this.loadAdditionalPages();
+      // Load products from pre-rendered JSON data
+      const productsDataElement = document.getElementById('products-data');
+      if (productsDataElement) {
+        const data = JSON.parse(productsDataElement.textContent);
+        this.allProducts = data.products || [];
+      } else {
+        this.allProducts = [];
       }
 
       this.applyFilters();
@@ -394,168 +420,6 @@ class SoltexMarketGrid {
       this.isLoading = false;
       this.hideLoading();
     }
-  }
-
-  async loadProductsViaSection() {
-    try {
-      const response = await fetch(`/collections/${this.collection}?section_id=soltex-market-grid-data`);
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      
-      this.allProducts = this.extractProductsFromHTML(doc);
-      this.applyFilters();
-      this.populateFilterOptions();
-      
-    } catch (error) {
-      console.error('Error loading products via section:', error);
-      this.showError();
-    }
-  }
-
-  extractProductsFromHTML(doc) {
-    const products = [];
-    const productElements = doc.querySelectorAll('.product-item, [data-product-id]');
-    
-    // If no products found with those selectors, try to get from collection object
-    if (productElements.length === 0) {
-      // Fallback: use hardcoded products for demo
-      return this.getDemoProducts();
-    }
-
-    productElements.forEach(el => {
-      const product = this.parseProductElement(el);
-      if (product) products.push(product);
-    });
-
-    return products;
-  }
-
-  getDemoProducts() {
-    // Demo products based on the context provided
-    return [
-      {
-        id: 1,
-        handle: 'crankshaft-position-ckp',
-        title: 'Crankshaft Position (CKP)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 8500,
-        compareAtPrice: null,
-        available: true,
-        image: 'shopify://shop_images/wrist-watch-on-driving-arm.jpg',
-        url: '/products/crankshaft-position-ckp',
-        variants: [{id: 1, title: 'Default', price: 8500, available: true}]
-      },
-      {
-        id: 2,
-        handle: 'oil-pressure-sensor',
-        title: 'Oil Pressure Sensor',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 6500,
-        compareAtPrice: 7500,
-        available: true,
-        image: 'shopify://shop_images/button-tubes.jpg',
-        url: '/products/oil-pressure-sensor',
-        variants: [{id: 2, title: 'Default', price: 6500, available: true}]
-      },
-      {
-        id: 3,
-        handle: 'water-temperature-sensor-wts',
-        title: 'Water Temperature Sensor (WTS)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 5500,
-        compareAtPrice: null,
-        available: true,
-        image: 'shopify://shop_images/water-vapor-condensed-on-a-window-glass.jpg',
-        url: '/products/water-temperature-sensor-wts',
-        variants: [{id: 3, title: 'Default', price: 5500, available: true}]
-      },
-      {
-        id: 4,
-        handle: 'throttle-position-sensor-tps',
-        title: 'Throttle Position Sensor (TPS)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 7200,
-        compareAtPrice: null,
-        available: false,
-        image: 'shopify://shop_images/tram-on-quiet-street.jpg',
-        url: '/products/throttle-position-sensor-tps',
-        variants: [{id: 4, title: 'Default', price: 7200, available: false}]
-      },
-      {
-        id: 5,
-        handle: 'vehicle-speed-sensor-vss',
-        title: 'Vehicle Speed Sensor (VSS)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 6800,
-        compareAtPrice: 7800,
-        available: true,
-        image: 'shopify://shop_images/car-streaks-and-street-lamps.jpg',
-        url: '/products/vehicle-speed-sensor-vss',
-        variants: [{id: 5, title: 'Default', price: 6800, available: true}]
-      },
-      {
-        id: 6,
-        handle: 'manifold-absolute-pressure-map',
-        title: 'Manifold Absolute Pressure (MAP)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 9200,
-        compareAtPrice: null,
-        available: true,
-        image: 'shopify://shop_images/careful-measurements.jpg',
-        url: '/products/manifold-absolute-pressure-map',
-        variants: [{id: 6, title: 'Default', price: 9200, available: true}]
-      },
-      {
-        id: 7,
-        handle: 'camshaft-position-cmp',
-        title: 'Camshaft Position (CMP)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 8800,
-        compareAtPrice: null,
-        available: true,
-        image: 'shopify://shop_images/pos-card-reader.jpg',
-        url: '/products/camshaft-position-cmp',
-        variants: [{id: 7, title: 'Default', price: 8800, available: true}]
-      },
-      {
-        id: 8,
-        handle: 'mass-air-flow-maf',
-        title: 'Mass Air Flow (MAF)',
-        vendor: 'Soltex',
-        type: 'Sensors',
-        price: 12500,
-        compareAtPrice: 14000,
-        available: true,
-        image: 'shopify://shop_images/meditation-flow.jpg',
-        url: '/products/mass-air-flow-maf',
-        variants: [{id: 8, title: 'Default', price: 12500, available: true}]
-      }
-    ];
-  }
-
-  parseProductElement(el) {
-    // Parse product data from element
-    // This is a simplified version - adjust based on actual HTML structure
-    return {
-      id: el.dataset.productId,
-      handle: el.dataset.productHandle,
-      title: el.querySelector('.product-title')?.textContent.trim(),
-      vendor: el.dataset.vendor,
-      type: el.dataset.type,
-      price: parseInt(el.dataset.price),
-      compareAtPrice: el.dataset.compareAtPrice ? parseInt(el.dataset.compareAtPrice) : null,
-      available: el.dataset.available === 'true',
-      image: el.querySelector('img')?.src,
-      url: el.querySelector('a')?.href
-    };
   }
 
   applyFilters() {
