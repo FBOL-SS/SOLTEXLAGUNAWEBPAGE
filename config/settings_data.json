@@ -126,7 +126,23 @@
       },
       "soltex-machines-hub": {
         "type": "soltex-machines-hub",
-        "settings": {}
+        "settings": {
+          "hero_image": "shopify://shop_images/AdobeStock_248525679.jpg",
+          "hero_overlay_opacity": 0.5,
+          "hero_title": "",
+          "hero_subtitle": "",
+          "hero_cta_primary_text": "",
+          "hero_cta_primary_link": "",
+          "hero_cta_secondary_text": "",
+          "hero_cta_secondary_link": "",
+          "image_aspect_ratio": "16-9",
+          "show_support_block": true,
+          "support_bg_color": "#f4f4f4",
+          "support_title": "",
+          "support_description": "",
+          "support_cta_text": "",
+          "support_cta_link": ""
+        }
       },
       "soltex-product": {
         "type": "soltex-product",
