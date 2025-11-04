@@ -105,6 +105,7 @@
           "enable_quick_add": true,
           "show_availability_filter": true,
           "show_price_filter": true,
+          "show_brand_filter": true,
           "show_type_filter": true
         }
       },
