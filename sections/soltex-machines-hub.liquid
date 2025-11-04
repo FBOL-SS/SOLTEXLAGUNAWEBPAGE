@@ -1,0 +1,805 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --soltex-navy: #0d1b2a;
+    --soltex-white: #ffffff;
+    --soltex-gray-light: #f4f4f4;
+  }
+
+  #shopify-section-{{ section.id }} .hero-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--soltex-navy);
+  }
+
+  #shopify-section-{{ section.id }} .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--soltex-white);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .hero-subtitle {
+    font-size: 20px;
+    color: var(--soltex-white);
+    margin-bottom: 32px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-wrapper {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-primary,
+  #shopify-section-{{ section.id }} .hero-cta-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-primary {
+    background-color: var(--soltex-white);
+    color: var(--soltex-navy);
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-secondary {
+    background-color: transparent;
+    color: var(--soltex-white);
+    border: 2px solid var(--soltex-white);
+  }
+
+  #shopify-section-{{ section.id }} .hero-cta-secondary:hover {
+    background-color: var(--soltex-white);
+    color: var(--soltex-navy);
+  }
+
+  #shopify-section-{{ section.id }} .machines-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-wrapper {
+    position: relative;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card {
+    position: relative;
+    background-color: var(--soltex-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--soltex-gray-light);
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-image-wrapper.aspect-16-9 {
+    padding-bottom: 56.25%;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-image-wrapper.aspect-1-1 {
+    padding-bottom: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-logo {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    max-width: 120px;
+    max-height: 60px;
+    background-color: var(--soltex-white);
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 2;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-badges {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .machine-badge {
+    background-color: var(--soltex-navy);
+    color: var(--soltex-white);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--soltex-navy);
+    margin-bottom: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-feature i {
+    color: var(--soltex-navy);
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-cta {
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--soltex-navy);
+    color: var(--soltex-white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: auto;
+  }
+
+  #shopify-section-{{ section.id }} .machine-card-cta:hover {
+    background-color: #1a2f47;
+  }
+
+  #shopify-section-{{ section.id }} .support-block {
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .support-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .support-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--soltex-navy);
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .support-description {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .support-cta {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--soltex-navy);
+    color: var(--soltex-white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .support-cta:hover {
+    background-color: #1a2f47;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .support-cta:focus {
+    outline: 2px solid var(--soltex-navy);
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .machines-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    #shopify-section-{{ section.id }} .hero-title {
+      font-size: 64px;
+    }
+
+    #shopify-section-{{ section.id }} .hero-subtitle {
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .machines-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .hero-title {
+      font-size: 36px;
+    }
+
+    #shopify-section-{{ section.id }} .hero-subtitle {
+      font-size: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .hero-content {
+      padding: 40px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .machines-grid {
+      padding: 40px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .machine-card-logo {
+      max-width: 100px;
+      max-height: 50px;
+    }
+  }
+</style>
+
+<div class="w-full">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    {%- if section.settings.hero_image != blank -%}
+      {{ section.settings.hero_image | image_url: width: 2000 | image_tag: 
+        loading: 'eager',
+        class: 'hero-bg-image',
+        alt: section.settings.hero_title,
+        sizes: '100vw'
+      }}
+    {%- endif -%}
+    
+    <div class="hero-overlay" style="opacity: {{ section.settings.hero_overlay_opacity }}"></div>
+    
+    <div class="hero-content">
+      {%- if section.settings.hero_title != blank -%}
+        <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
+      {%- endif -%}
+      
+      {%- if section.settings.hero_subtitle != blank -%}
+        <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
+      {%- endif -%}
+      
+      <div class="hero-cta-wrapper">
+        {%- if section.settings.hero_cta_primary_text != blank and section.settings.hero_cta_primary_link != blank -%}
+          <a href="{{ section.settings.hero_cta_primary_link }}" 
+             class="hero-cta-primary"
+             aria-label="{{ section.settings.hero_cta_primary_text }}">
+            {{ section.settings.hero_cta_primary_text }}
+          </a>
+        {%- endif -%}
+        
+        {%- if section.settings.hero_cta_secondary_text != blank and section.settings.hero_cta_secondary_link != blank -%}
+          <a href="{{ section.settings.hero_cta_secondary_link }}" 
+             class="hero-cta-secondary"
+             aria-label="{{ section.settings.hero_cta_secondary_text }}">
+            {{ section.settings.hero_cta_secondary_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <!-- Machines Grid -->
+  <div class="machines-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'machine_brand' -%}
+        <div class="machine-card-wrapper" {{ block.shopify_attributes }}>
+          {%- if block.settings.brand_url != blank -%}
+            <a href="{{ block.settings.brand_url }}" 
+               class="machine-card-link"
+               aria-label="Ver más sobre {{ block.settings.brand_name }}"></a>
+          {%- endif -%}
+          
+          <article class="machine-card">
+            <div class="machine-card-image-wrapper aspect-{{ section.settings.image_aspect_ratio }}">
+              {%- if block.settings.brand_image != blank -%}
+                {{ block.settings.brand_image | image_url: width: 800 | image_tag: 
+                  loading: 'lazy',
+                  class: 'machine-card-image',
+                  alt: block.settings.brand_name,
+                  sizes: '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw'
+                }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'machine-card-image' }}
+              {%- endif -%}
+              
+              {%- if block.settings.brand_logo != blank -%}
+                {{ block.settings.brand_logo | image_url: width: 240 | image_tag: 
+                  loading: 'lazy',
+                  class: 'machine-card-logo',
+                  alt: block.settings.brand_name | append: ' logo'
+                }}
+              {%- endif -%}
+              
+              <div class="machine-card-badges">
+                {%- if block.settings.badge_1 != blank -%}
+                  <span class="machine-badge">{{ block.settings.badge_1 }}</span>
+                {%- endif -%}
+                {%- if block.settings.badge_2 != blank -%}
+                  <span class="machine-badge">{{ block.settings.badge_2 }}</span>
+                {%- endif -%}
+              </div>
+            </div>
+            
+            <div class="machine-card-content">
+              {%- if block.settings.brand_name != blank -%}
+                <h2 class="machine-card-title">{{ block.settings.brand_name }}</h2>
+              {%- endif -%}
+              
+              {%- if block.settings.brand_description != blank -%}
+                <p class="machine-card-description">{{ block.settings.brand_description }}</p>
+              {%- endif -%}
+              
+              {%- if block.settings.feature_1 != blank or block.settings.feature_2 != blank or block.settings.feature_3 != blank -%}
+                <ul class="machine-card-features">
+                  {%- if block.settings.feature_1 != blank -%}
+                    <li class="machine-card-feature">
+                      <i class="ph ph-check-circle" aria-hidden="true"></i>
+                      <span>{{ block.settings.feature_1 }}</span>
+                    </li>
+                  {%- endif -%}
+                  {%- if block.settings.feature_2 != blank -%}
+                    <li class="machine-card-feature">
+                      <i class="ph ph-check-circle" aria-hidden="true"></i>
+                      <span>{{ block.settings.feature_2 }}</span>
+                    </li>
+                  {%- endif -%}
+                  {%- if block.settings.feature_3 != blank -%}
+                    <li class="machine-card-feature">
+                      <i class="ph ph-check-circle" aria-hidden="true"></i>
+                      <span>{{ block.settings.feature_3 }}</span>
+                    </li>
+                  {%- endif -%}
+                </ul>
+              {%- endif -%}
+              
+              {%- if block.settings.cta_text != blank and block.settings.brand_url != blank -%}
+                <a href="{{ block.settings.brand_url }}" 
+                   class="machine-card-cta"
+                   aria-label="{{ block.settings.cta_text }} - {{ block.settings.brand_name }}">
+                  {{ block.settings.cta_text }}
+                </a>
+              {%- endif -%}
+            </div>
+          </article>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <!-- Support Block -->
+  {%- if section.settings.show_support_block -%}
+    <div class="support-block" style="background-color: {{ section.settings.support_bg_color }}">
+      <div class="support-content">
+        {%- if section.settings.support_title != blank -%}
+          <h2 class="support-title">{{ section.settings.support_title }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.support_description != blank -%}
+          <p class="support-description">{{ section.settings.support_description }}</p>
+        {%- endif -%}
+        
+        {%- if section.settings.support_cta_text != blank and section.settings.support_cta_link != blank -%}
+          <a href="{{ section.settings.support_cta_link }}" 
+             class="support-cta"
+             aria-label="{{ section.settings.support_cta_text }}">
+            {{ section.settings.support_cta_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function() {
+    'use strict';
+    
+    // Prevent right-click and drag on images
+    const sectionId = 'shopify-section-{{ section.id }}';
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+      const images = section.querySelectorAll('img');
+      
+      images.forEach(function(img) {
+        img.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          return false;
+        });
+        
+        img.addEventListener('dragstart', function(e) {
+          e.preventDefault();
+          return false;
+        });
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "soltex-machines-hub",
+  "class": "shopdev",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Overlay Opacity",
+      "default": 0.5
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_primary_text",
+      "label": "Primary CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_primary_link",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_secondary_text",
+      "label": "Secondary CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_secondary_link",
+      "label": "Secondary CTA Link"
+    },
+    {
+      "type": "header",
+      "content": "Machine Cards Settings"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image Aspect Ratio",
+      "options": [
+        {
+          "value": "16-9",
+          "label": "16:9 (Landscape)"
+        },
+        {
+          "value": "1-1",
+          "label": "1:1 (Square)"
+        }
+      ],
+      "default": "16-9"
+    },
+    {
+      "type": "header",
+      "content": "Support Block"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_support_block",
+      "label": "Show Support Block",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "support_bg_color",
+      "label": "Support Background Color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "text",
+      "id": "support_title",
+      "label": "Support Title"
+    },
+    {
+      "type": "textarea",
+      "id": "support_description",
+      "label": "Support Description"
+    },
+    {
+      "type": "text",
+      "id": "support_cta_text",
+      "label": "Support CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "support_cta_link",
+      "label": "Support CTA Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "machine_brand",
+      "name": "Machine Brand",
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name"
+        },
+        {
+          "type": "url",
+          "id": "brand_url",
+          "label": "Brand Page URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_logo",
+          "label": "Brand Logo"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand Image"
+        },
+        {
+          "type": "textarea",
+          "id": "brand_description",
+          "label": "Brand Description"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "text",
+          "id": "badge_1",
+          "label": "Badge 1"
+        },
+        {
+          "type": "text",
+          "id": "badge_2",
+          "label": "Badge 2"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Button Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "soltex-machines-hub",
+      "settings": {
+        "hero_image": "shopify://shop_images/sewing-machine-in-use.jpg",
+        "hero_overlay_opacity": 0.6,
+        "hero_title": "Máquinas Industriales de Alta Precisión",
+        "hero_subtitle": "Tecnología de vanguardia para la industria textil. Descubre nuestras marcas líderes en maquinaria de confección profesional.",
+        "hero_cta_primary_text": "Ver Catálogo Completo",
+        "hero_cta_primary_link": "/collections/all",
+        "hero_cta_secondary_text": "Solicitar Cotización",
+        "hero_cta_secondary_link": "/pages/contact",
+        "image_aspect_ratio": "16-9",
+        "show_support_block": true,
+        "support_bg_color": "#f4f4f4",
+        "support_title": "¿Necesitas Asesoría Especializada?",
+        "support_description": "Nuestro equipo de expertos está listo para ayudarte a encontrar la máquina perfecta para tu negocio. Ofrecemos soporte técnico, capacitación y servicio post-venta.",
+        "support_cta_text": "Contactar Asesor",
+        "support_cta_link": "/pages/contact"
+      },
+      "blocks": [
+        {
+          "type": "machine_brand",
+          "settings": {
+            "brand_name": "Supreme",
+            "brand_url": "/pages/supreme",
+            "brand_logo": "shopify://shop_images/contact-us-lettering.jpg",
+            "brand_image": "shopify://shop_images/black-fabric-in-sewing-machine.jpg",
+            "brand_description": "Máquinas de coser industriales de alta velocidad con tecnología japonesa. Ideales para producción en serie con acabados profesionales.",
+            "feature_1": "Velocidad de hasta 5,500 puntadas por minuto",
+            "feature_2": "Sistema de lubricación automática",
+            "feature_3": "Motor servo de bajo consumo energético",
+            "badge_1": "Más Vendida",
+            "badge_2": "Garantía 2 Años",
+            "cta_text": "Ver Modelos Supreme"
+          }
+        },
+        {
+          "type": "machine_brand",
+          "settings": {
+            "brand_name": "Jack",
+            "brand_url": "/pages/jack",
+            "brand_logo": "shopify://shop_images/smiling-jack-o-lantern-in-woman-s-lap.jpg",
+            "brand_image": "shopify://shop_images/sewing-supplies-flatlay.jpg",
+            "brand_description": "Máquinas overlock y recubridoras de última generación. Perfectas para talleres de confección que buscan versatilidad y durabilidad.",
+            "feature_1": "Tecnología de corte automático de hilo",
+            "feature_2": "Panel de control digital intuitivo",
+            "feature_3": "Compatible con múltiples tipos de tela",
+            "badge_1": "Innovación",
+            "badge_2": "",
+            "cta_text": "Explorar Jack"
+          }
+        },
+        {
+          "type": "machine_brand",
+          "settings": {
+            "brand_name": "Eagle Special",
+            "brand_url": "/pages/eagle-special",
+            "brand_logo": "shopify://shop_images/pinecones-on-blue.jpg",
+            "brand_image": "shopify://shop_images/vintage-sewing-tools.jpg",
+            "brand_description": "Máquinas especializadas para ojales, botones y bordado industrial. La elección de profesionales para trabajos de alta precisión.",
+            "feature_1": "Precisión milimétrica en cada puntada",
+            "feature_2": "Diseño ergonómico para operación prolongada",
+            "feature_3": "Mantenimiento simplificado",
+            "badge_1": "Especializada",
+            "badge_2": "Pro",
+            "cta_text": "Descubrir Eagle Special"
+          }
+        },
+        {
+          "type": "machine_brand",
+          "settings": {
+            "brand_name": "NEXTSEW",
+            "brand_url": "/pages/nextsew",
+            "brand_logo": "shopify://shop_images/sewing-supplies-flatlay.jpg",
+            "brand_image": "shopify://shop_images/sewing-machine-in-use.jpg",
+            "brand_description": "Máquinas de coser de nueva generación con tecnología inteligente. Soluciones innovadoras para la industria textil moderna.",
+            "feature_1": "Control digital avanzado con pantalla táctil",
+            "feature_2": "Conectividad IoT para monitoreo remoto",
+            "feature_3": "Eficiencia energética superior",
+            "badge_1": "Nueva Generación",
+            "badge_2": "Tecnología Smart",
+            "cta_text": "Ver NEXTSEW"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
