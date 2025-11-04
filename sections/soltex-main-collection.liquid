@@ -327,7 +327,7 @@
 <script>
 class SoltexMarketGrid {
   constructor() {
-    this.collection = '{{ section.settings.collection }}' || 'all';
+    this.collection = '{{ section.settings.collection }}' !== '' ? '{{ section.settings.collection }}' : 'all';
     this.productsPerPage = {{ section.settings.products_per_page }};
     this.enableInfiniteScroll = {{ section.settings.enable_infinite_scroll }};
     this.enableQuickView = {{ section.settings.enable_quick_view }};
