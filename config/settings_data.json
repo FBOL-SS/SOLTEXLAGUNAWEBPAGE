@@ -14,7 +14,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_text": "SOLTEX",
+          "logo_text": "GRUPO SEWING",
           "logo_width": 150,
           "main_menu": "main-menu",
           "secondary_menu": "main-menu",
@@ -100,12 +100,11 @@
           "subheading": "",
           "collection": "general",
           "products_per_page": 12,
+          "enable_infinite_scroll": true,
           "enable_quick_view": true,
           "enable_quick_add": true,
-          "enable_infinite_scroll": true,
           "show_availability_filter": true,
           "show_price_filter": true,
-          "show_vendor_filter": true,
           "show_type_filter": true
         }
       },
@@ -126,12 +125,106 @@
       },
       "soltex-machines-hub": {
         "type": "soltex-machines-hub",
+        "blocks": {
+          "machine_brand_zPgEPf": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_PGmkDU": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_dDH8br": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_BGBTVz": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_JbLrF8": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          },
+          "machine_brand_PyU4dm": {
+            "type": "machine_brand",
+            "settings": {
+              "brand_name": "",
+              "brand_url": "",
+              "brand_description": "",
+              "feature_1": "",
+              "feature_2": "",
+              "feature_3": "",
+              "badge_1": "",
+              "badge_2": "",
+              "cta_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "machine_brand_zPgEPf",
+          "machine_brand_PGmkDU",
+          "machine_brand_dDH8br",
+          "machine_brand_BGBTVz",
+          "machine_brand_JbLrF8",
+          "machine_brand_PyU4dm"
+        ],
         "settings": {
           "hero_image": "shopify://shop_images/AdobeStock_248525679.jpg",
           "hero_overlay_opacity": 0.5,
-          "hero_title": "",
+          "hero_title": "Nuestras Marcas",
           "hero_subtitle": "",
-          "hero_cta_primary_text": "",
+          "hero_cta_primary_text": "Productos Destacados",
           "hero_cta_primary_link": "",
           "hero_cta_secondary_text": "",
           "hero_cta_secondary_link": "",
