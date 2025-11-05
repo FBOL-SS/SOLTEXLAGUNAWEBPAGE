@@ -759,13 +759,67 @@
               "title": "Corte",
               "description": "Sistemas de corte manual y automatizado para optimizar precisión y rendimiento industrial."
             }
+          },
+          "category_LMCcdj": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_K7nfEi": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_t4zYE4": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_e4MdTE": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_KrbNDL": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
+          },
+          "category_gcPCTz": {
+            "type": "category",
+            "settings": {
+              "title": "Jack",
+              "description": "Máquinas de coser industriales de alta velocidad",
+              "link": ""
+            }
           }
         },
         "block_order": [
           "industry_T6Xjr7",
           "industry_hQtzJi",
           "industry_rT9pCr",
-          "industry_daGLLA"
+          "industry_daGLLA",
+          "category_LMCcdj",
+          "category_K7nfEi",
+          "category_t4zYE4",
+          "category_e4MdTE",
+          "category_KrbNDL",
+          "category_gcPCTz"
         ],
         "settings": {
           "hero_image": "shopify://shop_images/202508221800361138.jpg",
