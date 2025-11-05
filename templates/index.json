@@ -60,6 +60,22 @@
             "title": "Entrega Rápida",
             "text": "Envíos en 24-72 horas a toda la región con seguimiento en tiempo real"
           }
+        },
+        "differentiator_Yceyae": {
+          "type": "differentiator",
+          "settings": {
+            "icon": "lightning",
+            "title": "Entrega Rápida",
+            "text": "Envíos en 24-72 horas a toda la región con seguimiento en tiempo real"
+          }
+        },
+        "differentiator_wkGMPb": {
+          "type": "differentiator",
+          "settings": {
+            "icon": "lightning",
+            "title": "Entrega Rápida",
+            "text": "Envíos en 24-72 horas a toda la región con seguimiento en tiempo real"
+          }
         }
       },
       "block_order": [
@@ -68,7 +84,9 @@
         "marquee_item_e6GwEW",
         "category_RkHnWP",
         "category_Xfq3Ng",
-        "differentiator_Twhmz4"
+        "differentiator_Twhmz4",
+        "differentiator_Yceyae",
+        "differentiator_wkGMPb"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
