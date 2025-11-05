@@ -190,6 +190,17 @@
               "title": "Nueva apertura en Puebla",
               "text": "Inauguramos SOLTEX Puebla, fortaleciendo la cobertura nacional y nuestra presencia estratégica en el Bajío y el centro del país."
             }
+          },
+          "cta_ka6P4V": {
+            "type": "cta",
+            "settings": {
+              "button_text": "Contactanos",
+              "button_link": "shopify://pages/contact",
+              "button_style": "solid",
+              "whatsapp_enabled": true,
+              "whatsapp_number": "528715246072",
+              "whatsapp_message": "Hola! Quiero solicitar información sobre sus productos."
+            }
           }
         },
         "block_order": [
@@ -210,7 +221,8 @@
           "timeline_ct7EqD",
           "timeline_M3LdDF",
           "timeline_bbATjm",
-          "timeline_HDJxGL"
+          "timeline_HDJxGL",
+          "cta_ka6P4V"
         ],
         "settings": {
           "tone": "light",
