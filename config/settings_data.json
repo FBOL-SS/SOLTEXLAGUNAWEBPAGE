@@ -731,7 +731,7 @@
           "industry_T6Xjr7": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
+              "icon": "shirt",
               "title": "Confección",
               "description": "Máquinas especializadas para talleres de confección y producción en serie"
             }
