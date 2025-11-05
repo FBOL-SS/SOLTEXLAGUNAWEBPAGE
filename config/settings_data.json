@@ -327,6 +327,7 @@
             "settings": {
               "brand_name": "SUPREME",
               "brand_url": "shopify://pages/supreme",
+              "brand_image": "shopify://shop_images/SUPREMENINGBO_ddf537bb-93b5-4d42-887a-8cabc91f18ea.png",
               "brand_description": "Nuestra marca exclusiva enfocada en ofrecer maquinaria confiable, rentable y con soporte inmediato en toda la región. SUPREME representa el equilibrio perfecto entre tecnología, accesibilidad y respaldo técnico directo de SOLTEX.",
               "feature_1": "",
               "feature_2": "",
@@ -341,6 +342,7 @@
             "settings": {
               "brand_name": "JACK",
               "brand_url": "",
+              "brand_image": "shopify://shop_images/JACKLOGO.jpg",
               "brand_description": "Líder mundial en maquinaria industrial de coser, automatización textil y soluciones electrónicas de alta eficiencia. JACK combina innovación, velocidad y ahorro energético para maximizar la productividad en cada línea de confección.",
               "feature_1": "",
               "feature_2": "",
