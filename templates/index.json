@@ -76,6 +76,24 @@
             "title": "Cobertura Regional",
             "text": "Operamos desde México hasta Centroamérica, con presencia física en múltiples países."
           }
+        },
+        "trust_logo_yMKxCU": {
+          "type": "trust_logo",
+          "settings": {
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_rf3eAy": {
+          "type": "trust_logo",
+          "settings": {
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_Y6q9ML": {
+          "type": "trust_logo",
+          "settings": {
+            "brand_name": "Brand Name"
+          }
         }
       },
       "block_order": [
@@ -86,7 +104,10 @@
         "category_Xfq3Ng",
         "differentiator_Twhmz4",
         "differentiator_Yceyae",
-        "differentiator_wkGMPb"
+        "differentiator_wkGMPb",
+        "trust_logo_yMKxCU",
+        "trust_logo_rf3eAy",
+        "trust_logo_Y6q9ML"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
