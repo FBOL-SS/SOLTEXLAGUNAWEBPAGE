@@ -80,7 +80,8 @@
         "trust_logo_yMKxCU": {
           "type": "trust_logo",
           "settings": {
-            "brand_name": "Brand Name"
+            "logo": "shopify://shop_images/Brother_logo_svg.png",
+            "brand_name": "BROTHER"
           }
         },
         "trust_logo_rf3eAy": {
