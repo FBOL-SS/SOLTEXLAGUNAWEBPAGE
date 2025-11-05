@@ -194,6 +194,7 @@
           "team_7UpDLF": {
             "type": "team",
             "settings": {
+              "photo": "shopify://shop_images/NEGRO.jpg",
               "name": "Luis Bolaños",
               "role": "CEO & Founder",
               "bio": "Líder apasionado con más de 25 años de experiencia en la industria, impulsando el crecimiento, la innovación y la excelencia operativa en el sector textil e industrial."
