@@ -11,13 +11,60 @@
   "sections": {
     "hero": {
       "type": "hero",
+      "blocks": {
+        "marquee_item_m8ig7b": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "+15,000 Refacciones en Stock",
+            "icon": "check-circle"
+          }
+        },
+        "marquee_item_GfwmxX": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "+200 Clientes Satisfechos",
+            "icon": "check-circle"
+          }
+        },
+        "marquee_item_e6GwEW": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "Precios Bajos",
+            "icon": "check-circle"
+          }
+        },
+        "category_RkHnWP": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/AdobeStock_282830762.jpg",
+            "icon": "gear",
+            "title": "Maquinaria Industrial",
+            "description": "Equipos de alta precisión para manufactura textil",
+            "link": "shopify://pages/marcas"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_item_m8ig7b",
+        "marquee_item_GfwmxX",
+        "marquee_item_e6GwEW",
+        "category_RkHnWP"
+      ],
       "settings": {
-        "background_image": "shopify://shop_images/IMAGEMACHINE.jpg",
-        "overlay_opacity": 75,
-        "headline": "SOLUCIONES TEXTILES LAGUNA",
-        "subheadline": "Conectamos a la industria textil de México y Centroamérica con soluciones avanzadas en maquinaria, refacciones y automatización.\nEn SOLTEX impulsamos la transformación tecnológica del sector, integrando innovación, rendimiento y servicio técnico en un solo lugar.",
-        "button_text": "Ver catálogo",
-        "button_url": "shopify://collections/general"
+        "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
+        "hero_video": "",
+        "hero_title": "Industrial Power Meets Precision",
+        "hero_subtitle": "Maquinaria industrial de alta precisión y refacciones certificadas para impulsar tu producción",
+        "hero_cta_primary_text": "Ver Catálogo",
+        "hero_cta_primary_link": "",
+        "hero_cta_secondary_text": "Asesor WhatsApp",
+        "hero_cta_secondary_link": "",
+        "trust_title": "Marcas Globales de Confianza",
+        "trust_subtitle": "Distribuidor autorizado de las marcas líderes en la industria",
+        "final_cta_title": "¿Listo para Potenciar tu Producción?",
+        "final_cta_text": "Obtén una cotización personalizada y descubre cómo nuestras soluciones industriales pueden transformar tu operación",
+        "final_cta_button_text": "Cotizar Ahora",
+        "final_cta_button_link": ""
       }
     },
     "featured-categories": {
@@ -66,6 +113,7 @@
         "category_6WiwbJ",
         "category_MeGnQ3"
       ],
+      "disabled": true,
       "settings": {
         "section_title": "Nuestra Oferta",
         "section_subtitle": "Descubre nuestra completa línea de maquinaria y refacciones industriales."
@@ -73,6 +121,7 @@
     },
     "why-choose": {
       "type": "why-choose",
+      "disabled": true,
       "settings": {
         "section_title": "¿Por qué elegirnos?",
         "section_subtitle": "Con años de experiencia, cobertura regional y un compromiso constante con la innovación, hemos logrado consolidarnos como uno de los principales proveedores de maquinaria y soluciones textiles en Latinoamérica.",
@@ -146,6 +195,7 @@
     },
     "newsletter": {
       "type": "newsletter",
+      "disabled": true,
       "settings": {
         "title": "Mantente conectado con SOLTEX",
         "subtitle": "Suscríbete para recibir actualizaciones exclusivas, lanzamientos de productos y ofertas especiales directamente en tu correo.",
