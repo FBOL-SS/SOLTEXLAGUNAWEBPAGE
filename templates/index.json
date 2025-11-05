@@ -97,6 +97,34 @@
             "logo": "shopify://shop_images/Yamato_Sewing_Machine_Mfg._Co.__Ltd._Company_logo.png",
             "brand_name": "Brand Name"
           }
+        },
+        "trust_logo_MtCGXp": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo.png",
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_CPpm8r": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/Durkopp-Adler_AG-Logo.svg",
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_BjaVTf": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/JACKLOGO.jpg",
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_abeiyM": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/SUPREMENINGBO_ddf537bb-93b5-4d42-887a-8cabc91f18ea.png",
+            "brand_name": "Brand Name"
+          }
         }
       },
       "block_order": [
@@ -110,7 +138,11 @@
         "differentiator_wkGMPb",
         "trust_logo_yMKxCU",
         "trust_logo_rf3eAy",
-        "trust_logo_Y6q9ML"
+        "trust_logo_Y6q9ML",
+        "trust_logo_MtCGXp",
+        "trust_logo_CPpm8r",
+        "trust_logo_BjaVTf",
+        "trust_logo_abeiyM"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
