@@ -731,9 +731,9 @@
           "industry_T6Xjr7": {
             "type": "industry",
             "settings": {
-              "icon": "shirt",
+              "icon": "t-shirt",
               "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "description": "Máquinas especializadas para talleres de confección, prendas técnicas y producción en serie."
             }
           },
           "industry_hQtzJi": {
