@@ -259,9 +259,9 @@
         "hero_cta_secondary_link": "https://wa.me/528715246072?text=Hola%20quiero%20cotizar%20refacciones%20en%20SOLTEX",
         "trust_title": "Marcas Globales de Confianza",
         "trust_subtitle": "Distribuidor autorizado de las marcas líderes en la industria",
-        "final_cta_title": "¿Listo para Potenciar tu Producción?",
-        "final_cta_text": "Obtén una cotización personalizada y descubre cómo nuestras soluciones industriales pueden transformar tu operación",
-        "final_cta_button_text": "Cotizar Ahora",
+        "final_cta_title": "NO ESPERES A QUE TU MÁQUINA SE DETENGA",
+        "final_cta_text": "PIDE TUS REFACCIONES HOY MISMO",
+        "final_cta_button_text": "COTIZAR AHORA",
         "final_cta_button_link": "shopify://pages/contact"
       }
     },
@@ -319,7 +319,6 @@
     },
     "why-choose": {
       "type": "why-choose",
-      "disabled": true,
       "settings": {
         "section_title": "¿Por qué elegirnos?",
         "section_subtitle": "Con años de experiencia, cobertura regional y un compromiso constante con la innovación, hemos logrado consolidarnos como uno de los principales proveedores de maquinaria y soluciones textiles en Latinoamérica.",
@@ -339,92 +338,11 @@
         "main_cta_text": "Solicita tu Cotización",
         "main_cta_link": "shopify://pages/contact"
       }
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_jJKKi6": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Con SOLTEX encontramos un aliado confiable. Su equipo técnico nos ha ayudado a mantener nuestras líneas de producción funcionando sin interrupciones.",
-            "author_name": "— A**** A******,",
-            "author_role": "Gerente de Producción",
-            "company": "",
-            "rating": 5
-          }
-        },
-        "testimonial_HRqmjJ": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX.",
-            "author_name": "María López",
-            "author_role": "Gerente de Producción",
-            "company": "Textiles del Norte",
-            "rating": 5
-          }
-        },
-        "testimonial_aPi4AK": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Incrementamos OEE y bajamos paros con la automatización de SOLTEX.",
-            "author_name": "María López",
-            "author_role": "Gerente de Producción",
-            "company": "Textiles del Norte",
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_jJKKi6",
-        "testimonial_HRqmjJ",
-        "testimonial_aPi4AK"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Lo que opinan nuestros clientes",
-        "subtitle": "Resultados reales en plantas reales.",
-        "layout_mode": "grid",
-        "desktop_columns": 3,
-        "overlay_opacity": 60,
-        "background_style": "solid",
-        "background_color": "#0d1b2a",
-        "text_color": "#ffffff"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "title": "Mantente conectado con SOLTEX",
-        "subtitle": "Suscríbete para recibir actualizaciones exclusivas, lanzamientos de productos y ofertas especiales directamente en tu correo.",
-        "text_alignment": "center",
-        "show_name_field": true,
-        "name_label": "Nombre",
-        "name_placeholder": "Escribe tu nombre aqui",
-        "name_required": true,
-        "email_label": "Email",
-        "email_placeholder": "tu.email@ejemplo.com",
-        "inline_layout": false,
-        "show_gdpr_consent": true,
-        "consent_text": "Acepto recibir correos electrónicos de marketing de SOLTEX y entiendo que puedo darme de baja en cualquier momento. Consulta nuestra Política de Privacidad.",
-        "consent_error_message": "Debes aceptar recibir correos de marketing para continuar.",
-        "button_label": "Suscribeme Ahora",
-        "button_loading_label": "Suscribiendo...",
-        "success_message": "¡Gracias por suscribirte! Revisa tu bandeja de entrada para confirmar tu correo.",
-        "error_message": "Algo salió mal. Por favor verifica tu dirección de correo electrónico e inténtalo nuevamente.",
-        "small_print": "Respetamos tu privacidad. Puedes darte de baja en cualquier momento.",
-        "show_social_proof": true,
-        "social_proof_text": "Únete a más de 2,000 suscriptores que confían en SOLTEX.",
-        "layout": "contained",
-        "background_color": "#0d1b2a",
-        "overlay_opacity": 0.7
-      }
     }
   },
   "order": [
     "hero",
     "featured-categories",
-    "why-choose",
-    "testimonials",
-    "newsletter"
+    "why-choose"
   ]
 }
