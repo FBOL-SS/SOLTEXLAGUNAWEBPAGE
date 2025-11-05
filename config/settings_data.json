@@ -86,6 +86,30 @@
               "heading": "Nuestra visión",
               "text": "Consolidarnos como la red líder en soluciones industriales para la confección en Latinoamérica, reconocida por su innovación, servicio y cobertura regional. Aspiramos a ser el aliado estratégico que conecta la industria textil con el futuro de la automatización y la eficiencia productiva."
             }
+          },
+          "value_dfVGc7": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Confiabilidad",
+              "desc": "Respaldo técnico cuando más se necesita."
+            }
+          },
+          "value_Dpwfbb": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Confiabilidad",
+              "desc": "Respaldo técnico cuando más se necesita."
+            }
+          },
+          "value_Pi4wqp": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Confiabilidad",
+              "desc": "Respaldo técnico cuando más se necesita."
+            }
           }
         },
         "block_order": [
@@ -93,7 +117,10 @@
           "kpi_YEWRw7",
           "kpi_yQHUT4",
           "mission_PgnXjE",
-          "mission_NrKxm8"
+          "mission_NrKxm8",
+          "value_dfVGc7",
+          "value_Dpwfbb",
+          "value_Pi4wqp"
         ],
         "settings": {
           "tone": "light",
