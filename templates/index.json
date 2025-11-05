@@ -42,13 +42,24 @@
             "description": "Equipos de alta precisión para manufactura textil",
             "link": "shopify://pages/marcas"
           }
+        },
+        "category_Xfq3Ng": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/AdobeStock_408101425.jpg",
+            "icon": "gear",
+            "title": "Refacciones Originales y Genéricas",
+            "description": "Equipos de alta precisión para manufactura textil",
+            "link": "shopify://collections/all"
+          }
         }
       },
       "block_order": [
         "marquee_item_m8ig7b",
         "marquee_item_GfwmxX",
         "marquee_item_e6GwEW",
-        "category_RkHnWP"
+        "category_RkHnWP",
+        "category_Xfq3Ng"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
