@@ -119,22 +119,6 @@
               "description": "Fomentamos la colaboración y el respeto mutuo dentro de nuestro equipo y con nuestros socios, porque sabemos que el crecimiento colectivo genera mejores resultados."
             }
           },
-          "value_EQQRQk": {
-            "type": "value",
-            "settings": {
-              "icon": "",
-              "title": "Servicio al cliente",
-              "description": "Nuestra prioridad es acompañar, asesorar y apoyar a cada cliente con soluciones técnicas y humanas que realmente resuelvan sus necesidades."
-            }
-          },
-          "value_weczC3": {
-            "type": "value",
-            "settings": {
-              "icon": "",
-              "title": "Responsabilidad social y regional",
-              "description": "Contribuimos al desarrollo de la industria en México y Centroamérica, impulsando empleo, capacitación y crecimiento sostenible en la región."
-            }
-          },
           "timeline_33r3Hp": {
             "type": "timeline",
             "settings": {
@@ -218,8 +202,6 @@
           "value_Dpwfbb",
           "value_Pi4wqp",
           "value_eWk7YM",
-          "value_EQQRQk",
-          "value_weczC3",
           "timeline_33r3Hp",
           "timeline_b7JApC",
           "timeline_jJ6L7R",
