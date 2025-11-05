@@ -763,7 +763,8 @@
           "category_LMCcdj": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "image": "shopify://shop_images/GC9000.jpg",
+              "title": "RECTAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -771,7 +772,8 @@
           "category_K7nfEi": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "image": "shopify://shop_images/EA7.jpg",
+              "title": "OVERLOCK",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -779,7 +781,8 @@
           "category_t4zYE4": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "image": "shopify://shop_images/2600.jpg",
+              "title": "RECUBRIDORAS",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
