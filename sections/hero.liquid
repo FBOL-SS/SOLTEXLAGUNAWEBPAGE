@@ -351,22 +351,37 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 48px;
+    gap: 32px;
     max-width: 1000px;
     margin: 0 auto;
   }
 
+  .shopdev .trust-logo-tile {
+    background-color: var(--soltex-white);
+    border: 2px solid var(--soltex-gray);
+    border-radius: 8px;
+    padding: 32px 40px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .shopdev .trust-logo-tile:hover {
+    border-color: var(--soltex-metallic);
+    box-shadow: 0 8px 24px rgba(125, 138, 148, 0.2);
+    transform: translateY(-4px);
+  }
+
   .shopdev .trust-logo {
     height: 60px;
-    filter: grayscale(100%);
-    opacity: 0.6;
     transition: all 0.3s ease;
   }
 
-  .shopdev .trust-logo:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1);
+  .shopdev .trust-logo-tile:hover .trust-logo {
+    transform: scale(1.05);
   }
 
   /* Final CTA Section */
@@ -595,7 +610,7 @@
       <div class="trust-logos">
         {% for block in logo_blocks %}
           {% if block.settings.logo != blank %}
-            <div {{ block.shopify_attributes }}>
+            <div class="trust-logo-tile" {{ block.shopify_attributes }}>
               {{ block.settings.logo | image_url: width: 200 | image_tag: 
                 class: 'trust-logo',
                 loading: 'lazy',
