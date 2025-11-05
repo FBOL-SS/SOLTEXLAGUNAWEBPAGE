@@ -1,0 +1,171 @@
+<style>
+  .soltex-cart{--azul:#0D1B2A;--gris:#E5E7EB;--blanco:#FFFFFF;--metal:#7D8A94}
+  .soltex-cart .wrap{max-width:1200px;margin:0 auto;padding:24px 16px}
+  .soltex-cart h1{font-family:Poppins,system-ui; font-weight:800; color:var(--azul); margin:0 0 12px}
+  .soltex-cart p, .soltex-cart span, .soltex-cart label{font-family:Inter,system-ui}
+  .soltex-cart .grid{display:grid; gap:18px}
+  @media(min-width:992px){ .soltex-cart .grid{grid-template-columns:1fr 360px} }
+
+  .soltex-cart .card{background:var(--blanco); border:1px solid var(--gris); border-radius:14px; box-shadow:0 10px 24px rgba(13,27,42,.06)}
+  .soltex-cart .items{padding:10px}
+  .soltex-cart .row{display:grid; grid-template-columns:72px 1fr auto; gap:12px; align-items:center; padding:12px; border-bottom:1px solid var(--gris)}
+  .soltex-cart .row:last-child{border-bottom:0}
+  .soltex-cart .img{width:72px; height:72px; border-radius:10px; overflow:hidden; background:#f6f7f9; display:flex; align-items:center; justify-content:center}
+  .soltex-cart .img img{width:100%; height:100%; object-fit:cover}
+  .soltex-cart .ttl a{color:var(--azul); font-weight:700; text-decoration:none}
+  .soltex-cart .meta{font-size:12px; color:var(--metal); margin-top:4px}
+  .soltex-cart .qty{display:flex; align-items:center; gap:6px}
+  .soltex-cart .qty input{width:56px; padding:8px; border:1px solid var(--gris); border-radius:10px; text-align:center}
+  .soltex-cart .price{font-weight:800; color:var(--azul)}
+  .soltex-cart .act{display:flex; gap:12px; align-items:center}
+  .soltex-cart .btn-link{background:none; border:0; color:#ef4444; cursor:pointer; font-size:13px}
+
+  .soltex-cart .summary{padding:18px}
+  .soltex-cart .sum-row{display:flex; justify-content:space-between; align-items:center; margin:10px 0; color:var(--azul)}
+  .soltex-cart .total{font-weight:800; font-size:18px}
+  .soltex-cart .btn-primary,
+  .soltex-cart .btn-secondary{display:block; width:100%; text-align:center; padding:12px 16px; border-radius:12px; font-weight:700; margin-top:12px; text-decoration:none}
+  .soltex-cart .btn-primary{background:var(--azul); color:#fff}
+  .soltex-cart .btn-primary:hover{opacity:.92}
+  .soltex-cart .btn-secondary{border:1px solid var(--azul); color:var(--azul); background:#fff}
+  .soltex-cart .note{padding:16px}
+  .soltex-cart textarea{width:100%; min-height:88px; border:1px solid var(--gris); border-radius:12px; padding:10px}
+
+  /* Barra de envío */
+  .soltex-cart .shipbar{background:#f7f9fb; border:1px solid var(--gris); border-radius:12px; padding:14px; margin:12px 0}
+  .soltex-cart .shipbar .bar{height:8px; background:#e9edf2; border-radius:999px; overflow:hidden}
+  .soltex-cart .shipbar .fill{height:100%; background:var(--azul); width:0%}
+  .soltex-cart .shipbar .txt{font-size:13px; color:var(--azul); margin-bottom:8px}
+</style>
+
+<section class="soltex-cart" data-goal="{{ section.settings.free_shipping_goal | default: 150000 }}">
+  <div class="wrap">
+    <h1>{{ 'cart.general.title' | t | default: 'Carrito' }}</h1>
+
+    {%- if cart.item_count == 0 -%}
+      <div class="card" style="padding:24px; text-align:center">
+        <p style="color:var(--metal)">Tu carrito está vacío.</p>
+        <a class="btn-secondary" href="{{ routes.all_products_collection_url | default: routes.collections_url }}">Seguir comprando</a>
+      </div>
+    {%- else -%}
+      <div class="grid">
+        <!-- Lista de items -->
+        <div class="card">
+          <form action="/cart" method="post" novalidate>
+            <div class="items">
+              {%- for item in cart.items -%}
+                <div class="row" data-key="{{ item.key }}">
+                  <div class="img">
+                    {%- if item.image -%}
+                      <a href="{{ item.url }}"><img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.product.title | escape }}"></a>
+                    {%- endif -%}
+                  </div>
+                  <div>
+                    <div class="ttl"><a href="{{ item.url }}">{{ item.product.title }}</a></div>
+                    <div class="meta">
+                      {% if item.variant.title != 'Default Title' %}Variante: {{ item.variant.title }} · {% endif %}
+                      SKU: {{ item.sku | default: 'N/A' }}
+                    </div>
+                    <div class="act" style="margin-top:8px">
+                      <div class="qty">
+                        <label for="qty-{{ forloop.index }}" class="visually-hidden">Cantidad</label>
+                        <input id="qty-{{ forloop.index }}" name="updates[{{ item.key }}]" type="number" min="0" value="{{ item.quantity }}">
+                        <button type="submit" name="update" class="btn-secondary" style="width:auto; padding:8px 10px">Actualizar</button>
+                      </div>
+                      <button class="btn-link js-remove" data-key="{{ item.key }}" type="button">Eliminar</button>
+                    </div>
+                  </div>
+                  <div class="price">
+                    {{ item.final_line_price | money_with_currency }}
+                    {% if item.line_level_discount_allocations.size > 0 %}
+                      <div class="meta">
+                        {% for alloc in item.line_level_discount_allocations %}
+                          – {{ alloc.discount_application.title }} ({{ alloc.amount | money }})
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+
+            {% if section.settings.show_cart_note %}
+              <div class="note">
+                <label for="CartSpecialInstructions" style="font-weight:700; color:var(--azul)">Notas del pedido</label>
+                <textarea id="CartSpecialInstructions" name="note">{{ cart.note }}</textarea>
+              </div>
+            {% endif %}
+          </form>
+        </div>
+
+        <!-- Resumen -->
+        <aside class="card summary">
+          {% if section.settings.show_shipping_bar %}
+            {% assign goal = section.settings.free_shipping_goal | default: 150000 %}
+            {% assign subtotal = cart.total_price %}
+            {% assign left = goal | minus: subtotal %}
+            <div class="shipbar" data-subtotal="{{ subtotal }}" data-goal="{{ goal }}">
+              <div class="txt">
+                {% if left > 0 %}
+                  Te faltan <strong>{{ left | money_with_currency }}</strong> para **ENVÍO GRATIS**.
+                {% else %}
+                  ¡Felicidades! Alcanzaste el **ENVÍO GRATIS**.
+                {% endif %}
+              </div>
+              {% assign pct = subtotal | times: 100 | divided_by: goal %}
+              <div class="bar"><div class="fill" style="width:{{ pct | at_most: 100 }}%"></div></div>
+            </div>
+          {% endif %}
+
+          <div class="sum-row">
+            <span>Subtotal</span><span>{{ cart.total_price | money_with_currency }}</span>
+          </div>
+          <div class="meta" style="font-size:12px; color:var(--metal)">Impuestos y envío se calculan en el checkout.</div>
+
+          <form action="/cart" method="post">
+            <button class="btn-primary" type="submit" name="checkout">Finalizar compra</button>
+          </form>
+
+          <a class="btn-secondary" href="{{ routes.all_products_collection_url | default: routes.collections_url }}">Seguir comprando</a>
+
+          {% if section.settings.show_whatsapp_cta and section.settings.whatsapp_number != blank %}
+            <a class="btn-secondary" style="margin-top:10px"
+               href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' }}?text={{ 'Hola SOLTEX, quiero cotizar estos productos:' | url_encode }}%0A{{ shop.url }}{{ routes.cart_url }}"
+               target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+          {% endif %}
+        </aside>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  // Eliminar item vía /cart/change.js
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.js-remove');
+    if(!btn) return;
+    const key = btn.dataset.key;
+    try{
+      await fetch('/cart/change.js', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ id:key, quantity:0 })
+      });
+      location.reload();
+    }catch(err){ console.error(err); }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SOLTEX – Main Cart",
+  "settings": [
+    { "type":"checkbox", "id":"show_shipping_bar", "label":"Mostrar barra de envío gratis", "default": true },
+    { "type":"number", "id":"free_shipping_goal", "label":"Meta de envío gratis (centavos)", "default": 150000, "info":"Ej: 150000 = $1,500.00" },
+    { "type":"checkbox", "id":"show_cart_note", "label":"Mostrar nota del pedido", "default": true },
+    { "type":"checkbox", "id":"show_whatsapp_cta", "label":"Mostrar botón de WhatsApp", "default": true },
+    { "type":"text", "id":"whatsapp_number", "label":"Número WhatsApp (solo dígitos)", "default":"528715246072" }
+  ],
+  "presets":[{ "name":"SOLTEX – Carrito" }]
+}
+{% endschema %}
