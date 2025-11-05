@@ -262,6 +262,7 @@
       "soltex-contact": {
         "type": "soltex-contact",
         "settings": {
+          "tone": "light",
           "title": "Contáctanos",
           "subtitle": "<p>Estamos listos para ayudarte.</p>",
           "success_message": "¡Gracias por contactarnos! Hemos recibido tu mensaje y te responderemos pronto.",

@@ -1,16 +1,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   .shopdev .contact-section {
-    font-family: 'Lora', Georgia, serif;
-    background: #0D1B2A;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
     position: relative;
     overflow: hidden;
+    --bg: #0D1B2A;
+    --fg: #FFFFFF;
+    --muted: #7D8A94;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-bd: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(0, 0, 0, 0.1);
+    --radius: 12px;
   }
 
-  .shopdev .contact-section::before {
+  .shopdev .contact-section[data-tone="light"] {
+    --bg: #F9FAFB;
+    --fg: #0D1B2A;
+    --muted: #7D8A94;
+    --card-bg: #FFFFFF;
+    --card-bd: #E5E7EB;
+    --shadow: rgba(0, 0, 0, 0.05);
+  }
+
+  .shopdev .contact-section[data-tone="dark"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -45,42 +61,56 @@
   }
 
   .shopdev .glass-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-bd);
+    border-radius: var(--radius);
     padding: 32px;
+  }
+
+  .shopdev .contact-section[data-tone="dark"] .glass-box {
+    backdrop-filter: blur(10px);
   }
 
   .shopdev .contact-form input,
   .shopdev .contact-form textarea {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    font-family: 'Lora', Georgia, serif;
+    border: 1px solid var(--card-bd);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     transition: all 0.3s ease;
   }
 
+  .shopdev .contact-section[data-tone="dark"] .contact-form input,
+  .shopdev .contact-section[data-tone="dark"] .contact-form textarea {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
   .shopdev .contact-form input::placeholder,
   .shopdev .contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--muted);
   }
 
   .shopdev .contact-form input:focus,
   .shopdev .contact-form textarea:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: var(--muted);
+  }
+
+  .shopdev .contact-section[data-tone="dark"] .contact-form input:focus,
+  .shopdev .contact-section[data-tone="dark"] .contact-form textarea:focus {
     background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 
   .shopdev .contact-form label {
     display: block;
     margin-bottom: 8px;
-    color: #ffffff;
+    color: var(--fg);
     font-size: 14px;
     font-weight: 500;
   }
@@ -88,10 +118,10 @@
   .shopdev .submit-btn {
     width: 100%;
     padding: 14px 32px;
-    background: #ffffff;
-    color: #0D1B2A;
-    border: none;
-    border-radius: 12px;
+    background: var(--fg);
+    color: var(--bg);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -100,9 +130,9 @@
   }
 
   .shopdev .submit-btn:hover {
-    background: #0D1B2A;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    background: var(--bg);
+    color: var(--fg);
+    border-color: var(--fg);
   }
 
   .shopdev .whatsapp-btn {
@@ -110,9 +140,10 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: #ffffff;
-    color: #0D1B2A;
-    border-radius: 12px;
+    background: var(--fg);
+    color: var(--bg);
+    border: 2px solid transparent;
+    border-radius: var(--radius);
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -121,13 +152,13 @@
   }
 
   .shopdev .whatsapp-btn:hover {
-    background: #0D1B2A;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    background: var(--bg);
+    color: var(--fg);
+    border-color: var(--fg);
   }
 
   .shopdev .map-container {
-    border-radius: 12px;
+    border-radius: var(--radius);
     overflow: hidden;
     height: 300px;
     margin-bottom: 24px;
@@ -144,7 +175,7 @@
     align-items: flex-start;
     gap: 12px;
     margin-bottom: 16px;
-    color: #ffffff;
+    color: var(--fg);
   }
 
   .shopdev .info-item i {
@@ -158,9 +189,9 @@
   }
 
   .shopdev .faq-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-bd);
+    border-radius: var(--radius);
     margin-bottom: 16px;
     overflow: hidden;
   }
@@ -170,7 +201,7 @@
     padding: 20px 24px;
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: var(--fg);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -183,7 +214,8 @@
   }
 
   .shopdev .faq-question:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--card-bd);
+    opacity: 0.9;
   }
 
   .shopdev .faq-question i {
@@ -206,7 +238,7 @@
 
   .shopdev .faq-answer-content {
     padding: 0 24px 20px 24px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--muted);
     line-height: 1.6;
   }
 
@@ -214,8 +246,8 @@
     padding: 16px;
     background: rgba(34, 197, 94, 0.2);
     border: 1px solid rgba(34, 197, 94, 0.4);
-    border-radius: 12px;
-    color: #ffffff;
+    border-radius: var(--radius);
+    color: var(--fg);
     margin-bottom: 24px;
   }
 
@@ -232,19 +264,19 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web/src/regular/style.css" />
 
-<div class="w-full contact-section">
+<div class="w-full contact-section" data-tone="{{ section.settings.tone }}">
   <div class="contact-content py-16 px-6 md:px-12 max-w-7xl mx-auto">
     
     <!-- Header -->
     <div class="text-center mb-12">
       {% if section.settings.title != blank %}
-        <h2 class="contact-heading text-4xl md:text-5xl text-white mb-4">
+        <h2 class="contact-heading text-4xl md:text-5xl mb-4" style="color: var(--fg);">
           {{ section.settings.title }}
         </h2>
       {% endif %}
       
       {% if section.settings.subtitle != blank %}
-        <div class="text-lg text-white/80 max-w-2xl mx-auto">
+        <div class="text-lg max-w-2xl mx-auto" style="color: var(--muted);">
           {{ section.settings.subtitle }}
         </div>
       {% endif %}
@@ -263,8 +295,8 @@
           {% endif %}
 
           {% if form.errors %}
-            <div class="mb-6 p-4 bg-red-500/20 border border-red-500/40 rounded-lg">
-              <p class="text-white">{{ form.errors | default_errors }}</p>
+            <div class="mb-6 p-4 bg-red-500/20 border border-red-500/40" style="border-radius: var(--radius);">
+              <p style="color: var(--fg);">{{ form.errors | default_errors }}</p>
             </div>
           {% endif %}
 
@@ -338,7 +370,7 @@
               <i class="ph ph-phone"></i>
               <div>
                 <strong>Teléfono</strong><br>
-                <a href="tel:{{ section.settings.phone }}" class="text-white hover:underline">
+                <a href="tel:{{ section.settings.phone }}" class="hover:underline" style="color: var(--fg);">
                   {{ section.settings.phone }}
                 </a>
               </div>
@@ -350,7 +382,7 @@
               <i class="ph ph-envelope"></i>
               <div>
                 <strong>Email</strong><br>
-                <a href="mailto:{{ section.settings.email }}" class="text-white hover:underline">
+                <a href="mailto:{{ section.settings.email }}" class="hover:underline" style="color: var(--fg);">
                   {{ section.settings.email }}
                 </a>
               </div>
@@ -362,7 +394,7 @@
               <i class="ph ph-clock"></i>
               <div>
                 <strong>Horario</strong><br>
-                <div class="text-white/80">{{ section.settings.business_hours }}</div>
+                <div style="color: var(--muted);">{{ section.settings.business_hours }}</div>
               </div>
             </div>
           {% endif %}
@@ -380,7 +412,7 @@
     <!-- FAQ Section -->
     {% if section.settings.show_faq and section.blocks.size > 0 %}
       <div class="faq-section">
-        <h3 class="contact-heading text-3xl text-white text-center mb-8">
+        <h3 class="contact-heading text-3xl text-center mb-8" style="color: var(--fg);">
           Preguntas Frecuentes
         </h3>
         
@@ -443,6 +475,27 @@
   "class": "shopdev",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Apariencia"
+    },
+    {
+      "type": "select",
+      "id": "tone",
+      "label": "Modo de color",
+      "options": [
+        {
+          "value": "light",
+          "label": "Claro"
+        },
+        {
+          "value": "dark",
+          "label": "Oscuro"
+        }
+      ],
+      "default": "dark",
+      "info": "Claro: fondo blanco con tarjetas blancas. Oscuro: fondo navy con efecto de vidrio translúcido."
+    },
     {
       "type": "header",
       "content": "Encabezado"
