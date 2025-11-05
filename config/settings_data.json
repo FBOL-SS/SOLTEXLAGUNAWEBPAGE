@@ -325,9 +325,9 @@
           "machine_brand_zPgEPf": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
+              "brand_name": "SUPREME",
+              "brand_url": "shopify://pages/supreme",
+              "brand_description": "Nuestra marca exclusiva enfocada en ofrecer maquinaria confiable, rentable y con soporte inmediato en toda la región. SUPREME representa el equilibrio perfecto entre tecnología, accesibilidad y respaldo técnico directo de SOLTEX.",
               "feature_1": "",
               "feature_2": "",
               "feature_3": "",
@@ -339,9 +339,9 @@
           "machine_brand_PGmkDU": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
+              "brand_name": "JACK",
               "brand_url": "",
-              "brand_description": "",
+              "brand_description": "Líder mundial en maquinaria industrial de coser, automatización textil y soluciones electrónicas de alta eficiencia. JACK combina innovación, velocidad y ahorro energético para maximizar la productividad en cada línea de confección.",
               "feature_1": "",
               "feature_2": "",
               "feature_3": "",
@@ -353,9 +353,10 @@
           "machine_brand_dDH8br": {
             "type": "machine_brand",
             "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
+              "brand_name": "EAGLE SPECIAL",
+              "brand_url": "shopify://pages/eagle-special",
+              "brand_image": "shopify://shop_images/1382801635_1.png",
+              "brand_description": "Equipos especializados diseñados para costuras técnicas y procesos industriales exigentes. EAGLE SPECIAL combina fuerza mecánica con precisión para aplicaciones de tapicería, lona, calzado y artículos pesados.",
               "feature_1": "",
               "feature_2": "",
               "feature_3": "",
@@ -384,8 +385,8 @@
           "support_bg_color": "#f4f4f4",
           "support_title": "Nuestras Marcas",
           "support_description": "Distribuimos oficialmente las principales marcas de maquinaria textil y automatización industrial a nivel regional.",
-          "support_cta_text": "",
-          "support_cta_link": ""
+          "support_cta_text": "Cotizar Por Whatsapp",
+          "support_cta_link": "https://wa.me/528715246072?text=Hola%20quiero%20cotizar%20una%20máquina%20industrial%20SOLTEX"
         }
       },
       "soltex-product": {
