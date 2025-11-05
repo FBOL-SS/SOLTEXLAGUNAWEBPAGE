@@ -134,6 +134,78 @@
               "title": "Responsabilidad social y regional",
               "description": "Contribuimos al desarrollo de la industria en México y Centroamérica, impulsando empleo, capacitación y crecimiento sostenible en la región."
             }
+          },
+          "timeline_33r3Hp": {
+            "type": "timeline",
+            "settings": {
+              "year": "2005",
+              "title": "Fundación en El Salvador",
+              "text": "Nace Sewing Solution S.A. de C.V., iniciando operaciones en San Salvador como distribuidor especializado en maquinaria industrial de coser."
+            }
+          },
+          "timeline_b7JApC": {
+            "type": "timeline",
+            "settings": {
+              "year": "2009",
+              "title": "Expansión a Nicaragua",
+              "text": "Apertura de operaciones en Managua, ampliando la cobertura y fortaleciendo la red regional de soporte técnico."
+            }
+          },
+          "timeline_jJ6L7R": {
+            "type": "timeline",
+            "settings": {
+              "year": "2012",
+              "title": "Consolidación en Honduras y nuevas bodegas",
+              "text": "Iniciamos operaciones en San Pedro Sula, Honduras, y trasladamos nuestras oficinas y bodegas centrales en El Salvador para optimizar la logística regional."
+            }
+          },
+          "timeline_gPkKmL": {
+            "type": "timeline",
+            "settings": {
+              "year": "2013",
+              "title": "Inicio de la distribución de JACK",
+              "text": "Firmamos alianza con JACK Sewing Machine Co., integrando tecnología de automatización industrial a nuestro portafolio."
+            }
+          },
+          "timeline_JdjwxP": {
+            "type": "timeline",
+            "settings": {
+              "year": "2015",
+              "title": "Consolidación regional",
+              "text": "Nos consolidamos como grupo líder en soluciones de costura industrial en Centroamérica, reconocidos por servicio técnico y disponibilidad inmediata de refacciones."
+            }
+          },
+          "timeline_ct7EqD": {
+            "type": "timeline",
+            "settings": {
+              "year": "2019",
+              "title": "Récord histórico de ventas",
+              "text": "Alcanzamos cifras récord en comercialización de maquinaria y partes industriales, impulsando el crecimiento del grupo."
+            }
+          },
+          "timeline_M3LdDF": {
+            "type": "timeline",
+            "settings": {
+              "year": "2022",
+              "title": "Llegada a México",
+              "text": "Iniciamos operaciones en el mercado mexicano, expandiendo el grupo a Norteamérica bajo la marca SOLTEX – Soluciones Textiles Laguna."
+            }
+          },
+          "timeline_bbATjm": {
+            "type": "timeline",
+            "settings": {
+              "year": "2023",
+              "title": "Primera sucursal en Torreón, Coahuila",
+              "text": "Apertura del primer punto físico en México, con showroom y centro logístico para distribución nacional."
+            }
+          },
+          "timeline_HDJxGL": {
+            "type": "timeline",
+            "settings": {
+              "year": "2025",
+              "title": "Nueva apertura en Puebla",
+              "text": "Inauguramos SOLTEX Puebla, fortaleciendo la cobertura nacional y nuestra presencia estratégica en el Bajío y el centro del país."
+            }
           }
         },
         "block_order": [
@@ -147,7 +219,16 @@
           "value_Pi4wqp",
           "value_eWk7YM",
           "value_EQQRQk",
-          "value_weczC3"
+          "value_weczC3",
+          "timeline_33r3Hp",
+          "timeline_b7JApC",
+          "timeline_jJ6L7R",
+          "timeline_gPkKmL",
+          "timeline_JdjwxP",
+          "timeline_ct7EqD",
+          "timeline_M3LdDF",
+          "timeline_bbATjm",
+          "timeline_HDJxGL"
         ],
         "settings": {
           "tone": "light",
