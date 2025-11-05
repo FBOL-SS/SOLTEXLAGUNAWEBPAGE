@@ -790,7 +790,8 @@
           "category_e4MdTE": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "image": "shopify://shop_images/1790.jpg",
+              "title": "ESPECIALES",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -798,7 +799,8 @@
           "category_KrbNDL": {
             "type": "category",
             "settings": {
-              "title": "Jack",
+              "image": "shopify://shop_images/EA900.jpg",
+              "title": "DE CAMPO",
               "description": "Máquinas de coser industriales de alta velocidad",
               "link": ""
             }
@@ -806,8 +808,9 @@
           "category_gcPCTz": {
             "type": "category",
             "settings": {
-              "title": "Jack",
-              "description": "Máquinas de coser industriales de alta velocidad",
+              "image": "shopify://shop_images/1726708832.jpg",
+              "title": "CORTADORAS",
+              "description": "Máquinas de corte industriales de alta velocidad",
               "link": ""
             }
           }
