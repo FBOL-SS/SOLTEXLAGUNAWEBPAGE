@@ -87,12 +87,14 @@
         "trust_logo_rf3eAy": {
           "type": "trust_logo",
           "settings": {
-            "brand_name": "Brand Name"
+            "logo": "shopify://shop_images/2901px-Juki_company_logo_svg.png",
+            "brand_name": "JUKI"
           }
         },
         "trust_logo_Y6q9ML": {
           "type": "trust_logo",
           "settings": {
+            "logo": "shopify://shop_images/Yamato_Sewing_Machine_Mfg._Co.__Ltd._Company_logo.png",
             "brand_name": "Brand Name"
           }
         }
