@@ -191,6 +191,14 @@
               "text": "Inauguramos SOLTEX Puebla, fortaleciendo la cobertura nacional y nuestra presencia estratégica en el Bajío y el centro del país."
             }
           },
+          "team_7UpDLF": {
+            "type": "team",
+            "settings": {
+              "name": "Luis Bolaños",
+              "role": "CEO & Founder",
+              "bio": "Líder apasionado con más de 25 años de experiencia en la industria, impulsando el crecimiento, la innovación y la excelencia operativa en el sector textil e industrial."
+            }
+          },
           "cta_ka6P4V": {
             "type": "cta",
             "settings": {
@@ -222,6 +230,7 @@
           "timeline_M3LdDF",
           "timeline_bbATjm",
           "timeline_HDJxGL",
+          "team_7UpDLF",
           "cta_ka6P4V"
         ],
         "settings": {
