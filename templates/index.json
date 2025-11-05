@@ -96,13 +96,13 @@
         "hero_cta_primary_text": "Ver Catálogo",
         "hero_cta_primary_link": "",
         "hero_cta_secondary_text": "Asesor WhatsApp",
-        "hero_cta_secondary_link": "",
+        "hero_cta_secondary_link": "shopify://pages/contact",
         "trust_title": "Marcas Globales de Confianza",
         "trust_subtitle": "Distribuidor autorizado de las marcas líderes en la industria",
         "final_cta_title": "¿Listo para Potenciar tu Producción?",
         "final_cta_text": "Obtén una cotización personalizada y descubre cómo nuestras soluciones industriales pueden transformar tu operación",
         "final_cta_button_text": "Cotizar Ahora",
-        "final_cta_button_link": ""
+        "final_cta_button_link": "shopify://pages/contact"
       }
     },
     "featured-categories": {
