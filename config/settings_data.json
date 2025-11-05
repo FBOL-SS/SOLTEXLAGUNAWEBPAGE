@@ -727,6 +727,46 @@
       },
       "soltex-machine-eagle-special": {
         "type": "soltex-machine-eagle-special",
+        "blocks": {
+          "industry_T6Xjr7": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_hQtzJi": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_rT9pCr": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          },
+          "industry_daGLLA": {
+            "type": "industry",
+            "settings": {
+              "icon": "ph-factory",
+              "title": "Confección",
+              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+            }
+          }
+        },
+        "block_order": [
+          "industry_T6Xjr7",
+          "industry_hQtzJi",
+          "industry_rT9pCr",
+          "industry_daGLLA"
+        ],
         "settings": {
           "hero_image": "shopify://shop_images/202508221800361138.jpg",
           "hero_subtitle": "CALIDAD INDUSTRIAL",
