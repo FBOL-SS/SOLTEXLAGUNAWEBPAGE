@@ -363,57 +363,12 @@
               "badge_2": "",
               "cta_text": ""
             }
-          },
-          "machine_brand_BGBTVz": {
-            "type": "machine_brand",
-            "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
-              "badge_2": "",
-              "cta_text": ""
-            }
-          },
-          "machine_brand_JbLrF8": {
-            "type": "machine_brand",
-            "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
-              "badge_2": "",
-              "cta_text": ""
-            }
-          },
-          "machine_brand_PyU4dm": {
-            "type": "machine_brand",
-            "settings": {
-              "brand_name": "",
-              "brand_url": "",
-              "brand_description": "",
-              "feature_1": "",
-              "feature_2": "",
-              "feature_3": "",
-              "badge_1": "",
-              "badge_2": "",
-              "cta_text": ""
-            }
           }
         },
         "block_order": [
           "machine_brand_zPgEPf",
           "machine_brand_PGmkDU",
-          "machine_brand_dDH8br",
-          "machine_brand_BGBTVz",
-          "machine_brand_JbLrF8",
-          "machine_brand_PyU4dm"
+          "machine_brand_dDH8br"
         ],
         "settings": {
           "hero_image": "shopify://shop_images/AdobeStock_364291512.jpg",
@@ -427,8 +382,8 @@
           "image_aspect_ratio": "16-9",
           "show_support_block": true,
           "support_bg_color": "#f4f4f4",
-          "support_title": "",
-          "support_description": "",
+          "support_title": "Nuestras Marcas",
+          "support_description": "Distribuimos oficialmente las principales marcas de maquinaria textil y automatización industrial a nivel regional.",
           "support_cta_text": "",
           "support_cta_link": ""
         }
