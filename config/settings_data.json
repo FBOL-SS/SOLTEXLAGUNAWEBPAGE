@@ -731,7 +731,7 @@
           "industry_T6Xjr7": {
             "type": "industry",
             "settings": {
-              "icon": "t-shirt",
+              "icon": "ph-t-shirt",
               "title": "Confección",
               "description": "Máquinas especializadas para talleres de confección, prendas técnicas y producción en serie."
             }
@@ -739,25 +739,25 @@
           "industry_hQtzJi": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-car",
+              "title": "Automotriz",
+              "description": "Equipos de costura pesada para tapicería, cinturones, airbags y componentes interiores."
             }
           },
           "industry_rT9pCr": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-couch",
+              "title": "Hogar",
+              "description": "Soluciones para la fabricación de cortinas, colchones, tapicería y textiles decorativos."
             }
           },
           "industry_daGLLA": {
             "type": "industry",
             "settings": {
-              "icon": "ph-factory",
-              "title": "Confección",
-              "description": "Máquinas especializadas para talleres de confección y producción en serie"
+              "icon": "ph-scissors",
+              "title": "Corte",
+              "description": "Sistemas de corte manual y automatizado para optimizar precisión y rendimiento industrial."
             }
           }
         },
