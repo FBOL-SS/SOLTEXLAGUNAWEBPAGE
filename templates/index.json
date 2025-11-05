@@ -393,7 +393,6 @@
     },
     "newsletter": {
       "type": "newsletter",
-      "disabled": true,
       "settings": {
         "title": "Mantente conectado con SOLTEX",
         "subtitle": "Suscríbete para recibir actualizaciones exclusivas, lanzamientos de productos y ofertas especiales directamente en tu correo.",

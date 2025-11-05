@@ -14,7 +14,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_text": "GRUPO SEWING",
+          "logo_text": "SOLTEX",
           "logo_width": 150,
           "main_menu": "main-menu",
           "secondary_menu": "main-menu",
@@ -100,12 +100,11 @@
           "subheading": "",
           "collection": "general",
           "products_per_page": 12,
-          "enable_infinite_scroll": true,
           "enable_quick_view": true,
           "enable_quick_add": true,
+          "enable_infinite_scroll": true,
           "show_availability_filter": true,
           "show_price_filter": true,
-          "show_brand_filter": true,
           "show_type_filter": true
         }
       },
