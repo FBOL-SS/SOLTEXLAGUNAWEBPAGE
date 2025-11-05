@@ -55,29 +55,53 @@
           "kpi_hAwjCb": {
             "type": "kpi",
             "settings": {
-              "number": "500+",
+              "number": "100+",
               "label": "Clientes atendidos"
             }
           },
           "kpi_YEWRw7": {
             "type": "kpi",
             "settings": {
-              "number": "500+",
-              "label": "Clientes atendidos"
+              "number": "5,000+",
+              "label": "Partes en Stock"
             }
           },
           "kpi_yQHUT4": {
             "type": "kpi",
             "settings": {
-              "number": "500+",
-              "label": "Clientes atendidos"
+              "number": "20+",
+              "label": "Años de Experiencia"
+            }
+          },
+          "mission_PgnXjE": {
+            "type": "mission",
+            "settings": {
+              "heading": "Nuestra misión",
+              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
+            }
+          },
+          "mission_NrKxm8": {
+            "type": "mission",
+            "settings": {
+              "heading": "Nuestra misión",
+              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
+            }
+          },
+          "mission_CHP3rQ": {
+            "type": "mission",
+            "settings": {
+              "heading": "Nuestra misión",
+              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
             }
           }
         },
         "block_order": [
           "kpi_hAwjCb",
           "kpi_YEWRw7",
-          "kpi_yQHUT4"
+          "kpi_yQHUT4",
+          "mission_PgnXjE",
+          "mission_NrKxm8",
+          "mission_CHP3rQ"
         ],
         "settings": {
           "tone": "light",
@@ -105,6 +129,7 @@
           "enable_infinite_scroll": true,
           "show_availability_filter": true,
           "show_price_filter": true,
+          "show_vendor_filter": true,
           "show_type_filter": true
         }
       },
