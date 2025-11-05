@@ -261,6 +261,50 @@
       },
       "soltex-contact": {
         "type": "soltex-contact",
+        "blocks": {
+          "faq_YxDaGB": {
+            "type": "faq",
+            "settings": {
+              "question": "¿Hacen envíos a toda la región?",
+              "answer": "<p>Envío estándar gratis en compras mayores a $1500 MXN (paquetes menores a 1 kg).</p>"
+            }
+          },
+          "faq_QBPLHr": {
+            "type": "faq",
+            "settings": {
+              "question": "¿Qué métodos de pago aceptan?",
+              "answer": "<p>Aceptamos <strong>transferencias bancarias, pagos con tarjeta, PayPal y pagos contra entrega</strong> (según país).<br/><br/>Para compras por volumen o distribuidores, ofrecemos <strong>créditos comerciales y consignación</strong>.</p>"
+            }
+          },
+          "faq_B78QzN": {
+            "type": "faq",
+            "settings": {
+              "question": "¿Atienden a empresas grandes o también a talleres pequeños?",
+              "answer": "<p>Atendemos desde <strong>micro talleres hasta grandes maquilas industriales</strong>.<br/><br/>Nuestra filosofía es <strong>hacer accesible la tecnología textil</strong> a todos los niveles productivos.</p>"
+            }
+          },
+          "faq_ewFmi3": {
+            "type": "faq",
+            "settings": {
+              "question": "¿Cómo puedo contactar al equipo de ventas?",
+              "answer": "<p>Podés escribirnos directamente por <strong>WhatsApp al </strong><a><strong>📲 +52 871 524 6072</strong></a> o por correo a <a><strong>ventas@soltexlaguna.com</strong></a>.<br/><br/>También podés llenar el formulario en la página <strong>Contacto</strong> de nuestra tienda.</p>"
+            }
+          },
+          "faq_WkxexN": {
+            "type": "faq",
+            "settings": {
+              "question": "¿Las refacciones son originales?",
+              "answer": "<p>Manejamos <strong>líneas originales y genéricas certificadas</strong>, clasificadas por marca y tipo de máquina.<br/><br/>Cada producto indica su <strong>compatibilidad exacta</strong> (Brother, Juki, Jack, Yamato, Durkopp Adler, etc.) para asegurar un reemplazo perfecto.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "faq_YxDaGB",
+          "faq_QBPLHr",
+          "faq_B78QzN",
+          "faq_ewFmi3",
+          "faq_WkxexN"
+        ],
         "settings": {
           "tone": "light",
           "title": "Contáctanos",
