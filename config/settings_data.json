@@ -62,53 +62,77 @@
           "kpi_YEWRw7": {
             "type": "kpi",
             "settings": {
-              "number": "5,000+",
+              "number": "5000",
               "label": "Partes en Stock"
             }
           },
           "kpi_yQHUT4": {
             "type": "kpi",
             "settings": {
-              "number": "20+",
+              "number": "20",
               "label": "Años de Experiencia"
             }
           },
-          "mission_PgnXjE": {
-            "type": "mission",
+          "mission_vision_wWUiaH": {
+            "type": "mission_vision",
             "settings": {
-              "heading": "Nuestra misión",
-              "text": "Impulsar la productividad textil de México y Centroamérica mediante soluciones de maquinaria, refacciones y automatización industrial confiables, accesibles y de alta calidad. En SOLTEX ayudamos a cada taller y maquila a optimizar su operación con tecnología, soporte técnico especializado y entregas rápidas en toda la región."
+              "title": "Nuestra misión",
+              "content": "<p>Impulsar la productividad textil de México y Centroamérica mediante soluciones de maquinaria, refacciones y automatización industrial confiables, accesibles y de alta calidad.<br/>En SOLTEX ayudamos a cada taller y maquila a optimizar su operación con tecnología, soporte técnico especializado y entregas rápidas en toda la región.</p>"
             }
           },
-          "mission_NrKxm8": {
-            "type": "mission",
+          "mission_vision_D3WDMq": {
+            "type": "mission_vision",
             "settings": {
-              "heading": "Nuestra visión",
-              "text": "Consolidarnos como la red líder en soluciones industriales para la confección en Latinoamérica, reconocida por su innovación, servicio y cobertura regional. Aspiramos a ser el aliado estratégico que conecta la industria textil con el futuro de la automatización y la eficiencia productiva."
+              "title": "Nuestra visón",
+              "content": "<p>Consolidarnos como la red líder en soluciones industriales para la confección en Latinoamérica, reconocida por su innovación, servicio y cobertura regional.<br/>Aspiramos a ser el aliado estratégico que conecta la industria textil con el futuro de la automatización y la eficiencia productiva.</p>"
             }
           },
           "value_dfVGc7": {
             "type": "value",
             "settings": {
               "icon": "",
-              "title": "Confiabilidad",
-              "desc": "Respaldo técnico cuando más se necesita."
+              "title": "Integridad",
+              "description": "Actuamos con honestidad, responsabilidad y coherencia en cada decisión. Cumplimos lo que prometemos y construimos confianza con nuestros clientes, colaboradores y aliados."
             }
           },
           "value_Dpwfbb": {
             "type": "value",
             "settings": {
               "icon": "",
-              "title": "Confiabilidad",
-              "desc": "Respaldo técnico cuando más se necesita."
+              "title": "Compromiso",
+              "description": "Damos nuestro máximo esfuerzo para cumplir con las expectativas del cliente, ofreciendo soluciones oportunas, confiables y de alta calidad que impulsen su productividad."
             }
           },
           "value_Pi4wqp": {
             "type": "value",
             "settings": {
               "icon": "",
-              "title": "Confiabilidad",
-              "desc": "Respaldo técnico cuando más se necesita."
+              "title": "Innovación",
+              "description": "Promovemos la mejora continua, adoptando nuevas tecnologías y métodos que fortalezcan la eficiencia y competitividad de la industria textil."
+            }
+          },
+          "value_eWk7YM": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Trabajo en equipo",
+              "description": "Fomentamos la colaboración y el respeto mutuo dentro de nuestro equipo y con nuestros socios, porque sabemos que el crecimiento colectivo genera mejores resultados."
+            }
+          },
+          "value_EQQRQk": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Servicio al cliente",
+              "description": "Nuestra prioridad es acompañar, asesorar y apoyar a cada cliente con soluciones técnicas y humanas que realmente resuelvan sus necesidades."
+            }
+          },
+          "value_weczC3": {
+            "type": "value",
+            "settings": {
+              "icon": "",
+              "title": "Responsabilidad social y regional",
+              "description": "Contribuimos al desarrollo de la industria en México y Centroamérica, impulsando empleo, capacitación y crecimiento sostenible en la región."
             }
           }
         },
@@ -116,24 +140,23 @@
           "kpi_hAwjCb",
           "kpi_YEWRw7",
           "kpi_yQHUT4",
-          "mission_PgnXjE",
-          "mission_NrKxm8",
+          "mission_vision_wWUiaH",
+          "mission_vision_D3WDMq",
           "value_dfVGc7",
           "value_Dpwfbb",
-          "value_Pi4wqp"
+          "value_Pi4wqp",
+          "value_eWk7YM",
+          "value_EQQRQk",
+          "value_weczC3"
         ],
         "settings": {
           "tone": "light",
-          "container_max": 1100,
-          "content_align": "center",
           "background_style": "solid",
           "background_color": "#f8fafc",
           "text_color": "#0d1b2a",
           "overlay_opacity": 40,
-          "kpi_columns": 3,
-          "value_columns": 3,
-          "title": "Quiénes somos",
-          "subtitle": "Experiencia textil para la industria moderna."
+          "container_max": 1100,
+          "content_align": "center"
         }
       },
       "soltex-main-collection": {
