@@ -120,7 +120,7 @@
         "hero_cta_primary_text": "Ver Catálogo",
         "hero_cta_primary_link": "shopify://collections/general",
         "hero_cta_secondary_text": "Asesor WhatsApp",
-        "hero_cta_secondary_link": "https://web.whatsapp.com/send?phone=5218712345678&text=Hola%20quiero%20cotizar%20refacciones%20en%20Soltex",
+        "hero_cta_secondary_link": "https://api.whatsapp.com/send?phone=5218712345678&text=Hola%20quiero%20cotizar%20refacciones%20en%20Soltex",
         "trust_title": "Marcas Globales de Confianza",
         "trust_subtitle": "Distribuidor autorizado de las marcas líderes en la industria",
         "final_cta_title": "¿Listo para Potenciar tu Producción?",
