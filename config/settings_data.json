@@ -728,12 +728,14 @@
       "soltex-machine-eagle-special": {
         "type": "soltex-machine-eagle-special",
         "settings": {
+          "hero_image": "shopify://shop_images/202508221800361138.jpg",
           "hero_subtitle": "CALIDAD INDUSTRIAL",
-          "hero_title": "Máquinas de Coser Soltex",
+          "hero_title": "EAGLE SPECIAL",
           "hero_button_text": "Ver Catálogo",
           "hero_button_link": "",
           "history_title": "Nuestra Historia",
-          "history_text": "<p>Soltex es líder en la fabricación de máquinas de coser industriales de alta calidad. Con más de 30 años de experiencia, ofrecemos soluciones innovadoras para la industria textil, garantizando durabilidad, precisión y eficiencia en cada puntada.</p><p>Nuestro compromiso con la excelencia nos ha posicionado como la marca preferida por profesionales en todo el mundo.</p>",
+          "history_text": "<p>Fundada en el año 2000, <strong>Lishui Maike Sewing Machine Co., Ltd.</strong> se ha consolidado como un referente en el desarrollo de maquinaria de costura industrial de alta estabilidad y rendimiento. Con más de dos décadas de experiencia, MAIKE combina tecnología, precisión y eficiencia para atender sectores como confección, marroquinería, textiles del hogar y tapicería automotriz.</p><p><strong>Certificaciones internacionales:</strong> CE e ISO9002, garantizando control de calidad total en cada etapa de producción. Cuenta con presencia global en Asia, Europa, América y África.</p>",
+          "history_image": "shopify://shop_images/GC9000.jpg",
           "products_title": "Productos Destacados",
           "products_subtitle": "Descubre nuestras máquinas más populares",
           "industries_title": "Industrias que Servimos",
