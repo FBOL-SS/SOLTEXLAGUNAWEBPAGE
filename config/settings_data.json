@@ -77,21 +77,14 @@
             "type": "mission",
             "settings": {
               "heading": "Nuestra misión",
-              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
+              "text": "Impulsar la productividad textil de México y Centroamérica mediante soluciones de maquinaria, refacciones y automatización industrial confiables, accesibles y de alta calidad.\nEn SOLTEX ayudamos a cada taller y maquila a optimizar su operación con tecnología, soporte técnico especializado y entregas rápidas en toda la región."
             }
           },
           "mission_NrKxm8": {
             "type": "mission",
             "settings": {
-              "heading": "Nuestra misión",
-              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
-            }
-          },
-          "mission_CHP3rQ": {
-            "type": "mission",
-            "settings": {
-              "heading": "Nuestra misión",
-              "text": "Impulsar la productividad textil con soluciones de maquinaria, refacciones y automatización."
+              "heading": "Nuestra visión",
+              "text": "Consolidarnos como la red líder en soluciones industriales para la confección en Latinoamérica, reconocida por su innovación, servicio y cobertura regional.\nAspiramos a ser el aliado estratégico que conecta la industria textil con el futuro de la automatización y la eficiencia productiva."
             }
           }
         },
@@ -100,8 +93,7 @@
           "kpi_YEWRw7",
           "kpi_yQHUT4",
           "mission_PgnXjE",
-          "mission_NrKxm8",
-          "mission_CHP3rQ"
+          "mission_NrKxm8"
         ],
         "settings": {
           "tone": "light",
