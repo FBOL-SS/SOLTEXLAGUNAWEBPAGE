@@ -77,6 +77,13 @@
             "text": "Operamos desde México hasta Centroamérica, con presencia física en múltiples países."
           }
         },
+        "trust_logo_abeiyM": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/SUPREMENINGBO_ddf537bb-93b5-4d42-887a-8cabc91f18ea.png",
+            "brand_name": "SUPREME"
+          }
+        },
         "trust_logo_yMKxCU": {
           "type": "trust_logo",
           "settings": {
@@ -95,34 +102,115 @@
           "type": "trust_logo",
           "settings": {
             "logo": "shopify://shop_images/Yamato_Sewing_Machine_Mfg._Co.__Ltd._Company_logo.png",
-            "brand_name": "Brand Name"
+            "brand_name": "YAMATO"
           }
         },
         "trust_logo_MtCGXp": {
           "type": "trust_logo",
           "settings": {
             "logo": "shopify://shop_images/logo.png",
-            "brand_name": "Brand Name"
+            "brand_name": "CM CERLIANI"
           }
         },
         "trust_logo_CPpm8r": {
           "type": "trust_logo",
           "settings": {
             "logo": "shopify://shop_images/Durkopp-Adler_AG-Logo.svg",
-            "brand_name": "Brand Name"
+            "brand_name": "DURKOPP ADLER"
           }
         },
         "trust_logo_BjaVTf": {
           "type": "trust_logo",
           "settings": {
             "logo": "shopify://shop_images/JACKLOGO.jpg",
+            "brand_name": "JACK"
+          }
+        },
+        "trust_logo_8gexrM": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_hirose_184e5a9f-eb0b-4027-8ba9-4331f3df4fc0.png",
+            "brand_name": "HIROSE"
+          }
+        },
+        "trust_logo_AxDBPY": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_koban_f6c58e04-07c0-4a52-a392-207d2e270686.png",
+            "brand_name": "KOBAN"
+          }
+        },
+        "trust_logo_ULXytt": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_mitsubishi_dced595d-3ae2-4c4f-bde3-ee6e4b629441.png",
+            "brand_name": "MITSUBISHI"
+          }
+        },
+        "trust_logo_4aFxUd": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_avery_dennison_b1f95674-a42e-49a4-8022-66dc38b3a224.png",
+            "brand_name": "AVERY DENNISON"
+          }
+        },
+        "trust_logo_Q4aJTa": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_kansai_special_28754055-b7e3-4c96-9ddb-a4f83a1cdb4a.png",
+            "brand_name": "KANSAI SPECIAL"
+          }
+        },
+        "trust_logo_LFjezb": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_sunstar_f6deb228-5b97-405e-977f-c43299cf66c1.png",
+            "brand_name": "SUNSTAR"
+          }
+        },
+        "trust_logo_gzQPmD": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_feedrail_58d15130-abfd-46a6-a55b-49fa0c36f92b.png",
+            "brand_name": "FEEDRAIL"
+          }
+        },
+        "trust_logo_eNPQXY": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_seiko_88256a75-f41e-482a-b5d3-297149bdf2e0.png",
+            "brand_name": "SEIKO"
+          }
+        },
+        "trust_logo_pMj7gk": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_pegasus_76a1a409-2dc5-444d-bc92-6404b7e31968.png",
+            "brand_name": "PEGASUS"
+          }
+        },
+        "trust_logo_RkXkbx": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_mundial_4f8a705e-0338-456a-ab1c-486d12b96b06.png",
+            "brand_name": "MUNDIAL"
+          }
+        },
+        "trust_logo_bCxjMN": {
+          "type": "trust_logo",
+          "settings": {
             "brand_name": "Brand Name"
           }
         },
-        "trust_logo_abeiyM": {
+        "trust_logo_WAi9tN": {
           "type": "trust_logo",
           "settings": {
-            "logo": "shopify://shop_images/SUPREMENINGBO_ddf537bb-93b5-4d42-887a-8cabc91f18ea.png",
+            "brand_name": "Brand Name"
+          }
+        },
+        "trust_logo_XXGywy": {
+          "type": "trust_logo",
+          "settings": {
             "brand_name": "Brand Name"
           }
         }
@@ -136,13 +224,26 @@
         "differentiator_Twhmz4",
         "differentiator_Yceyae",
         "differentiator_wkGMPb",
+        "trust_logo_abeiyM",
         "trust_logo_yMKxCU",
         "trust_logo_rf3eAy",
         "trust_logo_Y6q9ML",
         "trust_logo_MtCGXp",
         "trust_logo_CPpm8r",
         "trust_logo_BjaVTf",
-        "trust_logo_abeiyM"
+        "trust_logo_8gexrM",
+        "trust_logo_AxDBPY",
+        "trust_logo_ULXytt",
+        "trust_logo_4aFxUd",
+        "trust_logo_Q4aJTa",
+        "trust_logo_LFjezb",
+        "trust_logo_gzQPmD",
+        "trust_logo_eNPQXY",
+        "trust_logo_pMj7gk",
+        "trust_logo_RkXkbx",
+        "trust_logo_bCxjMN",
+        "trust_logo_WAi9tN",
+        "trust_logo_XXGywy"
       ],
       "settings": {
         "hero_image": "shopify://shop_images/pexels-lribeirofotografia-2249290.jpg",
