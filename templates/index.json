@@ -105,6 +105,13 @@
             "brand_name": "YAMATO"
           }
         },
+        "trust_logo_pMj7gk": {
+          "type": "trust_logo",
+          "settings": {
+            "logo": "shopify://shop_images/logo_pegasus_76a1a409-2dc5-444d-bc92-6404b7e31968.png",
+            "brand_name": "PEGASUS"
+          }
+        },
         "trust_logo_MtCGXp": {
           "type": "trust_logo",
           "settings": {
@@ -182,13 +189,6 @@
             "brand_name": "SEIKO"
           }
         },
-        "trust_logo_pMj7gk": {
-          "type": "trust_logo",
-          "settings": {
-            "logo": "shopify://shop_images/logo_pegasus_76a1a409-2dc5-444d-bc92-6404b7e31968.png",
-            "brand_name": "PEGASUS"
-          }
-        },
         "trust_logo_RkXkbx": {
           "type": "trust_logo",
           "settings": {
@@ -199,19 +199,22 @@
         "trust_logo_bCxjMN": {
           "type": "trust_logo",
           "settings": {
-            "brand_name": "Brand Name"
+            "logo": "shopify://shop_images/logo_union_special_db4c527d-01e5-4739-a0b4-b98343cdce64.png",
+            "brand_name": "UNION SPECIAL"
           }
         },
         "trust_logo_WAi9tN": {
           "type": "trust_logo",
           "settings": {
-            "brand_name": "Brand Name"
+            "logo": "shopify://shop_images/logo_pfaff_efef22ff-a8b3-4f0a-82bc-016a96c8b539.png",
+            "brand_name": "PFAFF"
           }
         },
         "trust_logo_XXGywy": {
           "type": "trust_logo",
           "settings": {
-            "brand_name": "Brand Name"
+            "logo": "shopify://shop_images/logo_siruba_3dc4998a-e27e-45ac-887e-ba8a18d48e9e.png",
+            "brand_name": "SIRUBA"
           }
         }
       },
@@ -228,6 +231,7 @@
         "trust_logo_yMKxCU",
         "trust_logo_rf3eAy",
         "trust_logo_Y6q9ML",
+        "trust_logo_pMj7gk",
         "trust_logo_MtCGXp",
         "trust_logo_CPpm8r",
         "trust_logo_BjaVTf",
@@ -239,7 +243,6 @@
         "trust_logo_LFjezb",
         "trust_logo_gzQPmD",
         "trust_logo_eNPQXY",
-        "trust_logo_pMj7gk",
         "trust_logo_RkXkbx",
         "trust_logo_bCxjMN",
         "trust_logo_WAi9tN",
