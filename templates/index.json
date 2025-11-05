@@ -15,22 +15,43 @@
         "marquee_item_m8ig7b": {
           "type": "marquee_item",
           "settings": {
-            "text": "+15,000 Refacciones en Stock",
-            "icon": "check-circle"
+            "text": "ENVÍOS 24–72 H A TODO MÉXICO Y C.A.",
+            "icon": "rocket"
           }
         },
         "marquee_item_GfwmxX": {
           "type": "marquee_item",
           "settings": {
-            "text": "+200 Clientes Satisfechos",
-            "icon": "check-circle"
+            "text": "+15,000 REFACCIONES EN STOCK",
+            "icon": "gear"
           }
         },
         "marquee_item_e6GwEW": {
           "type": "marquee_item",
           "settings": {
-            "text": "Precios Bajos",
-            "icon": "check-circle"
+            "text": "SOPORTE TÉCNICO ESPECIALIZADO",
+            "icon": "wrench"
+          }
+        },
+        "marquee_item_NyLirG": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "20 AÑOS DE EXPERIENCIA INDUSTRIAL",
+            "icon": "brain"
+          }
+        },
+        "marquee_item_Xjec8Q": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "ATENCIÓN DIRECTA POR WHATSAPP",
+            "icon": "chat-circle"
+          }
+        },
+        "marquee_item_FywDLX": {
+          "type": "marquee_item",
+          "settings": {
+            "text": "COBERTURA REGIONAL: MÉXICO – CENTROAMÉRICA",
+            "icon": "factory"
           }
         },
         "category_RkHnWP": {
@@ -222,6 +243,9 @@
         "marquee_item_m8ig7b",
         "marquee_item_GfwmxX",
         "marquee_item_e6GwEW",
+        "marquee_item_NyLirG",
+        "marquee_item_Xjec8Q",
+        "marquee_item_FywDLX",
         "category_RkHnWP",
         "category_Xfq3Ng",
         "differentiator_Twhmz4",
