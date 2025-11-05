@@ -64,17 +64,17 @@
         "differentiator_Yceyae": {
           "type": "differentiator",
           "settings": {
-            "icon": "lightning",
-            "title": "Entrega Rápida",
-            "text": "Envíos en 24-72 horas a toda la región con seguimiento en tiempo real"
+            "icon": "lockers",
+            "title": "Stock Disponible",
+            "text": "Inventario actualizado de refacciones y maquinaria lista para despacho inmediato."
           }
         },
         "differentiator_wkGMPb": {
           "type": "differentiator",
           "settings": {
-            "icon": "lightning",
-            "title": "Entrega Rápida",
-            "text": "Envíos en 24-72 horas a toda la región con seguimiento en tiempo real"
+            "icon": "globe-hemisphere-west",
+            "title": "Cobertura Regional",
+            "text": "Operamos desde México hasta Centroamérica, con presencia física en múltiples países."
           }
         }
       },
