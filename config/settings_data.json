@@ -246,7 +246,7 @@
       "soltex-main-collection": {
         "type": "soltex-main-collection",
         "settings": {
-          "heading": "Catalogo General",
+          "heading": "Catálogo General",
           "subheading": "",
           "collection": "general",
           "products_per_page": 12,
