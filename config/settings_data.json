@@ -248,7 +248,7 @@
         "settings": {
           "heading": "Catálogo General",
           "subheading": "",
-          "collection": "general",
+          "collection": "ganchos",
           "products_per_page": 12,
           "enable_quick_view": true,
           "enable_quick_add": true,
