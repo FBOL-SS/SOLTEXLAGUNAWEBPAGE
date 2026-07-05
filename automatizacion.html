@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Automatización Industrial | Sewing Solution</title>
+<meta content="Soluciones de automatización para fábricas textiles. Incrementa productividad con maquinaria automatizada y sistemas de producción inteligentes." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FAVICON PRO -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/maquina-de-coser.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/maquina-de-coser.png">
+<link rel="apple-touch-icon" href="images/maquina-de-coser.png">
+<link rel="shortcut icon" href="images/maquina-de-coser.png">
+<style>
+        * { font-family: 'Inter', sans-serif; }
+        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
+        .whatsapp-float { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .solution-card:hover { transform: translateY(-8px); }
+        .stat-number { font-variant-numeric: tabular-nums; }
+        .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="site-style.css" rel="stylesheet"/></head>
+<body class="bg-gray-50 text-slate-800">
+<!-- Sticky Header -->
+<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<a href="index.html" style="display:flex; align-items:center;">
+  <img src="images/logo.png" alt="Sewing Solution"
+       style="height:64px !important; width:auto !important; max-height:none !important;">
+</a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                        WhatsApp
+                    </a>
+</div>
+<button class="md:hidden text-white" id="mobile-menu-btn">
+<i class="w-8 h-8" data-lucide="menu"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-2">
+<a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
+<a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                    Contactar por WhatsApp
+                </a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="pt-32 pb-12 bg-slate-900 text-white page-hero">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 hero-breadcrumb">
+<div class="max-w-4xl">
+<nav class="text-sm mb-6 text-gray-400">
+<a class="hover:text-white transition" href="index.html">Inicio</a>
+<i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
+<span class="text-white">Automatización</span>
+</nav>
+<h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    Automatización para <span class="text-blue-400">Fábricas Textiles</span>
+</h1>
+<p class="text-xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+                    Transforma tu producción con maquinaria automatizada, sistemas de control numérico y soluciones integrales que incrementan la productividad hasta un 300% mientras reducen costos operativos.
+                </p>
+
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-12 bg-white border-b border-gray-200">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<div class="text-4xl md:text-5xl font-bold gradient-text stat-number mb-2">+300%</div>
+<div class="text-gray-600 font-medium">Incremento Productividad</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-bold gradient-text stat-number mb-2">-60%</div>
+<div class="text-gray-600 font-medium">Reducción Costos</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-bold gradient-text stat-number mb-2">24/7</div>
+<div class="text-gray-600 font-medium">Operación Continua</div>
+</div>
+<div>
+<div class="text-4xl md:text-5xl font-bold gradient-text stat-number mb-2">99.8%</div>
+<div class="text-gray-600 font-medium">Precisión Costuras</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions Grid -->
+<section class="py-20 bg-gray-50" id="soluciones">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        Soluciones de Automatización
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+        Equipamiento especializado para procesos complejos y repetitivos que requieren precisión milimétrica y velocidad constante.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Solution 1 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/cnc-patrones.jpg" alt="Máquinas de Patrones CNC" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Máquinas de Patrones CNC</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Programación de costuras complejas vía USB o pantalla. Memoria para múltiples patrones. Ideal para forros, bolsillos y aplicaciones.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• Áreas desde 300×200 mm hasta 600×400 mm</li>
+            <li>• Velocidad programable por operación</li>
+            <li>• Alta repetibilidad y precisión</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Cotizar solución
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution 2 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/bartack.jpg" alt="Bartack Automático" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Bartack Automático</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Refuerzo de costuras para jeans, uniformes y productos industriales. Alta resistencia, consistencia y velocidad en producción.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• Programas preconfigurados</li>
+            <li>• Hasta 2,500 puntadas/min</li>
+            <li>• Sensor electrónico de posición</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Cotizar solución
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution 3 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/ojaladora.jpg" alt="Ojaladora Automática" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Ojaladora Automática</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Ojales electrónicos con corte automático y ajuste digital de tamaño/densidad. Calidad constante con menor desperdicio.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• Ojales 6–28 mm</li>
+            <li>• Hasta 2,200 rpm</li>
+            <li>• Cuchilla y corte automático</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Cotizar solución
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution 4 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/botonadora.jpg" alt="Botonadora Automática" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Botonadora Automática</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Colocación automatizada de botones de 2 y 4 agujeros. Alimentación controlada y puntada consistente para producción.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• Botones 10–40 mm</li>
+            <li>• Alimentación automática</li>
+            <li>• Producción estable y repetible</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Cotizar solución
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution 5 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/robotica.jpg" alt="Brazos Robóticos" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Brazos Robóticos</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Manipulación automatizada de materiales, transferencia entre estaciones y alimentación de máquinas para reducir tiempos muertos.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• 6 ejes de movimiento</li>
+            <li>• Integración con estaciones</li>
+            <li>• Programación intuitiva</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Cotizar solución
+          </a>
+        </div>
+      </div>
+
+      <!-- Solution 6 -->
+      <div class="solution-card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+        <div class="h-56 overflow-hidden bg-slate-100">
+          <img src="images/soluciones/linea-integrada.jpg" alt="Líneas de Producción Integradas" class="w-full h-full object-cover">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Líneas de Producción Integradas</h3>
+          <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+            Diseño e implementación de líneas completas con transporte, balanceo de estaciones y control centralizado para alta productividad.
+          </p>
+          <ul class="text-sm text-slate-700 mb-7 space-y-1">
+            <li>• Transporte y flujo de trabajo</li>
+            <li>• Integración de estaciones</li>
+            <li>• Proyecto llave en mano</li>
+          </ul>
+          <a class="block w-full bg-[#0f172a] hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition"
+             href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+            Solicitar proyecto
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ROI Calculator Section -->
+<section class="py-20 bg-slate-900 text-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Retorno de Inversión Garantizado</h2>
+<p class="text-gray-300 mb-8 text-lg">Nuestras soluciones de automatización pagan por sí solas. Calcula tu ahorro anual y descubre cómo optimizar tu producción.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+<i class="w-6 h-6 text-green-400" data-lucide="trending-up"></i>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">ROI en 12-18 meses</h4>
+<p class="text-gray-400 text-sm">La mayoría de nuestros clientes recuperan su inversión en menos de 18 meses por ahorro de mano de obra y aumento de producción.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+<i class="w-6 h-6 text-blue-400" data-lucide="users"></i>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Reducción de Personal Operativo</h4>
+<p class="text-gray-400 text-sm">Una máquina automatizada reemplaza 3-4 operarios en procesos repetitivos, permitiendo redistribuir personal a áreas de mayor valor.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+<i class="w-6 h-6 text-purple-400" data-lucide="shield-check"></i>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Calidad Consistente</h4>
+<p class="text-gray-400 text-sm">Elimina errores humanos y garantiza que cada pieza tenga exactamente las mismas especificaciones.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+<h3 class="text-2xl font-bold mb-6">Calcula tu Ahorro</h3>
+<div class="space-y-4 mb-6">
+<div>
+<label class="text-sm text-gray-400 mb-2 block">Operarios actuales en proceso objetivo</label>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" id="operators" oninput="calculateROI()" type="number" value="4"/>
+</div>
+<div>
+<label class="text-sm text-gray-400 mb-2 block">Costo mensual por operario (USD)</label>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" id="salary" oninput="calculateROI()" type="number" value="600"/>
+</div>
+<div>
+<label class="text-sm text-gray-400 mb-2 block">Producción actual diaria (piezas)</label>
+<input class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" id="production" oninput="calculateROI()" type="number" value="500"/>
+</div>
+</div>
+<div class="border-t border-white/20 pt-6 space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-gray-400">Ahorro mensual estimado:</span>
+<span class="text-2xl font-bold text-green-400" id="monthlySaving">$1,200 USD</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-400">Incremento producción:</span>
+<span class="text-xl font-bold text-blue-400" id="productionIncrease">+150%</span>
+</div>
+</div>
+
+                    
+                    <a class="mt-6 block w-full bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg font-bold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Recibir cotización detallada
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Industries -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automatización por Industria</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Soluciones específicas adaptadas a los requerimientos de cada sector textil.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
+<i class="w-12 h-12 text-blue-600 mb-4" data-lucide="scissors"></i>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Denim y Jeans</h4>
+<p class="text-gray-600 text-sm mb-4">Bartack automático, ojales reforzados y costuras de alta resistencia.</p>
+                    
+                    <a class="text-blue-600 font-semibold hover:text-blue-800 text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
+<i class="w-12 h-12 text-blue-600 mb-4" data-lucide="car"></i>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Automotriz</h4>
+<p class="text-gray-600 text-sm mb-4">Airbags, tapicería y componentes con estándares de seguridad ISO.</p>
+                    
+                    <a class="text-blue-600 font-semibold hover:text-blue-800 text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
+<i class="w-12 h-12 text-blue-600 mb-4" data-lucide="shirt"></i>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Camisetas/Activewear</h4>
+<p class="text-gray-600 text-sm mb-4">Coverstitch automatizado y manejo de tejidos técnicos elásticos.</p>
+                    
+                    <a class="text-blue-600 font-semibold hover:text-blue-800 text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
+<i class="w-12 h-12 text-blue-600 mb-4" data-lucide="briefcase"></i>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Uniformes Industrial</h4>
+<p class="text-gray-600 text-sm mb-4">Alta resistencia y volumen para uniformes corporativos y militar.</p>
+                    
+                    <a class="text-blue-600 font-semibold hover:text-blue-800 text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white text-center">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">¿Listo para automatizar tu fábrica?</h2>
+<p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">Agenda una visita técnica sin compromiso. Evaluamos tu línea de producción y te presentamos un proyecto personalizado.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+                
+                <a class="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 flex items-center justify-center gap-3" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-6 h-6" data-lucide="message-circle"></i>
+                    Agendar visita técnica
+                </a>
+<a class="bg-white/10 hover:bg-white/20 border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-3" href="contacto.html">
+<i class="w-6 h-6" data-lucide="mail"></i>
+                    Enviar requerimientos
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="text-gray-400 py-16 brand-navy-bg">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<a class="block mb-6" href="index.html">
+<img alt="Sewing Solution" class="h-10 w-auto max-w-[200px] object-contain" src="images/logo.png"/>
+<!-- Nota: Para mejor visibilidad en fondo oscuro, usa una versión blanca del logo en: images/logo-white.png -->
+</a>
+<p class="mb-6">Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="facebook"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="instagram"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="linkedin"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
+<ul class="space-y-3">
+<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
+<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
+<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
+<span>+503 7604 8817</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
+<span>info@sewingsolution.net</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
+<span>Km. 36.5 Carr a Santa Ana, Zona Franca American Park. Ciudad Arce, La Libertad. El Salvador.</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            México
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Centroamérica
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Estados Unidos
+                        </li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm">© 2024 Sewing Solution. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-sm">
+<a class="hover:text-white transition" href="#">Política de Privacidad</a>
+<a class="hover:text-white transition" href="#">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+    
+    <a class="whatsapp-float fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center gap-2 group" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-8 h-8" data-lucide="message-circle"></i>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">Asesoría técnica</span>
+</a>
+
+<script>
+lucide.createIcons();
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+}
+
+// Sticky header
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+    else navbar.classList.remove('nav-scrolled');
+  });
+}
+
+// ROI Calculator
+function calculateROI() {
+  const operators = parseInt(document.getElementById('operators')?.value, 10) || 0;
+  const salary = parseInt(document.getElementById('salary')?.value, 10) || 0;
+
+  const savedOperators = Math.max(0, operators - 1);
+  const monthlySaving = savedOperators * salary - 400;
+
+  const saveEl = document.getElementById('monthlySaving');
+  if (saveEl) saveEl.textContent = '$' + Math.max(0, monthlySaving).toLocaleString() + ' USD';
+
+  const prodEl = document.getElementById('productionIncrease');
+  if (prodEl) {
+    const productionIncrease = Math.round((savedOperators / Math.max(1, operators)) * 200) + 50;
+    prodEl.textContent = '+' + productionIncrease + '%';
+  }
+}
+calculateROI();
+</script>
+
+</body>
+</html>

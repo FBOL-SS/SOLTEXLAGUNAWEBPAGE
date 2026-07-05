@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refacciones Originales | Sewing Solution</title>
+<meta content="Catálogo de refacciones y piezas para máquinas de coser industriales. Envío inmediato a México y Centroamérica." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FAVICON PRO -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/maquina-de-coser.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/maquina-de-coser.png">
+<link rel="apple-touch-icon" href="images/maquina-de-coser.png">
+<link rel="shortcut icon" href="images/maquina-de-coser.png">
+<style>
+        * { font-family: 'Inter', sans-serif; }
+        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
+        .part-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.15); }
+        .whatsapp-float { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .category-btn.active { background-color: #2563eb; color: white; }
+        .search-highlight { background-color: #fef08a; padding: 0 2px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800">
+<!-- Sticky Header -->
+<header class="fixed w-full top-0 z-50 transition-all duration-300 bg-slate-900" id="navbar">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<a href="index.html" style="display:flex; align-items:center;">
+<img alt="Sewing Solution" src="images/logo.png" style="height:64px !important; width:auto !important; max-height:none !important;"/>
+</a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
+<a class="text-white hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/50376048817" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                        WhatsApp
+                    </a>
+</div>
+<button class="md:hidden text-white" id="mobile-menu-btn">
+<i class="w-8 h-8" data-lucide="menu"></i>
+</button>
+</div>
+</div>
+<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-2">
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
+<a class="block text-white py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a><a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/50376048817" target="_blank">
+                    Contactar por WhatsApp
+                </a>
+</div>
+</div>
+</header>
+<!-- Page Header -->
+<section class="pt-32 pb-12 bg-slate-900 text-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl">
+<nav class="text-sm mb-4 text-gray-400">
+<a class="hover:text-white transition" href="index.html">Inicio</a>
+<i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
+<span class="text-white">Refacciones Originales</span>
+</nav>
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Refacciones y Piezas Originales</h1>
+<p class="text-xl text-gray-300">Inventario completo de piezas genuinas y compatibles para toda marca de máquinas industriales. Envío inmediato a México y Centroamérica.</p>
+</div>
+</div>
+</section>
+<!-- Search & Filter Section -->
+<section class="py-8 bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+<div class="relative w-full lg:w-96">
+<i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" data-lucide="search"></i>
+<input class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" id="searchInput" placeholder="Buscar por nombre, código o máquina..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 w-full lg:w-auto">
+<button class="category-btn active px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium transition whitespace-nowrap" data-category="all">Todas</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="hooks">Hooks / Lanzaderas</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="loopers">Loopers</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="placas">Placas de Aguja</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="dientes">Dientes / Feed Dogs</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="prensatelas">Prensatelas</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="gauges">Gauges / Sets</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="pullers">Pullers</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="electronica">Electrónica</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="aditamentos">Aditamentos</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="carretes">Carretes</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="bobinas">Bobinas</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="consumibles">Consumibles</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="tijeras">Tijeras Mundial</button>
+<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="feedrail">FeedRail / Rieles</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Parts Grid -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="partsGrid">
+<!-- Hooks / Ganchos y Lanzaderas -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="hooks">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="hooks - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/hooks.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Hooks / Ganchos y Lanzaderas</h3>
+<p class="text-gray-600 text-sm mb-4">Ganchos rotativos, oscilantes y ensambles completos para rectas, dobles y especiales.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rotativos / Oscilantes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ensamble completo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Compatibilidad por modelo</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Loopers (Overlock / Coverstitch) -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="loopers">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="loopers - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/loopers.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Loopers (Overlock / Coverstitch)</h3>
+<p class="text-gray-600 text-sm mb-4">Loopers superior/inferior, spreaders y componentes para remalladoras y cobertoras.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Looper superior / inferior</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Spreader</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para Pegasus / Yamato / Supreme</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Placas de Aguja (Needle Plates) -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="placas">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="placas - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/placas-aguja.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Placas de Aguja (Needle Plates)</h3>
+<p class="text-gray-600 text-sm mb-4">Placas de aguja y throat plates para diferentes calibres, puntadas y aplicaciones.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Por calibre y aplicación</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para recta / overlock / cover</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Versiones originales y compatibles</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Dientes / Feed Dogs -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="dientes">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="dientes - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/dientes-feed-dogs.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Dientes / Feed Dogs</h3>
+<p class="text-gray-600 text-sm mb-4">Dientes de arrastre y componentes de alimentación para mejorar tracción y control.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Diferentes pasos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alturas y perfiles</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para telas ligeras a pesadas</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Prensatelas -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="prensatelas">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="prensatelas - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/prensatelas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Prensatelas</h3>
+<p class="text-gray-600 text-sm mb-4">Prensatelas universales y especializados: zipper, teflón, roller, piping, etc.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Zipper / Teflón / Roller</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Piping / Compensado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Según operación</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Gauges / Sets completos -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="gauges">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="gauges - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/gauges-set.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Gauges / Sets completos</h3>
+<p class="text-gray-600 text-sm mb-4">Gauges, folders, binders y sets completos para operaciones repetibles con precisión.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Folders / Binders</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Guías y topes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Sets por operación</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Pullers (Sistemas de arrastre) -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="pullers">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="pullers - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/pullers.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Pullers (Sistemas de arrastre)</h3>
+<p class="text-gray-600 text-sm mb-4">Pullers, rodillos y unidades de arrastre para estabilizar costuras en tejido de punto y denim.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Unidades completas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rodillos y accesorios</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ajuste según material</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Electrónica (cajas, paneles, sensores) -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="electronica">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="electronica - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/cajas-electronicas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Electrónica (cajas, paneles, sensores)</h3>
+<p class="text-gray-600 text-sm mb-4">Partes electrónicas y eléctricas para máquinas automáticas y direct-drive.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cajas electrónicas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Paneles / displays</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Sensores / solenoides</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Aditamentos para semi-automatización -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="aditamentos">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="aditamentos - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/aditamentos-semi-auto.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Aditamentos para semi-automatización</h3>
+<p class="text-gray-600 text-sm mb-4">Aditamentos y accesorios para mejorar flujo: cortahilo, guías, succión, stands, etc.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cortahilo / succión</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Guías y topes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mejora de proceso</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Carretes / Spools / Accesorios de hilo -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="carretes">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="carretes - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/carretes.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Carretes / Spools / Accesorios de hilo</h3>
+<p class="text-gray-600 text-sm mb-4">Carretes, soportes, tensores y accesorios relacionados con hilo y alimentación.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soportes de hilo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Tensores</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Accesorios de alimentación</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Bobinas / Cajas de bobina -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="bobinas">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="bobinas - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/bobinas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Bobinas / Cajas de bobina</h3>
+<p class="text-gray-600 text-sm mb-4">Bobinas, bobbin case, carriers y componentes relacionados para diferentes marcas y modelos.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Bobinas estándar y especiales</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cajas de bobina</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Compatibilidad por modelo</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Accesorios y consumibles -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="consumibles">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="consumibles - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/accesorios-consumibles.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Accesorios y consumibles</h3>
+<p class="text-gray-600 text-sm mb-4">Consumibles de taller: aceite, bandas, tornillería, navajas, herramientas y más.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aceites y lubricación</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Bandas y tornillería</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Navajas / herramientas</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Tijeras Mundial -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="tijeras">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="tijeras - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/tijeras-mundial.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Tijeras Mundial</h3>
+<p class="text-gray-600 text-sm mb-4">Tijeras profesionales Mundial para corte textil, acabados y trabajo de planta.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Corte industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ergonomía</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Modelos para diferentes usos</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div><!-- Partes para FeedRail / Rieles -->
+<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="feedrail">
+<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="feedrail - Sewing Solution" class="w-full h-full object-cover" src="images/refacciones/feedrail-riel.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="p-5">
+<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Partes para FeedRail / Rieles</h3>
+<p class="text-gray-600 text-sm mb-4">Componentes para rieles FeedRail: rieles, carros, ruedas, soportes y brackets.</p>
+<ul class="text-sm text-gray-600 mb-5 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rieles y carros</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ruedas y soportes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Armado por estación</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+      Pedir lista / cotizar
+    </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-blue-600" data-lucide="package-check"></i>
+</div>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Refacciones Originales</h4>
+<p class="text-gray-600">Piezas genuinas y OEM con garantía de fábrica.</p>
+</div>
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-blue-600" data-lucide="truck"></i>
+</div>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Envío Inmediato</h4>
+<p class="text-gray-600">Entrega 24-48h en CDMX y 3-5 días en Centroamérica.</p>
+</div>
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-blue-600" data-lucide="badge-check"></i>
+</div>
+<h4 class="text-xl font-bold text-slate-900 mb-2">Garantía de Compatibilidad</h4>
+<p class="text-gray-600">Verificamos que cada pieza sea compatible con tu máquina.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-950 text-gray-400 py-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<a class="block mb-6" href="index.html">
+<img alt="Sewing Solution" class="h-10 w-auto max-w-[200px] object-contain" src="images/logo.png"/>
+</a>
+<p class="mb-6">Proveedor líder de maquinaria industrial de costura y automatización.</p>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Enlaces</h4>
+<ul class="space-y-3">
+<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria</a></li>
+<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3"><i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>+503 7604 8817</li>
+<li class="flex items-center gap-3"><i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>ventas@sewingsolution.com</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>México</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>Centroamérica</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>USA</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-900 pt-8 text-center text-sm">
+<p>© 2024 Sewing Solution. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp --><a class="whatsapp-float fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center gap-2 group" href="https://wa.me/50376048817" target="_blank">
+<i class="w-8 h-8" data-lucide="message-circle"></i>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">Cotizar refacciones</span>
+</a>
+<script>
+        lucide.createIcons();
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Sticky header
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+            else navbar.classList.remove('nav-scrolled');
+        });
+
+        // Filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const partCards = document.querySelectorAll('.part-card');
+        const searchInput = document.getElementById('searchInput');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                btn.classList.remove('bg-gray-100', 'text-gray-700');
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+                partCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            partCards.forEach(card => {
+                const name = card.querySelector('.part-name').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (name.includes(searchTerm) || desc.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

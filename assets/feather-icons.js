@@ -1,1 +1,0 @@
-Redirecting to /feather-icons@4.29.2/dist/feather.min.js

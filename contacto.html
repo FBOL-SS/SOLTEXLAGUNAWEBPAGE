@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto | Sewing Solution</title>
+<meta content="Contacta a Sewing Solution para cotizaciones, servicio técnico y consultas. Atención inmediata vía WhatsApp, formulario o email." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FAVICON PRO -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/maquina-de-coser.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/maquina-de-coser.png">
+<link rel="apple-touch-icon" href="images/maquina-de-coser.png">
+<link rel="shortcut icon" href="images/maquina-de-coser.png">
+<style>
+        * { font-family: 'Inter', sans-serif; }
+        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
+        .whatsapp-float { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15); }
+        .form-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+        .form-input { transition: all 0.3s ease; }
+    </style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="site-style.css" rel="stylesheet"/></head>
+<body class="bg-gray-50 text-slate-800">
+<!-- Sticky Header -->
+<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<a href="index.html" style="display:flex; align-items:center;">
+  <img src="images/logo.png" alt="Sewing Solution"
+       style="height:64px !important; width:auto !important; max-height:none !important;">
+</a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                        WhatsApp
+                    </a>
+</div>
+<button class="md:hidden text-white" id="mobile-menu-btn">
+<i class="w-8 h-8" data-lucide="menu"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-2">
+<a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
+<a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                    Contactar por WhatsApp
+                </a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="pt-32 pb-12 bg-slate-900 text-white page-hero">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="max-w-4xl">
+<nav class="text-sm mb-6 text-gray-400">
+<a class="hover:text-white transition" href="index.html">Inicio</a>
+<i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
+<span class="text-white">Contacto</span>
+</nav>
+<h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    Contacta a <span class="text-blue-400">Sewing Solution</span>
+</h1>
+<p class="text-xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+                    Estamos listos para atender tus necesidades de maquinaria industrial, refacciones y automatización. Respuesta garantizada en menos de 2 horas.
+                </p>
+</div>
+</div>
+</section>
+<!-- Contact Options -->
+<section class="py-16 bg-gray-50 -mt-8">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- WhatsApp Card -->
+<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-green-500/20">
+<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-green-600" data-lucide="message-circle"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">WhatsApp</h3>
+<p class="text-gray-600 mb-4 text-sm">Respuesta inmediata para cotizaciones y urgencias técnicas.</p>
+                    
+                    <a class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                        +503 7604 8817
+                    </a>
+</div>
+<!-- Phone Card -->
+<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-blue-500/20">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-blue-600" data-lucide="phone"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">Teléfono</h3>
+<p class="text-gray-600 mb-4 text-sm">Lunes a Viernes 8:00 - 18:00 hrs. Sábados 9:00 - 14:00 hrs.</p>
+                    
+                    <a class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition" href="tel:+50323492700">
+<i class="w-5 h-5" data-lucide="phone"></i>
+                        +503 2349 2700
+                    </a>
+</div>
+<!-- Email Card -->
+<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-gray-200">
+<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-8 h-8 text-gray-600" data-lucide="mail"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
+<p class="text-gray-600 mb-4 text-sm">Para cotizaciones formales, catálogos y documentación técnica.</p>
+<a class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-full font-semibold transition" href="mailto:cotizaciones2@sewingsolution.com">
+<i class="w-5 h-5" data-lucide="mail"></i>
+                        Enviar Email
+                    </a>
+</div>
+</div>
+<!-- Main Contact Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Contact Form -->
+<div class="bg-white rounded-2xl shadow-lg p-8 lg:p-10">
+<h2 class="text-2xl font-bold text-slate-900 mb-2">Solicitar Cotización</h2>
+<p class="text-gray-600 mb-6">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+<form class="space-y-5" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Nombre completo *</label>
+<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="nombre" placeholder="Tu nombre" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Empresa *</label>
+<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="empresa" placeholder="Nombre de la empresa" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Teléfono / WhatsApp *</label>
+<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="telefono" placeholder="+52 55 1234 5678" required="" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Email *</label>
+<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="email" placeholder="tu@email.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">País / Ciudad *</label>
+<select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none bg-white" name="pais" required="">
+<option value="">Selecciona tu ubicación</option>
+<option value="mx-cdmx">México - Ciudad de México</option>
+<option value="mx-gdl">México - Guadalajara</option>
+<option value="mx-mty">México - Monterrey</option>
+<option value="mx-puebla">México - Puebla</option>
+<option value="mx-queretaro">México - Querétaro</option>
+<option value="mx-tijuana">México - Tijuana</option>
+<option value="mx-otro">México - Otro</option>
+<option value="gt">Guatemala</option>
+<option value="sv">El Salvador</option>
+<option value="hn">Honduras</option>
+<option value="usa">Estados Unidos</option>
+<option value="otro">Otro país</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Tipo de interés *</label>
+<select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none bg-white" name="interes" required="">
+<option value="">Selecciona una opción</option>
+<option value="maquinaria">Maquinaria Industrial</option>
+<option value="refacciones">Refacciones</option>
+<option value="automatizacion">Automatización</option>
+<option value="servicio">Servicio Técnico</option>
+<option value="mantenimiento">Mantenimiento Preventivo</option>
+<option value="capacitacion">Capacitación</option>
+<option value="otro">Otro</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-2">Mensaje / Detalles de la solicitud</label>
+<textarea class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none resize-none" name="mensaje" placeholder="Describe tu necesidad: tipo de máquina, cantidad, marca preferida, urgencia, etc." rows="4"></textarea>
+</div>
+<button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-[1.02] flex items-center justify-center gap-2" type="submit">
+<i class="w-5 h-5" data-lucide="send"></i>
+                            Enviar Solicitud
+                        </button>
+<p class="text-xs text-gray-500 text-center">
+                            Al enviar este formulario, aceptas nuestra política de privacidad. Respondemos en menos de 2 horas hábiles.
+                        </p>
+</form>
+<!-- Success Message (Hidden by default) -->
+<div class="hidden text-center py-12" id="successMessage">
+<div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+<i class="w-10 h-10 text-green-600" data-lucide="check"></i>
+</div>
+<h3 class="text-2xl font-bold text-slate-900 mb-2">¡Solicitud Enviada!</h3>
+<p class="text-gray-600 mb-6">Nuestro equipo te contactará en menos de 2 horas vía WhatsApp o email.</p>
+<div class="flex flex-col sm:flex-row gap-3 justify-center">
+<a class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                                Contactar por WhatsApp ahora
+                            </a>
+</div>
+</div>
+</div>
+<!-- Contact Info & Map -->
+<div class="space-y-8">
+<!-- Quick Info -->
+<div class="bg-white rounded-2xl shadow-lg p-8">
+<h3 class="text-xl font-bold text-slate-900 mb-6">Información de Contacto</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-blue-600" data-lucide="map-pin"></i>
+</div>
+<div>
+<div class="font-semibold text-slate-900">Dirección</div>
+<div class="text-gray-600 text-sm">Km 36.5 Carr. a Santa Ana, ZF American Industrial Parl<br/>Ciudad Arce, El Salvador</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-blue-600" data-lucide="clock"></i>
+</div>
+<div>
+<div class="font-semibold text-slate-900">Horario de Atención</div>
+<div class="text-gray-600 text-sm">Lunes - Viernes: 7:30 - 16:30 hrs<br/>Sábados: 7:30 - 12:00 hrs<br/>Soporte técnico urgente: 24/7</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-blue-600" data-lucide="mail"></i>
+</div>
+<div>
+<div class="font-semibold text-slate-900">Emails Directos</div>
+<div class="text-gray-600 text-sm">
+<a class="hover:text-blue-600 transition" href="mailto:cotizaciones2@sewingsolution.com">cotizaciones2@sewingsolution.com</a><br/>
+<a class="hover:text-blue-600 transition" href="mailto:info@sewingsolution.com">info@sewingsolution.com</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden h-80 relative">
+<div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+<div class="text-center">
+<i class="w-16 h-16 text-gray-400 mx-auto mb-4" data-lucide="map"></i>
+<p class="text-gray-600 font-medium">Mapa de Ubicación</p>
+<p class="text-gray-500 text-sm mt-2">Ciudad de México, México</p>
+<a class="mt-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm" href="https://maps.google.com" target="_blank">
+<i class="w-4 h-4" data-lucide="external-link"></i>
+                                    Ver en Google Maps
+                                </a>
+</div>
+</div>
+</div>
+<!-- Coverage -->
+<div class="bg-blue-900 rounded-2xl shadow-lg p-8 text-white">
+<h3 class="text-xl font-bold mb-4">¿Dónde operamos?</h3>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div>
+<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
+<div class="font-semibold">México</div>
+<div class="text-sm text-blue-200">Torreón, Puebla y Merida</div>
+</div>
+<div>
+<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
+<div class="font-semibold">Centroamérica</div>
+<div class="text-sm text-blue-200">Guatemala, El Salvador, Honduras</div>
+</div>
+<div>
+<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
+<div class="font-semibold">USA</div>
+<div class="text-sm text-blue-200">Zonas fronterizas</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">Preguntas Frecuentes</h2>
+<div class="space-y-4">
+<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
+<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+                            ¿Cuánto tiempo tardan en responder?
+                        </h4>
+<p class="text-gray-600 text-sm pl-7">Respondemos todas las solicitudes en menos de 2 horas durante horario laboral. Para emergencias técnicas, tenemos línea directa 24/7 vía WhatsApp.</p>
+</div>
+<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
+<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+                            ¿Hacen envíos a todo México?
+                        </h4>
+<p class="text-gray-600 text-sm pl-7">Sí, hacemos envíos a toda la República Mexicana y Centroamérica. El tiempo de entrega varía de 24 horas (Zona 1, 2 y 3) hasta 3-5 días (resto del país).</p>
+</div>
+<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
+<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+                            ¿Las máquinas incluyen garantía?
+                        </h4>
+<p class="text-gray-600 text-sm pl-7">Todas nuestras máquinas incluyen garantía de 1 año contra defectos de fabricación. Además ofrecemos planes de mantenimiento extendido.</p>
+</div>
+<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
+<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+                            ¿Ofrecen financiamiento?
+                        </h4>
+<p class="text-gray-600 text-sm pl-7">Trabajamos con diversas arrendadoras y opciones de leasing. Contáctanos para evaluar las mejores opciones para tu empresa.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white text-center">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold mb-4">¿Necesitas atención inmediata?</h2>
+<p class="text-xl text-blue-200 mb-8">Nuestro equipo de WhatsApp está disponible ahora para resolver tus dudas.</p>
+<a class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 shadow-xl" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-6 h-6" data-lucide="message-circle"></i>
+                Chatear por WhatsApp
+            </a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="text-gray-400 py-16 brand-navy-bg">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<a class="block mb-6" href="index.html">
+<img alt="Sewing Solution" class="h-10 w-auto max-w-[200px] object-contain" src="images/logo.png"/>
+<!-- Nota: Para mejor visibilidad en fondo oscuro, usa una versión blanca del logo en: images/logo-white.png -->
+</a>
+<p class="mb-6">Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="facebook"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="instagram"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="linkedin"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
+<ul class="space-y-3">
+<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
+<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
+<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
+<span>+503 7604 8817</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
+<span>info@sewingsolution.net</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
+<span>Km. 36.5 Carr a Santa Ana, Zona Franca American Park. Ciudad Arce, La Libertad. El Salvador.</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            México
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Centroamérica
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Estados Unidos
+                        </li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm">© 2024 Sewing Solution. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-sm">
+<a class="hover:text-white transition" href="#">Política de Privacidad</a>
+<a class="hover:text-white transition" href="#">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+lucide.createIcons();
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+}
+
+// Sticky header
+const navbar = document.getElementById('navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+    else navbar.classList.remove('nav-scrolled');
+  });
+}
+
+// Contact form -> WhatsApp
+const form = document.getElementById('contactForm');
+const success = document.getElementById('successMessage');
+
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const nombre = data.get('nombre') || '';
+    const empresa = data.get('empresa') || '';
+    const telefono = data.get('telefono') || '';
+    const email = data.get('email') || '';
+    const pais = data.get('pais') || '';
+    const interes = data.get('interes') || '';
+    const mensaje = data.get('mensaje') || '';
+
+    const txt = `Hola Sewing Solution, quiero cotizar:
+
+Nombre: ${nombre}
+Empresa: ${empresa}
+Tel: ${telefono}
+Email: ${email}
+Ubicación: ${pais}
+Interés: ${interes}
+
+Detalle:
+${mensaje}`;
+
+    const waNumber = '50376048817';
+    const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(txt)}`;
+
+    if (success) {
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      const waBtn = success.querySelector('a[href^="https://wa.me/"]');
+      if (waBtn) waBtn.href = waURL;
+    }
+
+    window.open(waURL, '_blank');
+  });
+}
+</script>
+
+</body></html>

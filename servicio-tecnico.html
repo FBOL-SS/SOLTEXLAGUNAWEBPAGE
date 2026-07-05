@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicio Técnico Especializado | Sewing Solution</title>
+<meta content="Instalación, capacitación y mantenimiento de maquinaria industrial de costura. Soporte técnico 24/7 en México y Centroamérica." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FAVICON PRO -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/maquina-de-coser.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/maquina-de-coser.png">
+<link rel="apple-touch-icon" href="images/maquina-de-coser.png">
+<link rel="shortcut icon" href="images/maquina-de-coser.png">
+<style>
+        * { font-family: 'Inter', sans-serif; }
+        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
+        .whatsapp-float { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15); }
+        .process-step:hover .step-number { background-color: #2563eb; color: white; }
+        .step-number { transition: all 0.3s ease; }
+    </style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="site-style.css" rel="stylesheet"/></head>
+<body class="bg-gray-50 text-slate-800">
+<!-- Sticky Header -->
+<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<a href="index.html" style="display:flex; align-items:center;">
+  <img src="images/logo.png" alt="Sewing Solution"
+       style="height:64px !important; width:auto !important; max-height:none !important;">
+</a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                        WhatsApp
+                    </a>
+</div>
+<button class="md:hidden text-white" id="mobile-menu-btn">
+<i class="w-8 h-8" data-lucide="menu"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-2">
+<a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
+<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
+<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
+<a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                    Contactar por WhatsApp
+                </a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="pt-32 pb-12 bg-slate-900 text-white page-hero">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 hero-breadcrumb">
+<div class="max-w-4xl">
+<nav class="text-sm mb-6 text-gray-400">
+<a class="hover:text-white transition" href="index.html">Inicio</a>
+<i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
+<span class="text-white">Servicio Técnico</span>
+</nav>
+<h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    Servicio Técnico Especializado
+</h1>
+<p class="text-xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+                    Instalación profesional, capacitación operativa y mantenimiento preventivo/correctivo para mantener tu maquinaria funcionando al 100% las 24 horas del día.
+                </p>
+
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-20 bg-gray-50" id="servicios">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Nuestros Servicios</h2>
+<p class="text-gray-600 max-w-2xl mx-auto text-lg">Cobertura completa desde la instalación hasta el mantenimiento de equipo especializado.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-blue-600" data-lucide="settings"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Instalación Profesional</h3>
+<p class="text-gray-600 mb-4 text-sm">Instalación y puesta en marcha de maquinaria nueva o reubicada. Nivelación, calibración y pruebas de producción incluidas.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Montaje mecánico</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Conexión eléctrica</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Calibración inicial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Prueba de producción</li>
+</ul>
+                    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Solicitar instalación
+                    </a>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-green-600" data-lucide="graduation-cap"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Capacitación Operativa</h3>
+<p class="text-gray-600 mb-4 text-sm">Entrenamiento completo para operarios y técnicos de planta. Manuales, videos y certificación incluidos.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operación básica y avanzada</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ajustes de puntada</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cambio de agujas/hilos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Certificación de personal</li>
+</ul>
+                    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Agendar capacitación
+                    </a>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-orange-600" data-lucide="clipboard-check"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Mantenimiento Preventivo</h3>
+<p class="text-gray-600 mb-4 text-sm">Programas de mantenimiento programado para maximizar la vida útil de tu equipo y prevenir fallas.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Visitas programadas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Lubricación completa</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ajuste de tolerancias</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reporte de condición</li>
+</ul>
+                    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Programar visita
+                    </a>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-red-600" data-lucide="alert-circle"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Reparación de Urgencia</h3>
+<p class="text-gray-600 mb-4 text-sm">Servicio de emergencia 24/7 para fallas críticas que detienen tu línea de producción.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Respuesta en 2-4 horas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Diagnóstico in-situ</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Refacciones en stock</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Garantía de reparación</li>
+</ul>
+                    <a class="block w-full bg-red-600 hover:bg-red-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Llamada de emergencia
+                    </a>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-purple-600" data-lucide="refresh-cw"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Reconstrucción de Equipo</h3>
+<p class="text-gray-600 mb-4 text-sm">Reacondicionamiento completo de maquinaria usada. Devuelve la vida a equipos antiguos por fracción del costo.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Desarme completo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rectificado de piezas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Pintura y estética</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Garantía 6 meses</li>
+</ul>
+                    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Cotizar reconstrucción
+                    </a>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 p-8">
+<div class="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6">
+<i class="w-8 h-8 text-cyan-600" data-lucide="scan"></i>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Migración y Actualización</h3>
+<p class="text-gray-600 mb-4 text-sm">Actualización de equipos mecánicos a electrónicos. Instalación de motores servo y paneles digitales.</p>
+<ul class="text-sm text-gray-600 mb-6 space-y-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Motor servo retrofit</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel de control LED</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ahorro 70% energía</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Control velocidad</li>
+</ul>
+                    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                        Evaluar actualización
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Proceso de Servicio</h2>
+<p class="text-gray-600 max-w-2xl mx-auto text-lg">Atención estructurada para resolver tus necesidades técnicas de manera eficiente.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="process-step text-center p-6">
+<div class="step-number w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-600">1</div>
+<h4 class="text-lg font-bold text-slate-900 mb-2">Contacto Inicial</h4>
+<p class="text-gray-600 text-sm">WhatsApp o llamada para describir el problema o servicio requerido.</p>
+</div>
+<div class="process-step text-center p-6">
+<div class="step-number w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-600">2</div>
+<h4 class="text-lg font-bold text-slate-900 mb-2">Diagnóstico</h4>
+<p class="text-gray-600 text-sm">Evaluación técnica remota o presencial según la complejidad del caso.</p>
+</div>
+<div class="process-step text-center p-6">
+<div class="step-number w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-600">3</div>
+<h4 class="text-lg font-bold text-slate-900 mb-2">Ejecución</h4>
+<p class="text-gray-600 text-sm">Intervención del técnico especializado con refacciones de calidad.</p>
+</div>
+<div class="process-step text-center p-6">
+<div class="step-number w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-gray-600">4</div>
+<h4 class="text-lg font-bold text-slate-900 mb-2">Seguimiento</h4>
+<p class="text-gray-600 text-sm">Verificación post-servicio y garantía de satisfacción asegurada.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Coverage Map Section -->
+<section class="py-20 bg-slate-900 text-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Cobertura en Latinoamérica</h2>
+<p class="text-gray-300 mb-8 text-lg">Técnicos certificados disponibles en toda la República de El Salvador, Honduras y México con tiempos de respuesta garantizados.</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+<i class="w-8 h-8 text-green-400" data-lucide="clock"></i>
+<div>
+<div class="font-bold text-lg">2-4 horas</div>
+<div class="text-sm text-gray-400">Zona Metropolitana San Salvador y Santa Ana</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+<i class="w-8 h-8 text-blue-400" data-lucide="clock"></i>
+<div>
+<div class="font-bold text-lg">24-48 horas</div>
+<div class="text-sm text-gray-400">Interior de la Republica de El Salvador</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+<i class="w-8 h-8 text-orange-400" data-lucide="clock"></i>
+<div>
+<div class="font-bold text-lg">48-72 horas</div>
+<div class="text-sm text-gray-400">México(Torreón y Puebla) y Honduras (Cortes y Distrito Central)</div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-blue-600/30 border border-blue-500/30 rounded-full text-sm">México</span>
+<span class="px-4 py-2 bg-blue-600/30 border border-blue-500/30 rounded-full text-sm">Guatemala</span>
+<span class="px-4 py-2 bg-blue-600/30 border border-blue-500/30 rounded-full text-sm">El Salvador</span>
+<span class="px-4 py-2 bg-blue-600/30 border border-blue-500/30 rounded-full text-sm">Honduras</span>
+<span class="px-4 py-2 bg-blue-600/30 border border-blue-500/30 rounded-full text-sm">USA</span>
+</div>
+</div>
+<div class="bg-gray-800 rounded-3xl p-8 h-96 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #1e40af 0, #1e40af 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+<div class="text-center relative z-10">
+<i class="w-20 h-20 text-blue-500 mx-auto mb-4" data-lucide="map-pin"></i>
+<h3 class="text-2xl font-bold mb-2">Servicio Técnico Local</h3>
+<p class="text-gray-400">Técnicos certificados cerca de tu fábrica</p>
+<a class="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="message-circle"></i>
+                            Contactar técnico local
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Maintenance Plans -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Planes de Mantenimiento</h2>
+<p class="text-gray-600 max-w-2xl mx-auto text-lg">Contratos de servicio preventivo para mantener tu flota operativa sin sorpresas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<!-- Plan Básico -->
+<div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-100 hover:border-blue-200 transition">
+<div class="text-center mb-6">
+<h3 class="text-xl font-bold text-slate-900 mb-2">Plan Básico</h3>
+<div class="text-4xl font-bold text-blue-600 mb-2">$250<span class="text-lg text-gray-500 font-normal"> USD/mes</span></div>
+<p class="text-gray-600 text-sm">Hasta 5 máquinas</p>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 1 visita mensual</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Lubricación y ajustes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reporte de estado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Descuento 10% en refacciones</li>
+</ul>
+                        <a class="block w-full bg-gray-100 hover:bg-gray-200 text-slate-900 text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                            Contratar plan
+                        </a>
+</div>
+<!-- Plan Profesional -->
+<div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-blue-600 relative transform scale-105">
+<div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                        Más Popular
+                    </div>
+<div class="text-center mb-6">
+<h3 class="text-xl font-bold text-slate-900 mb-2">Plan Profesional</h3>
+<div class="text-4xl font-bold text-blue-600 mb-2">$500<span class="text-lg text-gray-500 font-normal"> USD/mes</span></div>
+<p class="text-gray-600 text-sm">Hasta 15 máquinas</p>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 2 visitas mensuales</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mantenimiento completo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte telefónico 24/7</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Prioridad en urgencias</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Descuento 20% en refacciones</li>
+</ul>
+<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                            Contratar plan
+                        </a>
+</div>
+<!-- Plan Empresarial -->
+<div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-100 hover:border-blue-200 transition">
+<div class="text-center mb-6">
+<h3 class="text-xl font-bold text-slate-900 mb-2">Plan Empresarial</h3>
+<div class="text-4xl font-bold text-blue-600 mb-2">Desde $800<span class="text-lg text-gray-500 font-normal"> USD/mes</span></div>
+<p class="text-gray-600 text-sm">Fábricas completas</p>
+</div>
+<ul class="space-y-3 mb-8 text-sm">
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Visitas ilimitadas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Técnico dedicado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Inventario de refacciones</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reportes mensuales</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Descuento 30% en refacciones</li>
+</ul>
+<a class="block w-full bg-gray-100 hover:bg-gray-200 text-slate-900 text-center py-3 rounded-lg font-semibold transition" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+                            Cotizar plan
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Emergency CTA -->
+<section class="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white text-center">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-3xl mx-auto">
+<div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="w-10 h-10" data-lucide="phone-call"></i>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold mb-4">¿Emergencia técnica?</h2>
+<p class="text-xl text-red-100 mb-8">Línea directa para fallas críticas que detienen tu producción. Respuesta prioritaria garantizada.</p>
+<a class="inline-flex items-center gap-3 bg-white text-red-600 hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 shadow-xl" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-6 h-6" data-lucide="message-circle"></i>
+                    WhatsApp de Emergencia
+                </a>
+<p class="mt-4 text-red-200 text-sm">Disponible 24/7 · Respuesta en menos de 2 horas</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="text-gray-400 py-16 brand-navy-bg">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<a class="block mb-6" href="index.html">
+<img alt="Sewing Solution" class="h-10 w-auto max-w-[200px] object-contain" src="images/logo.png"/>
+<!-- Nota: Para mejor visibilidad en fondo oscuro, usa una versión blanca del logo en: images/logo-white.png -->
+</a>
+<p class="mb-6">Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="facebook"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="instagram"></i>
+</a>
+<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
+<i class="w-5 h-5" data-lucide="linkedin"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
+<ul class="space-y-3">
+<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
+<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
+<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
+<span>+503 7604 8817</span>
+</li>
+<li class="flex items-center gap-3">
+<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
+<span>info@sewingsolution.net</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
+<span>Km. 36.5 Carr a Santa Ana, Zona Franca American Park. Ciudad Arce, La Libertad. El Salvador.</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            México
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Centroamérica
+                        </li>
+<li class="flex items-center gap-2">
+<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
+                            Estados Unidos
+                        </li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm">© 2024 Sewing Solution. Todos los derechos reservados.</p>
+<div class="flex gap-6 text-sm">
+<a class="hover:text-white transition" href="#">Política de Privacidad</a>
+<a class="hover:text-white transition" href="#">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a class="whatsapp-float fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center gap-2 group" href="https://wa.me/50376048817" rel="noopener noreferrer" target="_blank">
+<i class="w-8 h-8" data-lucide="message-circle"></i>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">Servicio Técnico</span>
+</a>
+<script>
+        lucide.createIcons();
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Sticky header
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+            else navbar.classList.remove('nav-scrolled');
+        });
+    </script>
+</body>
+</html>
