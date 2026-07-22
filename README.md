@@ -1,4 +1,4 @@
-# 🧵 SEWING SOLUTION GROUP — WEBSITE STRUCTURE
+# 🧵 SOLUCIONES TEXTILES LAGUNA — WEBSITE STRUCTURE
 
 **Industrial Sewing Machinery • Automation • Global Solutions**
 
@@ -6,7 +6,7 @@
 
 ## 🌐 Project Overview
 
-Corporate website for **Sewing Solution Group**, focused on:
+Corporate website for **SOLUCIONES TEXTILES LAGUNA**, focused on:
 
 * Industrial sewing machinery
 * Automation systems
@@ -87,14 +87,13 @@ Poppins
 ## 📞 Company Information (Footer)
 
 ```
-SOLUCIONES TEXTILES LAGUNA / SEWING SOLUTION GROUP
+SOLUCIONES TEXTILES LAGUNA
 
-📍 Km. 36.5 Carr. a Santa Ana  
-Zona Franca American Park  
-Ciudad Arce, La Libertad, El Salvador  
+📍 Torreón: Av. Mariano López Ortiz 326 Nte.  
+📍 Puebla: Mirador 1043, 72680 San Francisco Ocotlán, Pue.  
 
-📞 +503 7604 8817  
-📧 fbolanos@sewingsolution.net
+📞 +52 871 524 6072  
+📧 info@sewingsolution.com.mx
 ```
 
 ---
@@ -149,5 +148,5 @@ Designed to attract:
 
 ---
 
-**© 2026 Sewing Solution Group**
+**© 2026 SOLUCIONES TEXTILES LAGUNA**
 *Industrial Technology for Modern Manufacturing*
