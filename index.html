@@ -16,62 +16,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg"/>
 <link rel="apple-touch-icon" href="images/logo-soltex.svg"/>
+<link href="style-v2.css" rel="stylesheet"/>
 <style>
-  :root{
-    --canvas:#0B0F14;
-    --surface-1:#12161D;
-    --surface-2:#1B212B;
-    --border-c:#2A313D;
-    --text-1:#F4F5F7;
-    --text-2:#9AA3B0;
-    --accent:#3D6FE0;
-    --accent-dark:#2F58BD;
-    --alert:#E0A83D;
-  }
-  *{font-family:'IBM Plex Sans', sans-serif;}
-  body{background:var(--canvas); color:var(--text-1); margin:0;}
-  .font-display{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em;}
-  .font-mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.06em;}
-  html{scroll-behavior:smooth;}
-  .surface-1{background:var(--surface-1);}
-  .surface-2{background:var(--surface-2);}
-  .border-c{border-color:var(--border-c) !important;}
-  .text-2{color:var(--text-2);}
-  .accent{color:var(--accent);}
-  .bg-accent{background:var(--accent);}
-  .bg-accent:hover{background:var(--accent-dark);}
-  .btn-primary{background:var(--accent); color:#fff; transition:background .2s ease, transform .15s ease;}
-  .btn-primary:hover{background:var(--accent-dark);}
-  .btn-primary:active{transform:scale(.98);}
-  .btn-ghost{background:transparent; border:1px solid var(--border-c); color:var(--text-1); transition:border-color .2s ease, background .2s ease;}
-  .btn-ghost:hover{border-color:var(--accent); background:rgba(61,111,224,0.08);}
-  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
   .hero-bg{
     background:
       linear-gradient(90deg, rgba(11,15,20,0.98) 0%, rgba(11,15,20,0.88) 42%, rgba(11,15,20,0.55) 70%, rgba(11,15,20,0.25) 100%),
       url('images/machines/supreme-sp-c9513k-m.jpg') center 40%/cover no-repeat, var(--canvas);
-  }
-  .measure-line{position:relative;}
-  .measure-line::before{
-    content:"";
-    position:absolute; left:0; top:0; bottom:0; width:1px;
-    background:var(--border-c);
-  }
-  .scroll-reveal{opacity:0; transform:translateY(14px); transition:all .6s cubic-bezier(.16,1,.3,1);}
-  .scroll-reveal.active{opacity:1; transform:translateY(0);}
-  .nav-scrolled{background:rgba(11,15,20,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--border-c);}
-  .card-hover{transition:border-color .25s ease, transform .25s ease;}
-  .card-hover:hover{border-color:var(--accent); transform:translateY(-3px);}
-  ::selection{background:var(--accent); color:#fff;}
-  input, select, textarea{background:var(--surface-2); border:1px solid var(--border-c); color:var(--text-1);}
-  input::placeholder, textarea::placeholder{color:var(--text-2);}
-  input:focus, select:focus, textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-  .whatsapp-float{animation:pulse 2.4s infinite;}
-  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
-  @media (prefers-reduced-motion: reduce){
-    .scroll-reveal{transition:none; opacity:1; transform:none;}
-    .whatsapp-float{animation:none;}
   }
 </style>
 </head>
@@ -374,12 +324,13 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <span class="eyebrow">[ Cobertura ]</span>
     <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-10">Cobertura en México</h2>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-px surface-2 font-mono text-sm">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px surface-2 font-mono text-sm">
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">01</span>Puebla</div>
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">02</span>Tlaxcala</div>
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">03</span>Torreón</div>
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">04</span>Gómez Palacio</div>
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">05</span>Mérida</div>
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">06</span>Campeche</div>
     </div>
     <p class="text-2 text-sm mt-6">Más cobertura nacional. <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20saber%20si%20tienen%20cobertura%20en%20mi%20ciudad" target="_blank" rel="noopener noreferrer" class="accent font-medium">Pregunta si cubrimos tu ciudad →</a></p>
   </div>
@@ -513,7 +464,7 @@
         <ul class="space-y-2.5 text-sm text-2 font-mono">
           <li>Puebla · Tlaxcala</li>
           <li>Torreón · Gómez Palacio</li>
-          <li>Mérida</li>
+          <li>Mérida · Campeche</li>
           <li>Cobertura nacional</li>
         </ul>
       </div>

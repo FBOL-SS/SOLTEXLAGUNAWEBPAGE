@@ -1,355 +1,343 @@
 <!DOCTYPE html>
-
 <html lang="es-MX">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Refacciones Originales | SOLTEX</title>
-<meta content="Catálogo de refacciones y piezas para máquinas de coser industriales. Envío inmediato a toda la República Mexicana." name="description"/>
+<title>Refacciones para Máquinas de Coser Industriales | SOLTEX</title>
+<meta content="Catálogo de refacciones y piezas para máquinas de coser industriales: Juki, Pegasus, Yamato, Brother, Zoje, Jack, Supreme, Dürkopp Adler. Envío a toda la República Mexicana." name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&amp;display=swap" rel="stylesheet"/>
-<!-- FAVICON PRO -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg">
 <link rel="apple-touch-icon" href="images/logo-soltex.svg">
-<link rel="shortcut icon" href="images/logo-soltex.svg">
-<link href="style.css" rel="stylesheet"/>
-<style>
-        * { font-family: 'Inter', sans-serif; }
-        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
-        .part-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.15); }
-        .whatsapp-float { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .category-btn.active { background-color: #2563eb; color: white; }
-        .search-highlight { background-color: #fef08a; padding: 0 2px; }
-    </style>
+<link href="style-v2.css" rel="stylesheet"/>
+<style>.search-highlight{background:rgba(224,168,61,0.35); color:var(--text-1); padding:0 2px;}</style>
 </head>
-<body class="bg-gray-50 text-slate-800">
-<!-- Sticky Header -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300 bg-slate-900" id="navbar">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<a href="index.html" style="display:flex; align-items:center;">
-<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:46px!important;width:auto!important;max-width:min(62vw,265px)!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.96;">
-</a>
-<nav class="hidden md:flex space-x-8">
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
-<a class="text-white hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
-</nav>
-<div class="hidden md:flex items-center space-x-4">
-<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/528715246072" target="_blank">
-<i class="w-5 h-5" data-lucide="message-circle"></i>
-                        WhatsApp
-                    </a>
-</div>
-<button class="md:hidden text-white" id="mobile-menu-btn">
-<i class="w-8 h-8" data-lucide="menu"></i>
+<body class="overflow-x-hidden">
+<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-6">
+      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
+      </a>
+      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
+        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
+        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
+        <a class="text-sm text-white font-medium" href="refacciones.html">Refacciones</a>
+        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
+        <a class="text-sm text-2 hover:text-white transition" href="contacto.html">Contacto</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">
+          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
+        </a>
+      </div>
+      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+
+<i class="w-7 h-7" data-lucide="menu"></i>
 </button>
 </div>
 </div>
-<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
-<div class="px-4 pt-2 pb-6 space-y-2">
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
-<a class="block text-white py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a><a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/528715246072" target="_blank">
-                    Contactar por WhatsApp
-                </a>
+<div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-1">
+<a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
+<a class="block text-2 py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
+<a class="block text-white py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
+<a class="block text-2 py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
+<a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
+<a class="block text-2 py-3 text-sm" href="contacto.html">Contacto</a>
+<a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
 </div>
 </div>
 </header>
 <!-- Page Header -->
-<section class="pt-32 pb-12 bg-slate-900 text-white">
+<section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="max-w-3xl">
-<nav class="text-sm mb-4 text-gray-400">
+<nav class="text-sm mb-4 text-2" aria-label="Breadcrumb">
 <a class="hover:text-white transition" href="index.html">Inicio</a>
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
-<span class="text-white">Refacciones Originales</span>
+<span class="text-white">Refacciones</span>
 </nav>
-<h1 class="text-4xl md:text-5xl font-bold mb-4">Refacciones y Piezas Originales</h1>
-<p class="text-xl text-gray-300">Inventario completo de piezas genuinas y compatibles para toda marca de máquinas industriales. Envío inmediato a toda la República Mexicana.</p>
+<span class="eyebrow">[ Catálogo ]</span>
+<h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3">Refacciones y piezas originales</h1>
+<p class="text-xl text-2">Inventario completo de piezas genuinas y compatibles para toda marca de máquinas industriales. Envío a toda la República Mexicana.</p>
 </div>
 </div>
 </section>
 <!-- Search & Filter Section -->
-<section class="py-8 bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+<section class="py-8 surface-1 border-b border-c sticky top-16 z-40">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
 <div class="relative w-full lg:w-96">
-<i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" data-lucide="search"></i>
-<input class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" id="searchInput" placeholder="Buscar por nombre, código o máquina..." type="text"/>
+<i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-2" data-lucide="search"></i>
+<input class="w-full pl-10 pr-4 py-3 text-sm focus:outline-none" id="searchInput" placeholder="Buscar por nombre, código o máquina…" type="text"/>
 </div>
 <div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 w-full lg:w-auto">
-<button class="category-btn active px-6 py-2 rounded-full bg-gray-100 text-gray-700 font-medium transition whitespace-nowrap" data-category="all">Todas</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="hooks">Hooks / Lanzaderas</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="loopers">Loopers</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="placas">Placas de Aguja</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="dientes">Dientes / Feed Dogs</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="prensatelas">Prensatelas</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="gauges">Gauges / Sets</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="pullers">Pullers</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="electronica">Electrónica</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="aditamentos">Aditamentos</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="carretes">Carretes</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="bobinas">Bobinas</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="consumibles">Consumibles</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="tijeras">Tijeras Mundial</button>
-<button class="category-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="feedrail">FeedRail / Rieles</button>
+<button class="category-btn filter-btn-v2 active" data-category="all">Todas</button>
+<button class="category-btn filter-btn-v2" data-category="hooks">Hooks / Lanzaderas</button>
+<button class="category-btn filter-btn-v2" data-category="loopers">Loopers</button>
+<button class="category-btn filter-btn-v2" data-category="placas">Placas de Aguja</button>
+<button class="category-btn filter-btn-v2" data-category="dientes">Dientes / Feed Dogs</button>
+<button class="category-btn filter-btn-v2" data-category="prensatelas">Prensatelas</button>
+<button class="category-btn filter-btn-v2" data-category="gauges">Gauges / Sets</button>
+<button class="category-btn filter-btn-v2" data-category="pullers">Pullers</button>
+<button class="category-btn filter-btn-v2" data-category="electronica">Electrónica</button>
+<button class="category-btn filter-btn-v2" data-category="aditamentos">Aditamentos</button>
+<button class="category-btn filter-btn-v2" data-category="carretes">Carretes</button>
+<button class="category-btn filter-btn-v2" data-category="bobinas">Bobinas</button>
+<button class="category-btn filter-btn-v2" data-category="consumibles">Consumibles</button>
+<button class="category-btn filter-btn-v2" data-category="tijeras">Tijeras Mundial</button>
+<button class="category-btn filter-btn-v2" data-category="feedrail">FeedRail / Rieles</button>
 </div>
 </div>
 </div>
 </section>
 <!-- Brands We Service -->
-<section class="py-8 bg-white border-b border-gray-200">
+<section class="py-8 surface-1 border-b border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<p class="text-center text-sm text-gray-500 uppercase tracking-wider font-semibold mb-5">Refacciones para estas marcas</p>
-<div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Juki</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Pegasus</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Yamato</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Brother</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Zoje</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Jack</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Supreme</span>
-<span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">Dürkopp Adler</span>
-<span class="px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-500 text-sm font-medium">y más</span>
+<span class="eyebrow block text-center mb-5">Refacciones para estas marcas</span>
+<div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto font-mono text-sm">
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Juki</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Pegasus</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Yamato</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Brother</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Zoje</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Jack</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Supreme</span>
+<span class="px-4 py-1.5 border border-c surface-2 text-2">Dürkopp Adler</span>
+<span class="px-4 py-1.5 text-2">y más</span>
 </div>
-<p class="text-center text-sm text-gray-500 mt-4">¿No ves tu marca? Manejamos más de 50,000 SKUs en existencia entre todo el grupo. <a href="https://wa.me/528715246072?text=Hola%2C%20busco%20una%20refacci%C3%B3n%2C%20%C2%BFla%20manejan%3F" class="text-blue-600 font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por WhatsApp →</a></p>
+<p class="text-center text-sm text-2 mt-4">¿No ves tu marca? Manejamos más de 50,000 SKUs en existencia entre todo el grupo. <a href="https://wa.me/528715246072?text=Hola%2C%20busco%20una%20refacci%C3%B3n%2C%20%C2%BFla%20manejan%3F" class="accent font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por WhatsApp →</a></p>
 </div>
 </section>
 <!-- Parts Grid -->
-<section class="py-16 bg-gray-50">
+<section class="py-16" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="partsGrid">
 <!-- Hooks / Ganchos y Lanzaderas -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="hooks">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="hooks - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/hooks.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="hooks">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="hooks - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/hooks.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Hooks / Ganchos y Lanzaderas</h3>
-<p class="text-gray-600 text-sm mb-4">Ganchos rotativos, oscilantes y ensambles completos para rectas, dobles y especiales.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rotativos / Oscilantes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ensamble completo</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Compatibilidad por modelo</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Hooks / Ganchos y Lanzaderas</h3>
+<p class="text-2 text-sm mb-4">Ganchos rotativos, oscilantes y ensambles completos para rectas, dobles y especiales.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rotativos / Oscilantes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ensamble completo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Compatibilidad por modelo</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Loopers (Overlock / Coverstitch) -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="loopers">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="loopers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/loopers.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="loopers">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="loopers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/loopers.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Loopers (Overlock / Coverstitch)</h3>
-<p class="text-gray-600 text-sm mb-4">Loopers superior/inferior, spreaders y componentes para remalladoras y cobertoras.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Looper superior / inferior</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Spreader</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para Pegasus / Yamato / Supreme</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Loopers (Overlock / Coverstitch)</h3>
+<p class="text-2 text-sm mb-4">Loopers superior/inferior, spreaders y componentes para remalladoras y cobertoras.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Looper superior / inferior</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Spreader</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para Pegasus / Yamato / Supreme</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Placas de Aguja (Needle Plates) -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="placas">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="placas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/placas-aguja.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="placas">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="placas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/placas-aguja.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Placas de Aguja (Needle Plates)</h3>
-<p class="text-gray-600 text-sm mb-4">Placas de aguja y throat plates para diferentes calibres, puntadas y aplicaciones.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Por calibre y aplicación</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para recta / overlock / cover</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Versiones originales y compatibles</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Placas de Aguja (Needle Plates)</h3>
+<p class="text-2 text-sm mb-4">Placas de aguja y throat plates para diferentes calibres, puntadas y aplicaciones.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Por calibre y aplicación</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para recta / overlock / cover</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Versiones originales y compatibles</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Dientes / Feed Dogs -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="dientes">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="dientes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/dientes-feed-dogs.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="dientes">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="dientes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/dientes-feed-dogs.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Dientes / Feed Dogs</h3>
-<p class="text-gray-600 text-sm mb-4">Dientes de arrastre y componentes de alimentación para mejorar tracción y control.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Diferentes pasos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alturas y perfiles</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para telas ligeras a pesadas</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Dientes / Feed Dogs</h3>
+<p class="text-2 text-sm mb-4">Dientes de arrastre y componentes de alimentación para mejorar tracción y control.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Diferentes pasos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alturas y perfiles</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para telas ligeras a pesadas</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Prensatelas -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="prensatelas">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="prensatelas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/prensatelas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="prensatelas">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="prensatelas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/prensatelas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Prensatelas</h3>
-<p class="text-gray-600 text-sm mb-4">Prensatelas universales y especializados: zipper, teflón, roller, piping, etc.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Zipper / Teflón / Roller</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Piping / Compensado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Según operación</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Prensatelas</h3>
+<p class="text-2 text-sm mb-4">Prensatelas universales y especializados: zipper, teflón, roller, piping, etc.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Zipper / Teflón / Roller</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Piping / Compensado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Según operación</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Gauges / Sets completos -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="gauges">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="gauges - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/gauges-set.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="gauges">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="gauges - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/gauges-set.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Gauges / Sets completos</h3>
-<p class="text-gray-600 text-sm mb-4">Gauges, folders, binders y sets completos para operaciones repetibles con precisión.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Folders / Binders</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Guías y topes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Sets por operación</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Gauges / Sets completos</h3>
+<p class="text-2 text-sm mb-4">Gauges, folders, binders y sets completos para operaciones repetibles con precisión.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Folders / Binders</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Guías y topes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Sets por operación</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Pullers (Sistemas de arrastre) -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="pullers">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="pullers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/pullers.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="pullers">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="pullers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/pullers.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Pullers (Sistemas de arrastre)</h3>
-<p class="text-gray-600 text-sm mb-4">Pullers, rodillos y unidades de arrastre para estabilizar costuras en tejido de punto y denim.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Unidades completas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rodillos y accesorios</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ajuste según material</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Pullers (Sistemas de arrastre)</h3>
+<p class="text-2 text-sm mb-4">Pullers, rodillos y unidades de arrastre para estabilizar costuras en tejido de punto y denim.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Unidades completas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rodillos y accesorios</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ajuste según material</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Electrónica (cajas, paneles, sensores) -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="electronica">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="electronica - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/cajas-electronicas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="electronica">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="electronica - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/cajas-electronicas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Electrónica (cajas, paneles, sensores)</h3>
-<p class="text-gray-600 text-sm mb-4">Partes electrónicas y eléctricas para máquinas automáticas y direct-drive.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cajas electrónicas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Paneles / displays</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Sensores / solenoides</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Electrónica (cajas, paneles, sensores)</h3>
+<p class="text-2 text-sm mb-4">Partes electrónicas y eléctricas para máquinas automáticas y direct-drive.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cajas electrónicas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Paneles / displays</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Sensores / solenoides</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Aditamentos para semi-automatización -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="aditamentos">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="aditamentos - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/aditamentos-semi-auto.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="aditamentos">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="aditamentos - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/aditamentos-semi-auto.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Aditamentos para semi-automatización</h3>
-<p class="text-gray-600 text-sm mb-4">Aditamentos y accesorios para mejorar flujo: cortahilo, guías, succión, stands, etc.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cortahilo / succión</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Guías y topes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mejora de proceso</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Aditamentos para semi-automatización</h3>
+<p class="text-2 text-sm mb-4">Aditamentos y accesorios para mejorar flujo: cortahilo, guías, succión, stands, etc.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cortahilo / succión</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Guías y topes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Mejora de proceso</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Carretes / Spools / Accesorios de hilo -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="carretes">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="carretes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/carretes.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="carretes">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="carretes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/carretes.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Carretes / Spools / Accesorios de hilo</h3>
-<p class="text-gray-600 text-sm mb-4">Carretes, soportes, tensores y accesorios relacionados con hilo y alimentación.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soportes de hilo</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Tensores</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Accesorios de alimentación</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Carretes / Spools / Accesorios de hilo</h3>
+<p class="text-2 text-sm mb-4">Carretes, soportes, tensores y accesorios relacionados con hilo y alimentación.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Soportes de hilo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Tensores</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Accesorios de alimentación</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Bobinas / Cajas de bobina -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="bobinas">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="bobinas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/bobinas.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="bobinas">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="bobinas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/bobinas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Bobinas / Cajas de bobina</h3>
-<p class="text-gray-600 text-sm mb-4">Bobinas, bobbin case, carriers y componentes relacionados para diferentes marcas y modelos.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Bobinas estándar y especiales</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cajas de bobina</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Compatibilidad por modelo</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Bobinas / Cajas de bobina</h3>
+<p class="text-2 text-sm mb-4">Bobinas, bobbin case, carriers y componentes relacionados para diferentes marcas y modelos.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Bobinas estándar y especiales</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cajas de bobina</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Compatibilidad por modelo</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Accesorios y consumibles -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="consumibles">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="consumibles - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/accesorios-consumibles.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="consumibles">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="consumibles - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/accesorios-consumibles.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Accesorios y consumibles</h3>
-<p class="text-gray-600 text-sm mb-4">Consumibles de taller: aceite, bandas, tornillería, navajas, herramientas y más.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aceites y lubricación</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Bandas y tornillería</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Navajas / herramientas</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Accesorios y consumibles</h3>
+<p class="text-2 text-sm mb-4">Consumibles de taller: aceite, bandas, tornillería, navajas, herramientas y más.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aceites y lubricación</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Bandas y tornillería</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Navajas / herramientas</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Tijeras Mundial -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="tijeras">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="tijeras - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/tijeras-mundial.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="tijeras">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="tijeras - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/tijeras-mundial.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Tijeras Mundial</h3>
-<p class="text-gray-600 text-sm mb-4">Tijeras profesionales Mundial para corte textil, acabados y trabajo de planta.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Corte industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ergonomía</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Modelos para diferentes usos</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Tijeras Mundial</h3>
+<p class="text-2 text-sm mb-4">Tijeras profesionales Mundial para corte textil, acabados y trabajo de planta.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Corte industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ergonomía</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Modelos para diferentes usos</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
 </div><!-- Partes para FeedRail / Rieles -->
-<div class="part-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300" data-category="feedrail">
-<div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center"><img alt="feedrail - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/feedrail-riel.jpg"/><div class="absolute top-3 right-3 bg-slate-900 text-white px-2 py-1 rounded text-xs font-bold">Categoría</div></div>
+<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="feedrail">
+<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="feedrail - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/feedrail-riel.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
 <div class="p-5">
-<div class="text-xs text-blue-600 font-bold uppercase tracking-wider mb-1">Refacciones</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2 part-name">Partes para FeedRail / Rieles</h3>
-<p class="text-gray-600 text-sm mb-4">Componentes para rieles FeedRail: rieles, carros, ruedas, soportes y brackets.</p>
-<ul class="text-sm text-gray-600 mb-5 space-y-2">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rieles y carros</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ruedas y soportes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Armado por estación</li>
+<div class="eyebrow mb-1">Refacciones</div>
+<h3 class="text-lg font-display font-semibold mb-2 part-name">Partes para FeedRail / Rieles</h3>
+<p class="text-2 text-sm mb-4">Componentes para rieles FeedRail: rieles, carros, ruedas, soportes y brackets.</p>
+<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rieles y carros</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ruedas y soportes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Armado por estación</li>
 </ul>
-<a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Pedir lista / cotizar
     </a>
 </div>
@@ -358,73 +346,76 @@
 </div>
 </section>
 <!-- Features -->
-<section class="py-16 bg-white">
+<section class="py-16" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="text-center p-6">
-<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-blue-600" data-lucide="package-check"></i>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-px surface-2">
+<div class="text-center p-8 surface-1 border border-c">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="package-check"></i>
 </div>
-<h4 class="text-xl font-bold text-slate-900 mb-2">Refacciones Originales</h4>
-<p class="text-gray-600">Piezas genuinas y OEM con garantía de fábrica.</p>
+<h4 class="text-lg font-display font-semibold mb-2">Refacciones originales</h4>
+<p class="text-2 text-sm">Piezas genuinas y OEM con garantía de fábrica.</p>
 </div>
-<div class="text-center p-6">
-<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-blue-600" data-lucide="truck"></i>
+<div class="text-center p-8 surface-1 border border-c">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="truck"></i>
 </div>
-<h4 class="text-xl font-bold text-slate-900 mb-2">Envío Inmediato</h4>
-<p class="text-gray-600">Entrega rápida desde nuestras oficinas de Torreón y Puebla a toda la República Mexicana.</p>
+<h4 class="text-lg font-display font-semibold mb-2">Envío inmediato</h4>
+<p class="text-2 text-sm">Entrega rápida desde nuestras oficinas de Torreón y Puebla a toda la República Mexicana.</p>
 </div>
-<div class="text-center p-6">
-<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-blue-600" data-lucide="badge-check"></i>
+<div class="text-center p-8 surface-1 border border-c">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="badge-check"></i>
 </div>
-<h4 class="text-xl font-bold text-slate-900 mb-2">Garantía de Compatibilidad</h4>
-<p class="text-gray-600">Verificamos que cada pieza sea compatible con tu máquina.</p>
+<h4 class="text-lg font-display font-semibold mb-2">Garantía de compatibilidad</h4>
+<p class="text-2 text-sm">Verificamos que cada pieza sea compatible con tu máquina.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-slate-950 text-gray-400 py-16">
+<footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 <div>
-<a class="block mb-6" href="index.html">
-<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:42px!important;width:auto!important;max-width:240px!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.92;">
+<a class="block mb-5" href="index.html">
+<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:32px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
 </a>
-<p class="mb-6">Proveedor líder de maquinaria industrial de costura y automatización.</p>
+<p class="text-2 text-sm mb-4 leading-relaxed">Parte de Grupo Sewing Solution, con operación en México, El Salvador, Honduras y Nicaragua desde 2004.</p>
+<img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-6 w-auto object-contain opacity-80">
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Enlaces</h4>
-<ul class="space-y-3">
-<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria</a></li>
-<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
-<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Enlaces</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li><a class="hover:text-white transition" href="maquinaria.html">Maquinaria industrial</a></li>
+<li><a class="hover:text-white transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-white transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-3"><i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>+52 871 524 6072</li>
-<li class="flex items-center gap-3"><i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>info@sewingsolution.com.mx</li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Contacto</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="phone"></i> +52 871 524 6072</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="mail"></i> info@sewingsolution.com.mx</li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>México</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>Torreón y Puebla</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i>Toda la República Mexicana</li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Cobertura</h4>
+<ul class="space-y-2.5 text-sm text-2 font-mono">
+<li>Puebla · Tlaxcala</li>
+<li>Torreón · Gómez Palacio</li>
+<li>Mérida · Campeche</li>
+<li>Cobertura nacional</li>
 </ul>
 </div>
 </div>
-<div class="border-t border-slate-900 pt-8 text-center text-sm">
-<p>© 2026 SOLUCIONES TEXTILES LAGUNA. Todos los derechos reservados.</p>
+<div class="border-t border-c pt-8 text-center text-xs text-2">
+<p>© 2026 Soluciones Textiles Laguna S.A. de C.V.</p>
 </div>
 </div>
 </footer>
-<!-- Floating WhatsApp --><a class="whatsapp-float fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center gap-2 group" href="https://wa.me/528715246072" target="_blank">
+<!-- Floating WhatsApp --><a class="whatsapp-float fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-2xl z-50 transition flex items-center gap-2" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">
 <i class="w-8 h-8" data-lucide="message-circle"></i>
 <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">Cotizar refacciones</span>
 </a>
@@ -450,11 +441,7 @@
 
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                categoryBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-100', 'text-gray-700');
-                });
-                btn.classList.remove('bg-gray-100', 'text-gray-700');
+                categoryBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
                 const category = btn.getAttribute('data-category');

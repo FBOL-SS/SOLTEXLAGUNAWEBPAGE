@@ -1,392 +1,298 @@
 <!DOCTYPE html>
-
 <html lang="es-MX">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Maquinaria Industrial | SOLTEX</title>
-<meta content="Catálogo de maquinaria industrial de costura: rectas, overlock, coverstitch, automáticas y más. Cotiza vía WhatsApp." name="description"/>
+<title>Maquinaria Industrial de Costura en México | SOLTEX</title>
+<meta content="Catálogo de maquinaria industrial de costura: rectas, overlock, coverstitch, automáticas y heavy duty. Distribuidor Supreme, VIOS y Eagle Special. Cotiza vía WhatsApp." name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- FAVICON PRO -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg">
 <link rel="apple-touch-icon" href="images/logo-soltex.svg">
-<link rel="shortcut icon" href="images/logo-soltex.svg">
-<style>
-        * { font-family: 'Inter', sans-serif; }
-        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
-        .machine-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.2); }
-        .whatsapp-float { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-    </style>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&amp;display=swap" rel="stylesheet"/><link href="style.css" rel="stylesheet"/></head>
-<body class="bg-gray-50 text-slate-800">
+<link href="style-v2.css" rel="stylesheet"/>
+</head>
+<body class="overflow-x-hidden">
+
 <!-- Sticky Header -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<a href="index.html" style="display:flex; align-items:center;">
-  <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:46px!important;width:auto!important;max-width:min(62vw,265px)!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.96;">
-</a>
-<nav class="hidden md:flex space-x-8">
-<a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
-</nav>
-<div class="hidden md:flex items-center space-x-4">
-<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="message-circle"></i>
-                        WhatsApp
-                    </a>
-</div>
-<button class="md:hidden text-white" id="mobile-menu-btn">
-<i class="w-8 h-8" data-lucide="menu"></i>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
-<div class="px-4 pt-2 pb-6 space-y-2">
-<a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
-<a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-                    Contactar por WhatsApp
-                </a>
-</div>
-</div>
+<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-6">
+      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
+      </a>
+      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
+        <a class="text-sm text-white font-medium" href="maquinaria.html">Maquinaria</a>
+        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
+        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
+        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
+        <a class="text-sm text-2 hover:text-white transition" href="contacto.html">Contacto</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
+        </a>
+      </div>
+      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <i class="w-7 h-7" data-lucide="menu"></i>
+      </button>
+    </div>
+  </div>
+  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1">
+      <a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
+      <a class="block text-white py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
+      <a class="block text-2 py-3 text-sm" href="contacto.html">Contacto</a>
+      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
+    </div>
+  </div>
 </header>
 <!-- Page Header -->
-<section class="pt-32 pb-12 bg-slate-900 text-white page-hero">
+<section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="max-w-4xl">
-<nav class="text-sm mb-4 text-gray-400">
+<nav class="text-sm mb-4 text-2" aria-label="Breadcrumb">
 <a class="hover:text-white transition" href="index.html">Inicio</a>
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
 <span class="text-white">Maquinaria Industrial</span>
 </nav>
-<h1 class="text-4xl md:text-5xl font-bold mb-4">Maquinaria Industrial de Costura</h1>
-<p class="text-xl text-gray-300 mb-6">Equipamiento de alta productividad para líneas de confección industrial. Tecnología de punta con soporte técnico garantizado.</p>
-<!-- Authorized Brands -->
-</div>
+<span class="eyebrow">[ Catálogo ]</span>
+<h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3">Maquinaria industrial de costura</h1>
+<p class="text-xl text-2 mb-6">Equipamiento de alta productividad para líneas de confección industrial. Tecnología de punta con soporte técnico garantizado.</p>
 </div>
 </div>
 </section>
 <!-- Brands Showcase Section -->
-<section class="py-8 bg-white border-b border-gray-200">
+<section class="py-8 surface-1 border-b border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-6">
-<p class="text-sm text-gray-500 uppercase tracking-wider font-semibold">Distribuidor autorizado</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center max-w-5xl mx-auto">
-  <!-- BROTHER -->
-  <div class="bg-white border border-gray-200 rounded-xl w-full h-24 flex items-center justify-center p-4 hover:shadow-md transition">
-    <img src="images/brands/brother.png" alt="Brother" class="h-10 w-auto object-contain">
-  </div>
-
-  <!-- PEGASUS -->
-  <div class="bg-white border border-gray-200 rounded-xl w-full h-24 flex items-center justify-center p-4 hover:shadow-md transition">
-    <img src="images/brands/pegasus.png" alt="Pegasus" class="h-10 w-auto object-contain">
-  </div>
-
-  <!-- YAMATO -->
-  <div class="bg-white border border-gray-200 rounded-xl w-full h-24 flex items-center justify-center p-4 hover:shadow-md transition">
-    <img src="images/brands/yamato.png" alt="Yamato" class="h-10 w-auto object-contain">
-  </div>
-
-  <!-- SUPREME -->
-  <div class="bg-white border border-gray-200 rounded-xl w-full h-24 flex items-center justify-center p-4 hover:shadow-md transition">
-    <img src="images/brands/supreme.png" alt="Supreme" class="h-10 w-auto object-contain">
-  </div>
-
-</div>
-<div class="text-center mt-8 mb-4">
-<p class="text-sm text-gray-500 uppercase tracking-wider font-semibold">Distribución exclusiva en México</p>
+<div class="text-center mb-4">
+<span class="eyebrow">Distribución exclusiva en México</span>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-  <div class="border border-slate-200 rounded-xl px-5 py-4 flex flex-col items-center justify-center bg-slate-50 h-28">
+  <div class="border border-c surface-2 px-5 py-4 flex flex-col items-center justify-center h-28">
     <img src="images/brands/supreme.png" alt="Supreme" class="h-9 w-auto object-contain">
-    <p class="text-xs text-gray-500 mt-2">Maquinaria industrial</p>
+    <p class="text-xs text-2 mt-2 font-mono">Maquinaria industrial</p>
   </div>
-  <div class="border border-slate-200 rounded-xl px-5 py-4 text-center bg-slate-50 h-28 flex flex-col items-center justify-center">
-    <p class="font-bold text-slate-900">EAGLE SPECIAL</p>
-    <p class="text-xs text-gray-500 mt-1">Maquinaria especializada</p>
+  <div class="border border-c surface-2 px-5 py-4 text-center h-28 flex flex-col items-center justify-center">
+    <p class="font-display font-semibold">EAGLE SPECIAL</p>
+    <p class="text-xs text-2 mt-1 font-mono">Maquinaria especializada</p>
   </div>
-  <div class="border border-slate-800 rounded-xl px-5 py-4 flex flex-col items-center justify-center bg-slate-900 h-28">
+  <div class="border border-c surface-2 px-5 py-4 flex flex-col items-center justify-center h-28">
     <img src="images/brands/vios.png" alt="VIOS" class="h-8 w-auto object-contain">
-    <p class="text-xs text-slate-400 mt-2">Heavy duty · automotriz</p>
+    <p class="text-xs text-2 mt-2 font-mono">Heavy duty · automotriz</p>
   </div>
 </div>
-<p class="text-center text-sm text-gray-500 mt-4 max-w-2xl mx-auto">Somos el único distribuidor de SUPREME, EAGLE SPECIAL y VIOS SEWING en México. ¿Buscas maquinaria heavy duty para producción automotriz? <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20maquinaria%20VIOS%20SEWING%20o%20EAGLE%20SPECIAL" class="text-blue-600 font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por VIOS Sewing →</a></p>
+<p class="text-center text-sm text-2 mt-4 max-w-2xl mx-auto">Somos el único distribuidor de SUPREME, EAGLE SPECIAL y VIOS SEWING en México. ¿Buscas maquinaria heavy duty para producción automotriz? <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20maquinaria%20VIOS%20SEWING%20o%20EAGLE%20SPECIAL" class="accent font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por VIOS Sewing →</a></p>
 </div>
 </section>
 <!-- Categories Filter -->
-<section class="py-6 bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+<section class="py-6 surface-1 border-b border-c sticky top-16 z-40">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col gap-4">
       <div class="flex gap-2 overflow-x-auto pb-2">
-        <button class="filter-btn active px-6 py-2 rounded-full bg-blue-600 text-white font-medium transition whitespace-nowrap" data-filter="all">Todas</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="rectas">Rectas</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="doble-aguja">Doble Aguja</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="overlock">Overlock</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="coverstitch">Coverstitch</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="bartack">Bartack</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="ojal">Ojal</button>
-        <button class="filter-btn px-6 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 font-medium transition whitespace-nowrap" data-category="automaticas">Automáticas</button>
+        <button class="filter-btn filter-btn-v2 active" data-filter="all">Todas</button>
+        <button class="filter-btn filter-btn-v2" data-category="rectas">Rectas</button>
+        <button class="filter-btn filter-btn-v2" data-category="doble-aguja">Doble Aguja</button>
+        <button class="filter-btn filter-btn-v2" data-category="overlock">Overlock</button>
+        <button class="filter-btn filter-btn-v2" data-category="coverstitch">Coverstitch</button>
+        <button class="filter-btn filter-btn-v2" data-category="bartack">Bartack</button>
+        <button class="filter-btn filter-btn-v2" data-category="ojal">Ojal</button>
+        <button class="filter-btn filter-btn-v2" data-category="automaticas">Automáticas</button>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3 border-t border-gray-100 pt-3">
-        <span class="text-sm text-gray-500 font-medium">Filtrar por marca:</span>
-        <button class="brand-btn active px-4 py-1.5 rounded-full bg-slate-800 text-white text-sm font-medium transition" data-brand="all">Todas</button>
-        <button class="brand-btn px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium transition" data-brand="brother">Brother</button>
-        <button class="brand-btn px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium transition" data-brand="supreme">Supreme</button>
-        <button class="brand-btn px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium transition" data-brand="pegasus">Pegasus</button>
-        <button class="brand-btn px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium transition" data-brand="yamato">Yamato</button>
-        <button class="brand-btn px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium transition" data-brand="vios">VIOS</button>
+      <div class="flex flex-wrap items-center gap-3 border-t border-c pt-3">
+        <span class="text-sm text-2 font-mono">Filtrar por marca:</span>
+        <button class="brand-btn filter-btn-v2 active" data-brand="all">Todas</button>
+        <button class="brand-btn filter-btn-v2" data-brand="supreme">Supreme</button>
+        <button class="brand-btn filter-btn-v2" data-brand="vios">VIOS</button>
       </div>
 
       <div class="relative max-w-md ml-auto w-full">
-        <i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" data-lucide="search"></i>
-        <input class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="searchInput" placeholder="Buscar modelos..." type="text"/>
+        <i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-2" data-lucide="search"></i>
+        <input class="w-full pl-10 pr-4 py-2 text-sm focus:outline-none" id="searchInput" placeholder="Buscar modelos…" type="text"/>
       </div>
     </div>
   </div>
 </section>
 <!-- Categories Overview -->
-<section class="py-12 bg-gray-50">
+<section class="py-12" style="background:var(--canvas);">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="machineryGrid">
       <div class="category-section mb-12 col-span-full" data-category="rectas">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-blue-600" data-lucide="minus"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="minus"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Máquinas Rectas</h2>
-      <p class="text-gray-600">Puntada recta industrial para producción</p>
+      <h2 class="text-2xl font-display font-semibold">Máquinas Rectas</h2>
+      <p class="text-2">Puntada recta industrial para producción</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER S-7180" class="w-full h-full object-cover" src="images/machines/brother-s-7180.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER S-7180</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta industrial para producción continua con operación eficiente y costura estable.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Puntada recta industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operación estable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ideal para líneas de confección</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER S-6280" class="w-full h-full object-cover" src="images/machines/brother-s-6280.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER S-6280</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta industrial compacta para talleres y plantas que buscan consistencia y facilidad de uso.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Puntada recta industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Controlable y confiable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte y repuestos disponibles</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER S-7300" class="w-full h-full object-cover" src="images/machines/brother-s-7300.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER S-7300</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta industrial de alta productividad para procesos estándar de costura en prendas.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Puntada recta industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Robusta para planta</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Enfoque en productividad</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME H6S-M-Q" class="w-full h-full object-cover" src="images/machines/supreme-h6s-m-q.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME H6S-M-Q</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta industrial Supreme para producción diaria con rendimiento sólido y mantenimiento sencillo.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Puntada recta industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Diseño para producción</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Excelente costo/beneficio</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME H6S-M-Q</h3>
+    <p class="text-2 text-sm mb-3">Recta industrial Supreme para producción diaria con rendimiento sólido y mantenimiento sencillo.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Puntada recta industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Diseño para producción</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Excelente costo/beneficio</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME H7S-M" class="w-full h-full object-cover" src="images/machines/supreme-h7s-m.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME H7S-M</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta industrial Supreme para operación intensiva con resultados consistentes.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Puntada recta industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operación estable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Volumen medio/alto</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME H7S-M</h3>
+    <p class="text-2 text-sm mb-3">Recta industrial Supreme para operación intensiva con resultados consistentes.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Puntada recta industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Operación estable</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Volumen medio/alto</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS 667 SERIES" class="w-full h-full object-cover" src="images/machines/vios-667.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS 667 SERIES</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta heavy duty de pie caminante con panel digital, para materiales pesados.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Pie caminante</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS 667 SERIES</h3>
+    <p class="text-2 text-sm mb-3">Recta heavy duty de pie caminante con panel digital, para materiales pesados.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Pie caminante</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS 667B" class="w-full h-full object-cover" src="images/machines/vios-667b.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS 667B</h3>
-    <p class="text-gray-600 text-sm mb-3">Heavy duty de cama de columna con panel digital, para piezas de perfil angosto.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cama de columna</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS 667B</h3>
+    <p class="text-2 text-sm mb-3">Heavy duty de cama de columna con panel digital, para piezas de perfil angosto.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cama de columna</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS 867 SERIES 335mm" class="w-full h-full object-cover" src="images/machines/vios-867-335mm.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS 867 SERIES (brazo 335mm)</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta heavy duty de brazo largo, para piezas de mayor extensión.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Brazo largo 335mm</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS 867 SERIES (brazo 335mm)</h3>
+    <p class="text-2 text-sm mb-3">Recta heavy duty de brazo largo, para piezas de mayor extensión.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Brazo largo 335mm</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS 867 SERIES 400mm" class="w-full h-full object-cover" src="images/machines/vios-867-400mm.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS 867 SERIES (brazo 400mm)</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta heavy duty de brazo extra largo, para piezas de gran extensión.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Brazo largo 400mm</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS 867 SERIES (brazo 400mm)</h3>
+    <p class="text-2 text-sm mb-3">Recta heavy duty de brazo extra largo, para piezas de gran extensión.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Brazo largo 400mm</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS 868 SERIES" class="w-full h-full object-cover" src="images/machines/vios-868.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS 868 SERIES</h3>
-    <p class="text-gray-600 text-sm mb-3">Heavy duty de cama de columna con panel digital, para piezas cilíndricas o de perfil angosto.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cama de columna</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS 868 SERIES</h3>
+    <p class="text-2 text-sm mb-3">Heavy duty de cama de columna con panel digital, para piezas cilíndricas o de perfil angosto.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cama de columna</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS HM820 867 SERIES" class="w-full h-full object-cover" src="images/machines/vios-hm820-867.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS HM820 867 SERIES</h3>
-    <p class="text-gray-600 text-sm mb-3">Recta heavy duty de cama plana, 2 agujas para costura decorativa cross-stitch en tapicería y asientos automotrices.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cama plana</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 2 agujas · cross-stitch</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones automotrices</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS HM820 867 SERIES</h3>
+    <p class="text-2 text-sm mb-3">Recta heavy duty de cama plana, 2 agujas para costura decorativa cross-stitch en tapicería y asientos automotrices.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cama plana</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 2 agujas · cross-stitch</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones automotrices</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="vios" data-type="recta">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="vios" data-type="recta">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="VIOS HM820 868 SERIES" class="w-full h-full object-cover" src="images/machines/vios-hm820-868.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-700 text-white px-3 py-1 rounded-full text-xs font-bold">VIOS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">VIOS</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">VIOS HM820 868 SERIES</h3>
-    <p class="text-gray-600 text-sm mb-3">Heavy duty de cama de columna, 2 agujas para costura decorativa cross-stitch en tapicería y asientos automotrices.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cama de columna</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 2 agujas · cross-stitch</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones automotrices</li>
+    <h3 class="text-lg font-display font-semibold mb-2">VIOS HM820 868 SERIES</h3>
+    <p class="text-2 text-sm mb-3">Heavy duty de cama de columna, 2 agujas para costura decorativa cross-stitch en tapicería y asientos automotrices.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cama de columna</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 2 agujas · cross-stitch</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones automotrices</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -394,84 +300,84 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="doble-aguja">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-slate-600" data-lucide="columns-2"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="columns-2"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Doble Aguja</h2>
-      <p class="text-gray-600">Costuras paralelas y pespuntes</p>
+      <h2 class="text-2xl font-display font-semibold">Doble Aguja</h2>
+      <p class="text-2">Costuras paralelas y pespuntes</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-842D" class="w-full h-full object-cover" src="images/machines/supreme-sp-842d.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-842D</h3>
-    <p class="text-gray-600 text-sm mb-3">Doble aguja industrial para costuras paralelas y aplicaciones en prendas de vestir.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Costuras paralelas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ideal para pespuntes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones en denim/uniformes</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-842D</h3>
+    <p class="text-2 text-sm mb-3">Doble aguja industrial para costuras paralelas y aplicaciones en prendas de vestir.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Costuras paralelas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ideal para pespuntes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones en denim/uniformes</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-872D" class="w-full h-full object-cover" src="images/machines/supreme-sp-872d.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-872D</h3>
-    <p class="text-gray-600 text-sm mb-3">Doble aguja industrial enfocada en productividad para costuras dobles y acabados.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Costura doble estable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Enfoque en producción</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Configuración según aplicación</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-872D</h3>
+    <p class="text-2 text-sm mb-3">Doble aguja industrial enfocada en productividad para costuras dobles y acabados.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Costura doble estable</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Enfoque en producción</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Configuración según aplicación</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-261MP-HP" class="w-full h-full object-cover" src="images/machines/supreme-sp-261mp-hp.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-261MP-HP</h3>
-    <p class="text-gray-600 text-sm mb-3">Cilíndrica heavy duty sobre base reforzada, para piezas de alta resistencia.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Base reforzada</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones de alta exigencia</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-261MP-HP</h3>
+    <p class="text-2 text-sm mb-3">Cilíndrica heavy duty sobre base reforzada, para piezas de alta resistencia.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Base reforzada</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones de alta exigencia</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="doble-aguja">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-875D" class="w-full h-full object-cover" src="images/machines/supreme-sp-875d.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-875D</h3>
-    <p class="text-gray-600 text-sm mb-3">Doble aguja de pie caminante heavy duty, para materiales gruesos y costuras de alta resistencia.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Pie caminante</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Heavy duty</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Materiales gruesos</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-875D</h3>
+    <p class="text-2 text-sm mb-3">Doble aguja de pie caminante heavy duty, para materiales gruesos y costuras de alta resistencia.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Pie caminante</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Heavy duty</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Materiales gruesos</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -479,102 +385,66 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="overlock">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-purple-600" data-lucide="scissors"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="scissors"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Overlock / Remalladoras</h2>
-      <p class="text-gray-600">Terminados de costura y corte</p>
+      <h2 class="text-2xl font-display font-semibold">Overlock / Remalladoras</h2>
+      <p class="text-2">Terminados de costura y corte</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="pegasus" data-type="overlock">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="PEGASUS M900Neo" class="w-full h-full object-cover" src="images/machines/pegasus-m900neo.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">PEGASUS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">PEGASUS M900Neo</h3>
-    <p class="text-gray-600 text-sm mb-3">Overlock industrial para terminados limpios con alta consistencia en producción.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Terminados profesionales</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Producción continua</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado uniforme</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="overlock">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="overlock">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME S5F-5" class="w-full h-full object-cover" src="images/machines/supreme-s5f-5.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME S5F-5</h3>
-    <p class="text-gray-600 text-sm mb-3">Overlock 5 hilos para seguridad y resistencia en costuras con remate y refuerzo.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 5 hilos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Costura + sobrehilado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Prendas que requieren refuerzo</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME S5F-5</h3>
+    <p class="text-2 text-sm mb-3">Overlock 5 hilos para seguridad y resistencia en costuras con remate y refuerzo.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 5 hilos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Costura + sobrehilado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Prendas que requieren refuerzo</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="overlock">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="overlock">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME S5F-4" class="w-full h-full object-cover" src="images/machines/supreme-s5f-4.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME S5F-4</h3>
-    <p class="text-gray-600 text-sm mb-3">Overlock 4 hilos para producción general con acabado uniforme.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 4 hilos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado uniforme</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Rendimiento industrial</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME S5F-4</h3>
+    <p class="text-2 text-sm mb-3">Overlock 4 hilos para producción general con acabado uniforme.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 4 hilos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Acabado uniforme</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rendimiento industrial</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="overlock">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="overlock">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME P5T" class="w-full h-full object-cover" src="images/machines/supreme-p5t.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME P5T</h3>
-    <p class="text-gray-600 text-sm mb-3">Overlock con panel digital para control y ajuste preciso del proceso.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel de control digital</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 5 conos de hilo</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Producción industrial</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME P5T</h3>
+    <p class="text-2 text-sm mb-3">Overlock con panel digital para control y ajuste preciso del proceso.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel de control digital</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 5 conos de hilo</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Producción industrial</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="yamato" data-type="overlock">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="YAMATO CZ6020" class="w-full h-full object-cover" src="images/machines/yamato-cz6020.jpg"/>
-    <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">YAMATO</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">YAMATO CZ6020</h3>
-    <p class="text-gray-600 text-sm mb-3">Overlock Yamato para alta calidad de puntada y estabilidad en materiales elásticos.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Calidad de puntada</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Tejidos elásticos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Consistencia</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -582,102 +452,66 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="coverstitch">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-green-600" data-lucide="layers"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="layers"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Coverstitch / Cobertoras</h2>
-      <p class="text-gray-600">Terminados planos y recubrimientos</p>
+      <h2 class="text-2xl font-display font-semibold">Coverstitch / Cobertoras</h2>
+      <p class="text-2">Terminados planos y recubrimientos</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="pegasus" data-type="coverstitch">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="PEGASUS W600PC" class="w-full h-full object-cover" src="images/machines/pegasus-w600pc.jpg"/>
-    <div class="absolute top-3 left-3 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold">PEGASUS</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">PEGASUS W600PC</h3>
-    <p class="text-gray-600 text-sm mb-3">Coverstitch industrial para terminados planos en prendas deportivas y casuales.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Terminados planos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Tejidos de punto</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado profesional</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="yamato" data-type="coverstitch">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="YAMATO VC1700" class="w-full h-full object-cover" src="images/machines/yamato-vc1700.jpg"/>
-    <div class="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">YAMATO</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">YAMATO VC1700</h3>
-    <p class="text-gray-600 text-sm mb-3">Coverstitch Yamato para recubrimiento con estabilidad y calidad constante.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cover industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Consistencia</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Configuración por aplicación</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="coverstitch">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="coverstitch">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-799" class="w-full h-full object-cover" src="images/machines/supreme-sp799.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-799</h3>
-    <p class="text-gray-600 text-sm mb-3">Coverstitch Supreme para producción diaria con acabado limpio.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cover industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado uniforme</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte técnico</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-799</h3>
+    <p class="text-2 text-sm mb-3">Coverstitch Supreme para producción diaria con acabado limpio.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cover industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Acabado uniforme</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Soporte técnico</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="coverstitch">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="coverstitch">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1104-SPU" class="w-full h-full object-cover" src="images/machines/supreme-sp-1104-spu.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1104-SPU</h3>
-    <p class="text-gray-600 text-sm mb-3">Cilíndrica de recubrimiento Supreme para acabados industriales sobre prenda tubular.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Cama cilíndrica</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte técnico</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1104-SPU</h3>
+    <p class="text-2 text-sm mb-3">Cilíndrica de recubrimiento Supreme para acabados industriales sobre prenda tubular.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cama cilíndrica</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Acabado industrial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Soporte técnico</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="coverstitch">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="coverstitch">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-769" class="w-full h-full object-cover" src="images/machines/supreme-sp769.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-769</h3>
-    <p class="text-gray-600 text-sm mb-3">Cilíndrica de recubrimiento de 5 hilos con panel digital, para acabado y colocación de elástico.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> 5 hilos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Panel digital</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Colocación de elástico</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-769</h3>
+    <p class="text-2 text-sm mb-3">Cilíndrica de recubrimiento de 5 hilos con panel digital, para acabado y colocación de elástico.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> 5 hilos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Panel digital</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Colocación de elástico</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -685,48 +519,30 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="bartack">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-amber-600" data-lucide="anchor"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="anchor"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Bartack / Presilladoras</h2>
-      <p class="text-gray-600">Refuerzos de alta resistencia</p>
+      <h2 class="text-2xl font-display font-semibold">Bartack / Presilladoras</h2>
+      <p class="text-2">Refuerzos de alta resistencia</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="bartack">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="bartack">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-430" class="w-full h-full object-cover" src="images/machines/supreme-sp-430.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-430</h3>
-    <p class="text-gray-600 text-sm mb-3">Presilladora para refuerzos repetitivos con precisión y repetibilidad.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Refuerzos repetitivos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones programables</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Denim y uniformes</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-430</h3>
+    <p class="text-2 text-sm mb-3">Presilladora para refuerzos repetitivos con precisión y repetibilidad.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Refuerzos repetitivos</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Patrones programables</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Denim y uniformes</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="bartack">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER KE-430" class="w-full h-full object-cover" src="images/machines/brother-ke-430.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER KE-430</h3>
-    <p class="text-gray-600 text-sm mb-3">Bartack Brother para refuerzos consistentes y producción estable.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Refuerzo consistente</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Configuración por patrón</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte y repuestos</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -734,48 +550,30 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="ojal">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-fuchsia-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-fuchsia-600" data-lucide="circle"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="circle"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Ojaladoras</h2>
-      <p class="text-gray-600">Ojales electrónicos para producción</p>
+      <h2 class="text-2xl font-display font-semibold">Ojaladoras</h2>
+      <p class="text-2">Ojales electrónicos para producción</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="ojal">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="ojal">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1790DS" class="w-full h-full object-cover" src="images/machines/supreme-sp-1790ds.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1790DS</h3>
-    <p class="text-gray-600 text-sm mb-3">Ojaladora electrónica para ojales uniformes y repetibles.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ojales uniformes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Repetibilidad</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Enfoque en productividad</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1790DS</h3>
+    <p class="text-2 text-sm mb-3">Ojaladora electrónica para ojales uniformes y repetibles.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ojales uniformes</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Repetibilidad</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Enfoque en productividad</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="ojal">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER HE-800C" class="w-full h-full object-cover" src="images/machines/brother-he-800c.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER HE-800C</h3>
-    <p class="text-gray-600 text-sm mb-3">Ojaladora Brother para producción con enfoque en calidad y consistencia.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ojales consistentes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Ideal para línea</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte y repuestos</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -783,354 +581,318 @@
   </div>
 </div><div class="category-section mb-12 col-span-full" data-category="automaticas">
   <div class="flex items-center gap-4 mb-6">
-    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-      <i class="w-6 h-6 text-orange-600" data-lucide="cpu"></i>
+    <div class="w-12 h-12 surface-2 border border-c flex items-center justify-center">
+      <i class="w-6 h-6 accent" data-lucide="cpu"></i>
     </div>
     <div>
-      <h2 class="text-2xl font-bold text-slate-900">Automáticas y CNC</h2>
-      <p class="text-gray-600">Automatización para procesos repetitivos</p>
+      <h2 class="text-2xl font-display font-semibold">Automáticas y CNC</h2>
+      <p class="text-2">Automatización para procesos repetitivos</p>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+    <div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-3020TD-MSN" class="w-full h-full object-cover" src="images/machines/supreme-sp-3020td-msn.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-3020TD-MSN</h3>
-    <p class="text-gray-600 text-sm mb-3">Pegadora de bolsa semi-automática (una aguja) para estandarizar tiempo y calidad del proceso.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Pocket setter semi-automático</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Consistencia</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Jeans y pantalón</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-3020TD-MSN</h3>
+    <p class="text-2 text-sm mb-3">Pegadora de bolsa semi-automática (una aguja) para estandarizar tiempo y calidad del proceso.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Pocket setter semi-automático</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Consistencia</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Jeans y pantalón</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-3020TD-MDN" class="w-full h-full object-cover" src="images/machines/supreme-sp-3020td-mdn.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-3020TD-MDN</h3>
-    <p class="text-gray-600 text-sm mb-3">Pegadora de bolsa semi-automática (doble aguja) para procesos de bolsillo con costura paralela.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Pocket setter semi-automático</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Doble aguja</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Producción repetible</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-3020TD-MDN</h3>
+    <p class="text-2 text-sm mb-3">Pegadora de bolsa semi-automática (doble aguja) para procesos de bolsillo con costura paralela.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Pocket setter semi-automático</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Doble aguja</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Producción repetible</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1310" class="w-full h-full object-cover" src="images/machines/supreme-sp-1310.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1310</h3>
-    <p class="text-gray-600 text-sm mb-3">Máquina de patrón CNC para costuras programables y repetibles.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones programables</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Repetibilidad</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operaciones de precisión</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1310</h3>
+    <p class="text-2 text-sm mb-3">Máquina de patrón CNC para costuras programables y repetibles.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Patrones programables</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Repetibilidad</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Operaciones de precisión</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-2210" class="w-full h-full object-cover" src="images/machines/supreme-sp-2210.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-2210</h3>
-    <p class="text-gray-600 text-sm mb-3">Máquina de patrón CNC para aplicaciones industriales con control y consistencia.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones CNC</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Productividad</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones industriales</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-2210</h3>
+    <p class="text-2 text-sm mb-3">Máquina de patrón CNC para aplicaciones industriales con control y consistencia.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Patrones CNC</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Productividad</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones industriales</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-3020" class="w-full h-full object-cover" src="images/machines/supreme-sp-3020.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-3020</h3>
-    <p class="text-gray-600 text-sm mb-3">Máquina de patrón CNC para procesos automatizados en producción textil.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Automatización</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Consistencia</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Optimiza tiempos</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-3020</h3>
+    <p class="text-2 text-sm mb-3">Máquina de patrón CNC para procesos automatizados en producción textil.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Automatización</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Consistencia</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Optimiza tiempos</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER BAS-326" class="w-full h-full object-cover" src="images/machines/brother-bas-326.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER BAS-326</h3>
-    <p class="text-gray-600 text-sm mb-3">Máquina de patrón Brother para automatización de costuras repetitivas.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones CNC</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Precisión</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Soporte y repuestos</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="brother" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
-    <img alt="BROTHER BAS-342" class="w-full h-full object-cover" src="images/machines/brother-bas-342.jpg"/>
-    <div class="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">BROTHER</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
-  </div>
-  <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">BROTHER BAS-342</h3>
-    <p class="text-gray-600 text-sm mb-3">Máquina de patrón Brother para operaciones complejas y repetibles en producción.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones CNC</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Producción estable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Integración en línea</li>
-    </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Solicitar cotización
-    </a>
-  </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-254D-H" class="w-full h-full object-cover" src="images/machines/supreme-sp-254d-h.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-254D-H</h3>
-    <p class="text-gray-600 text-sm mb-3">Unidad automática con sistema de visión para guiar el cosido con precisión.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Guiado por visión artificial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reduce variación entre piezas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Aplicaciones de precisión</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-254D-H</h3>
+    <p class="text-2 text-sm mb-3">Unidad automática con sistema de visión para guiar el cosido con precisión.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Guiado por visión artificial</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Reduce variación entre piezas</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aplicaciones de precisión</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-872C-JF" class="w-full h-full object-cover" src="images/machines/supreme-sp-872c-jf.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-872C-JF</h3>
-    <p class="text-gray-600 text-sm mb-3">Módulo automático de alimentación y doblado integrado al cabezal de costura.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alimentación automática</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reduce manejo manual</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Integra doblado y costura</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-872C-JF</h3>
+    <p class="text-2 text-sm mb-3">Módulo automático de alimentación y doblado integrado al cabezal de costura.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alimentación automática</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Reduce manejo manual</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Integra doblado y costura</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1010TD" class="w-full h-full object-cover" src="images/machines/supreme-sp-1010td.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1010TD</h3>
-    <p class="text-gray-600 text-sm mb-3">Celda de automatización de alto volumen con sistema de vacío integrado.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Automatización de alto volumen</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Sistema de vacío integrado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Para líneas de producción exigentes</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1010TD</h3>
+    <p class="text-2 text-sm mb-3">Celda de automatización de alto volumen con sistema de vacío integrado.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Automatización de alto volumen</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Sistema de vacío integrado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para líneas de producción exigentes</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1310AS-H" class="w-full h-full object-cover" src="images/machines/supreme-sp-1310as-h-ch.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1310AS-H</h3>
-    <p class="text-gray-600 text-sm mb-3">Versión automatizada de patrón con mesa giratoria para operaciones repetibles.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Automatización de patrón</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mesa giratoria</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alta repetibilidad</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1310AS-H</h3>
+    <p class="text-2 text-sm mb-3">Versión automatizada de patrón con mesa giratoria para operaciones repetibles.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Automatización de patrón</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Mesa giratoria</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alta repetibilidad</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-1790" class="w-full h-full object-cover" src="images/machines/supreme-sp-1790.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-1790</h3>
-    <p class="text-gray-600 text-sm mb-3">Automat de patrón compacto con controlador independiente, listo para integrarse a la línea.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Controlador independiente</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Footprint compacto</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operación programable</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-1790</h3>
+    <p class="text-2 text-sm mb-3">Automat de patrón compacto con controlador independiente, listo para integrarse a la línea.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Controlador independiente</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Footprint compacto</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Operación programable</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-3020AS-H" class="w-full h-full object-cover" src="images/machines/supreme-sp-3020as-h-dn.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-3020AS-H</h3>
-    <p class="text-gray-600 text-sm mb-3">Versión automatizada de gran formato con doble riel para piezas de mayor tamaño.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Doble riel</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Formato extendido</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Automatización de alto volumen</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-3020AS-H</h3>
+    <p class="text-2 text-sm mb-3">Versión automatizada de gran formato con doble riel para piezas de mayor tamaño.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Doble riel</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Formato extendido</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Automatización de alto volumen</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-C608BK-M" class="w-full h-full object-cover" src="images/machines/supreme-sp-c608bk-m.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-C608BK-M</h3>
-    <p class="text-gray-600 text-sm mb-3">Automat de patrón con mesa plegable para adaptarse a distintos tamaños de pieza.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mesa plegable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones programables</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Operación flexible</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-C608BK-M</h3>
+    <p class="text-2 text-sm mb-3">Automat de patrón con mesa plegable para adaptarse a distintos tamaños de pieza.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Mesa plegable</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Patrones programables</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Operación flexible</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-C4528W-M" class="w-full h-full object-cover" src="images/machines/supreme-sp-c4528w-m.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-C4528W-M</h3>
-    <p class="text-gray-600 text-sm mb-3">Automat de patrón con extensión lateral para piezas de mayor ancho.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Extensión lateral</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Patrones programables</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Producción consistente</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-C4528W-M</h3>
+    <p class="text-2 text-sm mb-3">Automat de patrón con extensión lateral para piezas de mayor ancho.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Extensión lateral</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Patrones programables</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Producción consistente</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-C9513CK-M" class="w-full h-full object-cover" src="images/machines/supreme-sp-c9513ck-m-xz.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-C9513CK-M</h3>
-    <p class="text-gray-600 text-sm mb-3">Automat de patrón tipo pórtico para piezas de gran formato.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Formato pórtico de gran escala</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Mesa plegable</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alta precisión</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-C9513CK-M</h3>
+    <p class="text-2 text-sm mb-3">Automat de patrón tipo pórtico para piezas de gran formato.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Formato pórtico de gran escala</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Mesa plegable</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alta precisión</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-C9513K-M" class="w-full h-full object-cover" src="images/machines/supreme-sp-c9513k-m.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-C9513K-M</h3>
-    <p class="text-gray-600 text-sm mb-3">Automat de patrón tipo pórtico, misma familia que el SP-C9513CK-M para grandes formatos.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Gran formato</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Automatización de patrón</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Alta capacidad</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-C9513K-M</h3>
+    <p class="text-2 text-sm mb-3">Automat de patrón tipo pórtico, misma familia que el SP-C9513CK-M para grandes formatos.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Gran formato</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Automatización de patrón</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alta capacidad</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-F810-01" class="w-full h-full object-cover" src="images/machines/supreme-sp-f810-01.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-F810-01</h3>
-    <p class="text-gray-600 text-sm mb-3">Celda que integra corte láser y costura en una sola estación de trabajo.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Corte láser integrado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Reduce pasos del proceso</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Corte y costura en un solo punto</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-F810-01</h3>
+    <p class="text-2 text-sm mb-3">Celda que integra corte láser y costura en una sola estación de trabajo.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Corte láser integrado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Reduce pasos del proceso</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Corte y costura en un solo punto</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
-</div><div class="machine-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300" data-brand="supreme" data-type="automatica">
-  <div class="h-48 bg-gray-200 relative overflow-hidden">
+</div><div class="machine-card card-v2 overflow-hidden transition-all duration-300" data-brand="supreme" data-type="automatica">
+  <div class="h-48 surface-2 relative overflow-hidden">
     <img alt="SUPREME SP-F1018-01" class="w-full h-full object-cover" src="images/machines/supreme-sp-f1018-01.jpg"/>
-    <div class="absolute top-3 left-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-bold">SUPREME</div>
-    <div class="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">Consultar</div>
+    <div class="absolute top-3 left-3 badge-accent-v2">SUPREME</div>
+    <div class="absolute top-3 right-3 badge-v2" style="color:var(--alert); border-color:var(--alert);">Consultar</div>
   </div>
   <div class="p-5">
-    <h3 class="text-lg font-bold text-slate-900 mb-2">SUPREME SP-F1018-01</h3>
-    <p class="text-gray-600 text-sm mb-3">Estación automática de prensado y termosellado para acabado de piezas.</p>
-    <ul class="text-sm text-gray-600 mb-4 space-y-1">
-      <li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Prensado automático</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Termosellado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 text-green-500" data-lucide="check"></i> Acabado consistente</li>
+    <h3 class="text-lg font-display font-semibold mb-2">SUPREME SP-F1018-01</h3>
+    <p class="text-2 text-sm mb-3">Estación automática de prensado y termosellado para acabado de piezas.</p>
+    <ul class="text-sm text-2 mb-4 space-y-1 font-mono">
+      <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Prensado automático</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Termosellado</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Acabado consistente</li>
     </ul>
-    <a class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-2.5 rounded-lg font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+    <a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
       Solicitar cotización
     </a>
   </div>
@@ -1139,11 +901,11 @@
 </div>
     </div>
 
-    <div class="mt-12 bg-blue-900 rounded-2xl p-8 text-center text-white">
-      <h3 class="text-2xl font-bold mb-4">¿Necesitas una máquina específica?</h3>
-      <p class="text-blue-200 mb-6 max-w-2xl mx-auto">Contamos con catálogo extendido. Decinos tu aplicación y te recomendamos el modelo correcto.</p>
+    <div class="mt-12 surface-1 border border-c p-8 text-center">
+      <h3 class="text-2xl font-display font-semibold mb-4">¿Necesitas una máquina específica?</h3>
+      <p class="text-2 mb-6 max-w-2xl mx-auto">Contamos con catálogo extendido. Dinos tu aplicación y te recomendamos el modelo correcto.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold transition flex items-center justify-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+        <a class="btn-primary px-8 py-3 font-bold transition flex items-center justify-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
           <i class="w-5 h-5" data-lucide="message-circle"></i>
           Consultar por WhatsApp
         </a>
@@ -1153,84 +915,54 @@
 </section>
 
 <!-- Footer -->
-<footer class="text-gray-400 py-16 brand-navy-bg">
+<footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 <div>
-<a class="block mb-6" href="index.html">
-<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:42px!important;width:auto!important;max-width:240px!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.92;">
+<a class="block mb-5" href="index.html">
+<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:32px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
 </a>
-<p class="mb-6">Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil.</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="facebook"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="instagram"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="linkedin"></i>
-</a>
-</div>
+<p class="text-2 text-sm mb-4 leading-relaxed">Parte de Grupo Sewing Solution, con operación en México, El Salvador, Honduras y Nicaragua desde 2004.</p>
+<img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-6 w-auto object-contain opacity-80">
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
-<ul class="space-y-3">
-<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
-<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
-<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
-<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
-<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Enlaces</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li><a class="hover:text-white transition" href="maquinaria.html">Maquinaria industrial</a></li>
+<li><a class="hover:text-white transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-white transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
-<span>+52 871 524 6072</span>
-</li>
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
-<span>info@sewingsolution.com.mx</span>
-</li>
-<li class="flex items-start gap-3">
-<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
-<span>Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, 72680 San Francisco Ocotlán, Pue.</span>
-</li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Contacto</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="phone"></i> +52 871 524 6072</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="mail"></i> info@sewingsolution.com.mx</li>
+<li class="flex items-start gap-2"><i class="w-4 h-4 accent mt-0.5" data-lucide="map-pin"></i> Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, San Francisco Ocotlán</li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            México
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Torreón y Puebla
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Toda la República Mexicana
-                        </li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Cobertura</h4>
+<ul class="space-y-2.5 text-sm text-2 font-mono">
+<li>Puebla · Tlaxcala</li>
+<li>Torreón · Gómez Palacio</li>
+<li>Mérida · Campeche</li>
+<li>Cobertura nacional</li>
 </ul>
 </div>
 </div>
-<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm">© 2026 SOLUCIONES TEXTILES LAGUNA. Todos los derechos reservados.</p>
-<div class="flex gap-6 text-sm">
-<a class="hover:text-white transition" href="#">Política de Privacidad</a>
-<a class="hover:text-white transition" href="#">Términos de Servicio</a>
+<div class="border-t border-c pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-2">
+<p>© 2026 Soluciones Textiles Laguna S.A. de C.V.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition" href="contacto.html">Contacto</a>
 </div>
 </div>
 </div>
 </footer>
 <!-- Floating WhatsApp -->
-    
-    <a class="whatsapp-float fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-8 h-8" data-lucide="message-circle"></i>
+<a class="whatsapp-float fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-2xl z-50 transition flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank" aria-label="Cotizar por WhatsApp">
+<i class="w-7 h-7" data-lucide="message-circle"></i>
 </a>
 <script>
         lucide.createIcons();
@@ -1238,7 +970,11 @@
         // Mobile menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
 
         // Sticky header
         const navbar = document.getElementById('navbar');
@@ -1289,12 +1025,8 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-100', 'text-gray-700');
-                });
-                btn.classList.remove('bg-gray-100', 'text-gray-700');
-                btn.classList.add('bg-blue-600', 'text-white');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
                 currentCategory = btn.getAttribute('data-category') || 'all';
                 applyFilters();
@@ -1303,12 +1035,8 @@
 
         brandBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                brandBtns.forEach(b => {
-                    b.classList.remove('bg-slate-800', 'text-white');
-                    b.classList.add('bg-gray-100', 'text-gray-700');
-                });
-                btn.classList.remove('bg-gray-100', 'text-gray-700');
-                btn.classList.add('bg-slate-800', 'text-white');
+                brandBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
                 currentBrand = btn.getAttribute('data-brand');
                 applyFilters();

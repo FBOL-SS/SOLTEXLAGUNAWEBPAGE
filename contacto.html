@@ -1,207 +1,196 @@
 <!DOCTYPE html>
-
 <html lang="es-MX">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Contacto | SOLTEX</title>
-<meta content="Contacta a SOLTEX para cotizaciones, servicio técnico y consultas. Atención inmediata vía WhatsApp, formulario o email." name="description"/>
+<meta content="Contacta a SOLTEX para cotizaciones, servicio técnico y consultas. Atención vía WhatsApp, formulario o correo." name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- FAVICON PRO -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg">
 <link rel="apple-touch-icon" href="images/logo-soltex.svg">
-<link rel="shortcut icon" href="images/logo-soltex.svg">
-<style>
-        * { font-family: 'Inter', sans-serif; }
-        .nav-scrolled { background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(10px); }
-        .whatsapp-float { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15); }
-        .form-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-        .form-input { transition: all 0.3s ease; }
-    </style>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&amp;display=swap" rel="stylesheet"/><link href="style.css" rel="stylesheet"/></head>
-<body class="bg-gray-50 text-slate-800">
-<!-- Sticky Header -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<a href="index.html" style="display:flex; align-items:center;">
-  <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:46px!important;width:auto!important;max-width:min(62vw,265px)!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.96;">
-</a>
-<nav class="hidden md:flex space-x-8">
-<a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
-</nav>
-<div class="hidden md:flex items-center space-x-4">
-<a class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="message-circle"></i>
-                        WhatsApp
-                    </a>
-</div>
-<button class="md:hidden text-white" id="mobile-menu-btn">
-<i class="w-8 h-8" data-lucide="menu"></i>
-</button>
-</div>
-</div>
-<!-- Mobile Menu -->
-<div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
-<div class="px-4 pt-2 pb-6 space-y-2">
-<a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
-<a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
-<a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
-<a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-                    Contactar por WhatsApp
-                </a>
-</div>
-</div>
+<link href="style-v2.css" rel="stylesheet"/>
+<style>.form-input{transition:all .2s ease;}</style>
+</head>
+<body class="overflow-x-hidden">
+<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16 gap-6">
+      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
+      </a>
+      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
+        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
+        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
+        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
+        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
+        <a class="text-sm text-white font-medium" href="contacto.html">Contacto</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
+        </a>
+      </div>
+      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <i class="w-7 h-7" data-lucide="menu"></i>
+      </button>
+    </div>
+  </div>
+  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1">
+      <a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
+      <a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
+      <a class="block text-white py-3 text-sm" href="contacto.html">Contacto</a>
+      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
+    </div>
+  </div>
 </header>
 <!-- Hero Section -->
-<section class="pt-32 pb-12 bg-slate-900 text-white page-hero">
+<section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="max-w-4xl">
-<nav class="text-sm mb-6 text-gray-400">
+<nav class="text-sm mb-4 text-2" aria-label="Breadcrumb">
 <a class="hover:text-white transition" href="index.html">Inicio</a>
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
 <span class="text-white">Contacto</span>
 </nav>
-<h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                    Contacta a <span class="text-blue-400">SOLTEX</span>
+<span class="eyebrow">[ Contacto ]</span>
+<h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3 leading-tight">
+                    Contacta a SOLTEX
 </h1>
-<p class="text-xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
-                    Estamos listos para atender tus necesidades de maquinaria industrial, refacciones y automatización. Respuesta garantizada en menos de 2 horas.
+<p class="text-xl text-2 mb-8 max-w-3xl leading-relaxed">
+                    Estamos listos para atender tus necesidades de maquinaria industrial, refacciones y automatización.
                 </p>
 </div>
 </div>
 </section>
 <!-- Contact Options -->
-<section class="py-16 bg-gray-50 -mt-8">
+<section class="py-16" style="background:var(--canvas); margin-top:-2rem;">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
 <!-- WhatsApp Card -->
-<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-green-500/20">
-<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-green-600" data-lucide="message-circle"></i>
+<div class="contact-card card-v2 p-8 text-center" style="border-color:rgba(61,111,224,0.4);">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="message-circle"></i>
 </div>
-<h3 class="text-xl font-bold text-slate-900 mb-2">WhatsApp</h3>
-<p class="text-gray-600 mb-4 text-sm">Respuesta inmediata para cotizaciones y urgencias técnicas.</p>
+<h3 class="text-xl font-display font-semibold mb-2">WhatsApp</h3>
+<p class="text-2 mb-4 text-sm">Respuesta rápida para cotizaciones y urgencias técnicas.</p>
                     
-                    <a class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+                    <a class="inline-flex items-center gap-2 btn-primary px-6 py-3 font-semibold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
 <i class="w-5 h-5" data-lucide="message-circle"></i>
                         +52 871 524 6072
                     </a>
 </div>
 <!-- Phone Card -->
-<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-blue-500/20">
-<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-blue-600" data-lucide="phone"></i>
+<div class="contact-card card-v2 p-8 text-center">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="phone"></i>
 </div>
-<h3 class="text-xl font-bold text-slate-900 mb-2">Teléfono</h3>
-<p class="text-gray-600 mb-4 text-sm">Lunes a Viernes 8:00 - 18:00 hrs. Sábados 9:00 - 14:00 hrs.</p>
+<h3 class="text-xl font-display font-semibold mb-2">Teléfono</h3>
+<p class="text-2 mb-4 text-sm">Horario de oficina, de lunes a viernes.</p>
                     
-                    <a class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition" href="tel:+528715246072">
+                    <a class="inline-flex items-center gap-2 btn-ghost px-6 py-3 font-semibold transition" href="tel:+528715246072">
 <i class="w-5 h-5" data-lucide="phone"></i>
                         +52 871 524 6072
                     </a>
 </div>
 <!-- Email Card -->
-<div class="contact-card bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-gray-200">
-<div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-8 h-8 text-gray-600" data-lucide="mail"></i>
+<div class="contact-card card-v2 p-8 text-center">
+<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
+<i class="w-7 h-7 accent" data-lucide="mail"></i>
 </div>
-<h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
-<p class="text-gray-600 mb-4 text-sm">Para cotizaciones formales, catálogos y documentación técnica.</p>
-<a class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-full font-semibold transition" href="mailto:info@sewingsolution.com.mx">
+<h3 class="text-xl font-display font-semibold mb-2">Email</h3>
+<p class="text-2 mb-4 text-sm">Para cotizaciones formales, catálogos y documentación técnica.</p>
+<a class="inline-flex items-center gap-2 btn-ghost px-6 py-3 font-semibold transition" href="mailto:info@sewingsolution.com.mx">
 <i class="w-5 h-5" data-lucide="mail"></i>
-                        Enviar Email
+                        Enviar email
                     </a>
 </div>
 </div>
 <!-- Main Contact Section -->
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 <!-- Contact Form -->
-<div class="bg-white rounded-2xl shadow-lg p-8 lg:p-10">
-<h2 class="text-2xl font-bold text-slate-900 mb-2">Solicitar Cotización</h2>
-<p class="text-gray-600 mb-6">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+<div class="card-v2 p-8 lg:p-10">
+<h2 class="text-2xl font-display font-semibold mb-2">Solicitar cotización</h2>
+<p class="text-2 mb-6">Completa el formulario y nos pondremos en contacto contigo.</p>
 <form class="space-y-5" id="contactForm">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Nombre completo *</label>
-<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="nombre" placeholder="Tu nombre" required="" type="text"/>
+<label class="block text-sm font-mono text-2 mb-2" for="c-nombre">Nombre completo *</label>
+<input class="form-input w-full px-4 py-3 focus:outline-none" id="c-nombre" autocomplete="name" name="nombre" placeholder="Tu nombre" required="" type="text"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Empresa *</label>
-<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="empresa" placeholder="Nombre de la empresa" required="" type="text"/>
+<label class="block text-sm font-mono text-2 mb-2" for="c-empresa">Empresa *</label>
+<input class="form-input w-full px-4 py-3 focus:outline-none" id="c-empresa" autocomplete="organization" name="empresa" placeholder="Nombre de la empresa" required="" type="text"/>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Teléfono / WhatsApp *</label>
-<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="telefono" placeholder="+52 55 1234 5678" required="" type="tel"/>
+<label class="block text-sm font-mono text-2 mb-2" for="c-telefono">Teléfono / WhatsApp *</label>
+<input class="form-input w-full px-4 py-3 focus:outline-none" id="c-telefono" autocomplete="tel" inputmode="tel" name="telefono" placeholder="+52 55 1234 5678" required="" type="tel"/>
 </div>
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Email *</label>
-<input class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" name="email" placeholder="tu@email.com" required="" type="email"/>
+<label class="block text-sm font-mono text-2 mb-2" for="c-email">Email *</label>
+<input class="form-input w-full px-4 py-3 focus:outline-none" id="c-email" autocomplete="email" name="email" placeholder="tu@email.com" required="" type="email"/>
 </div>
 </div>
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">País / Ciudad *</label>
-<select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none bg-white" name="pais" required="">
+<label class="block text-sm font-mono text-2 mb-2" for="c-pais">País / Ciudad *</label>
+<select class="form-input w-full px-4 py-3 focus:outline-none" id="c-pais" name="pais" required="">
 <option value="">Selecciona tu ubicación</option>
-<option value="mx-cdmx">México - Ciudad de México</option>
-<option value="mx-gdl">México - Guadalajara</option>
-<option value="mx-mty">México - Monterrey</option>
+<option value="mx-torreon">México - Torreón</option>
 <option value="mx-puebla">México - Puebla</option>
-<option value="mx-queretaro">México - Querétaro</option>
-<option value="mx-tijuana">México - Tijuana</option>
-<option value="mx-otro">México - Otro</option>
-<option value="usa">Estados Unidos</option>
+<option value="mx-tlaxcala">México - Tlaxcala</option>
+<option value="mx-gomez-palacio">México - Gómez Palacio</option>
+<option value="mx-merida">México - Mérida</option>
+<option value="mx-campeche">México - Campeche</option>
+<option value="mx-otro">México - Otra ciudad</option>
+<option value="sv">El Salvador</option>
+<option value="hn">Honduras</option>
+<option value="ni">Nicaragua</option>
 <option value="otro">Otro país</option>
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Tipo de interés *</label>
-<select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none bg-white" name="interes" required="">
+<label class="block text-sm font-mono text-2 mb-2" for="c-interes">Tipo de interés *</label>
+<select class="form-input w-full px-4 py-3 focus:outline-none" id="c-interes" name="interes" required="">
 <option value="">Selecciona una opción</option>
-<option value="maquinaria">Maquinaria Industrial</option>
+<option value="maquinaria">Maquinaria industrial</option>
 <option value="refacciones">Refacciones</option>
 <option value="automatizacion">Automatización</option>
-<option value="servicio">Servicio Técnico</option>
-<option value="mantenimiento">Mantenimiento Preventivo</option>
+<option value="servicio">Servicio técnico</option>
+<option value="mantenimiento">Mantenimiento preventivo</option>
 <option value="capacitacion">Capacitación</option>
 <option value="otro">Otro</option>
 </select>
 </div>
 <div>
-<label class="block text-sm font-semibold text-slate-700 mb-2">Mensaje / Detalles de la solicitud</label>
-<textarea class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none resize-none" name="mensaje" placeholder="Describe tu necesidad: tipo de máquina, cantidad, marca preferida, urgencia, etc." rows="4"></textarea>
+<label class="block text-sm font-mono text-2 mb-2" for="c-mensaje">Mensaje / Detalles de la solicitud</label>
+<textarea class="form-input w-full px-4 py-3 focus:outline-none resize-none" id="c-mensaje" name="mensaje" placeholder="Describe tu necesidad: tipo de máquina, cantidad, marca preferida, urgencia…" rows="4"></textarea>
 </div>
-<button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition transform hover:scale-[1.02] flex items-center justify-center gap-2" type="submit">
+<button class="w-full btn-primary py-4 font-bold text-lg transition flex items-center justify-center gap-2" type="submit">
 <i class="w-5 h-5" data-lucide="send"></i>
-                            Enviar Solicitud
+                            Enviar solicitud
                         </button>
-<p class="text-xs text-gray-500 text-center">
-                            Al enviar este formulario, aceptas nuestra política de privacidad. Respondemos en menos de 2 horas hábiles.
+<p class="text-xs text-2 text-center font-mono">
+                            Al enviar este formulario, aceptas nuestra política de privacidad.
                         </p>
 </form>
 <!-- Success Message (Hidden by default) -->
-<div class="hidden text-center py-12" id="successMessage">
-<div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-<i class="w-10 h-10 text-green-600" data-lucide="check"></i>
+<div class="hidden text-center py-12" id="successMessage" role="status" aria-live="polite">
+<div class="w-16 h-16 surface-2 border flex items-center justify-center mx-auto mb-4" style="border-color:var(--accent);">
+<i class="w-8 h-8 accent" data-lucide="check"></i>
 </div>
-<h3 class="text-2xl font-bold text-slate-900 mb-2">¡Solicitud Enviada!</h3>
-<p class="text-gray-600 mb-6">Nuestro equipo te contactará en menos de 2 horas vía WhatsApp o email.</p>
+<h3 class="text-2xl font-display font-semibold mb-2">Solicitud enviada</h3>
+<p class="text-2 mb-6">Nuestro equipo te contactará vía WhatsApp o email.</p>
 <div class="flex flex-col sm:flex-row gap-3 justify-center">
-<a class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<a class="inline-flex items-center gap-2 btn-primary px-6 py-3 font-semibold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
 <i class="w-5 h-5" data-lucide="message-circle"></i>
                                 Contactar por WhatsApp ahora
                             </a>
@@ -211,49 +200,48 @@
 <!-- Contact Info & Map -->
 <div class="space-y-8">
 <!-- Quick Info -->
-<div class="bg-white rounded-2xl shadow-lg p-8">
-<h3 class="text-xl font-bold text-slate-900 mb-6">Información de Contacto</h3>
+<div class="card-v2 p-8">
+<h3 class="text-xl font-display font-semibold mb-6">Información de contacto</h3>
 <div class="space-y-4">
 <div class="flex items-start gap-4">
-<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-<i class="w-5 h-5 text-blue-600" data-lucide="map-pin"></i>
+<div class="w-10 h-10 surface-2 border border-c flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 accent" data-lucide="map-pin"></i>
 </div>
 <div>
-<div class="font-semibold text-slate-900">Dirección</div>
-<div class="text-gray-600 text-sm">Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, 72680 San Francisco Ocotlán, Pue.</div>
+<div class="font-display font-semibold">Dirección</div>
+<div class="text-2 text-sm">Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, San Francisco Ocotlán</div>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-<i class="w-5 h-5 text-blue-600" data-lucide="clock"></i>
+<div class="w-10 h-10 surface-2 border border-c flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 accent" data-lucide="clock"></i>
 </div>
 <div>
-<div class="font-semibold text-slate-900">Horario de Atención</div>
-<div class="text-gray-600 text-sm">Lunes - Viernes: 7:30 - 16:30 hrs<br/>Sábados: 7:30 - 12:00 hrs<br/>Soporte técnico urgente: 24/7</div>
+<div class="font-display font-semibold">Horario de atención</div>
+<div class="text-2 text-sm">Oficina de lunes a viernes. Para emergencias técnicas, escríbenos por WhatsApp.</div>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-<i class="w-5 h-5 text-blue-600" data-lucide="mail"></i>
+<div class="w-10 h-10 surface-2 border border-c flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 accent" data-lucide="mail"></i>
 </div>
 <div>
-<div class="font-semibold text-slate-900">Emails Directos</div>
-<div class="text-gray-600 text-sm">
-<a class="hover:text-blue-600 transition" href="mailto:info@sewingsolution.com.mx">info@sewingsolution.com.mx</a><br/>
-<a class="hover:text-blue-600 transition" href="mailto:info@sewingsolution.com.mx">info@sewingsolution.com.mx</a>
+<div class="font-display font-semibold">Email</div>
+<div class="text-2 text-sm">
+<a class="hover:text-white transition" href="mailto:info@sewingsolution.com.mx">info@sewingsolution.com.mx</a>
 </div>
 </div>
 </div>
 </div>
 </div>
 <!-- Map Placeholder -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden h-80 relative">
-<div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+<div class="card-v2 overflow-hidden h-80 relative">
+<div class="absolute inset-0 flex items-center justify-center" style="background:var(--surface-2);">
 <div class="text-center">
-<i class="w-16 h-16 text-gray-400 mx-auto mb-4" data-lucide="map"></i>
-<p class="text-gray-600 font-medium">Mapa de Ubicación</p>
-<p class="text-gray-500 text-sm mt-2">Torreón y Puebla, México</p>
-<a class="mt-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm" href="https://maps.google.com" target="_blank">
+<i class="w-14 h-14 text-2 mx-auto mb-4" data-lucide="map"></i>
+<p class="font-display font-semibold">Mapa de ubicación</p>
+<p class="text-2 text-sm mt-2 font-mono">Torreón y Puebla, México</p>
+<a class="mt-4 inline-flex items-center gap-2 accent hover:underline font-semibold text-sm" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
 <i class="w-4 h-4" data-lucide="external-link"></i>
                                     Ver en Google Maps
                                 </a>
@@ -261,154 +249,122 @@
 </div>
 </div>
 <!-- Coverage -->
-<div class="bg-blue-900 rounded-2xl shadow-lg p-8 text-white">
-<h3 class="text-xl font-bold mb-4">¿Dónde operamos?</h3>
-<div class="grid grid-cols-3 gap-4 text-center">
-<div>
-<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
-<div class="font-semibold">México</div>
-<div class="text-sm text-blue-200">Torreón y Puebla</div>
+<div class="surface-2 border border-c p-8">
+<h3 class="text-xl font-display font-semibold mb-4">¿Dónde operamos?</h3>
+<div class="flex flex-wrap gap-2 font-mono text-sm">
+<span class="px-4 py-2 badge-accent-v2">Torreón</span>
+<span class="px-4 py-2 badge-accent-v2">Puebla</span>
+<span class="px-4 py-2 badge-accent-v2">Tlaxcala</span>
+<span class="px-4 py-2 badge-accent-v2">Gómez Palacio</span>
+<span class="px-4 py-2 badge-accent-v2">Mérida</span>
+<span class="px-4 py-2 badge-accent-v2">Campeche</span>
 </div>
-<div>
-<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
-<div class="font-semibold">Puebla</div>
-<div class="text-sm text-blue-200">San Francisco Ocotlán</div>
-</div>
-<div>
-<i class="w-8 h-8 text-green-400 mx-auto mb-2" data-lucide="check-circle"></i>
-<div class="font-semibold">Cobertura nacional</div>
-<div class="text-sm text-blue-200">Toda la República Mexicana</div>
-</div>
-</div>
+<p class="text-2 text-sm mt-4">Más cobertura nacional bajo cita.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-16 bg-white">
+<section class="py-16" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="max-w-3xl mx-auto">
-<h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">Preguntas Frecuentes</h2>
-<div class="space-y-4">
-<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
-<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
-<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
-                            ¿Cuánto tiempo tardan en responder?
+<span class="eyebrow block text-center mb-3">[ Dudas frecuentes ]</span>
+<h2 class="text-2xl font-display font-semibold mb-8 text-center">Preguntas frecuentes</h2>
+<div class="space-y-3">
+<div class="card-v2 p-5">
+<h4 class="font-display font-semibold mb-2 flex items-center gap-2">
+<i class="w-5 h-5 accent" data-lucide="help-circle"></i>
+                            ¿Cuánto tardan en responder?
                         </h4>
-<p class="text-gray-600 text-sm pl-7">Respondemos todas las solicitudes en menos de 2 horas durante horario laboral. Para emergencias técnicas, tenemos línea directa 24/7 vía WhatsApp.</p>
+<p class="text-2 text-sm pl-7">Respondemos por WhatsApp lo antes posible en horario de oficina. Para una emergencia técnica, escríbenos directo por WhatsApp.</p>
 </div>
-<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
-<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
-<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+<div class="card-v2 p-5">
+<h4 class="font-display font-semibold mb-2 flex items-center gap-2">
+<i class="w-5 h-5 accent" data-lucide="help-circle"></i>
                             ¿Hacen envíos a todo México?
                         </h4>
-<p class="text-gray-600 text-sm pl-7">Sí, hacemos envíos a toda la República Mexicana. El tiempo de entrega varía de 24 horas (Zona 1, 2 y 3) hasta 3-5 días (resto del país).</p>
+<p class="text-2 text-sm pl-7">Sí, cubrimos toda la República Mexicana desde nuestras sedes en Torreón y Puebla. El tiempo de entrega depende de tu ubicación y del producto — te lo confirmamos al cotizar.</p>
 </div>
-<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
-<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
-<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+<div class="card-v2 p-5">
+<h4 class="font-display font-semibold mb-2 flex items-center gap-2">
+<i class="w-5 h-5 accent" data-lucide="help-circle"></i>
                             ¿Las máquinas incluyen garantía?
                         </h4>
-<p class="text-gray-600 text-sm pl-7">Todas nuestras máquinas incluyen garantía de 1 año contra defectos de fabricación. Además ofrecemos planes de mantenimiento extendido.</p>
+<p class="text-2 text-sm pl-7">Sí, ofrecemos garantía de fábrica. Los términos exactos dependen del fabricante y modelo — te los confirmamos al cotizar.</p>
 </div>
-<div class="border border-gray-200 rounded-xl p-5 hover:border-blue-300 transition cursor-pointer">
-<h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
-<i class="w-5 h-5 text-blue-600" data-lucide="help-circle"></i>
+<div class="card-v2 p-5">
+<h4 class="font-display font-semibold mb-2 flex items-center gap-2">
+<i class="w-5 h-5 accent" data-lucide="help-circle"></i>
                             ¿Ofrecen financiamiento?
                         </h4>
-<p class="text-gray-600 text-sm pl-7">Trabajamos con diversas arrendadoras y opciones de leasing. Contáctanos para evaluar las mejores opciones para tu empresa.</p>
+<p class="text-2 text-sm pl-7">Pregúntanos por opciones de financiamiento y arrendamiento disponibles para tu proyecto.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- CTA Banner -->
-<section class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white text-center">
+<section class="py-16 border-t border-c text-center" style="background:linear-gradient(180deg, var(--surface-1), var(--canvas));">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<h2 class="text-3xl font-bold mb-4">¿Necesitas atención inmediata?</h2>
-<p class="text-xl text-blue-200 mb-8">Nuestro equipo de WhatsApp está disponible ahora para resolver tus dudas.</p>
-<a class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-full font-bold text-lg transition transform hover:scale-105 shadow-xl" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
+<h2 class="text-3xl font-display font-semibold mb-4">¿Necesitas atención inmediata?</h2>
+<p class="text-xl text-2 mb-8">Escríbenos por WhatsApp y con gusto resolvemos tus dudas.</p>
+<a class="inline-flex items-center gap-3 btn-primary px-10 py-4 font-bold text-lg transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
 <i class="w-6 h-6" data-lucide="message-circle"></i>
                 Chatear por WhatsApp
             </a>
 </div>
 </section>
 <!-- Footer -->
-<footer class="text-gray-400 py-16 brand-navy-bg">
+<footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 <div>
-<a class="block mb-6" href="index.html">
-<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:42px!important;width:auto!important;max-width:240px!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.92;">
+<a class="block mb-5" href="index.html">
+<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:32px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
 </a>
-<p class="mb-6">Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil.</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="facebook"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="instagram"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="linkedin"></i>
-</a>
-</div>
+<p class="text-2 text-sm mb-4 leading-relaxed">Parte de Grupo Sewing Solution, con operación en México, El Salvador, Honduras y Nicaragua desde 2004.</p>
+<img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-6 w-auto object-contain opacity-80">
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
-<ul class="space-y-3">
-<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
-<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
-<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
-<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
-<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Enlaces</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li><a class="hover:text-white transition" href="maquinaria.html">Maquinaria industrial</a></li>
+<li><a class="hover:text-white transition" href="refacciones.html">Refacciones</a></li>
+<li><a class="hover:text-white transition" href="automatizacion.html">Automatización</a></li>
+<li><a class="hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
-<span>+52 871 524 6072</span>
-</li>
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
-<span>info@sewingsolution.com.mx</span>
-</li>
-<li class="flex items-start gap-3">
-<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
-<span>Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, 72680 San Francisco Ocotlán, Pue.</span>
-</li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Contacto</h4>
+<ul class="space-y-2.5 text-sm text-2">
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="phone"></i> +52 871 524 6072</li>
+<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="mail"></i> info@sewingsolution.com.mx</li>
+<li class="flex items-start gap-2"><i class="w-4 h-4 accent mt-0.5" data-lucide="map-pin"></i> Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, San Francisco Ocotlán</li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            México
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Torreón y Puebla
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Toda la República Mexicana
-                        </li>
+<h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Cobertura</h4>
+<ul class="space-y-2.5 text-sm text-2 font-mono">
+<li>Puebla · Tlaxcala</li>
+<li>Torreón · Gómez Palacio</li>
+<li>Mérida · Campeche</li>
+<li>Cobertura nacional</li>
 </ul>
 </div>
 </div>
-<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm">© 2026 SOLUCIONES TEXTILES LAGUNA. Todos los derechos reservados.</p>
-<div class="flex gap-6 text-sm">
-<a class="hover:text-white transition" href="#">Política de Privacidad</a>
-<a class="hover:text-white transition" href="#">Términos de Servicio</a>
+<div class="border-t border-c pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-2">
+<p>© 2026 Soluciones Textiles Laguna S.A. de C.V.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition" href="contacto.html">Contacto</a>
 </div>
 </div>
 </div>
 </footer>
+<!-- Floating WhatsApp -->
+<a class="whatsapp-float fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-2xl z-50 transition flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank" aria-label="Cotizar por WhatsApp">
+<i class="w-7 h-7" data-lucide="message-circle"></i>
+</a>
 <script>
 lucide.createIcons();
 
@@ -416,7 +372,11 @@ lucide.createIcons();
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 if (mobileMenuBtn && mobileMenu) {
-  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
 }
 
 // Sticky header
