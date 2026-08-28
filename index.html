@@ -1,511 +1,588 @@
 <!DOCTYPE html>
-
 <html lang="es-MX">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOLTEX | Maquinaria Industrial de Costura y Automatización</title>
-<meta content="Proveedor líder de maquinaria industrial de costura, refacciones y soluciones de automatización para la industria textil en México." name="description"/>
+<title>SOLTEX | Maquinaria Industrial de Costura y Automatización Textil</title>
+<meta name="description" content="Maquinaria industrial de costura, automatización, refacciones y servicio técnico para la industria textil en México. Parte de Grupo Sewing Solution, 22 años de trayectoria en 4 países."/>
+<meta property="og:title" content="SOLTEX | Tecnología que transforma la producción textil"/>
+<meta property="og:description" content="Maquinaria industrial de costura, automatización, refacciones y servicio técnico. Distribución exclusiva de Supreme, Eagle Special y VIOS Sewing en México."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="images/visual_cangrejos_soltex.png"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&amp;display=swap" rel="stylesheet"/>
-<!-- FAVICON PRO -->
-<link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg">
-<link rel="apple-touch-icon" href="images/logo-soltex.svg">
-<link rel="shortcut icon" href="images/logo-soltex.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg"/>
+<link rel="apple-touch-icon" href="images/logo-soltex.svg"/>
 <style>
-        * { font-family: 'Poppins', sans-serif; }
-        .font-editorial { font-family: 'Newsreader', serif; letter-spacing: -0.01em; }
-        body { background: #FBFBFA; }
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(51, 65, 85, 0.95) 100%),
-                        url('http://static.photos/industry/1200x630/42') center/cover no-repeat;
-        }
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(12px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .machine-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -8px rgba(15, 23, 42, 0.12);
-        }
-        .whatsapp-float {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .nav-scrolled {
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
-        }
-        .eyebrow-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.4rem 0.9rem;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .pastel-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.3rem 0.7rem;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-    </style>
-<link href="style.css" rel="stylesheet"/></head>
-<body class="text-slate-800 overflow-x-hidden">
+  :root{
+    --canvas:#0B0F14;
+    --surface-1:#12161D;
+    --surface-2:#1B212B;
+    --border-c:#2A313D;
+    --text-1:#F4F5F7;
+    --text-2:#9AA3B0;
+    --accent:#3D6FE0;
+    --accent-dark:#2F58BD;
+    --alert:#E0A83D;
+  }
+  *{font-family:'IBM Plex Sans', sans-serif;}
+  body{background:var(--canvas); color:var(--text-1); margin:0;}
+  .font-display{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em;}
+  .font-mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.06em;}
+  html{scroll-behavior:smooth;}
+  .surface-1{background:var(--surface-1);}
+  .surface-2{background:var(--surface-2);}
+  .border-c{border-color:var(--border-c) !important;}
+  .text-2{color:var(--text-2);}
+  .accent{color:var(--accent);}
+  .bg-accent{background:var(--accent);}
+  .bg-accent:hover{background:var(--accent-dark);}
+  .btn-primary{background:var(--accent); color:#fff; transition:background .2s ease, transform .15s ease;}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-primary:active{transform:scale(.98);}
+  .btn-ghost{background:transparent; border:1px solid var(--border-c); color:var(--text-1); transition:border-color .2s ease, background .2s ease;}
+  .btn-ghost:hover{border-color:var(--accent); background:rgba(61,111,224,0.08);}
+  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
+  .hero-bg{
+    background:
+      linear-gradient(90deg, rgba(11,15,20,0.98) 0%, rgba(11,15,20,0.88) 42%, rgba(11,15,20,0.55) 70%, rgba(11,15,20,0.25) 100%),
+      url('images/machines/supreme-sp-c9513k-m.jpg') center 40%/cover no-repeat, var(--canvas);
+  }
+  .measure-line{position:relative;}
+  .measure-line::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:1px;
+    background:var(--border-c);
+  }
+  .scroll-reveal{opacity:0; transform:translateY(14px); transition:all .6s cubic-bezier(.16,1,.3,1);}
+  .scroll-reveal.active{opacity:1; transform:translateY(0);}
+  .nav-scrolled{background:rgba(11,15,20,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--border-c);}
+  .card-hover{transition:border-color .25s ease, transform .25s ease;}
+  .card-hover:hover{border-color:var(--accent); transform:translateY(-3px);}
+  ::selection{background:var(--accent); color:#fff;}
+  input, select, textarea{background:var(--surface-2); border:1px solid var(--border-c); color:var(--text-1);}
+  input::placeholder, textarea::placeholder{color:var(--text-2);}
+  input:focus, select:focus, textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .whatsapp-float{animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+  @media (prefers-reduced-motion: reduce){
+    .scroll-reveal{transition:none; opacity:1; transform:none;}
+    .whatsapp-float{animation:none;}
+  }
+</style>
+</head>
+<body class="overflow-x-hidden">
 
-<!-- Sticky Header -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300 brand-navy-bg" id="navbar">
+<!-- Skip link -->
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">Saltar al contenido</a>
+
+<!-- Nav -->
+<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center h-20 gap-6">
-      <!-- Logo -->
+    <div class="flex items-center h-16 gap-6">
       <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:46px!important;width:auto!important;max-width:min(62vw,265px)!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.96;">
+        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
       </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex flex-1 items-center justify-center gap-8 lg:gap-10">
-        <a class="text-white hover:text-blue-400 font-medium transition" href="index.html">Inicio</a>
-        <a class="text-gray-300 hover:text-blue-400 font-medium transition" href="maquinaria.html">Maquinaria</a>
-        <a class="text-gray-300 hover:text-blue-400 font-medium transition" href="refacciones.html">Refacciones</a>
-        <a class="text-gray-300 hover:text-blue-400 font-medium transition" href="automatizacion.html">Automatización</a>
-        <a class="text-gray-300 hover:text-blue-400 font-medium transition" href="servicio-tecnico.html">Servicio Técnico</a>
-        <a class="text-gray-300 hover:text-blue-400 font-medium transition" href="contacto.html">Contacto</a>
+      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
+        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
+        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
+        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
+        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
+        <a class="text-sm text-2 hover:text-white transition" href="#proyectos">Proyectos</a>
+        <a class="text-sm text-2 hover:text-white transition" href="#cotizar">Contacto</a>
       </nav>
-
-      <!-- Desktop Actions -->
       <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-        <a class="h-11 bg-green-600 hover:bg-green-700 text-white px-6 rounded-lg font-semibold transition flex items-center gap-2"
-           href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-          <i class="w-5 h-5" data-lucide="message-circle"></i>
-          WhatsApp
+        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">
+          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
         </a>
-        <a class="h-11 bg-white/10 hover:bg-white/15 border border-white/15 text-white px-6 rounded-lg font-semibold transition flex items-center gap-2"
-           href="https://fbol-ss-sewing-fe.odoo.com/odoo" rel="noopener noreferrer" target="_blank">
-          <i class="w-5 h-5" data-lucide="user"></i>
-          Iniciar sesión
+        <a class="h-10 px-5 rounded btn-primary text-sm font-semibold flex items-center gap-2" href="#cotizar">
+          Cotizar un proyecto
         </a>
       </div>
-
-      <!-- Mobile Menu Button -->
-      <button class="md:hidden text-white ml-auto" id="mobile-menu-btn" aria-label="Abrir menú">
-        <i class="w-8 h-8" data-lucide="menu"></i>
+      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <i class="w-7 h-7" data-lucide="menu"></i>
       </button>
     </div>
   </div>
-
-  <!-- Mobile Menu -->
-  <div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-2">
-      <a class="block text-white py-3 font-medium border-b border-slate-800" href="index.html">Inicio</a>
-      <a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="maquinaria.html">Maquinaria</a>
-      <a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="refacciones.html">Refacciones</a>
-      <a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="automatizacion.html">Automatización</a>
-      <a class="block text-gray-300 py-3 font-medium border-b border-slate-800" href="servicio-tecnico.html">Servicio Técnico</a>
-      <a class="block text-gray-300 py-3 font-medium" href="contacto.html">Contacto</a>
-
-      <a class="block bg-green-500 text-white text-center py-3 rounded-lg font-semibold mt-4"
-         href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-        Contactar por WhatsApp
-      </a>
-      <a class="block bg-white/10 border border-white/15 text-white text-center py-3 rounded-lg font-semibold"
-         href="https://fbol-ss-sewing-fe.odoo.com/odoo" rel="noopener noreferrer" target="_blank">
-        Iniciar sesión
-      </a>
+  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1">
+      <a class="block text-white py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
+      <a class="block text-white py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
+      <a class="block text-white py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
+      <a class="block text-white py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
+      <a class="block text-white py-3 text-sm border-b border-c" href="#proyectos">Proyectos</a>
+      <a class="block text-white py-3 text-sm" href="#cotizar">Contacto</a>
+      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
     </div>
   </div>
 </header>
-<!-- Hero Section -->
-<section class="hero-bg min-h-screen flex items-center pt-20 relative page-hero page-hero--home">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-<div class="max-w-4xl scroll-reveal active">
-<span class="eyebrow-tag bg-white/10 text-blue-200 mb-6 border border-white/15">Distribuidor autorizado · Brother · Pegasus · Yamato · Supreme</span>
-<h1 class="font-editorial text-4xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.05] mb-6">
-                    Maquinaria industrial de costura y <span class="text-slate-300 italic">soluciones de automatización</span>
-</h1>
-<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
-                    Equipamiento industrial de última generación, refacciones originales y automatización para aumentar tu producción y eficiencia operativa.
-                </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-green-600 hover:bg-green-700 text-white text-center px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 flex items-center justify-center gap-3 shadow-lg shadow-green-900/30" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-6 h-6" data-lucide="message-circle"></i>
-                        Cotizar por WhatsApp
-                    </a>
-<a class="bg-white hover:bg-gray-100 text-slate-900 text-center px-8 py-4 rounded-lg font-bold text-lg transition transform hover:scale-105 flex items-center justify-center gap-3" href="maquinaria.html">
-<i class="w-6 h-6" data-lucide="arrow-right"></i>
-                        Ver Maquinaria
-                    </a>
-</div>
-<div class="mt-12 flex flex-wrap items-center gap-8 text-gray-400">
-<div class="flex items-center gap-2">
-<i class="w-5 h-5 text-slate-400" data-lucide="check-circle"></i>
-<span class="text-sm">Entrega Inmediata</span>
-</div>
-<div class="flex items-center gap-2">
-<i class="w-5 h-5 text-slate-400" data-lucide="check-circle"></i>
-<span class="text-sm">Soporte Técnico 24/7</span>
-</div>
-<div class="flex items-center gap-2">
-<i class="w-5 h-5 text-slate-400" data-lucide="check-circle"></i>
-<span class="text-sm">Garantía Industrial</span>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-<i class="w-8 h-8 text-white/50" data-lucide="chevron-down"></i>
-</div>
+
+<main id="main">
+<!-- Hero -->
+<section class="hero-bg min-h-[100dvh] flex items-center pt-16 relative">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl">
+      <span class="eyebrow">Grupo Sewing Solution · Desde 2004</span>
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[0.98] mt-5 mb-6 text-pretty">
+        Tecnología que transforma la producción textil.
+      </h1>
+      <p class="text-lg md:text-xl text-2 max-w-xl leading-relaxed mb-9">
+        Maquinaria, automatización y soporte técnico para operaciones que no pueden detenerse.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 mb-10">
+        <a href="#cotizar" class="btn-primary px-7 py-4 rounded font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
+          <i class="w-5 h-5" data-lucide="arrow-right"></i> Cotizar un proyecto
+        </a>
+        <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20de%20SOLTEX" target="_blank" rel="noopener noreferrer" class="btn-ghost px-7 py-4 rounded font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
+          <i class="w-5 h-5" data-lucide="message-circle"></i> Hablar con un especialista
+        </a>
+      </div>
+      <p class="font-mono text-xs text-2 border-t border-c pt-5 max-w-md">
+        Más de 20 años respaldando operaciones textiles en México, El Salvador, Honduras y Nicaragua.
+      </p>
+    </div>
+  </div>
 </section>
-<!-- Services Overview -->
-<section class="py-24 bg-white">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="mb-16 scroll-reveal max-w-2xl">
-<span class="eyebrow-tag bg-blue-50 text-blue-700 mb-4">Lo que hacemos</span>
-<h2 class="font-editorial text-3xl md:text-4xl font-medium text-slate-900 mb-4">Soluciones integrales para la industria textil</h2>
-<p class="text-slate-600 text-lg leading-relaxed">Equipamos tu fábrica con tecnología de punta y el respaldo técnico que necesitas para mantener tu producción al máximo.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-<div class="scroll-reveal group md:col-span-2 md:row-span-2 p-10 bg-slate-900 rounded-3xl transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[280px]">
-<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
-<i class="w-7 h-7 text-white" data-lucide="settings"></i>
-</div>
-<div>
-<h3 class="font-editorial text-2xl font-medium text-white mb-3">Maquinaria industrial</h3>
-<p class="text-slate-300 leading-relaxed max-w-md">Máquinas de coser industriales de última generación para alta producción, con soporte técnico local y refacciones garantizadas.</p>
-<a href="maquinaria.html" class="inline-flex items-center gap-2 text-white font-semibold mt-6 group-hover:gap-3 transition-all">
-Ver catálogo <i class="w-4 h-4" data-lucide="arrow-right"></i>
-</a>
-</div>
-</div>
-<div class="scroll-reveal group p-8 border border-[#EAEAEA] rounded-3xl hover:border-slate-300 transition-all duration-300 cursor-pointer" style="transition-delay: 100ms;">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5">
-<i class="w-6 h-6 text-blue-700" data-lucide="puzzle"></i>
-</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2">Refacciones originales</h3>
-<p class="text-slate-600 text-sm leading-relaxed">Piezas genuinas y compatibles con entrega rápida en toda la República Mexicana.</p>
-</div>
-<div class="scroll-reveal group p-8 border border-[#EAEAEA] rounded-3xl hover:border-slate-300 transition-all duration-300 cursor-pointer" style="transition-delay: 200ms;">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5">
-<i class="w-6 h-6 text-blue-700" data-lucide="cpu"></i>
-</div>
-<h3 class="text-lg font-bold text-slate-900 mb-2">Automatización</h3>
-<p class="text-slate-600 text-sm leading-relaxed">Soluciones automatizadas para incrementar productividad y reducir costos operativos.</p>
-</div>
-<div class="scroll-reveal group md:col-span-3 p-8 border border-[#EAEAEA] rounded-3xl hover:border-slate-300 transition-all duration-300 cursor-pointer flex items-center gap-6" style="transition-delay: 300ms;">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="wrench"></i>
-</div>
-<div>
-<h3 class="text-lg font-bold text-slate-900 mb-1">Servicio técnico</h3>
-<p class="text-slate-600 text-sm leading-relaxed">Instalación, capacitación y mantenimiento preventivo y correctivo con ingenieros certificados.</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Franja de confianza -->
+<section class="surface-1 border-y border-c py-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="measure-line pl-5">
+        <p class="font-display text-2xl md:text-3xl font-semibold">2004</p>
+        <p class="text-2 text-xs mt-1">Origen del grupo, El Salvador</p>
+      </div>
+      <div class="measure-line pl-5">
+        <p class="font-display text-2xl md:text-3xl font-semibold">4 países</p>
+        <p class="text-2 text-xs mt-1">México · El Salvador · Honduras · Nicaragua</p>
+      </div>
+      <div class="measure-line pl-5">
+        <p class="font-display text-2xl md:text-3xl font-semibold">+20</p>
+        <p class="text-2 text-xs mt-1">Colaboradores en el grupo</p>
+      </div>
+      <div class="measure-line pl-5">
+        <p class="font-display text-2xl md:text-3xl font-semibold">+50,000</p>
+        <p class="text-2 text-xs mt-1">SKUs en existencia</p>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Brands Showcase -->
-<section class="py-24 border-y border-[#EAEAEA]" style="background:#F7F6F3;">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-12 scroll-reveal">
-<span class="eyebrow-tag bg-white text-slate-600 border border-[#EAEAEA] mb-4">Distribuidor autorizado</span>
-<h2 class="font-editorial text-3xl md:text-4xl font-medium text-slate-900 mb-4">Representantes de las mejores marcas</h2>
-<p class="text-slate-600 max-w-2xl mx-auto text-lg">Somos distribuidores oficiales de las principales marcas de maquinaria industrial de costura en México.</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-<!-- Brother -->
-<div class="bg-white border border-[#EAEAEA] rounded-2xl p-6 flex items-center justify-center h-28 hover:border-slate-300 transition-all duration-300 group relative overflow-hidden">
-<img alt="Brother" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" src="images/brands/brother.png"/>
-<span class="text-xl md:text-2xl font-bold text-slate-800 hidden items-center justify-center w-full h-full absolute inset-0">BROTHER</span>
-</div>
-<!-- Pegasus -->
-<div class="bg-white border border-[#EAEAEA] rounded-2xl p-6 flex items-center justify-center h-28 hover:border-slate-300 transition-all duration-300 group relative overflow-hidden">
-<img alt="Pegasus" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" src="images/brands/pegasus.png"/>
-<span class="text-xl md:text-2xl font-bold text-slate-800 hidden items-center justify-center w-full h-full absolute inset-0">PEGASUS</span>
-</div>
-<!-- Yamato -->
-<div class="bg-white border border-[#EAEAEA] rounded-2xl p-6 flex items-center justify-center h-28 hover:border-slate-300 transition-all duration-300 group relative overflow-hidden">
-<img alt="Yamato" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" src="images/brands/yamato.png"/>
-<span class="text-xl md:text-2xl font-bold text-slate-800 hidden items-center justify-center w-full h-full absolute inset-0">YAMATO</span>
-</div>
-<!-- Supreme -->
-<div class="bg-white border border-[#EAEAEA] rounded-2xl p-6 flex items-center justify-center h-28 hover:border-slate-300 transition-all duration-300 group relative overflow-hidden">
-<img alt="Supreme" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" src="images/brands/supreme.png"/>
-<span class="text-xl md:text-2xl font-bold text-slate-800 hidden items-center justify-center w-full h-full absolute inset-0">SUPREME</span>
-</div>
-</div>
-<div class="text-center mt-6 mb-8">
-<span class="eyebrow-tag bg-white text-slate-600 border border-[#EAEAEA]">Distribución exclusiva en México · Supreme · Eagle Special · VIOS Sewing</span>
-</div>
-<div class="text-center mt-10">
-<a class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold transition" href="maquinaria.html">
-                    Ver catálogo completo de maquinaria
-                    <i class="w-4 h-4" data-lucide="arrow-right"></i>
-</a>
-</div>
-</div>
+
+<!-- Cuatro áreas -->
+<section class="py-24 border-b border-c">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
+      <div>
+        <span class="eyebrow">[ Soluciones ]</span>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3">Cuatro frentes, un mismo objetivo: que tu línea no pare</h2>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px surface-2">
+      <a href="maquinaria.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
+        <div>
+          <span class="font-mono text-xs text-2">01</span>
+          <h3 class="font-display text-xl font-semibold mt-4 mb-3">Maquinaria industrial</h3>
+          <p class="text-2 text-sm leading-relaxed">Equipa tu línea con máquinas que sostienen el ritmo de producción, no lo interrumpen.</p>
+        </div>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver catálogo <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="automatizacion.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
+        <div>
+          <span class="font-mono text-xs text-2">02</span>
+          <h3 class="font-display text-xl font-semibold mt-4 mb-3">Automatización</h3>
+          <p class="text-2 text-sm leading-relaxed">Reduce la variación entre piezas y la dependencia de mano de obra especializada.</p>
+        </div>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver soluciones <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="refacciones.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
+        <div>
+          <span class="font-mono text-xs text-2">03</span>
+          <h3 class="font-display text-xl font-semibold mt-4 mb-3">Refacciones</h3>
+          <p class="text-2 text-sm leading-relaxed">Ten la pieza correcta a la mano antes de que su falta detenga tu línea.</p>
+        </div>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver refacciones <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+      </a>
+      <a href="servicio-tecnico.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
+        <div>
+          <span class="font-mono text-xs text-2">04</span>
+          <h3 class="font-display text-xl font-semibold mt-4 mb-3">Servicio técnico</h3>
+          <p class="text-2 text-sm leading-relaxed">Mantén tus equipos trabajando con diagnóstico, reparación y repuestos disponibles.</p>
+        </div>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver servicio <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
 </section>
-<!-- Industries Served -->
-<section class="py-24 bg-slate-900 text-white">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16 scroll-reveal">
-<span class="eyebrow-tag bg-white/10 text-slate-300 mb-4">Sectores</span>
-<h2 class="font-editorial text-3xl md:text-4xl font-medium mb-4">Industrias que servimos</h2>
-<p class="text-slate-400 max-w-2xl mx-auto text-lg">Especialistas en soluciones adaptadas a cada sector de la industria textil y automotriz.</p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-<div class="scroll-reveal bg-slate-800/60 border border-white/5 p-6 rounded-2xl text-center hover:bg-slate-800 hover:border-white/15 transition-all duration-300">
-<i class="w-10 h-10 mx-auto mb-4 text-slate-400" data-lucide="shirt"></i>
-<h3 class="font-semibold text-base">Maquila textil</h3>
-</div>
-<div class="scroll-reveal bg-slate-800/60 border border-white/5 p-6 rounded-2xl text-center hover:bg-slate-800 hover:border-white/15 transition-all duration-300" style="transition-delay: 100ms;">
-<i class="w-10 h-10 mx-auto mb-4 text-slate-400" data-lucide="scissors"></i>
-<h3 class="font-semibold text-base">Denim / jeans</h3>
-</div>
-<div class="scroll-reveal bg-slate-800/60 border border-white/5 p-6 rounded-2xl text-center hover:bg-slate-800 hover:border-white/15 transition-all duration-300" style="transition-delay: 200ms;">
-<i class="w-10 h-10 mx-auto mb-4 text-slate-400" data-lucide="user"></i>
-<h3 class="font-semibold text-base">Camisetas</h3>
-</div>
-<div class="scroll-reveal bg-slate-800/60 border border-white/5 p-6 rounded-2xl text-center hover:bg-slate-800 hover:border-white/15 transition-all duration-300" style="transition-delay: 300ms;">
-<i class="w-10 h-10 mx-auto mb-4 text-slate-400" data-lucide="car"></i>
-<h3 class="font-semibold text-base">Automotriz</h3>
-<span class="text-xs text-slate-500">Airbags, tapicería</span>
-</div>
-<div class="scroll-reveal bg-slate-800/60 border border-white/5 p-6 rounded-2xl text-center hover:bg-slate-800 hover:border-white/15 transition-all duration-300" style="transition-delay: 400ms;">
-<i class="w-10 h-10 mx-auto mb-4 text-slate-400" data-lucide="briefcase"></i>
-<h3 class="font-semibold text-base">Uniformes</h3>
-</div>
-</div>
-</div>
+
+<!-- Automatización destacada -->
+<section class="py-24 border-b border-c surface-1">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <span class="eyebrow">[ Automatización ]</span>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-6">Automatización para procesos que no perdonan errores</h2>
+        <p class="text-2 leading-relaxed mb-8">Integramos cuartos de corte, tendedoras, pegadoras automáticas de bolsa y celdas de patrón programable. Para producción automotriz manejamos la línea heavy duty de VIOS Sewing, diseñada para materiales pesados y costuras de alta resistencia.</p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <i class="w-5 h-5 accent flex-shrink-0 mt-0.5" data-lucide="scissors"></i>
+            <span class="text-sm text-2"><span class="text-white font-medium">Cuartos de corte y tendedoras</span> — estandarizan el trazo y reducen desperdicio de tela.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="w-5 h-5 accent flex-shrink-0 mt-0.5" data-lucide="cpu"></i>
+            <span class="text-sm text-2"><span class="text-white font-medium">Celdas de patrón programable</span> — repiten la misma costura sin variación entre piezas.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="w-5 h-5 accent flex-shrink-0 mt-0.5" data-lucide="truck"></i>
+            <span class="text-sm text-2"><span class="text-white font-medium">Heavy duty VIOS</span> — línea especializada para tapicería y asientos automotrices.</span>
+          </li>
+        </ul>
+        <a href="automatizacion.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-8">Ver soluciones de automatización <i class="w-4 h-4" data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="border border-c p-2">
+        <img src="images/machines/supreme-sp-1010td.jpg" alt="Celda de automatización Supreme SP-1010TD con sistema de vacío integrado" class="w-full h-auto">
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Why Choose Us -->
-<section class="py-24 bg-white">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div class="scroll-reveal">
-<span class="eyebrow-tag bg-blue-50 text-blue-700 mb-4">Por qué SOLTEX</span>
-<h2 class="font-editorial text-3xl md:text-4xl font-medium text-slate-900 mb-6">Tu aliado estratégico de planta</h2>
-<p class="text-slate-600 mb-8 text-lg leading-relaxed">Somos el aliado que tu fábrica necesita para mantener la producción al máximo con el mejor equipamiento del mercado.</p>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="truck"></i>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 text-lg">Entrega rápida</h3>
-<p class="text-slate-600">Inventario local en toda la República Mexicana. Entrega inmediata en 24-72 horas.</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="headphones"></i>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 text-lg">Soporte técnico especializado</h3>
-<p class="text-slate-600">Ingenieros certificados disponibles 24/7 para mantenimiento y reparaciones.</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="graduation-cap"></i>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 text-lg">Capacitación incluida</h3>
-<p class="text-slate-600">Entrenamiento operativo y técnico para tu personal sin costo adicional.</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="globe"></i>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 text-lg">Presencia en México</h3>
-<p class="text-slate-600">Cobertura en México con soporte local.</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-<i class="w-6 h-6 text-blue-700" data-lucide="zap"></i>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 text-lg">Atención inmediata</h3>
-<p class="text-slate-600">Respuesta en menos de 2 horas vía WhatsApp y correo electrónico.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="scroll-reveal relative">
-<div class="absolute inset-0 bg-blue-600 rounded-[2rem] transform rotate-3 opacity-[0.06]"></div>
-<img alt="Planta industrial textil con maquinaria de costura en operación" class="relative rounded-[2rem] w-full" style="box-shadow: 0 20px 50px -12px rgba(15,23,42,0.18);" src="http://static.photos/industry/1024x576/7"/>
-<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl max-w-xs border border-[#EAEAEA]" style="box-shadow: 0 12px 30px -8px rgba(15,23,42,0.12);">
-<div class="flex items-center gap-3 mb-2">
-<div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
-<i class="w-5 h-5 text-blue-700" data-lucide="trending-up"></i>
-</div>
-<span class="font-bold text-slate-900">+40% productividad</span>
-</div>
-<p class="text-sm text-slate-600">Promedio de incremento en producción de nuestros clientes tras automatización.</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Proyectos destacados -->
+<section id="proyectos" class="py-24 border-b border-c">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="eyebrow">[ Proyectos ]</span>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-4">Proyectos destacados</h2>
+    <p class="text-2 max-w-2xl mb-14">Estamos documentando cada proyecto con fotografía, cliente, reto y solución real. Si ya trabajaste con nosotros o tienes un caso similar, cuéntanoslo.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px surface-2">
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 01 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Automatización de operaciones de costura</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 02 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Instalación de cuartos de corte</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 03 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Pegadoras automáticas de bolsa</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 04 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Equipamiento de líneas de producción</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 05 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Aditamentos para operaciones especiales</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+      <div class="surface-1 border border-c border-dashed p-6">
+        <p class="font-mono text-xs text-2 mb-3">[ 06 ]</p>
+        <h3 class="font-display text-base font-semibold mb-4">Integración de personas con discapacidad</h3>
+        <dl class="text-xs text-2 space-y-1.5 font-mono">
+          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
+          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- CTA Banner -->
-<section class="py-24 bg-gradient-to-r from-slate-900 to-slate-800 text-white relative overflow-hidden">
-<div class="absolute inset-0 opacity-10">
-<div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-</div>
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center scroll-reveal">
-<h2 class="font-editorial text-3xl md:text-5xl font-medium mb-6">¿Necesitas maquinaria o refacciones?</h2>
-<p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Cotiza hoy mismo y recibe atención inmediata de nuestros especialistas. Respuesta garantizada en menos de 2 horas.</p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a class="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-3" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-6 h-6" data-lucide="message-circle"></i>
-                    Contactar por WhatsApp
-                </a>
-<a class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-10 py-4 rounded-lg font-bold text-lg transition flex items-center justify-center gap-3" href="contacto.html">
-<i class="w-6 h-6" data-lucide="mail"></i>
-                    Enviar email
-                </a>
-</div>
-</div>
+
+<!-- Sectores -->
+<section class="py-24 border-b border-c surface-1">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="eyebrow">[ Sectores ]</span>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-10">Industrias que atendemos</h2>
+    <div class="flex flex-wrap gap-3 font-mono text-sm">
+      <span class="border border-c px-4 py-2">Confección</span>
+      <span class="border border-c px-4 py-2">Mezclilla</span>
+      <span class="border border-c px-4 py-2">Uniformes</span>
+      <span class="border border-c px-4 py-2">Tapicería</span>
+      <span class="border border-c px-4 py-2">Automotriz</span>
+      <span class="border border-c px-4 py-2">Muebles</span>
+      <span class="border border-c px-4 py-2">Ropa deportiva</span>
+      <span class="border border-c px-4 py-2">Textiles técnicos</span>
+      <span class="border border-c px-4 py-2">Bolsas y artículos de cuero</span>
+    </div>
+  </div>
 </section>
+
+<!-- Servicio técnico y refacciones -->
+<section class="py-24 border-b border-c">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
+      <div>
+        <span class="eyebrow">[ Refacciones ]</span>
+        <h2 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-6">Refacciones para estas marcas</h2>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Juki</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Pegasus</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Yamato</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Brother</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Zoje</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Jack</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Supreme</span>
+          <span class="font-mono text-xs border border-c px-3 py-1.5">Dürkopp Adler</span>
+          <span class="font-mono text-xs text-2 px-3 py-1.5">y más</span>
+        </div>
+        <p class="text-2 text-sm leading-relaxed">Más de 50,000 SKUs en existencia entre todo el grupo. <a href="refacciones.html" class="accent font-medium">Ver catálogo de refacciones →</a></p>
+      </div>
+      <div>
+        <span class="eyebrow">[ Servicio técnico ]</span>
+        <h2 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-6">Cobertura completa de servicio</h2>
+        <ul class="space-y-3 text-sm text-2">
+          <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Instalación y puesta en marcha</li>
+          <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Capacitación operativa</li>
+          <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Mantenimiento preventivo y correctivo</li>
+          <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Reparación mecánica y electrónica</li>
+          <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Venta y renta de maquinaria</li>
+        </ul>
+        <a href="servicio-tecnico.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-6">Ver servicio técnico <i class="w-4 h-4" data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cobertura -->
+<section class="py-24 border-b border-c surface-1">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="eyebrow">[ Cobertura ]</span>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-10">Cobertura en México</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-px surface-2 font-mono text-sm">
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">01</span>Puebla</div>
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">02</span>Tlaxcala</div>
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">03</span>Torreón</div>
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">04</span>Gómez Palacio</div>
+      <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">05</span>Mérida</div>
+    </div>
+    <p class="text-2 text-sm mt-6">Más cobertura nacional. <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20saber%20si%20tienen%20cobertura%20en%20mi%20ciudad" target="_blank" rel="noopener noreferrer" class="accent font-medium">Pregunta si cubrimos tu ciudad →</a></p>
+  </div>
+</section>
+
+<!-- Respaldo y trayectoria -->
+<section class="py-24 border-b border-c">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="eyebrow">[ Respaldo ]</span>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-4">Grupo Sewing Solution</h2>
+    <p class="text-2 max-w-2xl mb-12 leading-relaxed">SOLTEX es la operación mexicana de un grupo con 22 años de trayectoria en manufactura textil, presente en 4 países y con distribución exclusiva de Supreme, Eagle Special y VIOS Sewing en México.</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-px surface-2 mb-12">
+      <div class="surface-1 border border-c p-6">
+        <p class="font-mono text-xs text-2 mb-2">2004</p>
+        <p class="text-sm">Sewing Solution S.A. de C.V. nace en El Salvador</p>
+      </div>
+      <div class="surface-1 border border-c p-6">
+        <p class="font-mono text-xs text-2 mb-2">2008</p>
+        <p class="text-sm">Sewing Solution de Nicaragua S.A. de C.V.</p>
+      </div>
+      <div class="surface-1 border border-c p-6">
+        <p class="font-mono text-xs text-2 mb-2">2010</p>
+        <p class="text-sm">Sewing Solutions de Honduras S.A. de C.V.</p>
+      </div>
+      <div class="surface-1 border border-c p-6">
+        <p class="font-mono text-xs text-2 mb-2">2023</p>
+        <p class="text-sm">Soluciones Textiles Laguna S.A. de C.V. nace en México</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-10 opacity-90">
+      <img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-8 w-auto object-contain">
+      <img src="images/brands/supreme.png" alt="Supreme" class="h-8 w-auto object-contain">
+      <div class="surface-2 px-4 py-2"><img src="images/brands/vios.png" alt="VIOS" class="h-6 w-auto object-contain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Formulario de cotización -->
+<section id="cotizar" class="py-24 border-b border-c surface-1">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
+      <div>
+        <span class="eyebrow">[ Cotización ]</span>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-6">Cuéntanos tu proyecto</h2>
+        <p class="text-2 leading-relaxed mb-8">Completa el formulario y te contactamos por WhatsApp. Si prefieres, escríbenos directamente.</p>
+        <a href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm accent font-medium">
+          <i class="w-4 h-4" data-lucide="message-circle"></i> +52 871 524 6072
+        </a>
+      </div>
+      <form id="quoteForm" class="space-y-4" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="q-nombre" class="text-xs font-mono text-2 block mb-1.5">Nombre</label>
+            <input id="q-nombre" name="nombre" type="text" autocomplete="name" required class="w-full px-4 py-3 text-sm rounded-none">
+          </div>
+          <div>
+            <label for="q-empresa" class="text-xs font-mono text-2 block mb-1.5">Empresa</label>
+            <input id="q-empresa" name="empresa" type="text" autocomplete="organization" required class="w-full px-4 py-3 text-sm">
+          </div>
+        </div>
+        <div>
+          <label for="q-ciudad" class="text-xs font-mono text-2 block mb-1.5">Ciudad y estado</label>
+          <input id="q-ciudad" name="ciudad" type="text" autocomplete="address-level2" required class="w-full px-4 py-3 text-sm">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="q-telefono" class="text-xs font-mono text-2 block mb-1.5">Teléfono o WhatsApp</label>
+            <input id="q-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required class="w-full px-4 py-3 text-sm">
+          </div>
+          <div>
+            <label for="q-correo" class="text-xs font-mono text-2 block mb-1.5">Correo</label>
+            <input id="q-correo" name="correo" type="email" autocomplete="email" required class="w-full px-4 py-3 text-sm">
+          </div>
+        </div>
+        <div>
+          <label for="q-tipo" class="text-xs font-mono text-2 block mb-1.5">Tipo de solución</label>
+          <select id="q-tipo" name="tipo" required class="w-full px-4 py-3 text-sm">
+            <option value="">Selecciona una opción…</option>
+            <option>Maquinaria industrial</option>
+            <option>Automatización</option>
+            <option>Refacciones</option>
+            <option>Servicio técnico</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label for="q-descripcion" class="text-xs font-mono text-2 block mb-1.5">Describe tu necesidad</label>
+          <textarea id="q-descripcion" name="descripcion" rows="4" required class="w-full px-4 py-3 text-sm" placeholder="Tipo de máquina, cantidad, marca preferida, urgencia…"></textarea>
+        </div>
+        <p class="text-xs text-2 font-mono">¿Tienes fotos o video del proceso? Envíalos directo por WhatsApp una vez que te contactemos — el formulario no adjunta archivos.</p>
+        <button type="submit" class="btn-primary w-full py-4 rounded font-semibold flex items-center justify-center gap-2 min-h-[44px]">
+          <i class="w-5 h-5" data-lucide="send"></i> Enviar y continuar por WhatsApp
+        </button>
+        <div id="formError" class="hidden text-sm text-[var(--alert)] font-mono" role="alert" aria-live="polite">Completa los campos obligatorios antes de enviar.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
 <!-- Footer -->
-<footer class="text-gray-400 py-16 brand-navy-bg">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-<div>
-<a class="block mb-6" href="index.html">
-<img src="images/logo-soltex.svg" alt="SOLTEX" style="height:42px!important;width:auto!important;max-width:240px!important;max-height:none!important;object-fit:contain;filter:brightness(0) invert(1);opacity:.92;">
-</a>
-<p class="mb-4">Parte de Grupo Sewing Solution, con operación en México, El Salvador, Honduras y Nicaragua desde 2004. Distribución exclusiva de Supreme, Eagle Special y VIOS Sewing en México.</p>
-<img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-8 w-auto object-contain mb-6 opacity-90">
-<div class="flex gap-4">
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://facebook.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="facebook"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://instagram.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="instagram"></i>
-</a>
-<a class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" href="https://linkedin.com/" rel="noopener noreferrer" target="_blank">
-<i class="w-5 h-5" data-lucide="linkedin"></i>
-</a>
-</div>
-</div>
-<div>
-<h4 class="text-white font-bold text-lg mb-6">Enlaces Rápidos</h4>
-<ul class="space-y-3">
-<li><a class="hover:text-blue-400 transition" href="maquinaria.html">Maquinaria Industrial</a></li>
-<li><a class="hover:text-blue-400 transition" href="refacciones.html">Refacciones</a></li>
-<li><a class="hover:text-blue-400 transition" href="automatizacion.html">Automatización</a></li>
-<li><a class="hover:text-blue-400 transition" href="servicio-tecnico.html">Servicio Técnico</a></li>
-<li><a class="hover:text-blue-400 transition" href="contacto.html">Contacto</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold text-lg mb-6">Contacto</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="phone"></i>
-<span>+52 871 524 6072</span>
-</li>
-<li class="flex items-center gap-3">
-<i class="w-5 h-5 text-blue-500" data-lucide="mail"></i>
-<span>info@sewingsolution.com.mx</span>
-</li>
-<li class="flex items-start gap-3">
-<i class="w-5 h-5 text-blue-500 mt-1" data-lucide="map-pin"></i>
-<span>Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, 72680 San Francisco Ocotlán, Pue.</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold text-lg mb-6">Cobertura</h4>
-<ul class="space-y-3">
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            México
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Torreón y Puebla
-                        </li>
-<li class="flex items-center gap-2">
-<i class="w-4 h-4 text-green-500" data-lucide="check"></i>
-                            Toda la República Mexicana
-                        </li>
-</ul>
-</div>
-</div>
-<div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm">© 2026 SOLUCIONES TEXTILES LAGUNA. Todos los derechos reservados.</p>
-<div class="flex gap-6 text-sm">
-<a class="hover:text-white transition" href="#">Política de Privacidad</a>
-<a class="hover:text-white transition" href="#">Términos de Servicio</a>
-</div>
-</div>
-</div>
+<footer class="py-16 border-t border-c">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div>
+        <a class="block mb-5" href="index.html">
+          <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:32px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+        </a>
+        <p class="text-2 text-sm mb-4 leading-relaxed">Parte de Grupo Sewing Solution, con operación en México, El Salvador, Honduras y Nicaragua desde 2004.</p>
+        <img src="images/brands/sewing-solution-group.png" alt="Grupo Sewing Solution" class="h-6 w-auto object-contain opacity-80">
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Enlaces</h4>
+        <ul class="space-y-2.5 text-sm text-2">
+          <li><a class="hover:text-white transition" href="maquinaria.html">Maquinaria industrial</a></li>
+          <li><a class="hover:text-white transition" href="refacciones.html">Refacciones</a></li>
+          <li><a class="hover:text-white transition" href="automatizacion.html">Automatización</a></li>
+          <li><a class="hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Contacto</h4>
+        <ul class="space-y-2.5 text-sm text-2">
+          <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="phone"></i> +52 871 524 6072</li>
+          <li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="mail"></i> info@sewingsolution.com.mx</li>
+          <li class="flex items-start gap-2"><i class="w-4 h-4 accent mt-0.5" data-lucide="map-pin"></i> Torreón: Av. Mariano López Ortiz 326 Nte.<br/>Puebla: Mirador 1043, San Francisco Ocotlán</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-2 uppercase tracking-wider mb-5">Cobertura</h4>
+        <ul class="space-y-2.5 text-sm text-2 font-mono">
+          <li>Puebla · Tlaxcala</li>
+          <li>Torreón · Gómez Palacio</li>
+          <li>Mérida</li>
+          <li>Cobertura nacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-c pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-2">
+      <p>© 2026 Soluciones Textiles Laguna S.A. de C.V.</p>
+      <div class="flex gap-6">
+        <a class="hover:text-white transition" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
 </footer>
-<!-- Floating WhatsApp Button -->
-<a class="whatsapp-float fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center gap-2 group" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-<i class="w-8 h-8" data-lucide="message-circle"></i>
-<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">Cotizar ahora</span>
+
+<!-- WhatsApp float -->
+<a class="whatsapp-float fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-2xl z-50 transition flex items-center gap-2 group" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">
+  <i class="w-7 h-7" data-lucide="message-circle"></i>
 </a>
+
 <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+  lucide.createIcons();
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
 
-        // Sticky header effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        });
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) navbar.classList.add('nav-scrolled');
+    else navbar.classList.remove('nav-scrolled');
+  });
 
-        // Scroll reveal animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+  const form = document.getElementById('quoteForm');
+  const formError = document.getElementById('formError');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        formError.classList.remove('hidden');
+        form.reportValidity();
+        return;
+      }
+      formError.classList.add('hidden');
+      const data = new FormData(form);
+      const txt = `Hola SOLTEX, quiero cotizar:
 
-        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
-    </script>
-<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+Nombre: ${data.get('nombre')}
+Empresa: ${data.get('empresa')}
+Ciudad y estado: ${data.get('ciudad')}
+Tel: ${data.get('telefono')}
+Correo: ${data.get('correo')}
+Tipo de solución: ${data.get('tipo')}
+
+Necesidad:
+${data.get('descripcion')}`;
+      const waURL = `https://wa.me/528715246072?text=${encodeURIComponent(txt)}`;
+      window.open(waURL, '_blank');
+    });
+  }
+</script>
 </body>
 </html>
