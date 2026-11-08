@@ -132,86 +132,76 @@
         <i class="w-4 h-4" data-lucide="message-circle"></i> Cotizar por WhatsApp
       </a>
     </div>
-    <section id="catalogo-hooks" class="mb-10">
-      <div class="surface-1 border border-c p-6 md:p-8 mb-6">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-end">
-          <div>
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <span class="eyebrow">Selección SOLTEX</span>
-              <span class="badge-accent-v2">Alta rotación</span>
-            </div>
-            <h3 class="font-display text-2xl md:text-3xl font-semibold mb-3">Hooks y garfios por fabricante</h3>
-            <p class="text-2 leading-relaxed max-w-4xl">Referencias seleccionadas para las máquinas más comunes de confección, bordado y trabajo pesado. Conservamos la nomenclatura propia de Hirose, Koban y Cerliani para evitar equivalencias incorrectas.</p>
+    <section id="catalogo-hooks" class="mb-10 scroll-mt-28">
+      <div class="surface-1 border border-c p-6 md:p-8">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div class="max-w-3xl">
+            <span class="eyebrow">[ Selección SOLTEX ]</span>
+            <h3 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-3">Hooks de alta rotación</h3>
+            <p class="text-2 leading-relaxed">Selecciona el fabricante para consultar las referencias que manejamos para las máquinas más comunes.</p>
           </div>
-          <a class="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20un%20hook.%20Les%20comparto%20marca%2C%20modelo%20y%20fotograf%C3%ADa%20de%20la%20pieza." target="_blank" rel="noopener noreferrer">
-            <i class="w-4 h-4" data-lucide="message-circle"></i> Confirmar compatibilidad
-          </a>
+          <a class="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20un%20hook.%20Les%20comparto%20marca%2C%20modelo%20y%20fotograf%C3%ADa%20de%20la%20pieza." target="_blank" rel="noopener noreferrer"><i class="w-4 h-4" data-lucide="message-circle"></i> Cotizar un hook</a>
         </div>
-        <nav class="grid grid-cols-3 gap-2 mt-7" aria-label="Fabricantes de hooks">
-          <a href="#hooks-hirose" class="surface-2 border border-c px-3 py-3 text-center text-sm font-semibold hover:border-white/30 transition">Hirose</a>
-          <a href="#hooks-koban" class="surface-2 border border-c px-3 py-3 text-center text-sm font-semibold hover:border-white/30 transition">Koban</a>
-          <a href="#hooks-cerliani" class="surface-2 border border-c px-3 py-3 text-center text-sm font-semibold hover:border-white/30 transition">Cerliani</a>
-        </nav>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8" role="tablist" aria-label="Fabricante del hook">
+          <button class="hook-brand-tab active surface-2 border border-blue-500 px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="hirose" role="tab" aria-selected="true">
+            <span class="w-16 h-11 bg-white overflow-hidden flex items-start justify-center"><img src="images/brands/hirose.png" alt="" class="w-14 h-14 object-contain object-top"></span><span class="text-left"><strong class="block">Hirose</strong><small class="text-2">Uso diario</small></span>
+          </button>
+          <button class="hook-brand-tab surface-2 border border-c px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="koban" role="tab" aria-selected="false">
+            <span class="w-16 h-11 bg-white overflow-hidden flex items-center justify-center"><img src="images/brands/koban.png" alt="" class="w-16 h-16 object-contain"></span><span class="text-left"><strong class="block">Koban</strong><small class="text-2">Bordado</small></span>
+          </button>
+          <button class="hook-brand-tab surface-2 border border-c px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="cerliani" role="tab" aria-selected="false">
+            <span class="w-20 h-11 bg-white overflow-hidden flex items-center justify-center"><img src="images/brands/cerliani.png" alt="" class="w-28 h-28 max-w-none object-contain"></span><span class="text-left"><strong class="block">Cerliani</strong><small class="text-2">Trabajo pesado</small></span>
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
-        <article id="hooks-hirose" class="surface-1 border border-c overflow-hidden scroll-mt-36">
-          <div class="h-28 surface-2 border-b border-c flex items-center justify-center overflow-hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-20 h-16 overflow-hidden flex items-start justify-center">
-                <img src="images/brands/hirose.png" alt="Hirose Hooks" class="w-20 h-20 object-contain object-top" loading="lazy">
-              </div>
-              <div>
-                <span class="font-mono text-xs text-2">LÍNEA DIARIA</span>
-                <h4 class="font-display text-xl font-semibold">Hirose</h4>
-              </div>
-            </div>
-          </div>
-          <div class="divide-y divide-white/10">
-            <div class="p-4"><code class="accent font-semibold">HSH-7.94B</code><p class="text-sm text-2 mt-1">Recta convencional sin corte</p></div>
-            <div class="p-4"><code class="accent font-semibold">HSH-7.94BTR</code><p class="text-sm text-2 mt-1">Recta automática con cortahílo</p></div>
-            <div class="p-4"><code class="accent font-semibold">HSH-12-15-L</code><p class="text-sm text-2 mt-1">Dos agujas · hook chico</p></div>
-            <div class="p-4"><code class="accent font-semibold">HSH-12M(BR)</code><p class="text-sm text-2 mt-1">Dos agujas · hook jumbo</p></div>
-            <div class="p-4"><code class="accent font-semibold">HLK-280</code><p class="text-sm text-2 mt-1">Presilladoras / bartack</p></div>
-            <div class="p-4"><code class="accent font-semibold">TC-LK(3B)</code><p class="text-sm text-2 mt-1">Patroneras Juki AMS y Brother BAS</p></div>
-            <div class="p-4"><code class="accent font-semibold">DP2-NJ(790)</code><p class="text-sm text-2 mt-1">Ojaladoras electrónicas Juki</p></div>
-            <div class="p-4"><code class="accent font-semibold">DP2-800FR</code><p class="text-sm text-2 mt-1">Ojaladora electrónica Brother HE-8000</p></div>
-          </div>
-        </article>
-
-        <article id="hooks-koban" class="surface-1 border border-c overflow-hidden scroll-mt-36">
-          <div class="h-28 surface-2 border-b border-c flex items-center justify-center p-5">
-            <img src="images/brands/koban.png" alt="Koban Hooks" class="max-h-20 w-auto object-contain" loading="lazy">
-          </div>
-          <div class="divide-y divide-white/10">
-            <div class="p-4"><code class="accent font-semibold">SH282</code><p class="text-sm text-2 mt-1">Presilladoras Juki LK-1850J / LK-1900</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS20-RMP</code><p class="text-sm text-2 mt-1">Patroneras y aplicaciones programables</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS12-RYP</code><p class="text-sm text-2 mt-1">Bordado chico estándar con cortahílo</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS12-RYPN</code><p class="text-sm text-2 mt-1">Bordado chico con base de teflón</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS12-RYPICC</code><p class="text-sm text-2 mt-1">Bordado chico con recubrimiento DLC</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS20-RYP</code><p class="text-sm text-2 mt-1">Bordado jumbo estándar con cortahílo</p></div>
-            <div class="p-4"><code class="accent font-semibold">KHS20-RYPN</code><p class="text-sm text-2 mt-1">Bordado jumbo con base de teflón</p></div>
-          </div>
-        </article>
-
-        <article id="hooks-cerliani" class="surface-1 border border-c overflow-hidden scroll-mt-36">
-          <div class="h-28 surface-2 border-b border-c flex items-center justify-center p-5">
-            <img src="images/brands/cerliani.png" alt="CM Cerliani Hooks and Bobbin Cases" class="max-h-20 w-auto object-contain" loading="lazy">
-          </div>
-          <div class="divide-y divide-white/10">
-            <div class="p-4"><code class="accent font-semibold">0867-150754-CM</code><p class="text-sm text-2 mt-1">Dürkopp Adler 867-M</p></div>
-            <div class="p-4"><code class="accent font-semibold">0667-155634-CM</code><p class="text-sm text-2 mt-1">Dürkopp Adler 867</p></div>
-            <div class="p-4"><code class="accent font-semibold">401-47912-CM</code><p class="text-sm text-2 mt-1">Juki LU-2828 · equivalente OEM 401-9592</p></div>
-            <div class="p-4"><code class="accent font-semibold">401-30034-CM</code><p class="text-sm text-2 mt-1">Juki PLC-2760</p></div>
-            <div class="p-4"><code class="accent font-semibold">MP43A0120-CM</code><p class="text-sm text-2 mt-1">Mitsubishi LU2 · dos agujas / triple arrastre</p></div>
-            <div class="p-4"><code class="accent font-semibold">107-61252-CM</code><p class="text-sm text-2 mt-1">Juki LU-2210</p></div>
-            <div class="p-4"><code class="accent font-semibold">400-61991-CM</code><p class="text-sm text-2 mt-1">Juki AMS-210</p></div>
-            <div class="p-4"><code class="accent font-semibold">SA8197-101(G)-CM</code><p class="text-sm text-2 mt-1">Brother BAS-311 / 326 / 342</p></div>
-            <div class="p-4"><code class="accent font-semibold">130.09.152</code><p class="text-sm text-2 mt-1">JAM · equivalente original 18-10842</p></div>
-          </div>
-        </article>
+      <div class="hook-brand-panel surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="hirose" role="tabpanel">
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div><span class="font-mono text-xs text-blue-400">HIROSE</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Línea diaria</h4></div>
+          <span class="font-mono text-xs text-2">8 referencias</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"><div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-7.94B</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Recta</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Recta convencional sin corte</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-7.94BTR</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Recta</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Recta automática con cortahílo</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-12-15-L</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dos agujas con hook chico</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-12M(BR)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dos agujas con hook jumbo</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HLK-280</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Presilla</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Presilladoras / bartack</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">TC-LK(3B)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Patroneras Juki AMS y Brother BAS</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">DP2-NJ(790)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Ojal</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Ojaladoras electrónicas Juki</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">DP2-800FR</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Ojal</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Ojaladora electrónica Brother HE-8000</p></div></div>
       </div>
-      <p class="font-mono text-xs text-2 mt-5">El sufijo <strong>-CM</strong> identifica referencias Cerliani dentro del catálogo SOLTEX. La compatibilidad final depende del modelo, submodelo y aplicación.</p>
+
+      <div class="hook-brand-panel hidden surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="koban" role="tabpanel">
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div><span class="font-mono text-xs text-blue-400">KOBAN</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Presilla, patronera y bordado</h4></div>
+          <span class="font-mono text-xs text-2">7 referencias</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"><div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">SH282</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Presilla</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Presilladoras Juki LK-1850J / LK-1900</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS20-RMP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Patroneras y aplicaciones programables</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Bordado L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico estándar con cortahílo</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYPN</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Teflón L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico con base de teflón</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYPICC</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">DLC L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico con recubrimiento DLC</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS20-RYP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Bordado M</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado jumbo estándar con cortahílo</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS20-RYPN</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Teflón M</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado jumbo con base de teflón</p></div></div>
+      </div>
+
+      <div class="hook-brand-panel hidden surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="cerliani" role="tabpanel">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+          <div><span class="font-mono text-xs text-blue-400">CM CERLIANI</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Hooks para maquinaria pesada</h4></div>
+          <span class="font-mono text-xs text-2">El sufijo -CM identifica Cerliani en SOLTEX</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3"><div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">0867-150754-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dürkopp Adler 867-M</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">0667-155634-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dürkopp Adler 867</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">401-47912-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki LU-2828 · OEM 401-9592</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">401-30034-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki PLC-2760</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">MP43A0120-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Mitsubishi LU2 · dos agujas / triple arrastre</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">107-61252-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki LU-2210</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">400-61991-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki AMS-210</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">SA8197-101(G)-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Brother BAS-311 / 326 / 342</p></div>
+<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">130.09.152</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">JAM</span></div><p class="text-sm text-2 mt-4 leading-relaxed">JAM · equivalente original 18-10842</p></div></div>
+      </div>
+
+      <p class="font-mono text-xs text-2 mt-4">Confirmamos compatibilidad con marca, modelo, submodelo y fotografía de la pieza instalada.</p>
     </section>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px surface-2">
 <article class="surface-1 border border-c p-6 flex flex-col">
@@ -679,6 +669,23 @@
             });
         });
     </script>
+<script id="hook-brand-tabs">
+  document.querySelectorAll('.hook-brand-tab').forEach(button => {
+    button.addEventListener('click', () => {
+      const brand = button.dataset.hookBrand;
+      document.querySelectorAll('.hook-brand-tab').forEach(tab => {
+        const selected = tab === button;
+        tab.classList.toggle('active', selected);
+        tab.classList.toggle('border-blue-500', selected);
+        tab.classList.toggle('border-c', !selected);
+        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+      document.querySelectorAll('.hook-brand-panel').forEach(panel => {
+        panel.classList.toggle('hidden', panel.dataset.hookPanel !== brand);
+      });
+    });
+  });
+</script>
 <script src="js/quote-links.js"></script>
 </body>
 </html>
