@@ -50,16 +50,6 @@
     filterCatalog();
   }
 
-  const category = document.querySelector('#catalog-category');
-  if (category) {
-    const cards = document.querySelectorAll('#partsGrid .part-card');
-    category.addEventListener('change', () => {
-      cards.forEach((card) => {
-        card.hidden = Boolean(category.value && card.dataset.category !== category.value);
-      });
-    });
-  }
-
   const quoteForm = document.getElementById('model-quote-form');
   if (quoteForm) {
     const status = document.getElementById('model-quote-status');
