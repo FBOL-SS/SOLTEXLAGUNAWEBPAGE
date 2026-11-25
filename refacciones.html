@@ -65,173 +65,205 @@
 </div>
 </div>
 </header>
-<main id="contenido">
+<main id="contenido" class="parts-page">
 <section class="catalog-shell" id="catalogo-hooks" aria-labelledby="catalog-title">
   <div class="catalog-intro">
-    <p class="catalog-kicker">CATÁLOGO SOLTEX</p>
-    <h1 id="catalog-title">Refacciones por código</h1>
-    <p class="catalog-lead">Encuentra el gancho de tu máquina por número de parte, marca o modelo y cotízalo por WhatsApp.</p>
-    <div class="catalog-search">
-      <label for="searchInput">Buscar refacción</label>
-      <input type="search" id="searchInput" placeholder="Ej. HSH-7.94BTR, SH282 o Juki AMS-210" autocomplete="off" aria-controls="catalog-results">
-      <div class="catalog-examples"><span>Prueba con</span> <button type="button" data-example="HSH-7.94BTR">HSH-7.94BTR</button> <button type="button" data-example="SH282">SH282</button> <button type="button" data-example="18-10842">18-10842</button></div>
+    <div class="catalog-intro-text">
+      <h1 id="catalog-title">Refacciones industriales</h1>
+      <p class="catalog-lead">Ganchos, lanzaderas y consumibles para máquinas de coser.</p>
+      <a class="catalog-jump" href="#consumibles-por-maquina">Ver consumibles por máquina</a>
     </div>
-    <a class="catalog-jump" href="#consumibles-por-maquina">Ver consumibles por máquina</a>
+    <img class="catalog-intro-photo" src="/images/hooks/hsh-7-94btr.webp" alt="Gancho Hirose HSH-7.94BTR con su empaque" width="720" height="520">
   </div>
   <div class="catalog-list">
-    <div class="catalog-toolbar">
-      <h2>Ganchos y lanzaderas</h2>
-      <label>Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option></select></label>
+    <h2>Ganchos y lanzaderas</h2>
+    <div class="catalog-toolbar catalog-controls">
+      <div class="catalog-search">
+        <label for="searchInput">Buscar por código o máquina</label>
+        <input type="search" id="searchInput" placeholder="Ej. SH282 o Juki AMS-210" autocomplete="off" aria-controls="catalog-results">
+      </div>
+      <label for="catalog-brand">Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option></select></label>
     </div>
     <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">30 referencias</p>
+    <div class="catalog-column-headers" aria-hidden="true"><span>Número de parte</span><span>Marca</span><span>Aplicación</span><span></span></div>
     <ul id="catalog-results" class="catalog-results">
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-107-61252-cm.html">107-61252-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-107-61252-cm.html">107-61252-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Juki LU-2210</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20107-61252-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 107-61252-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-130-09-152.html">130.09.152</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-130-09-152.html">130.09.152</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>JAM · equivalente original 18-10842</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20130.09.152.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 130.09.152 por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-400-61991-cm.html">400-61991-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-400-61991-cm.html">400-61991-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Juki AMS-210</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20400-61991-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 400-61991-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-401-30034-cm.html">401-30034-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-401-30034-cm.html">401-30034-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Juki PLC-2760</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20401-30034-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 401-30034-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-401-47912-cm.html">401-47912-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-401-47912-cm.html">401-47912-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Juki LU-2828</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20401-47912-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 401-47912-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-0667-155634-cm.html">0667-155634-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-0667-155634-cm.html">0667-155634-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Dürkopp Adler 867</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%200667-155634-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 0667-155634-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-0867-150754-cm.html">0867-150754-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-0867-150754-cm.html">0867-150754-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Dürkopp Adler 867-M</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%200867-150754-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 0867-150754-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-dp2-800fr.html">DP2-800FR</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-dp2-800fr.html">DP2-800FR</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Ojaladora electrónica Brother HE-8000</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20DP2-800FR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar DP2-800FR por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-dp2-nj-790.html">DP2-NJ(790)</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-dp2-nj-790.html">DP2-NJ(790)</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Ojaladoras electrónicas Juki</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20DP2-NJ(790).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar DP2-NJ(790) por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hg12mc-1-tr.html">HG12MC(1)TR</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hg12mc-1-tr.html">HG12MC(1)TR</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Hook jumbo · Bobina CP-G12M(BR)TR</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HG12MC(1)TR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HG12MC(1)TR por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hlk-280.html">HLK-280</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hlk-280.html">HLK-280</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Presilladoras / bartack</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HLK-280.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HLK-280 por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hlk-430h.html">HLK-430H</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hlk-430h.html">HLK-430H</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Hook para presilladora</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HLK-430H.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HLK-430H por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hsh-7-94b.html">HSH-7.94B</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hsh-7-94b.html">HSH-7.94B</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Recta convencional sin corte</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-7.94B.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-7.94B por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hsh-7-94btr.html">HSH-7.94BTR</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hsh-7-94btr.html">HSH-7.94BTR</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Recta automática con cortahílo</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-7.94BTR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-7.94BTR por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hsh-12-15-l.html">HSH-12-15-L</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hsh-12-15-l.html">HSH-12-15-L</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Dos agujas con hook chico</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-12-15-L.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-12-15-L por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hsh-12m-br.html">HSH-12M(BR)</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hsh-12m-br.html">HSH-12M(BR)</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Dos agujas con hook jumbo</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-12M(BR).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-12M(BR) por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-hsm-a1hmtr.html">HSM-A1HMTR</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-hsm-a1hmtr.html">HSM-A1HMTR</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Hook para patronera</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSM-A1HMTR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSM-A1HMTR por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs12-ryp.html">KHS12-RYP</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs12-ryp.html">KHS12-RYP</a>
+          <span class="catalog-brand">Koban</span>
           <p>Bordado chico estándar con cortahílo</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYP por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs12-rypicc.html">KHS12-RYPICC</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs12-rypicc.html">KHS12-RYPICC</a>
+          <span class="catalog-brand">Koban</span>
           <p>Bordado chico con recubrimiento DLC</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYPICC.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYPICC por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs12-rypn.html">KHS12-RYPN</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs12-rypn.html">KHS12-RYPN</a>
+          <span class="catalog-brand">Koban</span>
           <p>Bordado chico con base de teflón</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYPN.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYPN por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs20-rmp.html">KHS20-RMP</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs20-rmp.html">KHS20-RMP</a>
+          <span class="catalog-brand">Koban</span>
           <p>Patroneras y aplicaciones programables</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RMP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RMP por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs20-ryp.html">KHS20-RYP</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs20-ryp.html">KHS20-RYP</a>
+          <span class="catalog-brand">Koban</span>
           <p>Bordado jumbo estándar con cortahílo</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RYP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RYP por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-khs20-rypn.html">KHS20-RYPN</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-khs20-rypn.html">KHS20-RYPN</a>
+          <span class="catalog-brand">Koban</span>
           <p>Bordado jumbo con base de teflón</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RYPN.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RYPN por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-krp-41lh.html">KRP-41LH</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-krp-41lh.html">KRP-41LH</a>
+          <span class="catalog-brand">Koban</span>
           <p>Hook para ojaladora de ojal recto</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KRP-41LH.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KRP-41LH por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-mp43a0120-cm.html">MP43A0120-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-mp43a0120-cm.html">MP43A0120-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Mitsubishi LU2 · dos agujas / triple arrastre</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20MP43A0120-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar MP43A0120-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="cerliani">
-          <div><a class="catalog-code" href="/refacciones/cerliani-sa8197-101-g-cm.html">SA8197-101(G)-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <a class="catalog-code" href="/refacciones/cerliani-sa8197-101-g-cm.html">SA8197-101(G)-CM</a>
+          <span class="catalog-brand">Cerliani</span>
           <p>Brother BAS-311 / BAS-326 / BAS-342</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20SA8197-101(G)-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SA8197-101(G)-CM por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-sh282.html">SH282</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-sh282.html">SH282</a>
+          <span class="catalog-brand">Koban</span>
           <p>Juki LK-1850J / LK-1900</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20SH282.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SH282 por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="koban">
-          <div><a class="catalog-code" href="/refacciones/koban-skrt875lk.html">SKRT875LK</a><span class="catalog-brand">Koban</span></div>
+          <a class="catalog-code" href="/refacciones/koban-skrt875lk.html">SKRT875LK</a>
+          <span class="catalog-brand">Koban</span>
           <p>Hook para recta de dos agujas</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20SKRT875LK.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SKRT875LK por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-tc-lk-2a.html">TC-LK(2A)</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-tc-lk-2a.html">TC-LK(2A)</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Hook para máquina de remate</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20TC-LK(2A).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar TC-LK(2A) por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
-          <div><a class="catalog-code" href="/refacciones/hirose-tc-lk-3b.html">TC-LK(3B)</a><span class="catalog-brand">Hirose</span></div>
+          <a class="catalog-code" href="/refacciones/hirose-tc-lk-3b.html">TC-LK(3B)</a>
+          <span class="catalog-brand">Hirose</span>
           <p>Patroneras Juki AMS y Brother BAS</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20TC-LK(3B).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar TC-LK(3B) por WhatsApp">Cotizar</a>
         </li>
@@ -240,411 +272,41 @@
       <p>No encontramos ese código. Mándanos el modelo de tu máquina o una foto de la pieza.</p>
       <button type="button" id="catalog-reset">Limpiar búsqueda</button>
     </div>
-    <div class="catalog-help"><p>¿Buscas otro tipo de pieza?</p><a href="#consumibles-por-maquina">Ver consumibles por máquina</a><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20una%20refacci%C3%B3n.%20Les%20comparto%20el%20c%C3%B3digo%20o%20el%20modelo%20de%20la%20m%C3%A1quina%20para%20cotizar." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div>
+    <div class="catalog-help"><p>¿No tenés el código?</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20una%20refacci%C3%B3n.%20Les%20comparto%20el%20c%C3%B3digo%20o%20el%20modelo%20de%20la%20m%C3%A1quina%20para%20cotizar." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div>
   </div>
 </section>
-<!-- Brands We Service -->
-<section class="py-8 surface-1 border-b border-c">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<span class="eyebrow block text-center mb-5">Refacciones para estas marcas</span>
-<div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto font-mono text-sm">
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Juki</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Pegasus</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Yamato</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Brother</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Zoje</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Jack</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Supreme</span>
-<span class="px-4 py-1.5 border border-c surface-2 text-2">Dürkopp Adler</span>
-<span class="px-4 py-1.5 text-2">y más</span>
-</div>
-<p class="text-center text-sm text-2 mt-4">¿No ves tu marca? Manejamos más de 50,000 SKUs en existencia entre todo el grupo. <a href="https://wa.me/528715246072?text=Hola%2C%20busco%20una%20refacci%C3%B3n%2C%20%C2%BFla%20manejan%3F" class="accent font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por WhatsApp →</a></p>
-</div>
+<section class="parts-section" id="consumibles-por-maquina">
+  <h2>Consumibles por máquina</h2>
+  <p>Confirma la pieza con el modelo y submodelo de tu máquina.</p>
+  <ul class="parts-machine-list">
+    <li><h3>Overlock</h3><p>Agujas · looper superior e inferior · cuchilla superior e inferior · placa de aguja · dientes de arrastre · prensatelas · guarda-agujas</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20overlock.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Recta de 1 aguja</h3><p>Agujas · bobinas · caja de bobina · garfio rotativo · placa de aguja · dientes de arrastre · prensatelas · cuchillas de cortahilo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20recta%20de%201%20aguja.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Recta de 2 agujas</h3><p>Agujas · bobinas y cajas de bobina · garfios · placa de aguja · dientes de arrastre · prensatelas · gauge o juego de calibre</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20recta%20de%202%20agujas.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Presilladora / Bartack</h3><p>Agujas · bobinas · caja de bobina · garfio · placa de aguja · prensatelas o clamp · cuchillas de cortahilo · retirahilos</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20presilladora%20o%20bartack.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Ojaladora</h3><p>Agujas · cuchilla de ojal · bloque de corte · placa de aguja · prensatelas o clamp · garfio y portabobina · cuchillas de cortahilo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20ojaladora.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Multiagujas / Pretinadora</h3><p>Agujas · loopers · guarda-agujas · placa de aguja · dientes de arrastre · prensatelas · puller y rodillos · gauge completo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20multiagujas%20o%20pretinadora.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Triple arrastre</h3><p>Agujas · garfio · bobinas · caja de bobina · placa de aguja · dientes de arrastre · prensatelas interior y exterior · cuchillas de cortahilo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20triple%20arrastre.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+    <li><h3>Coverstitch / Collaretera</h3><p>Agujas · looper · spreader · guarda-agujas · placa de aguja · dientes de arrastre · prensatelas · puller y rodillos</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20coverstitch%20o%20collaretera.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+  </ul>
 </section>
-<!-- Consumibles por tipo de máquina -->
-<section id="consumibles-por-maquina" class="py-16 border-b border-c" style="background:var(--canvas);">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="eyebrow">[ Alta rotación ]</span>
-    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mt-3 mb-10">
-      <div class="max-w-3xl">
-        <h2 class="font-display text-3xl md:text-4xl font-semibold mb-4">Consumibles por tipo de máquina</h2>
-        <p class="text-2 leading-relaxed">Manejamos las piezas de mayor desgaste para los equipos más utilizados en confección. Para confirmar compatibilidad, envíanos la marca, el modelo y una fotografía de la pieza o de la placa de identificación.</p>
-      </div>
-      <a class="btn-ghost px-5 py-3 text-sm font-semibold inline-flex items-center justify-center gap-2 flex-shrink-0" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20consumibles.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-        <i class="w-4 h-4" data-lucide="message-circle"></i> Cotizar por WhatsApp
-      </a>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px surface-2">
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">01</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Overlock</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
+<section class="parts-section" id="categorias-refacciones">
+  <div class="catalog-toolbar"><h2>Otras categorías</h2><label for="catalog-category">Categoría <select id="catalog-category"><option value="">Todas las categorías</option><option value="hooks">Hooks / Ganchos y Lanzaderas</option><option value="loopers">Loopers (Overlock / Coverstitch)</option><option value="placas">Placas de Aguja (Needle Plates)</option><option value="dientes">Dientes / Feed Dogs</option><option value="prensatelas">Prensatelas</option><option value="gauges">Gauges / Sets completos</option><option value="pullers">Pullers (Sistemas de arrastre)</option><option value="electronica">Electrónica (cajas, paneles, sensores)</option><option value="aditamentos">Aditamentos para semi-automatización</option><option value="carretes">Carretes / Spools / Accesorios de hilo</option><option value="bobinas">Bobinas / Cajas de bobina</option><option value="consumibles">Accesorios y consumibles</option><option value="tijeras">Tijeras Mundial</option><option value="feedrail">Partes para FeedRail / Rieles</option></select></label></div>
+  <div id="partsGrid" class="parts-category-list">
+    <details class="part-card" data-category="hooks"><summary>Hooks / Ganchos y Lanzaderas</summary><div><p>Ganchos rotativos, oscilantes y ensambles completos para rectas, dobles y especiales.</p><p>Rotativos / Oscilantes · Ensamble completo · Compatibilidad por modelo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Hooks%20%2F%20Ganchos%20y%20Lanzaderas." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="loopers"><summary>Loopers (Overlock / Coverstitch)</summary><div><p>Loopers superior/inferior, spreaders y componentes para remalladoras y cobertoras.</p><p>Looper superior / inferior · Spreader · Para Pegasus / Yamato / Supreme</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Loopers%20(Overlock%20%2F%20Coverstitch)." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="placas"><summary>Placas de Aguja (Needle Plates)</summary><div><p>Placas de aguja y throat plates para diferentes calibres, puntadas y aplicaciones.</p><p>Por calibre y aplicación · Para recta / overlock / cover · Versiones originales y compatibles</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Placas%20de%20Aguja%20(Needle%20Plates)." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="dientes"><summary>Dientes / Feed Dogs</summary><div><p>Dientes de arrastre y componentes de alimentación para mejorar tracción y control.</p><p>Diferentes pasos · Alturas y perfiles · Para telas ligeras a pesadas</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Dientes%20%2F%20Feed%20Dogs." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="prensatelas"><summary>Prensatelas</summary><div><p>Prensatelas universales y especializados: zipper, teflón, roller, piping, etc.</p><p>Zipper / Teflón / Roller · Piping / Compensado · Según operación</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Prensatelas." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="gauges"><summary>Gauges / Sets completos</summary><div><p>Gauges, folders, binders y sets completos para operaciones repetibles con precisión.</p><p>Folders / Binders · Guías y topes · Sets por operación</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Gauges%20%2F%20Sets%20completos." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="pullers"><summary>Pullers (Sistemas de arrastre)</summary><div><p>Pullers, rodillos y unidades de arrastre para estabilizar costuras en tejido de punto y denim.</p><p>Unidades completas · Rodillos y accesorios · Ajuste según material</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Pullers%20(Sistemas%20de%20arrastre)." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="electronica"><summary>Electrónica (cajas, paneles, sensores)</summary><div><p>Partes electrónicas y eléctricas para máquinas automáticas y direct-drive.</p><p>Cajas electrónicas · Paneles / displays · Sensores / solenoides</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Electr%C3%B3nica%20(cajas%2C%20paneles%2C%20sensores)." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="aditamentos"><summary>Aditamentos para semi-automatización</summary><div><p>Aditamentos y accesorios para mejorar flujo: cortahilo, guías, succión, stands, etc.</p><p>Cortahilo / succión · Guías y topes · Mejora de proceso</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Aditamentos%20para%20semi-automatizaci%C3%B3n." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="carretes"><summary>Carretes / Spools / Accesorios de hilo</summary><div><p>Carretes, soportes, tensores y accesorios relacionados con hilo y alimentación.</p><p>Soportes de hilo · Tensores · Accesorios de alimentación</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Carretes%20%2F%20Spools%20%2F%20Accesorios%20de%20hilo." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="bobinas"><summary>Bobinas / Cajas de bobina</summary><div><p>Bobinas, bobbin case, carriers y componentes relacionados para diferentes marcas y modelos.</p><p>Bobinas estándar y especiales · Cajas de bobina · Compatibilidad por modelo</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Bobinas%20%2F%20Cajas%20de%20bobina." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="consumibles"><summary>Accesorios y consumibles</summary><div><p>Consumibles de taller: aceite, bandas, tornillería, navajas, herramientas y más.</p><p>Aceites y lubricación · Bandas y tornillería · Navajas / herramientas</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Accesorios%20y%20consumibles." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="tijeras"><summary>Tijeras Mundial</summary><div><p>Tijeras profesionales Mundial para corte textil, acabados y trabajo de planta.</p><p>Corte industrial · Ergonomía · Modelos para diferentes usos</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Tijeras%20Mundial." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
+    <details class="part-card" data-category="feedrail"><summary>Partes para FeedRail / Rieles</summary><div><p>Componentes para rieles FeedRail: rieles, carros, ruedas, soportes y brackets.</p><p>Rieles y carros · Ruedas y soportes · Armado por estación</p><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20refacciones%20de%20Partes%20para%20FeedRail%20%2F%20Rieles." target="_blank" rel="noopener noreferrer">Cotizar</a></div></details>
   </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · looper superior e inferior · cuchilla superior e inferior · placa de aguja · dientes de arrastre · prensatelas · guarda-agujas</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20overlock.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">02</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Recta de 1 aguja</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · bobinas · caja de bobina · garfio rotativo · placa de aguja · dientes de arrastre · prensatelas · cuchillas de cortahilo</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20recta%20de%201%20aguja.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">03</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Recta de 2 agujas</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · bobinas y cajas de bobina · garfios · placa de aguja · dientes de arrastre · prensatelas · gauge o juego de calibre</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20recta%20de%202%20agujas.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">04</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Presilladora / Bartack</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · bobinas · caja de bobina · garfio · placa de aguja · prensatelas o clamp · cuchillas de cortahilo · retirahilos</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20presilladora%20o%20bartack.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">05</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Ojaladora</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · cuchilla de ojal · bloque de corte · placa de aguja · prensatelas o clamp · garfio y portabobina · cuchillas de cortahilo</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20ojaladora.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">06</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Multiagujas / Pretinadora</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · loopers · guarda-agujas · placa de aguja · dientes de arrastre · prensatelas · puller y rodillos · gauge completo</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20multiagujas%20o%20pretinadora.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">07</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Triple arrastre</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · garfio · bobinas · caja de bobina · placa de aguja · dientes de arrastre · prensatelas interior y exterior · cuchillas de cortahilo</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20triple%20arrastre.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-<article class="surface-1 border border-c p-6 flex flex-col">
-  <div class="flex items-start justify-between gap-4 mb-4">
-    <div>
-      <span class="font-mono text-xs text-2">08</span>
-      <h3 class="font-display text-lg font-semibold mt-2">Coverstitch / Collaretera</h3>
-    </div>
-    <i class="w-5 h-5 accent flex-shrink-0" data-lucide="settings"></i>
-  </div>
-  <p class="text-2 text-sm leading-relaxed flex-1">Agujas · looper · spreader · guarda-agujas · placa de aguja · dientes de arrastre · prensatelas · puller y rodillos</p>
-  <a class="inline-flex items-center gap-2 text-sm accent font-semibold mt-5" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20consumibles%20para%20una%20m%C3%A1quina%20coverstitch%20o%20collaretera.%20Les%20comparto%20marca%2C%20modelo%20y%20fotos." target="_blank" rel="noopener noreferrer">
-    Consultar consumibles <i class="w-4 h-4" data-lucide="arrow-right"></i>
-  </a>
-</article>
-    </div>
-    <p class="font-mono text-xs text-2 mt-6">La compatibilidad y el número de parte pueden variar según marca, submodelo, calibre y aplicación.</p>
-  </div>
-</section>
-
-<!-- Parts Grid -->
-<section class="py-16" style="background:var(--canvas);">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="catalog-toolbar mb-5"><h2 class="font-display text-3xl font-semibold">Más categorías de refacciones</h2><label>Categoría <select id="catalog-category"><option value="">Todas las categorías</option><option value="hooks">Hooks / Ganchos y Lanzaderas</option><option value="loopers">Loopers (Overlock / Coverstitch)</option><option value="placas">Placas de Aguja (Needle Plates)</option><option value="dientes">Dientes / Feed Dogs</option><option value="prensatelas">Prensatelas</option><option value="gauges">Gauges / Sets completos</option><option value="pullers">Pullers (Sistemas de arrastre)</option><option value="electronica">Electrónica (cajas, paneles, sensores)</option><option value="aditamentos">Aditamentos para semi-automatización</option><option value="carretes">Carretes / Spools / Accesorios de hilo</option><option value="bobinas">Bobinas / Cajas de bobina</option><option value="consumibles">Accesorios y consumibles</option><option value="tijeras">Tijeras Mundial</option><option value="feedrail">Partes para FeedRail / Rieles</option></select></label></div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="partsGrid">
-<!-- Hooks / Ganchos y Lanzaderas -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="hooks">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="hooks - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/hooks.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Hooks / Ganchos y Lanzaderas</h3>
-<p class="text-2 text-sm mb-4">Ganchos rotativos, oscilantes y ensambles completos para rectas, dobles y especiales.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rotativos / Oscilantes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ensamble completo</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Compatibilidad por modelo</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Loopers (Overlock / Coverstitch) -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="loopers">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="loopers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/loopers.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Loopers (Overlock / Coverstitch)</h3>
-<p class="text-2 text-sm mb-4">Loopers superior/inferior, spreaders y componentes para remalladoras y cobertoras.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Looper superior / inferior</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Spreader</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para Pegasus / Yamato / Supreme</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Placas de Aguja (Needle Plates) -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="placas">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="placas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/placas-aguja.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Placas de Aguja (Needle Plates)</h3>
-<p class="text-2 text-sm mb-4">Placas de aguja y throat plates para diferentes calibres, puntadas y aplicaciones.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Por calibre y aplicación</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para recta / overlock / cover</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Versiones originales y compatibles</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Dientes / Feed Dogs -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="dientes">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="dientes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/dientes-feed-dogs.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Dientes / Feed Dogs</h3>
-<p class="text-2 text-sm mb-4">Dientes de arrastre y componentes de alimentación para mejorar tracción y control.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Diferentes pasos</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Alturas y perfiles</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Para telas ligeras a pesadas</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Prensatelas -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="prensatelas">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="prensatelas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/prensatelas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Prensatelas</h3>
-<p class="text-2 text-sm mb-4">Prensatelas universales y especializados: zipper, teflón, roller, piping, etc.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Zipper / Teflón / Roller</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Piping / Compensado</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Según operación</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Gauges / Sets completos -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="gauges">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="gauges - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/gauges-set.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Gauges / Sets completos</h3>
-<p class="text-2 text-sm mb-4">Gauges, folders, binders y sets completos para operaciones repetibles con precisión.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Folders / Binders</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Guías y topes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Sets por operación</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Pullers (Sistemas de arrastre) -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="pullers">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="pullers - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/pullers.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Pullers (Sistemas de arrastre)</h3>
-<p class="text-2 text-sm mb-4">Pullers, rodillos y unidades de arrastre para estabilizar costuras en tejido de punto y denim.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Unidades completas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rodillos y accesorios</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ajuste según material</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Electrónica (cajas, paneles, sensores) -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="electronica">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="electronica - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/cajas-electronicas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Electrónica (cajas, paneles, sensores)</h3>
-<p class="text-2 text-sm mb-4">Partes electrónicas y eléctricas para máquinas automáticas y direct-drive.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cajas electrónicas</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Paneles / displays</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Sensores / solenoides</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Aditamentos para semi-automatización -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="aditamentos">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="aditamentos - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/aditamentos-semi-auto.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Aditamentos para semi-automatización</h3>
-<p class="text-2 text-sm mb-4">Aditamentos y accesorios para mejorar flujo: cortahilo, guías, succión, stands, etc.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cortahilo / succión</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Guías y topes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Mejora de proceso</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Carretes / Spools / Accesorios de hilo -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="carretes">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="carretes - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/carretes.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Carretes / Spools / Accesorios de hilo</h3>
-<p class="text-2 text-sm mb-4">Carretes, soportes, tensores y accesorios relacionados con hilo y alimentación.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Soportes de hilo</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Tensores</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Accesorios de alimentación</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Bobinas / Cajas de bobina -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="bobinas">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="bobinas - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/bobinas.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Bobinas / Cajas de bobina</h3>
-<p class="text-2 text-sm mb-4">Bobinas, bobbin case, carriers y componentes relacionados para diferentes marcas y modelos.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Bobinas estándar y especiales</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Cajas de bobina</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Compatibilidad por modelo</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Accesorios y consumibles -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="consumibles">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="consumibles - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/accesorios-consumibles.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Accesorios y consumibles</h3>
-<p class="text-2 text-sm mb-4">Consumibles de taller: aceite, bandas, tornillería, navajas, herramientas y más.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Aceites y lubricación</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Bandas y tornillería</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Navajas / herramientas</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Tijeras Mundial -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="tijeras">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="tijeras - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/tijeras-mundial.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Tijeras Mundial</h3>
-<p class="text-2 text-sm mb-4">Tijeras profesionales Mundial para corte textil, acabados y trabajo de planta.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Corte industrial</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ergonomía</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Modelos para diferentes usos</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div><!-- Partes para FeedRail / Rieles -->
-<div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="feedrail">
-<div class="h-48 surface-2 relative overflow-hidden flex items-center justify-center"><img alt="feedrail - SOLTEX" class="w-full h-full object-cover" src="images/refacciones/feedrail-riel.jpg"/><div class="absolute top-3 right-3 badge-accent-v2">Categoría</div></div>
-<div class="p-5">
-<div class="eyebrow mb-1">Refacciones</div>
-<h3 class="text-lg font-display font-semibold mb-2 part-name">Partes para FeedRail / Rieles</h3>
-<p class="text-2 text-sm mb-4">Componentes para rieles FeedRail: rieles, carros, ruedas, soportes y brackets.</p>
-<ul class="text-sm text-2 mb-5 space-y-2 font-mono">
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Rieles y carros</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Ruedas y soportes</li>
-<li class="flex items-center gap-2"><i class="w-4 h-4 accent" data-lucide="check"></i> Armado por estación</li>
-</ul>
-<a class="block w-full btn-primary text-center py-2.5 font-semibold transition text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-      Pedir lista / cotizar
-    </a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Features -->
-<section class="py-16" style="background:var(--canvas);">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-px surface-2">
-<div class="text-center p-8 surface-1 border border-c">
-<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
-<i class="w-7 h-7 accent" data-lucide="package-check"></i>
-</div>
-<h4 class="text-lg font-display font-semibold mb-2">Refacciones originales</h4>
-<p class="text-2 text-sm">Piezas genuinas y OEM con garantía de fábrica.</p>
-</div>
-<div class="text-center p-8 surface-1 border border-c">
-<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
-<i class="w-7 h-7 accent" data-lucide="truck"></i>
-</div>
-<h4 class="text-lg font-display font-semibold mb-2">Envío inmediato</h4>
-<p class="text-2 text-sm">Entrega rápida desde nuestras oficinas de Torreón y Puebla a toda la República Mexicana.</p>
-</div>
-<div class="text-center p-8 surface-1 border border-c">
-<div class="w-14 h-14 surface-2 border border-c flex items-center justify-center mx-auto mb-4">
-<i class="w-7 h-7 accent" data-lucide="badge-check"></i>
-</div>
-<h4 class="text-lg font-display font-semibold mb-2">Garantía de compatibilidad</h4>
-<p class="text-2 text-sm">Verificamos que cada pieza sea compatible con tu máquina.</p>
-</div>
-</div>
-</div>
 </section>
 </main>
 <!-- Footer -->
@@ -710,6 +372,6 @@
 
     </script>
 <script defer src="/js/catalogo-refacciones.js"></script>
-<script src="js/quote-links.js"></script>
+
 </body>
 </html>
