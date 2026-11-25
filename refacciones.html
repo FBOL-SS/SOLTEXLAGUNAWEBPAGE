@@ -58,16 +58,23 @@
     <img class="catalog-intro-photo" src="/images/hooks/hsh-7-94btr.webp" alt="Gancho Hirose HSH-7.94BTR con su empaque" width="720" height="520">
   </div>
   <div class="catalog-list">
-    <h2>Ganchos y lanzaderas</h2>
+    <h2 id="model-nav-title">Refacciones por modelo</h2>
+    <ul class="model-links" aria-labelledby="model-nav-title">
+      <li><a href="/refacciones/modelo-brother-lt2-b842.html">Brother LT2-B842</a></li>
+      <li><a href="/refacciones/modelo-jack-a4.html">Jack A4</a></li>
+      <li><a href="/refacciones/modelo-yamato-vc2713-ut.html">Yamato VC2713-UT</a></li>
+      <li><a href="/refacciones/modelo-yamato-vc3845p.html">Yamato VC3845P</a></li>
+    </ul>
+    <h2>Buscar en el catálogo</h2>
     <div class="catalog-toolbar catalog-controls">
       <div class="catalog-search">
         <label for="searchInput">Buscar por código o máquina</label>
-        <input type="search" id="searchInput" placeholder="Ej. SH282 o Juki AMS-210" autocomplete="off" aria-controls="catalog-results">
+        <input type="search" id="searchInput" placeholder="Ej. SH282, 3100512 o Jack A4" autocomplete="off" aria-controls="catalog-results">
       </div>
-      <label for="catalog-brand">Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option></select></label>
+      <label for="catalog-brand">Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option><option value="brother">Brother</option><option value="jack">Jack</option><option value="yamato">Yamato</option></select></label>
     </div>
-    <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">30 referencias</p>
-    <div class="catalog-column-headers" aria-hidden="true"><span>Número de parte</span><span>Marca</span><span>Aplicación</span><span></span></div>
+    <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">49 referencias</p>
+    <div class="catalog-column-headers" aria-hidden="true"><span>Número de parte</span><span>Marca</span><span>Pieza y aplicación</span><span></span></div>
     <ul id="catalog-results" class="catalog-results">
         <li class="catalog-row" data-brand="cerliani">
           <a class="catalog-code" href="/refacciones/cerliani-107-61252-cm.html">107-61252-CM</a>
@@ -93,7 +100,7 @@
           <p>Juki PLC-2760</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20401-30034-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 401-30034-CM por WhatsApp">Cotizar</a>
         </li>
-        <li class="catalog-row" data-brand="cerliani">
+        <li class="catalog-row" data-brand="cerliani" data-aliases="401-95292">
           <a class="catalog-code" href="/refacciones/cerliani-401-47912-cm.html">401-47912-CM</a>
           <span class="catalog-brand">Cerliani</span>
           <p>Juki LU-2828</p>
@@ -123,10 +130,10 @@
           <p>Ojaladoras electrónicas Juki</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20DP2-NJ(790).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar DP2-NJ(790) por WhatsApp">Cotizar</a>
         </li>
-        <li class="catalog-row" data-brand="hirose">
+        <li class="catalog-row" data-brand="hirose" data-machine-brand="brother">
           <a class="catalog-code" href="/refacciones/hirose-hg12mc-1-tr.html">HG12MC(1)TR</a>
           <span class="catalog-brand">Hirose</span>
-          <p>Hook jumbo · Bobina CP-G12M(BR)TR</p>
+          <p>Gancho jumbo · Brother LT2-B842 · Bobina CP-G12M(BR)TR</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HG12MC(1)TR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HG12MC(1)TR por WhatsApp">Cotizar</a>
         </li>
         <li class="catalog-row" data-brand="hirose">
@@ -231,7 +238,7 @@
           <p>Juki LK-1850J / LK-1900</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20SH282.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SH282 por WhatsApp">Cotizar</a>
         </li>
-        <li class="catalog-row" data-brand="koban">
+        <li class="catalog-row" data-brand="koban" data-aliases="S09265-9-01">
           <a class="catalog-code" href="/refacciones/koban-skrt875lk.html">SKRT875LK</a>
           <span class="catalog-brand">Koban</span>
           <p>Hook para recta de dos agujas</p>
@@ -248,6 +255,120 @@
           <span class="catalog-brand">Hirose</span>
           <p>Patroneras Juki AMS y Brother BAS</p>
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20TC-LK(3B).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar TC-LK(3B) por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-mn72a0123-bro.html">MN72A0123-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Bobina · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Bobina%20(MN72A0123-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar MN72A0123-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-kh842-nc-1-4-bro.html">KH842-NC 1/4-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Sujetador de aguja de ¼″ · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Sujetador%20de%20aguja%20de%20%C2%BC%E2%80%B3%20(KH842-NC%201%2F4-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KH842-NC 1/4-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-s07689001-bro.html">S07689001-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Placa de aguja · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Placa%20de%20aguja%20(S07689001-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar S07689001-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-158782151-bro.html">158782151-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Resorte de pretensión · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Resorte%20de%20pretensi%C3%B3n%20(158782151-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 158782151-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-s13160-001-bro.html">S13160-001-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Deslizador de la palanca tirahilo · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Deslizador%20de%20la%20palanca%20tirahilo%20(S13160-001-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar S13160-001-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="brother">
+          <a class="catalog-code" href="/refacciones/brother-151029001-bro.html">151029001-BRO</a>
+          <span class="catalog-brand">Brother</span>
+          <p>Tornillo de ajuste de tensión · Brother LT2-B842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Tornillo%20de%20ajuste%20de%20tensi%C3%B3n%20(151029001-BRO)%20para%20Brother%20LT2-B842.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 151029001-BRO por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-11315001.html">11315001</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Placa de aguja · Jack A4</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Placa%20de%20aguja%20(11315001)%20para%20Jack%20A4.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 11315001 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-11319003.html">11319003</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Cuchilla móvil (H) · Jack A4 · Versión H</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20m%C3%B3vil%20(H)%20(11319003)%20para%20Jack%20A4%20%C2%B7%20Versi%C3%B3n%20H.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 11319003 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-113819005.html">113819005</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Cuchilla · Jack A4 · Jack JK-A4-H</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20(113819005)%20para%20Jack%20A4%20%C2%B7%20Jack%20JK-A4-H.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 113819005 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-1131600300.html">1131600300</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Prensatelas (H) · Jack A4 · Versión H</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Prensatelas%20(H)%20(1131600300)%20para%20Jack%20A4%20%C2%B7%20Versi%C3%B3n%20H.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 1131600300 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-11402039.html">11402039</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Barra de agujas · Jack A4 · También indicada para Jack A7 y Shirley II</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Barra%20de%20agujas%20(11402039)%20para%20Jack%20A4%20%C2%B7%20Tambi%C3%A9n%20indicada%20para%20Jack%20A7%20y%20Shirley%20II.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 11402039 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-10103010.html">10103010</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Buje inferior de la barra de agujas · Jack A4</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Buje%20inferior%20de%20la%20barra%20de%20agujas%20(10103010)%20para%20Jack%20A4.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 10103010 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-1383103900.html">1383103900</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Devanador de bobina · Jack A4</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Devanador%20de%20bobina%20(1383103900)%20para%20Jack%20A4.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 1383103900 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-13833015.html">13833015</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Tapa frontal · Jack A4</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Tapa%20frontal%20(13833015)%20para%20Jack%20A4.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 13833015 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="jack">
+          <a class="catalog-code" href="/refacciones/jack-10113002.html">10113002</a>
+          <span class="catalog-brand">Jack</span>
+          <p>Guía de hilo del sujetador de aguja · Jack A4</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Gu%C3%ADa%20de%20hilo%20del%20sujetador%20de%20aguja%20(10113002)%20para%20Jack%20A4.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 10113002 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="yamato">
+          <a class="catalog-code" href="/refacciones/yamato-3100512.html">3100512</a>
+          <span class="catalog-brand">Yamato</span>
+          <p>Cuchilla superior · Yamato VC2713-UT</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20superior%20(3100512)%20para%20Yamato%20VC2713-UT.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 3100512 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="yamato">
+          <a class="catalog-code" href="/refacciones/yamato-3100513.html">3100513</a>
+          <span class="catalog-brand">Yamato</span>
+          <p>Cuchilla inferior · Yamato VC2713-UT</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20inferior%20(3100513)%20para%20Yamato%20VC2713-UT.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 3100513 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="yamato">
+          <a class="catalog-code" href="/refacciones/yamato-3120150.html">3120150</a>
+          <span class="catalog-brand">Yamato</span>
+          <p>Cuchilla superior de cortahílo · Yamato VC3845P</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20superior%20de%20cortah%C3%ADlo%20(3120150)%20para%20Yamato%20VC3845P.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 3120150 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="yamato">
+          <a class="catalog-code" href="/refacciones/yamato-3120151.html">3120151</a>
+          <span class="catalog-brand">Yamato</span>
+          <p>Cuchilla inferior · Yamato VC3845P</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20inferior%20(3120151)%20para%20Yamato%20VC3845P.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 3120151 por WhatsApp">Cotizar</a>
         </li>
     </ul>
     <div id="catalog-empty" class="catalog-help" hidden>

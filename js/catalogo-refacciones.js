@@ -9,7 +9,7 @@
     const empty = document.querySelector('#catalog-empty');
     const items = Array.from(document.querySelectorAll('.catalog-row'), (row) => ({
       row,
-      code: compact(row.querySelector('.catalog-code').textContent),
+      codes: [row.querySelector('.catalog-code').textContent, ...(row.dataset.aliases || '').split(/\s+/)].filter(Boolean).map(compact),
       text: normalize(row.textContent),
       tokens: row.textContent.split(/\s+/).map(compact)
     }));
@@ -20,10 +20,10 @@
       const words = query.split(/\s+/);
       let count = 0;
       for (const item of items) {
-        const matchesQuery = !query || (code && item.code.includes(code)) ||
+        const matchesQuery = !query || (code && item.codes.some(partCode => partCode.includes(code))) ||
           words.every((word) => item.text.includes(word) ||
             (compact(word).length >= 3 && item.tokens.includes(compact(word))));
-        const visible = (!brand.value || item.row.dataset.brand === brand.value) && matchesQuery;
+        const visible = (!brand.value || item.row.dataset.brand === brand.value || item.row.dataset.machineBrand === brand.value) && matchesQuery;
         item.row.hidden = !visible;
         if (visible) count++;
       }
@@ -57,6 +57,29 @@
       cards.forEach((card) => {
         card.hidden = Boolean(category.value && card.dataset.category !== category.value);
       });
+    });
+  }
+
+  const quoteForm = document.getElementById('model-quote-form');
+  if (quoteForm) {
+    const status = document.getElementById('model-quote-status');
+    quoteForm.querySelector('[type="submit"]').hidden = false;
+    quoteForm.addEventListener('change', () => { status.textContent = ''; });
+    quoteForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const parts = new FormData(quoteForm).getAll('part');
+      if (parts.length === 0) {
+        status.textContent = 'Selecciona al menos una pieza.';
+        quoteForm.querySelector('input[type="checkbox"]').focus();
+        return;
+      }
+      const message = [
+        'Hola SOLTEX, quiero cotizar estas refacciones para ' + quoteForm.dataset.model + ':',
+        ...parts.map(part => '• ' + part),
+        '',
+        '¿Me confirman compatibilidad, precio y disponibilidad?'
+      ].join('\n');
+      window.location.assign('https://wa.me/528715246072?text=' + encodeURIComponent(message));
     });
   }
 
