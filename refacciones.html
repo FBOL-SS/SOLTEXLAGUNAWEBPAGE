@@ -3,7 +3,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Refacciones para Máquinas de Coser Industriales | SOLTEX</title>
+<title>Refacciones por código para máquinas de coser | SOLTEX</title>
+<link rel="canonical" href="https://soltexlagunawebpage.vercel.app/refacciones.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOLTEX Laguna">
+<meta property="og:title" content="Refacciones por código para máquinas de coser | SOLTEX">
+<meta property="og:description" content="Consulta ganchos Hirose, Koban y Cerliani por código, marca o modelo de máquina. Cotiza la pieza por WhatsApp.">
+<meta property="og:url" content="https://soltexlagunawebpage.vercel.app/refacciones.html">
+<meta property="og:image" content="https://soltexlagunawebpage.vercel.app/images/visual_cangrejos_soltex.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/catalogo-refacciones.css">
 <meta content="Hooks, garfios, refacciones y consumibles para overlock, recta, dos agujas, presilladora, ojaladora, multiagujas, pretinadora, triple arrastre y coverstitch. Envío a todo México." name="description"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -13,8 +22,6 @@
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg">
 <link rel="apple-touch-icon" href="images/logo-soltex.svg">
 <link href="style-v2.css" rel="stylesheet"/>
-<style>.search-highlight{background:rgba(224,168,61,0.35); color:var(--text-1); padding:0 2px;}</style>
-
 <!-- Vercel Web Analytics -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -58,48 +65,183 @@
 </div>
 </div>
 </header>
-<!-- Page Header -->
-<section class="pt-32 pb-12 page-hero-v2">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="max-w-3xl">
-<nav class="text-sm mb-4 text-2" aria-label="Breadcrumb">
-<a class="hover:text-white transition" href="index.html">Inicio</a>
-<i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
-<span class="text-white">Refacciones</span>
-</nav>
-<span class="eyebrow">[ Catálogo ]</span>
-<h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3">Refacciones y piezas originales</h1>
-<p class="text-xl text-2">Inventario completo de piezas genuinas y compatibles para toda marca de máquinas industriales. Envío a toda la República Mexicana.</p>
-</div>
-</div>
-</section>
-<!-- Search & Filter Section -->
-<section class="py-8 surface-1 border-b border-c sticky top-16 z-40">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
-<div class="relative w-full lg:w-96">
-<i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-2" data-lucide="search"></i>
-<input class="w-full pl-10 pr-4 py-3 text-sm focus:outline-none" id="searchInput" placeholder="Buscar por nombre, código o máquina…" type="text"/>
-</div>
-<div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 w-full lg:w-auto">
-<button class="category-btn filter-btn-v2 active" data-category="all">Todas</button>
-<button class="category-btn filter-btn-v2" data-category="hooks">Hooks / Lanzaderas</button>
-<button class="category-btn filter-btn-v2" data-category="loopers">Loopers</button>
-<button class="category-btn filter-btn-v2" data-category="placas">Placas de Aguja</button>
-<button class="category-btn filter-btn-v2" data-category="dientes">Dientes / Feed Dogs</button>
-<button class="category-btn filter-btn-v2" data-category="prensatelas">Prensatelas</button>
-<button class="category-btn filter-btn-v2" data-category="gauges">Gauges / Sets</button>
-<button class="category-btn filter-btn-v2" data-category="pullers">Pullers</button>
-<button class="category-btn filter-btn-v2" data-category="electronica">Electrónica</button>
-<button class="category-btn filter-btn-v2" data-category="aditamentos">Aditamentos</button>
-<button class="category-btn filter-btn-v2" data-category="carretes">Carretes</button>
-<button class="category-btn filter-btn-v2" data-category="bobinas">Bobinas</button>
-<button class="category-btn filter-btn-v2" data-category="consumibles">Consumibles</button>
-<button class="category-btn filter-btn-v2" data-category="tijeras">Tijeras Mundial</button>
-<button class="category-btn filter-btn-v2" data-category="feedrail">FeedRail / Rieles</button>
-</div>
-</div>
-</div>
+<main id="contenido">
+<section class="catalog-shell" id="catalogo-hooks" aria-labelledby="catalog-title">
+  <div class="catalog-intro">
+    <p class="catalog-kicker">CATÁLOGO SOLTEX</p>
+    <h1 id="catalog-title">Refacciones por código</h1>
+    <p class="catalog-lead">Encuentra el gancho de tu máquina por número de parte, marca o modelo y cotízalo por WhatsApp.</p>
+    <div class="catalog-search">
+      <label for="searchInput">Buscar refacción</label>
+      <input type="search" id="searchInput" placeholder="Ej. HSH-7.94BTR, SH282 o Juki AMS-210" autocomplete="off" aria-controls="catalog-results">
+      <div class="catalog-examples"><span>Prueba con</span> <button type="button" data-example="HSH-7.94BTR">HSH-7.94BTR</button> <button type="button" data-example="SH282">SH282</button> <button type="button" data-example="18-10842">18-10842</button></div>
+    </div>
+    <a class="catalog-jump" href="#consumibles-por-maquina">Ver consumibles por máquina</a>
+  </div>
+  <div class="catalog-list">
+    <div class="catalog-toolbar">
+      <h2>Ganchos y lanzaderas</h2>
+      <label>Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option></select></label>
+    </div>
+    <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">30 referencias</p>
+    <ul id="catalog-results" class="catalog-results">
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-107-61252-cm.html">107-61252-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Juki LU-2210</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20107-61252-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 107-61252-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-130-09-152.html">130.09.152</a><span class="catalog-brand">Cerliani</span></div>
+          <p>JAM · equivalente original 18-10842</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20130.09.152.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 130.09.152 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-400-61991-cm.html">400-61991-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Juki AMS-210</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20400-61991-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 400-61991-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-401-30034-cm.html">401-30034-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Juki PLC-2760</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20401-30034-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 401-30034-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-401-47912-cm.html">401-47912-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Juki LU-2828</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20401-47912-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 401-47912-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-0667-155634-cm.html">0667-155634-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Dürkopp Adler 867</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%200667-155634-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 0667-155634-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-0867-150754-cm.html">0867-150754-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Dürkopp Adler 867-M</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%200867-150754-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 0867-150754-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-dp2-800fr.html">DP2-800FR</a><span class="catalog-brand">Hirose</span></div>
+          <p>Ojaladora electrónica Brother HE-8000</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20DP2-800FR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar DP2-800FR por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-dp2-nj-790.html">DP2-NJ(790)</a><span class="catalog-brand">Hirose</span></div>
+          <p>Ojaladoras electrónicas Juki</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20DP2-NJ(790).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar DP2-NJ(790) por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hg12mc-1-tr.html">HG12MC(1)TR</a><span class="catalog-brand">Hirose</span></div>
+          <p>Hook jumbo · Bobina CP-G12M(BR)TR</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HG12MC(1)TR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HG12MC(1)TR por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hlk-280.html">HLK-280</a><span class="catalog-brand">Hirose</span></div>
+          <p>Presilladoras / bartack</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HLK-280.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HLK-280 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hlk-430h.html">HLK-430H</a><span class="catalog-brand">Hirose</span></div>
+          <p>Hook para presilladora</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HLK-430H.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HLK-430H por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hsh-7-94b.html">HSH-7.94B</a><span class="catalog-brand">Hirose</span></div>
+          <p>Recta convencional sin corte</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-7.94B.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-7.94B por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hsh-7-94btr.html">HSH-7.94BTR</a><span class="catalog-brand">Hirose</span></div>
+          <p>Recta automática con cortahílo</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-7.94BTR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-7.94BTR por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hsh-12-15-l.html">HSH-12-15-L</a><span class="catalog-brand">Hirose</span></div>
+          <p>Dos agujas con hook chico</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-12-15-L.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-12-15-L por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hsh-12m-br.html">HSH-12M(BR)</a><span class="catalog-brand">Hirose</span></div>
+          <p>Dos agujas con hook jumbo</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSH-12M(BR).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSH-12M(BR) por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-hsm-a1hmtr.html">HSM-A1HMTR</a><span class="catalog-brand">Hirose</span></div>
+          <p>Hook para patronera</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20HSM-A1HMTR.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar HSM-A1HMTR por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs12-ryp.html">KHS12-RYP</a><span class="catalog-brand">Koban</span></div>
+          <p>Bordado chico estándar con cortahílo</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYP por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs12-rypicc.html">KHS12-RYPICC</a><span class="catalog-brand">Koban</span></div>
+          <p>Bordado chico con recubrimiento DLC</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYPICC.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYPICC por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs12-rypn.html">KHS12-RYPN</a><span class="catalog-brand">Koban</span></div>
+          <p>Bordado chico con base de teflón</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS12-RYPN.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS12-RYPN por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs20-rmp.html">KHS20-RMP</a><span class="catalog-brand">Koban</span></div>
+          <p>Patroneras y aplicaciones programables</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RMP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RMP por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs20-ryp.html">KHS20-RYP</a><span class="catalog-brand">Koban</span></div>
+          <p>Bordado jumbo estándar con cortahílo</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RYP.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RYP por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-khs20-rypn.html">KHS20-RYPN</a><span class="catalog-brand">Koban</span></div>
+          <p>Bordado jumbo con base de teflón</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KHS20-RYPN.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KHS20-RYPN por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-krp-41lh.html">KRP-41LH</a><span class="catalog-brand">Koban</span></div>
+          <p>Hook para ojaladora de ojal recto</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20KRP-41LH.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar KRP-41LH por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-mp43a0120-cm.html">MP43A0120-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Mitsubishi LU2 · dos agujas / triple arrastre</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20MP43A0120-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar MP43A0120-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="cerliani">
+          <div><a class="catalog-code" href="/refacciones/cerliani-sa8197-101-g-cm.html">SA8197-101(G)-CM</a><span class="catalog-brand">Cerliani</span></div>
+          <p>Brother BAS-311 / BAS-326 / BAS-342</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Cerliani%20SA8197-101(G)-CM.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SA8197-101(G)-CM por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-sh282.html">SH282</a><span class="catalog-brand">Koban</span></div>
+          <p>Juki LK-1850J / LK-1900</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20SH282.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SH282 por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="koban">
+          <div><a class="catalog-code" href="/refacciones/koban-skrt875lk.html">SKRT875LK</a><span class="catalog-brand">Koban</span></div>
+          <p>Hook para recta de dos agujas</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Koban%20SKRT875LK.%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar SKRT875LK por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-tc-lk-2a.html">TC-LK(2A)</a><span class="catalog-brand">Hirose</span></div>
+          <p>Hook para máquina de remate</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20TC-LK(2A).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar TC-LK(2A) por WhatsApp">Cotizar</a>
+        </li>
+        <li class="catalog-row" data-brand="hirose">
+          <div><a class="catalog-code" href="/refacciones/hirose-tc-lk-3b.html">TC-LK(3B)</a><span class="catalog-brand">Hirose</span></div>
+          <p>Patroneras Juki AMS y Brother BAS</p>
+          <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20el%20hook%20Hirose%20TC-LK(3B).%20%C2%BFMe%20comparten%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar TC-LK(3B) por WhatsApp">Cotizar</a>
+        </li>
+    </ul>
+    <div id="catalog-empty" class="catalog-help" hidden>
+      <p>No encontramos ese código. Mándanos el modelo de tu máquina o una foto de la pieza.</p>
+      <button type="button" id="catalog-reset">Limpiar búsqueda</button>
+    </div>
+    <div class="catalog-help"><p>¿Buscas otro tipo de pieza?</p><a href="#consumibles-por-maquina">Ver consumibles por máquina</a><a href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20busco%20una%20refacci%C3%B3n.%20Les%20comparto%20el%20c%C3%B3digo%20o%20el%20modelo%20de%20la%20m%C3%A1quina%20para%20cotizar." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div>
+  </div>
 </section>
 <!-- Brands We Service -->
 <section class="py-8 surface-1 border-b border-c">
@@ -132,115 +274,7 @@
         <i class="w-4 h-4" data-lucide="message-circle"></i> Cotizar por WhatsApp
       </a>
     </div>
-    <section id="catalogo-hooks" class="mb-10 scroll-mt-28">
-      <div class="surface-1 border border-c p-6 md:p-8">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div class="max-w-3xl">
-            <span class="eyebrow">[ Selección SOLTEX ]</span>
-            <h3 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-3">Hooks de alta rotación</h3>
-            <p class="text-2 leading-relaxed">Selecciona el fabricante para consultar las referencias que manejamos para las máquinas más comunes.</p>
-          </div>
-          <a class="btn-primary px-6 py-3 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20un%20hook.%20Les%20comparto%20marca%2C%20modelo%20y%20fotograf%C3%ADa%20de%20la%20pieza." target="_blank" rel="noopener noreferrer"><i class="w-4 h-4" data-lucide="message-circle"></i> Cotizar un hook</a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8" role="tablist" aria-label="Fabricante del hook">
-          <button class="hook-brand-tab active surface-2 border border-blue-500 px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="hirose" role="tab" aria-selected="true">
-            <span class="w-14 h-11 flex items-center justify-center"><img src="images/brands/hirose-mark-clean.png" alt="" class="h-10 w-auto object-contain"></span><span class="text-left"><strong class="block">Hirose</strong></span>
-          </button>
-          <button class="hook-brand-tab surface-2 border border-c px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="koban" role="tab" aria-selected="false">
-            <span class="w-20 h-11 flex items-center justify-center"><img src="images/brands/koban-clean.png" alt="" class="max-h-10 max-w-20 object-contain" style="filter:brightness(1.65) saturate(1.1);"></span><span class="text-left"><strong class="block">Koban</strong></span>
-          </button>
-          <button class="hook-brand-tab surface-2 border border-c px-5 py-4 flex items-center justify-center gap-4 transition" data-hook-brand="cerliani" role="tab" aria-selected="false">
-            <span class="w-28 h-11 flex items-center justify-center"><img src="images/brands/cerliani-clean.png" alt="" class="max-h-9 max-w-28 object-contain"></span><span class="text-left"><strong class="block">Cerliani</strong></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="hook-brand-panel surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="hirose" role="tabpanel">
-        <div class="flex items-center justify-between gap-4 mb-6">
-          <div><span class="font-mono text-xs text-blue-400">HIROSE</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Línea diaria</h4></div>
-          <span class="font-mono text-xs text-2">9 referencias</span>
-        </div>
-                <div class="mb-7">
-          <div class="flex items-center justify-between gap-4 mb-3">
-            <span class="font-mono text-xs uppercase tracking-wider text-2">Referencias destacadas</span>
-            <span class="font-mono text-[10px] uppercase tracking-wider text-blue-300">Fotografía de producto</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <article class="surface-2 border border-c overflow-hidden hover:border-blue-500/40 transition">
-              <div class="aspect-[4/3] bg-white"><img src="images/hooks/hsh-7-94btr.webp" alt="Hook Hirose HSH-7.94BTR para recta automática con cortahílo" class="w-full h-full object-contain" loading="lazy"></div>
-              <div class="p-4"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold">HSH-7.94BTR</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Recta</span></div><p class="text-sm text-2 mt-3">Recta automática con cortahílo</p></div>
-            </article>
-            <article class="surface-2 border border-c overflow-hidden hover:border-blue-500/40 transition">
-              <div class="aspect-[4/3] bg-white"><img src="images/hooks/hsh-12-15l.webp" alt="Hook Hirose HSH-12-15-L para máquina de dos agujas" class="w-full h-full object-contain" loading="lazy"></div>
-              <div class="p-4"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold">HSH-12-15-L</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-3">Dos agujas con hook chico</p></div>
-            </article>
-            <article class="surface-2 border border-c overflow-hidden hover:border-blue-500/40 transition">
-              <div class="aspect-[4/3] bg-white"><img src="images/hooks/hg12mc-1tr.webp" alt="Hook Hirose HG12MC(1)TR jumbo para máquina de dos agujas" class="w-full h-full object-contain" loading="lazy"></div>
-              <div class="p-4"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold">HG12MC(1)TR</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-3">Hook jumbo · Bobina <span class="font-mono text-blue-300">CP-G12M(BR)TR</span></p></div>
-            </article>
-          </div>
-        </div>
-        <div class="font-mono text-xs uppercase tracking-wider text-2 mb-3">Más referencias Hirose</div>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3"><div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-7.94B</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Recta</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Recta convencional sin corte</p></div>
-
-
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HSH-12M(BR)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dos agujas con hook jumbo</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">HLK-280</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Presilla</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Presilladoras / bartack</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">TC-LK(3B)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Patroneras Juki AMS y Brother BAS</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">DP2-NJ(790)</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Ojal</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Ojaladoras electrónicas Juki</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">DP2-800FR</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Ojal</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Ojaladora electrónica Brother HE-8000</p></div></div>
-      </div>
-
-      <div class="hook-brand-panel hidden surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="koban" role="tabpanel">
-        <div class="flex items-center justify-between gap-4 mb-6">
-          <div><span class="font-mono text-xs text-blue-400">KOBAN</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Presilla, patronera y bordado</h4></div>
-          <span class="font-mono text-xs text-2">7 referencias</span>
-        </div>
-                <div class="mb-7">
-          <div class="flex items-center justify-between gap-4 mb-3">
-            <span class="font-mono text-xs uppercase tracking-wider text-2">Referencias destacadas</span>
-            <span class="font-mono text-[10px] uppercase tracking-wider text-blue-300">Fotografía de producto</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <article class="surface-2 border border-c overflow-hidden hover:border-blue-500/40 transition">
-              <div class="aspect-[4/3] bg-white"><img src="images/hooks/sh282.webp" alt="Hook Koban SH282 para presilladoras Juki" class="w-full h-full object-contain" loading="lazy"></div>
-              <div class="p-4"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold">SH282</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Presilla</span></div><p class="text-sm text-2 mt-3">Juki LK-1850J / LK-1900</p></div>
-            </article>
-            <article class="surface-2 border border-c overflow-hidden hover:border-blue-500/40 transition">
-              <div class="aspect-[4/3] bg-white"><img src="images/hooks/khs20-rmp.webp" alt="Hook Koban KHS20-RMP para patroneras y aplicaciones programables" class="w-full h-full object-contain" loading="lazy"></div>
-              <div class="p-4"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold">KHS20-RMP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-3">Patroneras y aplicaciones programables</p></div>
-            </article>
-          </div>
-        </div>
-        <div class="font-mono text-xs uppercase tracking-wider text-2 mb-3">Más referencias Koban</div>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
-
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Bordado L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico estándar con cortahílo</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYPN</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Teflón L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico con base de teflón</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS12-RYPICC</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">DLC L</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado chico con recubrimiento DLC</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS20-RYP</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Bordado M</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado jumbo estándar con cortahílo</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">KHS20-RYPN</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Teflón M</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Bordado jumbo con base de teflón</p></div></div>
-      </div>
-
-      <div class="hook-brand-panel hidden surface-1 border-x border-b border-c p-5 md:p-8" data-hook-panel="cerliani" role="tabpanel">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-          <div><span class="font-mono text-xs text-blue-400">CM CERLIANI</span><h4 class="font-display text-xl md:text-2xl font-semibold mt-1">Hooks para maquinaria pesada</h4></div>
-          <span class="font-mono text-xs text-2">El sufijo -CM identifica Cerliani en SOLTEX</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3"><div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">0867-150754-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dürkopp Adler 867-M</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">0667-155634-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Dürkopp Adler 867</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">401-47912-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki LU-2828 · OEM 401-9592</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">401-30034-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">2 agujas</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki PLC-2760</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">MP43A0120-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Mitsubishi LU2 · dos agujas / triple arrastre</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">107-61252-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Pesada</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki LU-2210</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">400-61991-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Juki AMS-210</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">SA8197-101(G)-CM</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">Patronera</span></div><p class="text-sm text-2 mt-4 leading-relaxed">Brother BAS-311 / 326 / 342</p></div>
-<div class="surface-2 border border-c p-4 md:p-5 min-h-[116px] flex flex-col justify-between hover:border-blue-500/40 transition"><div class="flex items-start justify-between gap-3"><code class="text-blue-400 font-semibold text-base">130.09.152</code><span class="font-mono text-[10px] uppercase tracking-wider text-2 border border-c px-2 py-1">JAM</span></div><p class="text-sm text-2 mt-4 leading-relaxed">JAM · equivalente original 18-10842</p></div></div>
-      </div>
-
-      <p class="font-mono text-xs text-2 mt-4">Confirmamos compatibilidad con marca, modelo, submodelo y fotografía de la pieza instalada.</p>
-    </section>
+    
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px surface-2">
 <article class="surface-1 border border-c p-6 flex flex-col">
   <div class="flex items-start justify-between gap-4 mb-4">
@@ -354,6 +388,7 @@
 <!-- Parts Grid -->
 <section class="py-16" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="catalog-toolbar mb-5"><h2 class="font-display text-3xl font-semibold">Más categorías de refacciones</h2><label>Categoría <select id="catalog-category"><option value="">Todas las categorías</option><option value="hooks">Hooks / Ganchos y Lanzaderas</option><option value="loopers">Loopers (Overlock / Coverstitch)</option><option value="placas">Placas de Aguja (Needle Plates)</option><option value="dientes">Dientes / Feed Dogs</option><option value="prensatelas">Prensatelas</option><option value="gauges">Gauges / Sets completos</option><option value="pullers">Pullers (Sistemas de arrastre)</option><option value="electronica">Electrónica (cajas, paneles, sensores)</option><option value="aditamentos">Aditamentos para semi-automatización</option><option value="carretes">Carretes / Spools / Accesorios de hilo</option><option value="bobinas">Bobinas / Cajas de bobina</option><option value="consumibles">Accesorios y consumibles</option><option value="tijeras">Tijeras Mundial</option><option value="feedrail">Partes para FeedRail / Rieles</option></select></label></div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="partsGrid">
 <!-- Hooks / Ganchos y Lanzaderas -->
 <div class="part-card card-v2 overflow-hidden transition-all duration-300" data-category="hooks">
@@ -611,6 +646,7 @@
 </div>
 </div>
 </section>
+</main>
 <!-- Footer -->
 <footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -672,58 +708,8 @@
             else navbar.classList.remove('nav-scrolled');
         });
 
-        // Filter functionality
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const partCards = document.querySelectorAll('.part-card');
-        const searchInput = document.getElementById('searchInput');
-
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const category = btn.getAttribute('data-category');
-                partCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Search functionality
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            partCards.forEach(card => {
-                const name = card.querySelector('.part-name').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-                if (name.includes(searchTerm) || desc.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
     </script>
-<script id="hook-brand-tabs">
-  document.querySelectorAll('.hook-brand-tab').forEach(button => {
-    button.addEventListener('click', () => {
-      const brand = button.dataset.hookBrand;
-      document.querySelectorAll('.hook-brand-tab').forEach(tab => {
-        const selected = tab === button;
-        tab.classList.toggle('active', selected);
-        tab.classList.toggle('border-blue-500', selected);
-        tab.classList.toggle('border-c', !selected);
-        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
-      });
-      document.querySelectorAll('.hook-brand-panel').forEach(panel => {
-        panel.classList.toggle('hidden', panel.dataset.hookPanel !== brand);
-      });
-    });
-  });
-</script>
+<script defer src="/js/catalogo-refacciones.js"></script>
 <script src="js/quote-links.js"></script>
 </body>
 </html>
