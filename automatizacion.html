@@ -20,43 +20,27 @@
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/css/soltex-site.css">
+<script defer src="/js/soltex-site.js"></script>
 </head>
-<body class="overflow-x-hidden">
-<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center h-16 gap-6">
-      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
-      </a>
-      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
-        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
-        <a class="text-sm text-white font-medium" href="automatizacion.html">Automatización</a>
-        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
-        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
-        <a class="text-sm text-2 hover:text-white transition" href="contacto.html">Contacto</a>
-      </nav>
-      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
-        </a>
-      </div>
-      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <i class="w-7 h-7" data-lucide="menu"></i>
-      </button>
-    </div>
-  </div>
-  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1">
-      <a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
-      <a class="block text-2 py-3 text-sm" href="contacto.html">Contacto</a>
-      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
-    </div>
+<body class="overflow-x-hidden" data-soltex-page="automatizacion">
+<a class="soltex-skip" href="#contenido">Saltar al contenido</a>
+<header class="soltex-header">
+  <div class="soltex-nav-inner">
+    <a class="soltex-logo" href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna" width="803" height="136"></a>
+    <button class="soltex-menu-toggle" type="button" aria-controls="soltex-menu" aria-expanded="false" hidden>Menú</button>
+    <nav id="soltex-menu" aria-label="Menú principal">
+      <a href="/">Inicio</a>
+      <a href="/maquinaria.html">Maquinaria</a>
+      <a href="/automatizacion.html" aria-current="page">Automatización</a>
+      <a href="/refacciones.html">Refacciones</a>
+      <a href="/servicio-tecnico.html">Servicio técnico</a>
+      <a href="/contacto.html">Contacto</a>
+      <a class="soltex-nav-contact" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
   </div>
 </header>
+<main id="contenido">
 <!-- Hero Section -->
 <section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -66,7 +50,7 @@
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
 <span class="text-white">Automatización</span>
 </nav>
-<span class="eyebrow">[ Automatización ]</span>
+
 <h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3 leading-tight">
                     Automatización para fábricas textiles
 </h1>
@@ -109,7 +93,7 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
     <div class="text-center mb-16">
-      <span class="eyebrow">[ Catálogo ]</span>
+      
       <h2 class="text-3xl md:text-4xl font-display font-semibold mt-3 mb-4">
         Soluciones de automatización
       </h2>
@@ -260,7 +244,7 @@
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div>
-<span class="eyebrow">[ Inversión ]</span>
+
 <h2 class="text-3xl md:text-4xl font-display font-semibold mt-3 mb-6">Piensa la automatización como inversión, no como gasto</h2>
 <p class="text-2 mb-8 text-lg">El retorno depende de tu proceso, volumen y costo de mano de obra actual. Usa la calculadora como punto de partida y cotiza tu caso para una proyección real.</p>
 <div class="space-y-6">
@@ -293,36 +277,17 @@
 </div>
 </div>
 </div>
-<div class="surface-2 border border-c p-8">
-<h3 class="text-2xl font-display font-semibold mb-2">Calcula tu ahorro</h3>
-<p class="text-2 text-xs font-mono mb-6">Estimación ilustrativa a partir de tus datos — no es una cotización.</p>
-<div class="space-y-4 mb-6">
-<div>
-<label class="text-sm text-2 mb-2 block font-mono" for="operators">Operarios actuales en proceso objetivo</label>
-<input class="w-full px-4 py-3 text-sm focus:outline-none" id="operators" oninput="calculateROI()" type="number" value="4"/>
+<div class="soltex-calculator">
+<h3 class="text-2xl font-semibold mb-2">Ahorro en mano de obra</h3>
+<p class="text-2 mb-4">Compara el costo mensual de la operación con el personal previsto.</p>
+<div class="space-y-4">
+<label for="operators">Operarios actuales</label><input id="operators" type="number" min="0" step="1" inputmode="numeric" value="4">
+<label for="operators-after">Operarios previstos</label><input id="operators-after" type="number" min="0" step="1" inputmode="numeric" value="1">
+<label for="salary">Costo mensual por operario (USD)</label><input id="salary" type="number" min="0" step="0.01" inputmode="decimal" value="600">
 </div>
-<div>
-<label class="text-sm text-2 mb-2 block font-mono" for="salary">Costo mensual por operario (USD)</label>
-<input class="w-full px-4 py-3 text-sm focus:outline-none" id="salary" oninput="calculateROI()" type="number" value="600"/>
-</div>
-<div>
-<label class="text-sm text-2 mb-2 block font-mono" for="production">Producción actual diaria (piezas)</label>
-<input class="w-full px-4 py-3 text-sm focus:outline-none" id="production" oninput="calculateROI()" type="number" value="500"/>
-</div>
-</div>
-<div class="border-t border-c pt-6 space-y-3">
-<div class="flex justify-between items-center">
-<span class="text-2 text-sm">Ahorro mensual estimado:</span>
-<span class="text-2xl font-display font-semibold accent" id="monthlySaving">$1,200 USD</span>
-</div>
-<div class="flex justify-between items-center">
-<span class="text-2 text-sm">Incremento de producción estimado:</span>
-<span class="text-xl font-display font-semibold" id="productionIncrease">+150%</span>
-</div>
-</div>
-<a class="mt-6 block w-full btn-primary text-center py-3 font-bold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-                        Recibir cotización detallada
-                    </a>
+<p class="mt-4"><strong>Variación mensual</strong> <output id="monthlySaving" aria-live="polite"></output></p>
+<p class="text-2 mt-2">La estimación cubre únicamente mano de obra. El costo del equipo y la instalación se cotizan por separado.</p>
+<a class="inline-block mt-4 btn-primary px-5 py-3" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Pedir cotización</a>
 </div>
 </div>
 </div>
@@ -331,7 +296,7 @@
 <section class="py-20" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-16">
-<span class="eyebrow block mb-3">[ Sectores ]</span>
+
 <h2 class="text-3xl md:text-4xl font-display font-semibold mb-4">Automatización por industria</h2>
 <p class="text-2 max-w-2xl mx-auto">Soluciones específicas adaptadas a los requerimientos de cada sector textil.</p>
 </div>
@@ -341,28 +306,28 @@
 <h4 class="text-lg font-display font-semibold mb-2">Denim y jeans</h4>
 <p class="text-2 text-sm mb-4">Bartack automático, ojales reforzados y costuras de alta resistencia.</p>
                     
-                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución</a>
 </div>
 <div class="card-v2 p-6">
 <i class="w-10 h-10 accent mb-4" data-lucide="car"></i>
 <h4 class="text-lg font-display font-semibold mb-2">Automotriz</h4>
 <p class="text-2 text-sm mb-4">Airbags, tapicería y componentes de alta exigencia para la industria automotriz.</p>
                     
-                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución</a>
 </div>
 <div class="card-v2 p-6">
 <i class="w-10 h-10 accent mb-4" data-lucide="shirt"></i>
 <h4 class="text-lg font-display font-semibold mb-2">Camisetas/Activewear</h4>
 <p class="text-2 text-sm mb-4">Coverstitch automatizado y manejo de tejidos técnicos elásticos.</p>
                     
-                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución</a>
 </div>
 <div class="card-v2 p-6">
 <i class="w-10 h-10 accent mb-4" data-lucide="briefcase"></i>
 <h4 class="text-lg font-display font-semibold mb-2">Uniformes Industrial</h4>
 <p class="text-2 text-sm mb-4">Alta resistencia y volumen para uniformes corporativos y militar.</p>
                     
-                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución →</a>
+                    <a class="accent font-semibold hover:underline text-sm" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Cotizar solución</a>
 </div>
 </div>
 </div>
@@ -370,7 +335,7 @@
 <!-- CTA -->
 <section class="py-20 border-t border-c text-center" style="background:linear-gradient(180deg, var(--surface-1), var(--canvas));">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<span class="eyebrow block mb-3">[ Siguiente paso ]</span>
+
 <h2 class="text-3xl md:text-4xl font-display font-semibold mb-4">¿Listo para automatizar tu fábrica?</h2>
 <p class="text-xl text-2 mb-8 max-w-2xl mx-auto">Agenda una visita técnica sin compromiso. Evaluamos tu línea de producción y te presentamos un proyecto personalizado.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -386,6 +351,7 @@
 </div>
 </div>
 </section>
+</main>
 <!-- Footer -->
 <footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -439,46 +405,22 @@
 </a>
 
 <script>
-lucide.createIcons();
-
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuBtn && mobileMenu) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
-  });
-}
-
-// Sticky header
-const navbar = document.getElementById('navbar');
-if (navbar) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
-    else navbar.classList.remove('nav-scrolled');
-  });
-}
-
-// ROI Calculator
-function calculateROI() {
-  const operators = parseInt(document.getElementById('operators')?.value, 10) || 0;
-  const salary = parseInt(document.getElementById('salary')?.value, 10) || 0;
-
-  const savedOperators = Math.max(0, operators - 1);
-  const monthlySaving = savedOperators * salary - 400;
-
-  const saveEl = document.getElementById('monthlySaving');
-  if (saveEl) saveEl.textContent = '$' + Math.max(0, monthlySaving).toLocaleString() + ' USD';
-
-  const prodEl = document.getElementById('productionIncrease');
-  if (prodEl) {
-    const productionIncrease = Math.round((savedOperators / Math.max(1, operators)) * 200) + 50;
-    prodEl.textContent = '+' + productionIncrease + '%';
+(() => {
+  const fields = ['operators', 'operators-after', 'salary'].map(id => document.getElementById(id));
+  const result = document.getElementById('monthlySaving');
+  const usd = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'USD', currencyDisplay: 'code' });
+  function calculateSavings() {
+    if (fields.some(field => field.value === '' || !field.validity.valid)) {
+      result.textContent = 'Revisa los valores';
+      return;
+    }
+    const [current, planned, cost] = fields.map(field => field.valueAsNumber);
+    const difference = (current - planned) * cost;
+    result.textContent = usd.format(Math.abs(difference)) + (difference < 0 ? ' de aumento' : ' de ahorro');
   }
-}
-calculateROI();
+  fields.forEach(field => field.addEventListener('input', calculateSavings));
+  calculateSavings();
+})();
 </script>
 <script src="js/quote-links.js"></script>
 </body>

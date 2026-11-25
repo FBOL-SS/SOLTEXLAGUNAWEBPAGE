@@ -19,45 +19,29 @@
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/css/soltex-site.css">
+<script defer src="/js/soltex-site.js"></script>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden" data-soltex-page="maquinaria">
 
 <!-- Sticky Header -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center h-16 gap-6">
-      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
-      </a>
-      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
-        <a class="text-sm text-white font-medium" href="maquinaria.html">Maquinaria</a>
-        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
-        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
-        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
-        <a class="text-sm text-2 hover:text-white transition" href="contacto.html">Contacto</a>
-      </nav>
-      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
-        </a>
-      </div>
-      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <i class="w-7 h-7" data-lucide="menu"></i>
-      </button>
-    </div>
-  </div>
-  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1">
-      <a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
-      <a class="block text-2 py-3 text-sm" href="contacto.html">Contacto</a>
-      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
-    </div>
+<a class="soltex-skip" href="#contenido">Saltar al contenido</a>
+<header class="soltex-header">
+  <div class="soltex-nav-inner">
+    <a class="soltex-logo" href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna" width="803" height="136"></a>
+    <button class="soltex-menu-toggle" type="button" aria-controls="soltex-menu" aria-expanded="false" hidden>Menú</button>
+    <nav id="soltex-menu" aria-label="Menú principal">
+      <a href="/">Inicio</a>
+      <a href="/maquinaria.html" aria-current="page">Maquinaria</a>
+      <a href="/automatizacion.html">Automatización</a>
+      <a href="/refacciones.html">Refacciones</a>
+      <a href="/servicio-tecnico.html">Servicio técnico</a>
+      <a href="/contacto.html">Contacto</a>
+      <a class="soltex-nav-contact" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
   </div>
 </header>
+<main id="contenido">
 <!-- Page Header -->
 <section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,7 +51,7 @@
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
 <span class="text-white">Maquinaria Industrial</span>
 </nav>
-<span class="eyebrow">[ Catálogo ]</span>
+
 <h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3">Maquinaria industrial de costura</h1>
 <p class="text-xl text-2 mb-6">Equipamiento de alta productividad para líneas de confección industrial. Tecnología de punta con soporte técnico garantizado.</p>
 </div>
@@ -93,36 +77,18 @@
     <p class="text-xs text-2 mt-2 font-mono">Heavy duty · automotriz</p>
   </div>
 </div>
-<p class="text-center text-sm text-2 mt-4 max-w-2xl mx-auto">Somos el único distribuidor de SUPREME, EAGLE SPECIAL y VIOS SEWING en México. ¿Buscas maquinaria heavy duty para producción automotriz? <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20maquinaria%20VIOS%20SEWING%20o%20EAGLE%20SPECIAL" class="accent font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por VIOS Sewing →</a></p>
+<p class="text-center text-sm text-2 mt-4 max-w-2xl mx-auto">Somos el único distribuidor de SUPREME, EAGLE SPECIAL y VIOS SEWING en México. ¿Buscas maquinaria heavy duty para producción automotriz? <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20maquinaria%20VIOS%20SEWING%20o%20EAGLE%20SPECIAL" class="accent font-semibold hover:underline" target="_blank" rel="noopener noreferrer">Pregunta por VIOS Sewing</a></p>
 </div>
 </section>
-<!-- Categories Filter -->
-<section class="py-6 surface-1 border-b border-c sticky top-16 z-40">
+<section class="machine-controls surface-1">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col gap-4">
-      <div class="flex gap-2 overflow-x-auto pb-2">
-        <button class="filter-btn filter-btn-v2 active" data-filter="all">Todas</button>
-        <button class="filter-btn filter-btn-v2" data-category="rectas">Rectas</button>
-        <button class="filter-btn filter-btn-v2" data-category="doble-aguja">Doble Aguja</button>
-        <button class="filter-btn filter-btn-v2" data-category="overlock">Overlock</button>
-        <button class="filter-btn filter-btn-v2" data-category="coverstitch">Coverstitch</button>
-        <button class="filter-btn filter-btn-v2" data-category="bartack">Bartack</button>
-        <button class="filter-btn filter-btn-v2" data-category="ojal">Ojal</button>
-        <button class="filter-btn filter-btn-v2" data-category="automaticas">Automáticas</button>
-      </div>
-
-      <div class="flex flex-wrap items-center gap-3 border-t border-c pt-3">
-        <span class="text-sm text-2 font-mono">Filtrar por marca:</span>
-        <button class="brand-btn filter-btn-v2 active" data-brand="all">Todas</button>
-        <button class="brand-btn filter-btn-v2" data-brand="supreme">Supreme</button>
-        <button class="brand-btn filter-btn-v2" data-brand="vios">VIOS</button>
-      </div>
-
-      <div class="relative max-w-md ml-auto w-full">
-        <i class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-2" data-lucide="search"></i>
-        <input class="w-full pl-10 pr-4 py-2 text-sm focus:outline-none" id="searchInput" placeholder="Buscar modelos…" type="text"/>
-      </div>
+    <div class="machine-filter-fields">
+      <label for="searchInput">Buscar modelo <input id="searchInput" type="search" placeholder="Ej. H6S-M-Q" autocomplete="off"></label>
+      <label for="machine-category">Tipo de máquina <select id="machine-category"><option value="">Todos</option><option value="rectas">Rectas</option><option value="doble-aguja">Doble Aguja</option><option value="overlock">Overlock</option><option value="coverstitch">Coverstitch</option><option value="bartack">Bartack</option><option value="ojal">Ojal</option><option value="automaticas">Automáticas</option></select></label>
+      <label for="machine-brand">Marca <select id="machine-brand"><option value="">Todas</option><option value="supreme">Supreme</option><option value="vios">VIOS</option></select></label>
     </div>
+    <p id="machine-status" role="status" aria-live="polite"></p>
+    <button type="button" id="machine-reset" hidden>Limpiar filtros</button>
   </div>
 </section>
 <!-- Categories Overview -->
@@ -920,6 +886,7 @@
   </div>
 </section>
 
+</main>
 <!-- Footer -->
 <footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -971,98 +938,48 @@
 <i class="w-7 h-7" data-lucide="message-circle"></i>
 </a>
 <script>
-        lucide.createIcons();
+(() => {
+  const search = document.querySelector('#searchInput');
+  const category = document.querySelector('#machine-category');
+  const brand = document.querySelector('#machine-brand');
+  const reset = document.querySelector('#machine-reset');
+  const status = document.querySelector('#machine-status');
+  const sections = document.querySelectorAll('.category-section');
+  const normalize = text => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const compact = text => normalize(text).replace(/[^a-z0-9]/g, '');
 
-        // Mobile menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
-        });
-
-        // Sticky header
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
-            else navbar.classList.remove('nav-scrolled');
-        });
-
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const brandBtns = document.querySelectorAll('.brand-btn');
-        const categorySections = document.querySelectorAll('.category-section');
-        const machineCards = document.querySelectorAll('.machine-card');
-        const searchInput = document.getElementById('searchInput');
-        
-        let currentCategory = 'all';
-        let currentBrand = 'all';
-
-        function applyFilters() {
-            // Filter category sections
-            categorySections.forEach(section => {
-                const sectionCategory = section.getAttribute('data-category');
-                const cardsInSection = section.querySelectorAll('.machine-card');
-                let visibleCards = 0;
-                
-                cardsInSection.forEach(card => {
-                    const cardBrand = card.getAttribute('data-brand');
-                    
-                    const matchCategory = currentCategory === 'all' || sectionCategory === currentCategory;
-                    const matchBrand = currentBrand === 'all' || cardBrand === currentBrand;
-                    
-                    if (matchCategory && matchBrand) {
-                        card.style.display = 'block';
-                        visibleCards++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Hide empty sections
-                if (visibleCards === 0) {
-                    section.style.display = 'none';
-                } else {
-                    section.style.display = 'block';
-                }
-            });
-        }
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                currentCategory = btn.getAttribute('data-category') || 'all';
-                applyFilters();
-            });
-        });
-
-        brandBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                brandBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                currentBrand = btn.getAttribute('data-brand');
-                applyFilters();
-            });
-        });
-
-        // Search functionality
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            machineCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    </script>
+  function filterMachines() {
+    const query = normalize(search.value.trim());
+    const model = compact(query);
+    let total = 0;
+    for (const section of sections) {
+      let matches = 0;
+      for (const machine of section.querySelectorAll('.machine-card')) {
+        const title = machine.querySelector('h3').textContent;
+        const searchableText = normalize(machine.textContent + ' ' + section.querySelector('h2').textContent);
+        const matchesSearch = !query || searchableText.includes(query) || (model && compact(title).includes(model));
+        machine.hidden = !matchesSearch || Boolean(brand.value && machine.dataset.brand !== brand.value) ||
+          Boolean(category.value && section.dataset.category !== category.value);
+        if (!machine.hidden) matches++;
+      }
+      section.hidden = matches === 0;
+      total += matches;
+    }
+    status.textContent = total === 0 ? 'No hay modelos con estos filtros.' :
+      total === 1 ? '1 modelo' : total + ' modelos';
+    reset.hidden = !(query || category.value || brand.value);
+  }
+  search.addEventListener('input', filterMachines);
+  category.addEventListener('change', filterMachines);
+  brand.addEventListener('change', filterMachines);
+  reset.addEventListener('click', () => {
+    search.value = category.value = brand.value = '';
+    filterMachines();
+    search.focus();
+  });
+  filterMachines();
+})();
+</script>
 <script src="js/quote-links.js"></script>
 </body>
 </html>

@@ -17,91 +17,46 @@
 <link rel="icon" type="image/svg+xml" href="images/logo-soltex.svg"/>
 <link rel="apple-touch-icon" href="images/logo-soltex.svg"/>
 <link href="style-v2.css" rel="stylesheet"/>
-<style>
-  .hero-bg{
-    background:
-      linear-gradient(90deg, rgba(11,15,20,0.98) 0%, rgba(11,15,20,0.88) 42%, rgba(11,15,20,0.55) 70%, rgba(11,15,20,0.25) 100%),
-      url('images/machines/supreme-sp-c9513k-m.jpg') center 40%/cover no-repeat, var(--canvas);
-  }
-</style>
+
 
 <!-- Vercel Web Analytics -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/css/soltex-site.css">
+<script defer src="/js/soltex-site.js"></script>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden" data-soltex-page="index">
 
 <!-- Skip link -->
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">Saltar al contenido</a>
-
 <!-- Nav -->
-<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center h-16 gap-6">
-      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
-      </a>
-      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
-        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
-        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
-        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
-        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
-        <a class="text-sm text-2 hover:text-white transition" href="#proyectos">Proyectos</a>
-        <a class="text-sm text-2 hover:text-white transition" href="#cotizar">Contacto</a>
-      </nav>
-      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">
-          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
-        </a>
-        <a class="h-10 px-5 rounded btn-primary text-sm font-semibold flex items-center gap-2" href="#cotizar">
-          Cotizar un proyecto
-        </a>
-      </div>
-      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <i class="w-7 h-7" data-lucide="menu"></i>
-      </button>
-    </div>
-  </div>
-  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1">
-      <a class="block text-white py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
-      <a class="block text-white py-3 text-sm border-b border-c" href="#proyectos">Proyectos</a>
-      <a class="block text-white py-3 text-sm" href="#cotizar">Contacto</a>
-      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
-    </div>
+<a class="soltex-skip" href="#contenido">Saltar al contenido</a>
+<header class="soltex-header">
+  <div class="soltex-nav-inner">
+    <a class="soltex-logo" href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna" width="803" height="136"></a>
+    <button class="soltex-menu-toggle" type="button" aria-controls="soltex-menu" aria-expanded="false" hidden>Menú</button>
+    <nav id="soltex-menu" aria-label="Menú principal">
+      <a href="/" aria-current="page">Inicio</a>
+      <a href="/maquinaria.html">Maquinaria</a>
+      <a href="/automatizacion.html">Automatización</a>
+      <a href="/refacciones.html">Refacciones</a>
+      <a href="/servicio-tecnico.html">Servicio técnico</a>
+      <a href="/contacto.html">Contacto</a>
+      <a class="soltex-nav-contact" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
   </div>
 </header>
 
-<main id="main">
+<main id="contenido">
 <!-- Hero -->
-<section class="hero-bg min-h-[100dvh] flex items-center pt-16 relative">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-3xl">
-      <span class="eyebrow">Grupo Sewing Solution · Desde 2004</span>
-      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[0.98] mt-5 mb-6 text-pretty">
-        Tecnología que transforma la producción textil.
-      </h1>
-      <p class="text-lg md:text-xl text-2 max-w-xl leading-relaxed mb-9">
-        Maquinaria, automatización y soporte técnico para operaciones que no pueden detenerse.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 mb-10">
-        <a href="#cotizar" class="btn-primary px-7 py-4 rounded font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
-          <i class="w-5 h-5" data-lucide="arrow-right"></i> Cotizar un proyecto
-        </a>
-        <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20de%20SOLTEX" target="_blank" rel="noopener noreferrer" class="btn-ghost px-7 py-4 rounded font-semibold text-center flex items-center justify-center gap-2 min-h-[44px]">
-          <i class="w-5 h-5" data-lucide="message-circle"></i> Hablar con un especialista
-        </a>
-      </div>
-      <p class="font-mono text-xs text-2 border-t border-c pt-5 max-w-md">
-        Más de 20 años respaldando operaciones textiles en México, El Salvador, Honduras y Nicaragua.
-      </p>
-    </div>
+<section class="soltex-home-intro">
+  <div>
+    <h1>Maquinaria de costura industrial</h1>
+    <p>Venta de maquinaria, automatización, refacciones y servicio técnico desde Torreón y Puebla.</p>
+    <div class="soltex-home-links"><a class="btn-primary" href="/maquinaria.html">Ver maquinaria</a><a href="#cotizar">Solicitar cotización</a></div>
   </div>
+  <img src="/images/machines/supreme-sp-c9513k-m.jpg" alt="Máquina industrial de costura Supreme SP-C9513K-M" fetchpriority="high">
 </section>
 
 <!-- Franja de confianza -->
@@ -133,42 +88,42 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
       <div>
-        <span class="eyebrow">[ Soluciones ]</span>
+        
         <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3">Cuatro frentes, un mismo objetivo: que tu línea no pare</h2>
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px surface-2">
       <a href="maquinaria.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
         <div>
-          <span class="font-mono text-xs text-2">01</span>
+          
           <h3 class="font-display text-xl font-semibold mt-4 mb-3">Maquinaria industrial</h3>
           <p class="text-2 text-sm leading-relaxed">Equipa tu línea con máquinas que sostienen el ritmo de producción, no lo interrumpen.</p>
         </div>
-        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver catálogo <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver catálogo </span>
       </a>
       <a href="automatizacion.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
         <div>
-          <span class="font-mono text-xs text-2">02</span>
+          
           <h3 class="font-display text-xl font-semibold mt-4 mb-3">Automatización</h3>
           <p class="text-2 text-sm leading-relaxed">Reduce la variación entre piezas y la dependencia de mano de obra especializada.</p>
         </div>
-        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver soluciones <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver soluciones </span>
       </a>
       <a href="refacciones.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
         <div>
-          <span class="font-mono text-xs text-2">03</span>
+          
           <h3 class="font-display text-xl font-semibold mt-4 mb-3">Refacciones</h3>
           <p class="text-2 text-sm leading-relaxed">Ten la pieza correcta a la mano antes de que su falta detenga tu línea.</p>
         </div>
-        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver refacciones <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver refacciones </span>
       </a>
       <a href="servicio-tecnico.html" class="card-hover surface-1 p-8 border border-c flex flex-col justify-between min-h-[240px]">
         <div>
-          <span class="font-mono text-xs text-2">04</span>
+          
           <h3 class="font-display text-xl font-semibold mt-4 mb-3">Servicio técnico</h3>
           <p class="text-2 text-sm leading-relaxed">Mantén tus equipos trabajando con diagnóstico, reparación y repuestos disponibles.</p>
         </div>
-        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver servicio <i class="w-4 h-4" data-lucide="arrow-right"></i></span>
+        <span class="text-sm accent font-medium mt-6 flex items-center gap-1">Ver servicio </span>
       </a>
     </div>
   </div>
@@ -179,7 +134,7 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
       <div>
-        <span class="eyebrow">[ Automatización ]</span>
+        
         <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-6">Automatización para procesos que no perdonan errores</h2>
         <p class="text-2 leading-relaxed mb-8">Integramos cuartos de corte, tendedoras, pegadoras automáticas de bolsa y celdas de patrón programable. Para producción automotriz manejamos la línea heavy duty de VIOS Sewing, diseñada para materiales pesados y costuras de alta resistencia.</p>
         <ul class="space-y-4">
@@ -196,7 +151,7 @@
             <span class="text-sm text-2"><span class="text-white font-medium">Heavy duty VIOS</span> — línea especializada para tapicería y asientos automotrices.</span>
           </li>
         </ul>
-        <a href="automatizacion.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-8">Ver soluciones de automatización <i class="w-4 h-4" data-lucide="arrow-right"></i></a>
+        <a href="automatizacion.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-8">Ver soluciones de automatización </a>
       </div>
       <div class="border border-c p-2">
         <img src="images/machines/supreme-sp-1010td.jpg" alt="Celda de automatización Supreme SP-1010TD con sistema de vacío integrado" class="w-full h-auto">
@@ -206,74 +161,12 @@
 </section>
 
 <!-- Proyectos destacados -->
-<section id="proyectos" class="py-24 border-b border-c">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="eyebrow">[ Proyectos ]</span>
-    <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-4">Proyectos destacados</h2>
-    <p class="text-2 max-w-2xl mb-14">Estamos documentando cada proyecto con fotografía, cliente, reto y solución real. Si ya trabajaste con nosotros o tienes un caso similar, cuéntanoslo.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px surface-2">
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 01 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Automatización de operaciones de costura</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 02 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Instalación de cuartos de corte</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 03 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Pegadoras automáticas de bolsa</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 04 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Equipamiento de líneas de producción</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 05 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Aditamentos para operaciones especiales</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-      <div class="surface-1 border border-c border-dashed p-6">
-        <p class="font-mono text-xs text-2 mb-3">[ 06 ]</p>
-        <h3 class="font-display text-base font-semibold mb-4">Integración de personas con discapacidad</h3>
-        <dl class="text-xs text-2 space-y-1.5 font-mono">
-          <div class="flex justify-between"><dt>Cliente</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Reto</dt><dd>En documentación</dd></div>
-          <div class="flex justify-between"><dt>Solución</dt><dd>En documentación</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="proyectos" class="py-12 border-b border-c"><div class="container mx-auto px-4 sm:px-6 lg:px-8"><h2 class="text-3xl font-semibold mb-4">Proyectos que atendemos</h2><ul class="soltex-simple-list"><li>Automatización de operaciones de costura</li><li>Instalación de cuartos de corte</li><li>Pegadoras automáticas de bolsa</li><li>Equipamiento de líneas de producción</li><li>Aditamentos para operaciones especiales</li><li>Integración de personas con discapacidad</li></ul></div></section>
 
 <!-- Sectores -->
 <section class="py-24 border-b border-c surface-1">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="eyebrow">[ Sectores ]</span>
+    
     <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-10">Industrias que atendemos</h2>
     <div class="flex flex-wrap gap-3 font-mono text-sm">
       <span class="border border-c px-4 py-2">Confección</span>
@@ -294,7 +187,7 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
       <div>
-        <span class="eyebrow">[ Refacciones ]</span>
+        
         <h2 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-6">Refacciones para estas marcas</h2>
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="font-mono text-xs border border-c px-3 py-1.5">Juki</span>
@@ -307,10 +200,10 @@
           <span class="font-mono text-xs border border-c px-3 py-1.5">Dürkopp Adler</span>
           <span class="font-mono text-xs text-2 px-3 py-1.5">y más</span>
         </div>
-        <p class="text-2 text-sm leading-relaxed">Más de 50,000 SKUs en existencia entre todo el grupo. <a href="refacciones.html" class="accent font-medium">Ver catálogo de refacciones →</a></p>
+        <p class="text-2 text-sm leading-relaxed">Más de 50,000 SKUs en existencia entre todo el grupo. <a href="refacciones.html" class="accent font-medium">Ver catálogo de refacciones</a></p>
       </div>
       <div>
-        <span class="eyebrow">[ Servicio técnico ]</span>
+        
         <h2 class="font-display text-2xl md:text-3xl font-semibold mt-3 mb-6">Cobertura completa de servicio</h2>
         <ul class="space-y-3 text-sm text-2">
           <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Instalación y puesta en marcha</li>
@@ -319,7 +212,7 @@
           <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Reparación mecánica y electrónica</li>
           <li class="flex items-center gap-3"><i class="w-4 h-4 accent" data-lucide="check"></i> Venta y renta de maquinaria</li>
         </ul>
-        <a href="servicio-tecnico.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-6">Ver servicio técnico <i class="w-4 h-4" data-lucide="arrow-right"></i></a>
+        <a href="servicio-tecnico.html" class="inline-flex items-center gap-2 text-sm accent font-medium mt-6">Ver servicio técnico </a>
       </div>
     </div>
   </div>
@@ -328,7 +221,7 @@
 <!-- Cobertura -->
 <section class="py-24 border-b border-c surface-1">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="eyebrow">[ Cobertura ]</span>
+    
     <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-10">Cobertura en México</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px surface-2 font-mono text-sm">
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">01</span>Puebla</div>
@@ -338,14 +231,14 @@
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">05</span>Mérida</div>
       <div class="surface-1 border border-c p-5"><span class="text-2 text-xs block mb-1">06</span>Campeche</div>
     </div>
-    <p class="text-2 text-sm mt-6">Más cobertura nacional. <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20saber%20si%20tienen%20cobertura%20en%20mi%20ciudad" target="_blank" rel="noopener noreferrer" class="accent font-medium">Pregunta si cubrimos tu ciudad →</a></p>
+    <p class="text-2 text-sm mt-6">Más cobertura nacional. <a href="https://wa.me/528715246072?text=Hola%2C%20quiero%20saber%20si%20tienen%20cobertura%20en%20mi%20ciudad" target="_blank" rel="noopener noreferrer" class="accent font-medium">Pregunta si cubrimos tu ciudad</a></p>
   </div>
 </section>
 
 <!-- Respaldo y trayectoria -->
 <section class="py-24 border-b border-c">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <span class="eyebrow">[ Respaldo ]</span>
+    
     <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-4">Grupo Sewing Solution</h2>
     <p class="text-2 max-w-2xl mb-12 leading-relaxed">SOLTEX es la operación mexicana de un grupo con 22 años de trayectoria en manufactura textil, presente en 4 países y con distribución exclusiva de Supreme, Eagle Special y VIOS Sewing en México.</p>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-px surface-2 mb-12">
@@ -379,7 +272,7 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
       <div>
-        <span class="eyebrow">[ Cotización ]</span>
+        
         <h2 class="font-display text-3xl md:text-4xl font-semibold mt-3 mb-6">Cuéntanos tu proyecto</h2>
         <p class="text-2 leading-relaxed mb-8">Completa el formulario y te contactamos por WhatsApp. Si prefieres, escríbenos directamente.</p>
         <a href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm accent font-medium">
@@ -490,29 +383,6 @@
 </a>
 
 <script>
-  lucide.createIcons();
-
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) navbar.classList.add('nav-scrolled');
-    else navbar.classList.remove('nav-scrolled');
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('active');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
-
   const form = document.getElementById('quoteForm');
   const formError = document.getElementById('formError');
   if (form) {
@@ -537,9 +407,10 @@ Tipo de solución: ${data.get('tipo')}
 Necesidad:
 ${data.get('descripcion')}`;
       const waURL = `https://wa.me/528715246072?text=${encodeURIComponent(txt)}`;
-      window.open(waURL, '_blank');
+      window.location.assign(waURL);
     });
   }
+
 </script>
 </body>
 </html>

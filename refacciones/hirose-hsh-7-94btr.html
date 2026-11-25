@@ -21,10 +21,27 @@
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/js/catalogo-refacciones.js"></script>
+<link rel="stylesheet" href="/css/soltex-site.css">
+<script defer src="/js/soltex-site.js"></script>
 </head>
 <body class="catalog-detail">
-<header class="catalog-detail-header"><a href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna"></a><a href="/refacciones.html">Ver catálogo</a></header>
-<main class="catalog-detail-main">
+<a class="soltex-skip" href="#contenido">Saltar al contenido</a>
+<header class="soltex-header">
+  <div class="soltex-nav-inner">
+    <a class="soltex-logo" href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna" width="803" height="136"></a>
+    <button class="soltex-menu-toggle" type="button" aria-controls="soltex-menu" aria-expanded="false" hidden>Menú</button>
+    <nav id="soltex-menu" aria-label="Menú principal">
+      <a href="/">Inicio</a>
+      <a href="/maquinaria.html">Maquinaria</a>
+      <a href="/automatizacion.html">Automatización</a>
+      <a href="/refacciones.html" aria-current="true">Refacciones</a>
+      <a href="/servicio-tecnico.html">Servicio técnico</a>
+      <a href="/contacto.html">Contacto</a>
+      <a class="soltex-nav-contact" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+<main id="contenido" class="catalog-detail-main">
   <nav aria-label="Ruta de navegación"><a href="/">Inicio</a> <span aria-hidden="true">/</span> <a href="/refacciones.html">Refacciones</a></nav>
   <article class="catalog-detail-card has-photo">
     <div>

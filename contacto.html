@@ -20,43 +20,27 @@
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/css/soltex-site.css">
+<script defer src="/js/soltex-site.js"></script>
 </head>
-<body class="overflow-x-hidden">
-<header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center h-16 gap-6">
-      <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-        <img src="images/logo-soltex.svg" alt="SOLTEX" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:.95;">
-      </a>
-      <nav class="hidden md:flex flex-1 items-center justify-center gap-8">
-        <a class="text-sm text-2 hover:text-white transition" href="maquinaria.html">Maquinaria</a>
-        <a class="text-sm text-2 hover:text-white transition" href="automatizacion.html">Automatización</a>
-        <a class="text-sm text-2 hover:text-white transition" href="refacciones.html">Refacciones</a>
-        <a class="text-sm text-2 hover:text-white transition" href="servicio-tecnico.html">Servicio técnico</a>
-        <a class="text-sm text-white font-medium" href="contacto.html">Contacto</a>
-      </nav>
-      <div class="hidden md:flex items-center gap-3 flex-shrink-0">
-        <a class="h-10 px-5 rounded btn-ghost text-sm font-medium flex items-center gap-2" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
-          <i class="w-4 h-4" data-lucide="message-circle"></i> WhatsApp
-        </a>
-      </div>
-      <button class="md:hidden ml-auto text-white" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
-        <i class="w-7 h-7" data-lucide="menu"></i>
-      </button>
-    </div>
-  </div>
-  <div class="hidden md:hidden surface-1 border-t border-c" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1">
-      <a class="block text-white py-3 text-sm border-b border-c" href="index.html">Inicio</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="maquinaria.html">Maquinaria</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="refacciones.html">Refacciones</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="automatizacion.html">Automatización</a>
-      <a class="block text-2 py-3 text-sm border-b border-c" href="servicio-tecnico.html">Servicio técnico</a>
-      <a class="block text-white py-3 text-sm" href="contacto.html">Contacto</a>
-      <a class="block btn-primary text-center py-3 rounded font-semibold mt-4" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">Contactar por WhatsApp</a>
-    </div>
+<body class="overflow-x-hidden" data-soltex-page="contacto">
+<a class="soltex-skip" href="#contenido">Saltar al contenido</a>
+<header class="soltex-header">
+  <div class="soltex-nav-inner">
+    <a class="soltex-logo" href="/" aria-label="SOLTEX, inicio"><img src="/images/logo-soltex.svg" alt="SOLTEX Laguna" width="803" height="136"></a>
+    <button class="soltex-menu-toggle" type="button" aria-controls="soltex-menu" aria-expanded="false" hidden>Menú</button>
+    <nav id="soltex-menu" aria-label="Menú principal">
+      <a href="/">Inicio</a>
+      <a href="/maquinaria.html">Maquinaria</a>
+      <a href="/automatizacion.html">Automatización</a>
+      <a href="/refacciones.html">Refacciones</a>
+      <a href="/servicio-tecnico.html">Servicio técnico</a>
+      <a href="/contacto.html" aria-current="page">Contacto</a>
+      <a class="soltex-nav-contact" href="https://wa.me/528715246072" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </nav>
   </div>
 </header>
+<main id="contenido">
 <!-- Hero Section -->
 <section class="pt-32 pb-12 page-hero-v2">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -66,7 +50,7 @@
 <i class="w-4 h-4 inline mx-1" data-lucide="chevron-right"></i>
 <span class="text-white">Contacto</span>
 </nav>
-<span class="eyebrow">[ Contacto ]</span>
+
 <h1 class="text-4xl md:text-5xl font-semibold mb-4 mt-3 leading-tight">
                     Contacta a SOLTEX
 </h1>
@@ -193,8 +177,8 @@
 <div class="w-16 h-16 surface-2 border flex items-center justify-center mx-auto mb-4" style="border-color:var(--accent);">
 <i class="w-8 h-8 accent" data-lucide="check"></i>
 </div>
-<h3 class="text-2xl font-display font-semibold mb-2">Solicitud enviada</h3>
-<p class="text-2 mb-6">Nuestro equipo te contactará vía WhatsApp o email.</p>
+<h3 class="text-2xl font-display font-semibold mb-2">Mensaje listo para WhatsApp</h3>
+<p class="text-2 mb-6">Envía el mensaje en WhatsApp para completar tu solicitud.</p>
 <div class="flex flex-col sm:flex-row gap-3 justify-center">
 <a class="inline-flex items-center gap-2 btn-primary px-6 py-3 font-semibold transition" href="https://wa.me/528715246072" rel="noopener noreferrer" target="_blank">
 <i class="w-5 h-5" data-lucide="message-circle"></i>
@@ -275,7 +259,7 @@
 <section class="py-16" style="background:var(--canvas);">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 <div class="max-w-3xl mx-auto">
-<span class="eyebrow block text-center mb-3">[ Dudas frecuentes ]</span>
+
 <h2 class="text-2xl font-display font-semibold mb-8 text-center">Preguntas frecuentes</h2>
 <div class="space-y-3">
 <div class="card-v2 p-5">
@@ -321,6 +305,7 @@
             </a>
 </div>
 </section>
+</main>
 <!-- Footer -->
 <footer class="py-16 border-t border-c">
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -372,31 +357,9 @@
 <i class="w-7 h-7" data-lucide="message-circle"></i>
 </a>
 <script>
-lucide.createIcons();
-
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuBtn && mobileMenu) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
-  });
-}
-
-// Sticky header
-const navbar = document.getElementById('navbar');
-if (navbar) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
-    else navbar.classList.remove('nav-scrolled');
-  });
-}
-
 // Contact form -> WhatsApp
 const form = document.getElementById('contactForm');
-const success = document.getElementById('successMessage');
+
 
 if (form) {
   form.addEventListener('submit', (e) => {
@@ -426,16 +389,10 @@ ${mensaje}`;
     const waNumber = '528715246072';
     const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(txt)}`;
 
-    if (success) {
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-      const waBtn = success.querySelector('a[href^="https://wa.me/"]');
-      if (waBtn) waBtn.href = waURL;
-    }
-
-    window.open(waURL, '_blank');
+    window.location.assign(waURL);
   });
 }
+
 </script>
 
 </body></html>
