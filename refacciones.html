@@ -64,15 +64,16 @@
       <li><a href="/refacciones/modelo-yamato-vc2713-ut.html">Yamato VC2713-UT</a></li>
       <li><a href="/refacciones/modelo-yamato-vc3845p.html">Yamato VC3845P</a></li>
     </ul>
-    <h2>Buscar en el catálogo</h2>
+    <h2 id="buscador-refacciones">Buscar en el catálogo</h2>
+    <p class="catalog-lead">Busca por código, nombre de la pieza o modelo. <a href="/refacciones/indice-codigos.html">Ver índice de códigos</a>.</p>
     <div class="catalog-toolbar catalog-controls">
       <div class="catalog-search">
-        <label for="searchInput">Buscar por código o máquina</label>
+        <label for="searchInput">Buscar por código, pieza o máquina</label>
         <input type="search" id="searchInput" placeholder="Ej. SH282, 3100512 o Jack A4" autocomplete="off" aria-controls="catalog-results">
       </div>
       <label for="catalog-brand">Marca <select id="catalog-brand"><option value="">Todas las marcas</option><option value="hirose">Hirose</option><option value="koban">Koban</option><option value="cerliani">Cerliani</option><option value="brother">Brother</option><option value="jack">Jack</option><option value="yamato">Yamato</option><option value="mitsubishi">Mitsubishi</option></select></label>
     </div>
-    <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">49 referencias</p>
+    <p id="catalog-status" tabindex="-1" class="catalog-status" role="status" aria-live="polite">49 fichas destacadas. Cargando el índice de códigos…</p>
     <div class="catalog-column-headers" aria-hidden="true"><span>Número de parte</span><span>Marca</span><span>Pieza y aplicación</span><span></span></div>
     <ul id="catalog-results" class="catalog-results">
         <li class="catalog-row" data-brand="cerliani">
@@ -370,6 +371,13 @@
           <a class="catalog-quote" href="https://wa.me/528715246072?text=Hola%20SOLTEX%2C%20quiero%20cotizar%20Cuchilla%20inferior%20(3120151)%20para%20Yamato%20VC3845P.%20%C2%BFMe%20confirman%20compatibilidad%2C%20precio%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Cotizar 3120151 por WhatsApp">Cotizar</a>
         </li>
     </ul>
+    <nav class="sku-navigation sku-pagination" id="sku-pagination" aria-label="Páginas de resultados" hidden>
+      <button id="sku-previous" type="button">Anterior</button>
+      <span id="sku-page-label"></span>
+      <button id="sku-next" type="button">Siguiente</button>
+    </nav>
+    <p id="sku-load-error" hidden>El índice completo no se pudo cargar. <a href="/refacciones/indice-codigos.html">Consulta el índice de códigos</a> o vuelve a cargar la página.</p>
+    <noscript><p>Consulta todos los números de parte en el <a href="/refacciones/indice-codigos.html">índice de códigos</a>.</p></noscript>
     <div id="catalog-empty" class="catalog-help" hidden>
       <p>No encontramos ese código. Mándanos el modelo de tu máquina o una foto de la pieza.</p>
       <button type="button" id="catalog-reset">Limpiar búsqueda</button>

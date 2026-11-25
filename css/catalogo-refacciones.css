@@ -180,3 +180,15 @@ body:has(.parts-page) #navbar { background: #0b0f14; }
   .model-part label { min-height: 2.35rem; }
   .model-part a { grid-column: 2; justify-self: start; min-height: 2rem; }
 }
+
+.sku-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1rem; margin: 1rem 0; }
+.sku-pagination button { border: 1px solid #81928b; border-radius: .2rem; color: var(--link); min-height: 2.75rem; padding: .4rem .75rem; font: inherit; }
+.sku-pagination button:disabled { opacity: .55; cursor: default; }
+.sku-directory { list-style: none; padding: 0; margin: 1rem 0; }
+.sku-directory li { display: grid; gap: .2rem .85rem; padding: .65rem 0; border-top: 1px solid var(--rule); }
+.sku-directory-list li { grid-template-columns: minmax(10rem, 1fr) minmax(0, 2.5fr); }
+.sku-directory a { overflow-wrap: anywhere; }
+#sku-load-error { margin: .75rem 0; }
+@media (max-width: 540px) {
+  .sku-directory-list li { grid-template-columns: minmax(0, 1fr); }
+}
