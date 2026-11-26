@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://soltexlagunawebpage.vercel.app/sitemap.xml
+Sitemap: https://www.sewingsolution.com.mx/sitemap.xml
